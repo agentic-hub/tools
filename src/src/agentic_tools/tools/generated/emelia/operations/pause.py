@@ -1,0 +1,28 @@
+from langchain.tools import BaseTool
+from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from typing import Optional, Dict, Any, List, Union
+
+class EmeliaPauseToolInput(BaseModel):
+    contactEmail: Optional[str] = Field(None, description="The email of the contact to add to the campaign")
+    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    resource: Optional[str] = Field(None, description="Resource")
+    campaignId: Optional[str] = Field(None, description="The ID of the campaign to pause. The campaign must be in RUNNING mode.")
+    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    limit: Optional[float] = Field(None, description="Max number of results to return")
+    campaignName: Optional[str] = Field(None, description="The name of the campaign to create")
+    operation: Optional[str] = Field(None, description="Operation")
+
+
+class EmeliaPauseTool(BaseTool):
+    name = "emelia_pause"
+    description = "Tool for emelia pause operation - pause operation"
+    
+    def _run(self, **kwargs):
+        """Run the emelia pause operation."""
+        # Implement the tool logic here
+        return f"Running emelia pause operation with args: {kwargs}"
+    
+    async def _arun(self, **kwargs):
+        """Run the emelia pause operation asynchronously."""
+        # Implement the async tool logic here
+        return self._run(**kwargs)

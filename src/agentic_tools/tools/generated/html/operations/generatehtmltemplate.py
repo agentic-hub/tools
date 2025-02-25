@@ -1,0 +1,26 @@
+from langchain.tools import BaseTool
+from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from typing import Optional, Dict, Any, List, Union
+
+class HtmlGeneratehtmltemplateToolInput(BaseModel):
+    html: Optional[str] = Field(None, description="HTML template to render")
+    options: Optional[Dict[str, Any]] = Field(None, description="Options")
+    notice: Optional[str] = Field(None, description="<b>Tips</b>: Type ctrl+space for completions. Use <code>{{ }}</code> for expressions and <code>&lt;style&gt;</code> tags for CSS. JS in <code>&lt;script&gt;</code> tags is included but not executed in n8n.")
+    extractionValues: Optional[Dict[str, Any]] = Field(None, description="Extraction Values")
+    operation: Optional[str] = Field(None, description="Operation")
+    dataPropertyName: Optional[str] = Field(None, description="Input Binary Field")
+
+
+class HtmlGeneratehtmltemplateTool(BaseTool):
+    name = "html_generatehtmltemplate"
+    description = "Tool for html generateHtmlTemplate operation - generateHtmlTemplate operation"
+    
+    def _run(self, **kwargs):
+        """Run the html generateHtmlTemplate operation."""
+        # Implement the tool logic here
+        return f"Running html generateHtmlTemplate operation with args: {kwargs}"
+    
+    async def _arun(self, **kwargs):
+        """Run the html generateHtmlTemplate operation asynchronously."""
+        # Implement the async tool logic here
+        return self._run(**kwargs)
