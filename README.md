@@ -71,27 +71,21 @@ agent_executor.run("Update our Google Sheet with yesterday's sales data")
 
 ### Using the Toolkit
 
-The AgenticHubToolkit provides a structured way to organize and manage your tools:
+AgenticHub provides specialized toolkits for different services. Each toolkit gives you access to all tools for a specific service:
 
 ```python
-import os
-from agentic_tools.toolkit import AgenticHubToolkit
-from agentic_tools.tools import GoogleSheetsReadTool, SlackSendMessageTool
+from agentic_tools.tools import ActivecampaignToolkit
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain.llms import OpenAI
 
-# Set your API key
-os.environ["AGENTICHUB_API_KEY"] = "your-api-key"
-
-# Create a toolkit
-toolkit = AgenticHubToolkit()
-
-# Add specific tools to the toolkit
-toolkit.add_tool(GoogleSheetsReadTool())
-toolkit.add_tool(SlackSendMessageTool())
+# Create a toolkit for a specific service
+toolkit = ActivecampaignToolkit()
 
 # Get all tools from the toolkit
-tools = toolkit.list_tools()
+tools = toolkit.get_tools()
+
+# Or use the static method to get default tools
+# tools = ActivecampaignToolkit.get_default_tools()
 
 # Create a LangChain agent with the toolkit's tools
 llm = OpenAI(temperature=0)
@@ -99,7 +93,30 @@ agent = create_react_agent(llm, tools, prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools)
 
 # Run the agent
-agent_executor.run("Update our Google Sheet with yesterday's sales data")
+agent_executor.run("Update our ActiveCampaign contacts")
+```
+
+You can also create toolkits for multiple services and combine their tools:
+
+```python
+from agentic_tools.tools import ActivecampaignToolkit, GoogleSheetsToolkit
+from langchain.agents import AgentExecutor, create_react_agent
+from langchain.llms import OpenAI
+
+# Create toolkits for different services
+activecampaign_toolkit = ActivecampaignToolkit()
+googlesheets_toolkit = GoogleSheetsToolkit()
+
+# Combine tools from multiple toolkits
+tools = activecampaign_toolkit.get_tools() + googlesheets_toolkit.get_tools()
+
+# Create a LangChain agent with the combined tools
+llm = OpenAI(temperature=0)
+agent = create_react_agent(llm, tools, prompt)
+agent_executor = AgentExecutor(agent=agent, tools=tools)
+
+# Run the agent
+agent_executor.run("Get contacts from ActiveCampaign and update our Google Sheet")
 ```
 
 ### Custom Tool Selection
