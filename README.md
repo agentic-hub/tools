@@ -11,6 +11,16 @@ AgenticHub is a comprehensive collection of standardized tools and connectors fo
 - [Installation](#installation)
 - [Usage](#usage)
 - [Available Connectors](#available-connectors)
+  - [Cloud Services](#cloud-services)
+  - [Databases & Data Management](#databases--data-management)
+  - [Communication & Messaging](#communication--messaging)
+  - [Productivity & Project Management](#productivity--project-management)
+  - [Marketing & Analytics](#marketing--analytics)
+  - [E-commerce & Payment](#e-commerce--payment)
+  - [Security & Identity](#security--identity)
+  - [CI/CD & DevOps](#cicd--devops)
+  - [Utilities & File Operations](#utilities--file-operations)
+  - [Full Alphabetical List](#full-alphabetical-list)
 - [Contributing](#contributing)
 - [Development](#development)
 - [License](#license)
@@ -47,7 +57,7 @@ from langchain.llms import OpenAI
 tools = get_all_tools()
 
 # Or select specific tools
-from agentic_tools.tools.generated import GoogleSheetsReadTool, SlackSendMessageTool
+from agentic_tools.tools import GoogleSheetsReadTool, SlackSendMessageTool
 
 tools = [
     GoogleSheetsReadTool(),
