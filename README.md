@@ -10,6 +10,9 @@ AgenticHub is a comprehensive collection of standardized tools and connectors fo
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+  - [Basic Usage](#basic-usage)
+  - [Using the Toolkit](#using-the-toolkit)
+  - [Custom Tool Selection](#custom-tool-selection)
 - [Available Connectors](#available-connectors)
   - [Cloud Services](#cloud-services)
   - [Databases & Data Management](#databases--data-management)
@@ -34,6 +37,7 @@ AgenticHub solves the fragmentation problem in the LangChain ecosystem by provid
 - **90+ Pre-built Connectors**: Access tools for databases, APIs, cloud services, and more
 - **Standardized Interface**: Consistent API design across all connectors
 - **LangChain Integration**: Seamless integration with LangChain's agent framework
+- **Toolkit Architecture**: Organize and manage tools with the AgenticHubToolkit
 - **Automatic Tool Generation**: Tools are generated from standardized configurations
 - **Production Ready**: Built for reliability and performance in production environments
 - **Extensible**: Easily add your own custom connectors
@@ -56,15 +60,64 @@ from langchain.llms import OpenAI
 # Get all available tools
 tools = get_all_tools()
 
-# Or select specific tools
-from agentic_tools.tools import GoogleSheetsReadTool, SlackSendMessageTool
+# Create a LangChain agent with the tools
+llm = OpenAI(temperature=0)
+agent = create_react_agent(llm, tools, prompt)
+agent_executor = AgentExecutor(agent=agent, tools=tools)
 
+# Run the agent
+agent_executor.run("Update our Google Sheet with yesterday's sales data")
+```
+
+### Using the Toolkit
+
+The AgenticHubToolkit provides a structured way to organize and manage your tools:
+
+```python
+import os
+from agentic_tools.toolkit import AgenticHubToolkit
+from agentic_tools.tools import GoogleSheetsReadTool, SlackSendMessageTool
+from langchain.agents import AgentExecutor, create_react_agent
+from langchain.llms import OpenAI
+
+# Set your API key
+os.environ["AGENTICHUB_API_KEY"] = "your-api-key"
+
+# Create a toolkit
+toolkit = AgenticHubToolkit()
+
+# Add specific tools to the toolkit
+toolkit.add_tool(GoogleSheetsReadTool())
+toolkit.add_tool(SlackSendMessageTool())
+
+# Get all tools from the toolkit
+tools = toolkit.list_tools()
+
+# Create a LangChain agent with the toolkit's tools
+llm = OpenAI(temperature=0)
+agent = create_react_agent(llm, tools, prompt)
+agent_executor = AgentExecutor(agent=agent, tools=tools)
+
+# Run the agent
+agent_executor.run("Update our Google Sheet with yesterday's sales data")
+```
+
+### Custom Tool Selection
+
+You can also directly import and use specific tools:
+
+```python
+from agentic_tools.tools import GoogleSheetsReadTool, SlackSendMessageTool
+from langchain.agents import AgentExecutor, create_react_agent
+from langchain.llms import OpenAI
+
+# Select specific tools
 tools = [
     GoogleSheetsReadTool(),
     SlackSendMessageTool()
 ]
 
-# Create a LangChain agent with the tools
+# Create a LangChain agent with the selected tools
 llm = OpenAI(temperature=0)
 agent = create_react_agent(llm, tools, prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools)
