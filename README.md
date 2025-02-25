@@ -157,11 +157,8 @@ Contributions are welcome! Here's how you can contribute:
 ### Setting Up Development Environment
 
 ```bash
-# Install development dependencies
-poetry install --with dev
-
-# Run tests
-poetry run pytest
+# Install dependencies
+poetry install
 ```
 
 ### Code Style
@@ -178,7 +175,7 @@ This project uses GitHub Actions for continuous integration and deployment. For 
 
 ### Quick Deployment Guide
 
-1. **Automatic Testing**: Tests run automatically on push to main and pull requests
+1. **Automatic Linting**: Linting runs automatically on push to main and pull requests
 2. **Version Bumping**: Use the Version Bump workflow in GitHub Actions to increment the version
 3. **Deployment to PyPI**: Create a new GitHub Release to trigger deployment to PyPI
 

@@ -1,12 +1,12 @@
 # Deployment Guide for Agentic Tools Hub
 
-This document explains how to use the GitHub Actions workflows to test, version, and deploy the Agentic Tools Hub package.
+This document explains how to use the GitHub Actions workflows to version and deploy the Agentic Tools Hub package.
 
 ## GitHub Actions Workflows
 
 The repository includes the following GitHub Actions workflows:
 
-1. **Test Workflow** - Runs tests and linting on push to main and pull requests
+1. **Lint Workflow** - Runs linting on push to main and pull requests
 2. **Deploy Workflow** - Builds and publishes the package to PyPI when a new release is created
 3. **Version Bump Workflow** - Automatically bumps the version number based on semantic versioning
 
@@ -21,13 +21,13 @@ To deploy to PyPI, you need to set up a PyPI API token:
 
 ## Deployment Process
 
-### Automatic Testing
+### Automatic Linting
 
-The test workflow runs automatically on:
+The lint workflow runs automatically on:
 - Every push to the `main` branch
 - Every pull request to the `main` branch
 
-This ensures that the code is always tested before being merged.
+This ensures that the code follows the project's style guidelines.
 
 ### Version Bumping
 
