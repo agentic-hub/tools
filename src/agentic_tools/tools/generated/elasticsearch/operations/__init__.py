@@ -1,6 +1,7 @@
 # elasticsearch operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import ElasticsearchCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all elasticsearch operation tools."""

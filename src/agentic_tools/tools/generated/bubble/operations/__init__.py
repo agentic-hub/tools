@@ -1,6 +1,7 @@
 # bubble operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import BubbleCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all bubble operation tools."""

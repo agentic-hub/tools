@@ -3,13 +3,21 @@ from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ReadbinaryfileDefaultToolInput(BaseModel):
-    filePath: Optional[str] = Field(None, description="Path of the file to read")
-    dataPropertyName: Optional[str] = Field(None, description="Name of the binary property to which to write the data of the read file")
+    file_path: Optional[str] = Field(None, description="Path of the file to read")
+    data_property_name: Optional[str] = Field(None, description="Name of the binary property to which to write the data of the read file")
 
 
 class ReadbinaryfileDefaultTool(BaseTool):
     name = "readbinaryfile_default"
     description = "Tool for readBinaryFile default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the readBinaryFile default operation."""

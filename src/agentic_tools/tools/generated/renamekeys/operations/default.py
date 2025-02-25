@@ -3,13 +3,21 @@ from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class RenamekeysDefaultToolInput(BaseModel):
-    additionalOptions: Optional[Dict[str, Any]] = Field(None, description="Additional Options")
+    additional_options: Optional[Dict[str, Any]] = Field(None, description="Additional Options")
     keys: Optional[Dict[str, Any]] = Field(None, description="Adds a key which should be renamed")
 
 
 class RenamekeysDefaultTool(BaseTool):
     name = "renamekeys_default"
     description = "Tool for renameKeys default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the renameKeys default operation."""

@@ -1,6 +1,7 @@
 # jira operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import JiraCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all jira operation tools."""

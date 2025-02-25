@@ -1,6 +1,7 @@
 # snowflake operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import SnowflakeCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all snowflake operation tools."""

@@ -1,6 +1,7 @@
 # highLevel operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import HighlevelCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all highLevel operation tools."""

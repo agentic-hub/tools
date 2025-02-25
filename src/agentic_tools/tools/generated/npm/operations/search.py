@@ -2,24 +2,51 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class NpmCredentials(BaseModel):
+    """Credentials for npm authentication."""
+    npm_api: Optional[Dict[str, Any]] = Field(None, description="npmApi")
+
 class NpmSearchToolInput(BaseModel):
+    # Allow users to provide their own credentials
+    credentials: Optional[NpmCredentials] = Field(None, description="Custom credentials for authentication")
     offset: Optional[float] = Field(None, description="Offset to return results from")
     resource: Optional[str] = Field(None, description="Resource")
     limit: Optional[float] = Field(None, description="Max number of results to return")
-    packageName: Optional[str] = Field(None, description="Package Name")
+    package_name: Optional[str] = Field(None, description="Package Name")
     query: Optional[str] = Field(None, description="The query text used to search for packages")
     operation: Optional[str] = Field(None, description="Operation")
-    packageVersion: Optional[str] = Field(None, description="Package Version")
+    package_version: Optional[str] = Field(None, description="Package Version")
 
 
 class NpmSearchTool(BaseTool):
     name = "npm_search"
     description = "Tool for npm search operation - search operation"
     
+    def __init__(self, credentials: Optional[NpmCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the npm search operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running npm search operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running npm search operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running npm search operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the npm search operation asynchronously."""

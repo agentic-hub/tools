@@ -1,6 +1,7 @@
 # odoo operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import OdooCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all odoo operation tools."""

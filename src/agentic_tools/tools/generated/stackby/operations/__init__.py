@@ -1,6 +1,7 @@
 # stackby operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import StackbyCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all stackby operation tools."""

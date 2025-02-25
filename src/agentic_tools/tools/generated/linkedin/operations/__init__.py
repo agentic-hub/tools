@@ -1,6 +1,7 @@
 # linkedIn operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import LinkedinCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all linkedIn operation tools."""

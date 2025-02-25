@@ -1,6 +1,7 @@
 # telegram operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import TelegramCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all telegram operation tools."""

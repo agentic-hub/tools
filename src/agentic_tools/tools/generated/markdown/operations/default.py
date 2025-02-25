@@ -6,13 +6,21 @@ class MarkdownDefaultToolInput(BaseModel):
     html: Optional[str] = Field(None, description="The HTML to be converted to markdown")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
     markdown: Optional[str] = Field(None, description="The Markdown to be converted to html")
-    destinationKey: Optional[str] = Field(None, description="The field to put the output in. Specify nested fields using dots, e.g.\"level1.level2.newKey\".")
+    destination_key: Optional[str] = Field(None, description="The field to put the output in. Specify nested fields using dots, e.g.\"level1.level2.newKey\".")
     mode: Optional[str] = Field(None, description="Mode")
 
 
 class MarkdownDefaultTool(BaseTool):
     name = "markdown_default"
     description = "Tool for markdown default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the markdown default operation."""

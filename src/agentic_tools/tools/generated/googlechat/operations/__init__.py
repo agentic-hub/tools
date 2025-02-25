@@ -1,6 +1,7 @@
 # googleChat operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GooglechatCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all googleChat operation tools."""

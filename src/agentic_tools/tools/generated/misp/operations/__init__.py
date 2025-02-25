@@ -1,6 +1,7 @@
 # misp operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MispCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all misp operation tools."""

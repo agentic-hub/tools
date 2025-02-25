@@ -1,6 +1,7 @@
 # taiga operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import TaigaCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all taiga operation tools."""

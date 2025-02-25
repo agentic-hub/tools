@@ -1,6 +1,7 @@
 # freshworksCrm operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import FreshworkscrmCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all freshworksCrm operation tools."""

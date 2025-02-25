@@ -1,6 +1,7 @@
 # microsoftDynamicsCrm operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MicrosoftdynamicscrmCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all microsoftDynamicsCrm operation tools."""

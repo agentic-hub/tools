@@ -1,6 +1,7 @@
 # flow operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import FlowCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all flow operation tools."""

@@ -2,35 +2,62 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class BoxCredentials(BaseModel):
+    """Credentials for box authentication."""
+    box_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="boxOAuth2Api")
+
 class BoxCreateToolInput(BaseModel):
-    parentId: Optional[str] = Field(None, description="ID of the folder you want to create the new folder in. if not defined it will be created on the root folder.")
+    # Allow users to provide their own credentials
+    credentials: Optional[BoxCredentials] = Field(None, description="Custom credentials for authentication")
+    parent_id: Optional[str] = Field(None, description="ID of the folder you want to create the new folder in. if not defined it will be created on the root folder.")
     role: Optional[str] = Field(None, description="The level of access granted")
-    fileId: Optional[str] = Field(None, description="File ID")
-    userId: Optional[str] = Field(None, description="The user's ID to share the file with")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
-    binaryPropertyName: Optional[str] = Field(None, description="Put Output File in Field")
+    file_id: Optional[str] = Field(None, description="File ID")
+    user_id: Optional[str] = Field(None, description="The user's ID to share the file with")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    binary_property_name: Optional[str] = Field(None, description="Put Output File in Field")
     email: Optional[str] = Field(None, description="The user's email address to share the file with")
-    folderId: Optional[str] = Field(None, description="Folder ID")
+    folder_id: Optional[str] = Field(None, description="Folder ID")
     operation: Optional[str] = Field(None, description="Operation")
     name: Optional[str] = Field(None, description="Folder's name")
     limit: Optional[float] = Field(None, description="Max number of results to return")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
-    accessibleBy: Optional[str] = Field(None, description="The type of object the file will be shared with")
-    groupId: Optional[str] = Field(None, description="The group's ID to share the file with")
+    accessible_by: Optional[str] = Field(None, description="The type of object the file will be shared with")
+    group_id: Optional[str] = Field(None, description="The group's ID to share the file with")
     query: Optional[str] = Field(None, description="The string to search for. This query is matched against item names, descriptions, text content of files, and various other fields of the different item types.")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
     resource: Optional[str] = Field(None, description="Resource")
-    useEmail: Optional[bool] = Field(None, description="Whether identify the user by email or ID")
+    use_email: Optional[bool] = Field(None, description="Whether identify the user by email or ID")
 
 
 class BoxCreateTool(BaseTool):
     name = "box_create"
     description = "Tool for box create operation - create operation"
     
+    def __init__(self, credentials: Optional[BoxCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the box create operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running box create operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running box create operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running box create operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the box create operation asynchronously."""

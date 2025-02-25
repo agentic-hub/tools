@@ -1,6 +1,7 @@
 # twist operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import TwistCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all twist operation tools."""

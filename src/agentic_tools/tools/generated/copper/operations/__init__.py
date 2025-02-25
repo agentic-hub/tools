@@ -1,6 +1,7 @@
 # copper operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import CopperCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all copper operation tools."""

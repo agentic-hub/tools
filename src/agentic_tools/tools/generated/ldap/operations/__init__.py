@@ -1,6 +1,7 @@
 # ldap operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import LdapCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all ldap operation tools."""

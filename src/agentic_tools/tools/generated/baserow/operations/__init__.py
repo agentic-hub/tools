@@ -1,6 +1,7 @@
 # baserow operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import BaserowCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all baserow operation tools."""

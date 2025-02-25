@@ -1,6 +1,7 @@
 # discord operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import DiscordCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all discord operation tools."""

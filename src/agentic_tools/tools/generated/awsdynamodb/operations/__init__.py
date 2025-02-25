@@ -1,6 +1,7 @@
 # awsDynamoDb operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import AwsdynamodbCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all awsDynamoDb operation tools."""

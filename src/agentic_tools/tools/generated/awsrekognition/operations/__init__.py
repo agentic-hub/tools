@@ -1,6 +1,7 @@
 # awsRekognition operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import AwsrekognitionCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all awsRekognition operation tools."""

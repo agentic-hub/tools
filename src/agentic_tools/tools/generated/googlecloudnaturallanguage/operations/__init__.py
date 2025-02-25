@@ -1,6 +1,7 @@
 # googleCloudNaturalLanguage operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GooglecloudnaturallanguageCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all googleCloudNaturalLanguage operation tools."""

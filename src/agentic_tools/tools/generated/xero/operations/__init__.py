@@ -1,6 +1,7 @@
 # xero operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import XeroCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all xero operation tools."""

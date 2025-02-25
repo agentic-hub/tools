@@ -1,6 +1,7 @@
 # openWeatherMap operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import OpenweathermapCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all openWeatherMap operation tools."""

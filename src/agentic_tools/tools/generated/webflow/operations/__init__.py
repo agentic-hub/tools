@@ -1,6 +1,7 @@
 # webflow operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import WebflowCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all webflow operation tools."""

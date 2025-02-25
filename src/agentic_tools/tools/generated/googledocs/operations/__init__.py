@@ -1,6 +1,7 @@
 # googleDocs operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GoogledocsCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all googleDocs operation tools."""

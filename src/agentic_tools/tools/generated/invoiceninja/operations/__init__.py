@@ -1,6 +1,7 @@
 # invoiceNinja operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import InvoiceninjaCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all invoiceNinja operation tools."""

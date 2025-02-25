@@ -4,12 +4,20 @@ from typing import Optional, Dict, Any, List, Union
 
 class FunctionitemDefaultToolInput(BaseModel):
     notice: Optional[str] = Field(None, description="A newer version of this node type is available, called the ‘Code’ node")
-    functionCode: Optional[str] = Field(None, description="The JavaScript code to execute for each item")
+    function_code: Optional[str] = Field(None, description="The JavaScript code to execute for each item")
 
 
 class FunctionitemDefaultTool(BaseTool):
     name = "functionitem_default"
     description = "Tool for functionItem default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the functionItem default operation."""

@@ -1,6 +1,7 @@
 # shopify operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import ShopifyCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all shopify operation tools."""

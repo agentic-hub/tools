@@ -1,6 +1,7 @@
 # linear operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import LinearCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all linear operation tools."""

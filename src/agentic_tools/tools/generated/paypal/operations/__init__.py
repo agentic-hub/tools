@@ -1,6 +1,7 @@
 # payPal operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import PaypalCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all payPal operation tools."""

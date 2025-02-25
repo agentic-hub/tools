@@ -1,6 +1,7 @@
 # reddit operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import RedditCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all reddit operation tools."""

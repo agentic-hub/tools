@@ -1,6 +1,7 @@
 # clearbit operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import ClearbitCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all clearbit operation tools."""

@@ -1,6 +1,7 @@
 # urlScanIo operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import UrlscanioCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all urlScanIo operation tools."""

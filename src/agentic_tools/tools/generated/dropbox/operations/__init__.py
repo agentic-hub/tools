@@ -1,6 +1,7 @@
 # dropbox operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import DropboxCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all dropbox operation tools."""

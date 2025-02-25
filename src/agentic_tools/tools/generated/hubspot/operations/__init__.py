@@ -1,6 +1,7 @@
 # hubspot operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import HubspotCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all hubspot operation tools."""

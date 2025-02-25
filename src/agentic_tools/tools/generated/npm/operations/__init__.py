@@ -1,6 +1,7 @@
 # npm operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import NpmCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all npm operation tools."""

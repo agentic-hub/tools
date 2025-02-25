@@ -1,6 +1,7 @@
 # awsS3 operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import Awss3Credentials
 
 def get_tools() -> List[BaseTool]:
     """Get all awsS3 operation tools."""

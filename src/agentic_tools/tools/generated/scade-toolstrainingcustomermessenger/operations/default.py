@@ -3,13 +3,21 @@ from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class Scade-toolstrainingcustomermessengerDefaultToolInput(BaseModel):
-    customerId: Optional[str] = Field(None, description="Customer ID")
+    customer_id: Optional[str] = Field(None, description="Customer ID")
     message: Optional[str] = Field(None, description="Message")
 
 
 class Scade-toolstrainingcustomermessengerDefaultTool(BaseTool):
     name = "scade-toolstrainingcustomermessenger_default"
     description = "Tool for scade-toolsTrainingCustomerMessenger default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the scade-toolsTrainingCustomerMessenger default operation."""

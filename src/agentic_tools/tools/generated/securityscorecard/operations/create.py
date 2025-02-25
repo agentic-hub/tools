@@ -2,23 +2,29 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class SecurityscorecardCredentials(BaseModel):
+    """Credentials for securityScorecard authentication."""
+    security_scorecard_api: Optional[Dict[str, Any]] = Field(None, description="securityScorecardApi")
+
 class SecurityscorecardCreateToolInput(BaseModel):
+    # Allow users to provide their own credentials
+    credentials: Optional[SecurityscorecardCredentials] = Field(None, description="Custom credentials for authentication")
     description: Optional[str] = Field(None, description="Description")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
-    lastName: Optional[str] = Field(None, description="Last Name")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    last_name: Optional[str] = Field(None, description="Last Name")
     email: Optional[str] = Field(None, description="Email")
     operation: Optional[str] = Field(None, description="Operation")
     name: Optional[str] = Field(None, description="Name of the portfolio")
     limit: Optional[float] = Field(None, description="Max number of results to return")
-    scorecardIdentifier: Optional[str] = Field(None, description="Primary identifier of a company or scorecard, i.e. domain.")
+    scorecard_identifier: Optional[str] = Field(None, description="Primary identifier of a company or scorecard, i.e. domain.")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
     message: Optional[str] = Field(None, description="Message for the invitee")
     filters: Optional[Dict[str, Any]] = Field(None, description="Filters")
-    portfolioId: Optional[str] = Field(None, description="Portfolio ID")
+    portfolio_id: Optional[str] = Field(None, description="Portfolio ID")
     simple: Optional[bool] = Field(None, description="Whether to return a simplified version of the response instead of the raw data")
     resource: Optional[str] = Field(None, description="Resource")
-    firstName: Optional[str] = Field(None, description="First Name")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    first_name: Optional[str] = Field(None, description="First Name")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
     privacy: Optional[str] = Field(None, description="Privacy")
 
 
@@ -26,10 +32,31 @@ class SecurityscorecardCreateTool(BaseTool):
     name = "securityscorecard_create"
     description = "Tool for securityScorecard create operation - create operation"
     
+    def __init__(self, credentials: Optional[SecurityscorecardCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the securityScorecard create operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running securityScorecard create operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running securityScorecard create operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running securityScorecard create operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the securityScorecard create operation asynchronously."""

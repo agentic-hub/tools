@@ -1,6 +1,7 @@
 # sentryIo operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import SentryioCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all sentryIo operation tools."""

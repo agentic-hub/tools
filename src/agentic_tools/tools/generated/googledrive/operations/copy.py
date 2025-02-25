@@ -2,20 +2,27 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class GoogledriveCredentials(BaseModel):
+    """Credentials for googleDrive authentication."""
+    google_api: Optional[Dict[str, Any]] = Field(None, description="googleApi")
+    google_drive_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="googleDriveOAuth2Api")
+
 class GoogledriveCopyToolInput(BaseModel):
-    sameFolder: Optional[bool] = Field(None, description="Whether to copy the file in the same folder as the original file")
-    queryString: Optional[str] = Field(None, description="The name of the file or folder to search for. Returns also files and folders whose names partially match this search term.")
-    fileId: Optional[Dict[str, Any]] = Field(None, description="The file to copy")
-    inputDataFieldName: Optional[str] = Field(None, description="Find the name of input field containing the binary data to update the file in the Input panel on the left, in the Binary tab")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
-    driveId: Optional[Dict[str, Any]] = Field(None, description="The drive where to save the copied file")
-    folderId: Optional[Dict[str, Any]] = Field(None, description="The folder where to save the copied file")
+    # Allow users to provide their own credentials
+    credentials: Optional[GoogledriveCredentials] = Field(None, description="Custom credentials for authentication")
+    same_folder: Optional[bool] = Field(None, description="Whether to copy the file in the same folder as the original file")
+    query_string: Optional[str] = Field(None, description="The name of the file or folder to search for. Returns also files and folders whose names partially match this search term.")
+    file_id: Optional[Dict[str, Any]] = Field(None, description="The file to copy")
+    input_data_field_name: Optional[str] = Field(None, description="Find the name of input field containing the binary data to update the file in the Input panel on the left, in the Binary tab")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    drive_id: Optional[Dict[str, Any]] = Field(None, description="The drive where to save the copied file")
+    folder_id: Optional[Dict[str, Any]] = Field(None, description="The folder where to save the copied file")
     operation: Optional[str] = Field(None, description="Operation")
-    permissionsUi: Optional[Dict[str, Any]] = Field(None, description="Permissions")
+    permissions_ui: Optional[Dict[str, Any]] = Field(None, description="Permissions")
     name: Optional[str] = Field(None, description="The name of the new file. If not set, “Copy of {original file name}” will be used.")
     limit: Optional[float] = Field(None, description="Max number of results to return")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
-    folderNoRootId: Optional[Dict[str, Any]] = Field(None, description="The folder to delete")
+    folder_no_root_id: Optional[Dict[str, Any]] = Field(None, description="The folder to delete")
     resource: Optional[str] = Field(None, description="Resource")
     authentication: Optional[str] = Field(None, description="Authentication")
 
@@ -24,10 +31,31 @@ class GoogledriveCopyTool(BaseTool):
     name = "googledrive_copy"
     description = "Tool for googleDrive copy operation - copy operation"
     
+    def __init__(self, credentials: Optional[GoogledriveCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the googleDrive copy operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running googleDrive copy operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running googleDrive copy operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running googleDrive copy operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the googleDrive copy operation asynchronously."""

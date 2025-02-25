@@ -1,6 +1,7 @@
 # awsSqs operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import AwssqsCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all awsSqs operation tools."""

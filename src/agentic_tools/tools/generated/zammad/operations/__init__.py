@@ -1,6 +1,7 @@
 # zammad operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import ZammadCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all zammad operation tools."""

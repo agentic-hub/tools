@@ -2,28 +2,55 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class MatrixCredentials(BaseModel):
+    """Credentials for matrix authentication."""
+    matrix_api: Optional[Dict[str, Any]] = Field(None, description="matrixApi")
+
 class MatrixCreateToolInput(BaseModel):
-    roomId: Optional[str] = Field(None, description="The channel to send the message to. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
-    messageType: Optional[str] = Field(None, description="The type of message to send")
+    # Allow users to provide their own credentials
+    credentials: Optional[MatrixCredentials] = Field(None, description="Custom credentials for authentication")
+    room_id: Optional[str] = Field(None, description="The channel to send the message to. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
+    message_type: Optional[str] = Field(None, description="The type of message to send")
     text: Optional[str] = Field(None, description="The text to send")
-    roomAlias: Optional[str] = Field(None, description="Room Alias")
-    userId: Optional[str] = Field(None, description="The fully qualified user ID of the invitee")
-    fallbackText: Optional[str] = Field(None, description="A plain text message to display in case the HTML cannot be rendered by the Matrix client")
+    room_alias: Optional[str] = Field(None, description="Room Alias")
+    user_id: Optional[str] = Field(None, description="The fully qualified user ID of the invitee")
+    fallback_text: Optional[str] = Field(None, description="A plain text message to display in case the HTML cannot be rendered by the Matrix client")
     preset: Optional[str] = Field(None, description="Preset")
     operation: Optional[str] = Field(None, description="Operation")
     resource: Optional[str] = Field(None, description="Resource")
-    messageFormat: Optional[str] = Field(None, description="The format of the message's body")
-    roomName: Optional[str] = Field(None, description="Room Name")
+    message_format: Optional[str] = Field(None, description="The format of the message's body")
+    room_name: Optional[str] = Field(None, description="Room Name")
 
 
 class MatrixCreateTool(BaseTool):
     name = "matrix_create"
     description = "Tool for matrix create operation - create operation"
     
+    def __init__(self, credentials: Optional[MatrixCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the matrix create operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running matrix create operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running matrix create operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running matrix create operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the matrix create operation asynchronously."""

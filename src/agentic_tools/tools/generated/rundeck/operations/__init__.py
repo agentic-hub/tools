@@ -1,6 +1,7 @@
 # rundeck operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import RundeckCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all rundeck operation tools."""

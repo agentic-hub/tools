@@ -1,6 +1,7 @@
 # microsoftSql operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MicrosoftsqlCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all microsoftSql operation tools."""

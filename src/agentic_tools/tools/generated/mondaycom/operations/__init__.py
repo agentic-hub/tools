@@ -1,6 +1,7 @@
 # mondayCom operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MondaycomCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all mondayCom operation tools."""

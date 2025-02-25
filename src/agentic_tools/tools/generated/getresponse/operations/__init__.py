@@ -1,6 +1,7 @@
 # getResponse operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GetresponseCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all getResponse operation tools."""

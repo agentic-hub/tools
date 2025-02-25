@@ -5,17 +5,25 @@ from typing import Optional, Dict, Any, List, Union
 class MergeDefaultToolInput(BaseModel):
     output: Optional[str] = Field(None, description="Output")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
-    combinationMode: Optional[str] = Field(None, description="Combination Mode")
-    mergeByFields: Optional[Dict[str, Any]] = Field(None, description="Fields to Match")
-    joinMode: Optional[str] = Field(None, description="Output Type")
-    outputDataFrom: Optional[str] = Field(None, description="Output Data From")
+    combination_mode: Optional[str] = Field(None, description="Combination Mode")
+    merge_by_fields: Optional[Dict[str, Any]] = Field(None, description="Fields to Match")
+    join_mode: Optional[str] = Field(None, description="Output Type")
+    output_data_from: Optional[str] = Field(None, description="Output Data From")
     mode: Optional[str] = Field(None, description="How data of branches should be merged")
-    chooseBranchMode: Optional[str] = Field(None, description="Output Type")
+    choose_branch_mode: Optional[str] = Field(None, description="Output Type")
 
 
 class MergeDefaultTool(BaseTool):
     name = "merge_default"
     description = "Tool for merge default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the merge default operation."""

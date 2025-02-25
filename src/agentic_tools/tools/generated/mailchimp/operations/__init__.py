@@ -1,6 +1,7 @@
 # mailchimp operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MailchimpCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all mailchimp operation tools."""

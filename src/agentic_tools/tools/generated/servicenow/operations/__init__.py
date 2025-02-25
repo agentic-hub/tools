@@ -1,6 +1,7 @@
 # serviceNow operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import ServicenowCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all serviceNow operation tools."""

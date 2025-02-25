@@ -3,11 +3,11 @@ from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class DatetimeAddtodateToolInput(BaseModel):
-    timeUnit: Optional[str] = Field(None, description="Time unit for Duration parameter below")
+    time_unit: Optional[str] = Field(None, description="Time unit for Duration parameter below")
     units: Optional[str] = Field(None, description="units")
     date: Optional[str] = Field(None, description="The date that you want to format")
     magnitude: Optional[str] = Field(None, description="The date that you want to change")
-    outputFieldName: Optional[str] = Field(None, description="Name of the field to put the output in")
+    output_field_name: Optional[str] = Field(None, description="Name of the field to put the output in")
     operation: Optional[str] = Field(None, description="Operation")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
     notice: Optional[str] = Field(None, description="You can also do this using an expression, e.g. <code>{{your_date.plus(5, 'minutes')}}</code>. <a target='_blank' href='https://docs.n8n.io/code-examples/expressions/luxon/'>More info</a>")
@@ -17,6 +17,14 @@ class DatetimeAddtodateToolInput(BaseModel):
 class DatetimeAddtodateTool(BaseTool):
     name = "datetime_addtodate"
     description = "Tool for dateTime addToDate operation - addToDate operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the dateTime addToDate operation."""

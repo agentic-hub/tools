@@ -2,27 +2,55 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class WebflowCredentials(BaseModel):
+    """Credentials for webflow authentication."""
+    webflow_api: Optional[Dict[str, Any]] = Field(None, description="webflowApi")
+    webflow_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="webflowOAuth2Api")
+
 class WebflowGetallToolInput(BaseModel):
+    # Allow users to provide their own credentials
+    credentials: Optional[WebflowCredentials] = Field(None, description="Custom credentials for authentication")
     live: Optional[bool] = Field(None, description="Whether the item should be published on the live site")
-    itemId: Optional[str] = Field(None, description="ID of the item to operate on")
+    item_id: Optional[str] = Field(None, description="ID of the item to operate on")
     resource: Optional[str] = Field(None, description="Resource")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
-    siteId: Optional[str] = Field(None, description="ID of the site containing the collection whose items to retrieve. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    site_id: Optional[str] = Field(None, description="ID of the site containing the collection whose items to retrieve. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
     limit: Optional[float] = Field(None, description="Max number of results to return")
     authentication: Optional[str] = Field(None, description="Authentication")
-    collectionId: Optional[str] = Field(None, description="ID of the collection whose items to retrieve. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
+    collection_id: Optional[str] = Field(None, description="ID of the collection whose items to retrieve. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
     operation: Optional[str] = Field(None, description="Operation")
-    fieldsUi: Optional[Dict[str, Any]] = Field(None, description="Fields")
+    fields_ui: Optional[Dict[str, Any]] = Field(None, description="Fields")
 
 
 class WebflowGetallTool(BaseTool):
     name = "webflow_getall"
     description = "Tool for webflow getAll operation - getAll operation"
     
+    def __init__(self, credentials: Optional[WebflowCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the webflow getAll operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running webflow getAll operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running webflow getAll operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running webflow getAll operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the webflow getAll operation asynchronously."""

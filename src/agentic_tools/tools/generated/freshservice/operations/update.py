@@ -2,46 +2,73 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class FreshserviceCredentials(BaseModel):
+    """Credentials for freshservice authentication."""
+    freshservice_api: Optional[Dict[str, Any]] = Field(None, description="freshserviceApi")
+
 class FreshserviceUpdateToolInput(BaseModel):
-    updateFields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
-    releaseId: Optional[str] = Field(None, description="ID of the release to update")
-    softwareId: Optional[str] = Field(None, description="ID of the software application to update")
-    locationId: Optional[str] = Field(None, description="ID of the location to update")
-    announcementId: Optional[str] = Field(None, description="ID of the announcement to update")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    # Allow users to provide their own credentials
+    credentials: Optional[FreshserviceCredentials] = Field(None, description="Custom credentials for authentication")
+    update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
+    release_id: Optional[str] = Field(None, description="ID of the release to update")
+    software_id: Optional[str] = Field(None, description="ID of the software application to update")
+    location_id: Optional[str] = Field(None, description="ID of the location to update")
+    announcement_id: Optional[str] = Field(None, description="ID of the announcement to update")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     email: Optional[str] = Field(None, description="Email")
-    agentGroupId: Optional[str] = Field(None, description="ID of the agent group to update")
+    agent_group_id: Optional[str] = Field(None, description="ID of the agent group to update")
     subject: Optional[str] = Field(None, description="Subject")
-    ticketId: Optional[str] = Field(None, description="ID of the ticket to update")
+    ticket_id: Optional[str] = Field(None, description="ID of the ticket to update")
     operation: Optional[str] = Field(None, description="Operation")
     name: Optional[str] = Field(None, description="Name")
     limit: Optional[float] = Field(None, description="Max number of results to return")
-    assetTypeId: Optional[str] = Field(None, description="ID of the asset type to update")
-    agentId: Optional[str] = Field(None, description="ID of the agent to update")
-    requesterId: Optional[str] = Field(None, description="ID of the requester to update")
-    changeId: Optional[str] = Field(None, description="ID of the change to update")
-    problemId: Optional[str] = Field(None, description="ID of the problem to update")
-    departmentId: Optional[str] = Field(None, description="ID of the department to update")
+    asset_type_id: Optional[str] = Field(None, description="ID of the asset type to update")
+    agent_id: Optional[str] = Field(None, description="ID of the agent to update")
+    requester_id: Optional[str] = Field(None, description="ID of the requester to update")
+    change_id: Optional[str] = Field(None, description="ID of the change to update")
+    problem_id: Optional[str] = Field(None, description="ID of the problem to update")
+    department_id: Optional[str] = Field(None, description="ID of the department to update")
     filters: Optional[Dict[str, Any]] = Field(None, description="Filters")
-    plannedEndDate: Optional[str] = Field(None, description="Planned End Date")
-    firstName: Optional[str] = Field(None, description="First Name")
+    planned_end_date: Optional[str] = Field(None, description="Planned End Date")
+    first_name: Optional[str] = Field(None, description="First Name")
     resource: Optional[str] = Field(None, description="Resource")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
     status: Optional[str] = Field(None, description="Status")
     priority: Optional[str] = Field(None, description="Priority")
-    plannedStartDate: Optional[str] = Field(None, description="Planned Start Date")
-    requesterGroupId: Optional[str] = Field(None, description="ID of the requester group to update")
-    productId: Optional[str] = Field(None, description="ID of the product to update")
+    planned_start_date: Optional[str] = Field(None, description="Planned Start Date")
+    requester_group_id: Optional[str] = Field(None, description="ID of the requester group to update")
+    product_id: Optional[str] = Field(None, description="ID of the product to update")
 
 
 class FreshserviceUpdateTool(BaseTool):
     name = "freshservice_update"
     description = "Tool for freshservice update operation - update operation"
     
+    def __init__(self, credentials: Optional[FreshserviceCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the freshservice update operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running freshservice update operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running freshservice update operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running freshservice update operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the freshservice update operation asynchronously."""

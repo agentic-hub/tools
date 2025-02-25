@@ -4,12 +4,20 @@ from typing import Optional, Dict, Any, List, Union
 
 class LimitDefaultToolInput(BaseModel):
     keep: Optional[str] = Field(None, description="When removing items, whether to keep the ones at the start or the ending")
-    maxItems: Optional[float] = Field(None, description="If there are more items than this number, some are removed")
+    max_items: Optional[float] = Field(None, description="If there are more items than this number, some are removed")
 
 
 class LimitDefaultTool(BaseTool):
     name = "limit_default"
     description = "Tool for limit default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the limit default operation."""

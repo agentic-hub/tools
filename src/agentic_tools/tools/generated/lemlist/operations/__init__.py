@@ -1,6 +1,7 @@
 # lemlist operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import LemlistCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all lemlist operation tools."""

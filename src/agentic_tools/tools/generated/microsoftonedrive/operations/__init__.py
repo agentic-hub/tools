@@ -1,6 +1,7 @@
 # microsoftOneDrive operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MicrosoftonedriveCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all microsoftOneDrive operation tools."""

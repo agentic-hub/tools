@@ -1,6 +1,7 @@
 # gotify operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GotifyCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all gotify operation tools."""

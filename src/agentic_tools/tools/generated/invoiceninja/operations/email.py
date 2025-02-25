@@ -2,20 +2,26 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class InvoiceninjaCredentials(BaseModel):
+    """Credentials for invoiceNinja authentication."""
+    invoice_ninja_api: Optional[Dict[str, Any]] = Field(None, description="invoiceNinjaApi")
+
 class InvoiceninjaEmailToolInput(BaseModel):
-    invoiceId: Optional[str] = Field(None, description="Invoice ID")
-    invoiceItemsUi: Optional[Dict[str, Any]] = Field(None, description="Invoice Items")
-    expenseId: Optional[str] = Field(None, description="Expense ID")
-    quoteId: Optional[str] = Field(None, description="Quote ID")
-    paymentId: Optional[str] = Field(None, description="Payment ID")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    # Allow users to provide their own credentials
+    credentials: Optional[InvoiceninjaCredentials] = Field(None, description="Custom credentials for authentication")
+    invoice_id: Optional[str] = Field(None, description="Invoice ID")
+    invoice_items_ui: Optional[Dict[str, Any]] = Field(None, description="Invoice Items")
+    expense_id: Optional[str] = Field(None, description="Expense ID")
+    quote_id: Optional[str] = Field(None, description="Quote ID")
+    payment_id: Optional[str] = Field(None, description="Payment ID")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     operation: Optional[str] = Field(None, description="Operation")
-    taskId: Optional[str] = Field(None, description="Task ID")
-    clientId: Optional[str] = Field(None, description="Client ID")
+    task_id: Optional[str] = Field(None, description="Task ID")
+    client_id: Optional[str] = Field(None, description="Client ID")
     limit: Optional[float] = Field(None, description="Max number of results to return")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
-    apiVersion: Optional[str] = Field(None, description="API Version")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    api_version: Optional[str] = Field(None, description="API Version")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
     resource: Optional[str] = Field(None, description="Resource")
 
 
@@ -23,10 +29,31 @@ class InvoiceninjaEmailTool(BaseTool):
     name = "invoiceninja_email"
     description = "Tool for invoiceNinja email operation - email operation"
     
+    def __init__(self, credentials: Optional[InvoiceninjaCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the invoiceNinja email operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running invoiceNinja email operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running invoiceNinja email operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running invoiceNinja email operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the invoiceNinja email operation asynchronously."""

@@ -1,6 +1,7 @@
 # keap operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import KeapCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all keap operation tools."""

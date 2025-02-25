@@ -4,9 +4,9 @@ from typing import Optional, Dict, Any, List, Union
 
 class ConverttofileIcalToolInput(BaseModel):
     start: Optional[str] = Field(None, description="Date and time at which the event begins. (For all-day events, the time will be ignored.).")
-    allDay: Optional[bool] = Field(None, description="Whether the event lasts all day or not")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Options")
-    binaryPropertyName: Optional[str] = Field(None, description="The field that your iCalendar file will be available under in the output")
+    all_day: Optional[bool] = Field(None, description="Whether the event lasts all day or not")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Options")
+    binary_property_name: Optional[str] = Field(None, description="The field that your iCalendar file will be available under in the output")
     end: Optional[str] = Field(None, description="Date and time at which the event ends. (For all-day events, the time will be ignored.).")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
     title: Optional[str] = Field(None, description="Event Title")
@@ -16,6 +16,14 @@ class ConverttofileIcalToolInput(BaseModel):
 class ConverttofileIcalTool(BaseTool):
     name = "converttofile_ical"
     description = "Tool for convertToFile iCal operation - iCal operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the convertToFile iCal operation."""

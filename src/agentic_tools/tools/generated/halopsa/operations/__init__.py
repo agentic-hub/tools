@@ -1,6 +1,7 @@
 # haloPSA operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import HalopsaCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all haloPSA operation tools."""

@@ -1,6 +1,7 @@
 # bannerbear operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import BannerbearCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all bannerbear operation tools."""

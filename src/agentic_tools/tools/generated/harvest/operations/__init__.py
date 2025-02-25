@@ -1,6 +1,7 @@
 # harvest operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import HarvestCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all harvest operation tools."""

@@ -1,6 +1,7 @@
 # iterable operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import IterableCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all iterable operation tools."""

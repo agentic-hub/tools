@@ -1,6 +1,7 @@
 # googleTasks operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GoogletasksCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all googleTasks operation tools."""

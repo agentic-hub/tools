@@ -1,6 +1,7 @@
 # postHog operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import PosthogCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all postHog operation tools."""

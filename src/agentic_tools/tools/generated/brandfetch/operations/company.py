@@ -2,9 +2,15 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class BrandfetchCredentials(BaseModel):
+    """Credentials for Brandfetch authentication."""
+    brandfetch_api: Optional[Dict[str, Any]] = Field(None, description="brandfetchApi")
+
 class BrandfetchCompanyToolInput(BaseModel):
-    imageTypes: Optional[str] = Field(None, description="imageTypes")
-    imageFormats: Optional[str] = Field(None, description="imageFormats")
+    # Allow users to provide their own credentials
+    credentials: Optional[BrandfetchCredentials] = Field(None, description="Custom credentials for authentication")
+    image_types: Optional[str] = Field(None, description="imageTypes")
+    image_formats: Optional[str] = Field(None, description="imageFormats")
     operation: Optional[str] = Field(None, description="Operation")
     domain: Optional[str] = Field(None, description="The domain name of the company")
 
@@ -13,10 +19,31 @@ class BrandfetchCompanyTool(BaseTool):
     name = "brandfetch_company"
     description = "Tool for Brandfetch company operation - company operation"
     
+    def __init__(self, credentials: Optional[BrandfetchCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the Brandfetch company operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running Brandfetch company operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running Brandfetch company operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running Brandfetch company operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the Brandfetch company operation asynchronously."""

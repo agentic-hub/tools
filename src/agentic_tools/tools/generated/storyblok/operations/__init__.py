@@ -1,6 +1,7 @@
 # storyblok operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import StoryblokCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all storyblok operation tools."""

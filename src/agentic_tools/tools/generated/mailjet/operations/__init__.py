@@ -1,6 +1,7 @@
 # mailjet operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MailjetCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all mailjet operation tools."""

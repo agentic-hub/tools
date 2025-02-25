@@ -1,6 +1,7 @@
 # grafana operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GrafanaCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all grafana operation tools."""

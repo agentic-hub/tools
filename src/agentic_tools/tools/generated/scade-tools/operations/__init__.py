@@ -1,6 +1,7 @@
 # scade-tools operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import Scade-toolsCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all scade-tools operation tools."""

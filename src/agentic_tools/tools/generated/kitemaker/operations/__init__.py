@@ -1,6 +1,7 @@
 # kitemaker operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import KitemakerCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all kitemaker operation tools."""

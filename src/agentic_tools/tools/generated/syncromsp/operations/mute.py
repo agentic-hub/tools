@@ -2,19 +2,25 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class SyncromspCredentials(BaseModel):
+    """Credentials for syncroMsp authentication."""
+    syncro_msp_api: Optional[Dict[str, Any]] = Field(None, description="syncroMspApi")
+
 class SyncromspMuteToolInput(BaseModel):
+    # Allow users to provide their own credentials
+    credentials: Optional[SyncromspCredentials] = Field(None, description="Custom credentials for authentication")
     filters: Optional[Dict[str, Any]] = Field(None, description="Filters")
-    updateFields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     limit: Optional[float] = Field(None, description="Max number of results to return")
     resource: Optional[str] = Field(None, description="Resource")
-    customerId: Optional[str] = Field(None, description="Get specific customer by ID")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
-    alertId: Optional[str] = Field(None, description="Mute the RMM alert by ID")
+    customer_id: Optional[str] = Field(None, description="Get specific customer by ID")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    alert_id: Optional[str] = Field(None, description="Mute the RMM alert by ID")
     email: Optional[str] = Field(None, description="Email")
-    contactId: Optional[str] = Field(None, description="Get specific contact by ID")
-    ticketId: Optional[str] = Field(None, description="Get specific customer by ID")
-    muteFor: Optional[str] = Field(None, description="Length of time to mute alert for")
+    contact_id: Optional[str] = Field(None, description="Get specific contact by ID")
+    ticket_id: Optional[str] = Field(None, description="Get specific customer by ID")
+    mute_for: Optional[str] = Field(None, description="Length of time to mute alert for")
     operation: Optional[str] = Field(None, description="Operation")
 
 
@@ -22,10 +28,31 @@ class SyncromspMuteTool(BaseTool):
     name = "syncromsp_mute"
     description = "Tool for syncroMsp mute operation - mute operation"
     
+    def __init__(self, credentials: Optional[SyncromspCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the syncroMsp mute operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running syncroMsp mute operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running syncroMsp mute operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running syncroMsp mute operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the syncroMsp mute operation asynchronously."""

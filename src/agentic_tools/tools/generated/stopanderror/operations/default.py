@@ -3,14 +3,22 @@ from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class StopanderrorDefaultToolInput(BaseModel):
-    errorMessage: Optional[str] = Field(None, description="Error Message")
-    errorType: Optional[str] = Field(None, description="Type of error to throw")
-    errorObject: Optional[str] = Field(None, description="Object containing error properties")
+    error_message: Optional[str] = Field(None, description="Error Message")
+    error_type: Optional[str] = Field(None, description="Type of error to throw")
+    error_object: Optional[str] = Field(None, description="Object containing error properties")
 
 
 class StopanderrorDefaultTool(BaseTool):
     name = "stopanderror_default"
     description = "Tool for stopAndError default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the stopAndError default operation."""

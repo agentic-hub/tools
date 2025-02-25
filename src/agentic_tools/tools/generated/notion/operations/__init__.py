@@ -1,6 +1,7 @@
 # notion operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import NotionCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all notion operation tools."""

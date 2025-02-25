@@ -2,32 +2,59 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class GotowebinarCredentials(BaseModel):
+    """Credentials for goToWebinar authentication."""
+    go_to_webinar_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="goToWebinarOAuth2Api")
+
 class GotowebinarUpdateToolInput(BaseModel):
-    updateFields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
-    panelistKey: Optional[str] = Field(None, description="Key of the panelist to delete")
+    # Allow users to provide their own credentials
+    credentials: Optional[GotowebinarCredentials] = Field(None, description="Custom credentials for authentication")
+    update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
+    panelist_key: Optional[str] = Field(None, description="Key of the panelist to delete")
     details: Optional[str] = Field(None, description="The details to retrieve for the attendee")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     email: Optional[str] = Field(None, description="The co-organizer's email address")
-    webinarKey: Optional[str] = Field(None, description="Key of the webinar that the attendee attended. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
-    sessionKey: Optional[str] = Field(None, description="Key of the session that the attendee attended. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
-    coorganizerKey: Optional[str] = Field(None, description="Key of the co-organizer to delete")
+    webinar_key: Optional[str] = Field(None, description="Key of the webinar that the attendee attended. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
+    session_key: Optional[str] = Field(None, description="Key of the session that the attendee attended. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
+    coorganizer_key: Optional[str] = Field(None, description="Key of the co-organizer to delete")
     operation: Optional[str] = Field(None, description="Operation")
-    registrantKey: Optional[str] = Field(None, description="Registrant key of the attendee at the webinar session")
+    registrant_key: Optional[str] = Field(None, description="Registrant key of the attendee at the webinar session")
     limit: Optional[float] = Field(None, description="Max number of results to return")
-    notifyParticipants: Optional[bool] = Field(None, description="Notify Participants")
-    isExternal: Optional[bool] = Field(None, description="Whether the co-organizer has no GoToWebinar account")
+    notify_participants: Optional[bool] = Field(None, description="Notify Participants")
+    is_external: Optional[bool] = Field(None, description="Whether the co-organizer has no GoToWebinar account")
     resource: Optional[str] = Field(None, description="Resource")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
 
 
 class GotowebinarUpdateTool(BaseTool):
     name = "gotowebinar_update"
     description = "Tool for goToWebinar update operation - update operation"
     
+    def __init__(self, credentials: Optional[GotowebinarCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the goToWebinar update operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running goToWebinar update operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running goToWebinar update operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running goToWebinar update operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the goToWebinar update operation asynchronously."""

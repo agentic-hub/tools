@@ -1,6 +1,7 @@
 # mySql operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MysqlCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all mySql operation tools."""

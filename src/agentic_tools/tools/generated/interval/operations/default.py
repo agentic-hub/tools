@@ -12,6 +12,14 @@ class IntervalDefaultTool(BaseTool):
     name = "interval_default"
     description = "Tool for interval default operation - default operation"
     
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+    
     def _run(self, **kwargs):
         """Run the interval default operation."""
         # Implement the tool logic here

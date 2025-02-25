@@ -1,6 +1,7 @@
 # wekan operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import WekanCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all wekan operation tools."""

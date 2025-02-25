@@ -2,13 +2,20 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class GooglebooksCredentials(BaseModel):
+    """Credentials for googleBooks authentication."""
+    google_api: Optional[Dict[str, Any]] = Field(None, description="googleApi")
+    google_books_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="googleBooksOAuth2Api")
+
 class GooglebooksGetToolInput(BaseModel):
-    userId: Optional[str] = Field(None, description="ID of user")
+    # Allow users to provide their own credentials
+    credentials: Optional[GooglebooksCredentials] = Field(None, description="Custom credentials for authentication")
+    user_id: Optional[str] = Field(None, description="ID of user")
     resource: Optional[str] = Field(None, description="Resource")
-    myLibrary: Optional[bool] = Field(None, description="My Library")
-    volumeId: Optional[str] = Field(None, description="ID of the volume")
+    my_library: Optional[bool] = Field(None, description="My Library")
+    volume_id: Optional[str] = Field(None, description="ID of the volume")
     authentication: Optional[str] = Field(None, description="Authentication")
-    shelfId: Optional[str] = Field(None, description="ID of the bookshelf")
+    shelf_id: Optional[str] = Field(None, description="ID of the bookshelf")
     operation: Optional[str] = Field(None, description="Operation")
 
 
@@ -16,10 +23,31 @@ class GooglebooksGetTool(BaseTool):
     name = "googlebooks_get"
     description = "Tool for googleBooks get operation - get operation"
     
+    def __init__(self, credentials: Optional[GooglebooksCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the googleBooks get operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running googleBooks get operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running googleBooks get operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running googleBooks get operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the googleBooks get operation asynchronously."""

@@ -3,13 +3,21 @@ from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class FilterDefaultToolInput(BaseModel):
-    combineConditions: Optional[str] = Field(None, description="How to combine the conditions: AND requires all conditions to be true, OR requires at least one condition to be true")
+    combine_conditions: Optional[str] = Field(None, description="How to combine the conditions: AND requires all conditions to be true, OR requires at least one condition to be true")
     conditions: Optional[Dict[str, Any]] = Field(None, description="The type of values to compare")
 
 
 class FilterDefaultTool(BaseTool):
     name = "filter_default"
     description = "Tool for filter default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the filter default operation."""

@@ -1,6 +1,7 @@
 # rabbitmq operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import RabbitmqCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all rabbitmq operation tools."""

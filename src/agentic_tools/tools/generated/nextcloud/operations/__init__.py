@@ -1,6 +1,7 @@
 # nextCloud operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import NextcloudCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all nextCloud operation tools."""

@@ -1,6 +1,7 @@
 # googleBooks operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GooglebooksCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all googleBooks operation tools."""

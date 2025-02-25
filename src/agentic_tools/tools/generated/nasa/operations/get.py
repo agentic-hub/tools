@@ -2,13 +2,19 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class NasaCredentials(BaseModel):
+    """Credentials for nasa authentication."""
+    nasa_api: Optional[Dict[str, Any]] = Field(None, description="nasaApi")
+
 class NasaGetToolInput(BaseModel):
+    # Allow users to provide their own credentials
+    credentials: Optional[NasaCredentials] = Field(None, description="Custom credentials for authentication")
     download: Optional[bool] = Field(None, description="By default just the URL of the image is returned. When set to true the image will be downloaded.")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
     resource: Optional[str] = Field(None, description="Resource")
-    binaryPropertyName: Optional[str] = Field(None, description="Put Output File in Field")
+    binary_property_name: Optional[str] = Field(None, description="Put Output File in Field")
     lon: Optional[float] = Field(None, description="Longitude for the location of the image")
-    asteroidId: Optional[str] = Field(None, description="The ID of the asteroid to be returned")
+    asteroid_id: Optional[str] = Field(None, description="The ID of the asteroid to be returned")
     lat: Optional[float] = Field(None, description="Latitude for the location of the image")
     operation: Optional[str] = Field(None, description="Operation")
 
@@ -17,10 +23,31 @@ class NasaGetTool(BaseTool):
     name = "nasa_get"
     description = "Tool for nasa get operation - get operation"
     
+    def __init__(self, credentials: Optional[NasaCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the nasa get operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running nasa get operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running nasa get operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running nasa get operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the nasa get operation asynchronously."""

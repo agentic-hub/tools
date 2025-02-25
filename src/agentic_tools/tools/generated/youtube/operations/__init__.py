@@ -1,6 +1,7 @@
 # youTube operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import YoutubeCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all youTube operation tools."""

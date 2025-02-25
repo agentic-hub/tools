@@ -1,6 +1,7 @@
 # matrix operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MatrixCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all matrix operation tools."""

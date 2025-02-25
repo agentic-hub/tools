@@ -13,6 +13,14 @@ class StickynoteDefaultTool(BaseTool):
     name = "stickynote_default"
     description = "Tool for stickyNote default operation - default operation"
     
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+    
     def _run(self, **kwargs):
         """Run the stickyNote default operation."""
         # Implement the tool logic here

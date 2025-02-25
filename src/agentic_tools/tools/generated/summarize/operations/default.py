@@ -3,14 +3,22 @@ from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class SummarizeDefaultToolInput(BaseModel):
-    fieldsToSummarize: Optional[Dict[str, Any]] = Field(None, description="Fields to Summarize")
+    fields_to_summarize: Optional[Dict[str, Any]] = Field(None, description="Fields to Summarize")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
-    fieldsToSplitBy: Optional[str] = Field(None, description="The name of the input fields that you want to split the summary by")
+    fields_to_split_by: Optional[str] = Field(None, description="The name of the input fields that you want to split the summary by")
 
 
 class SummarizeDefaultTool(BaseTool):
     name = "summarize_default"
     description = "Tool for summarize default operation - default operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the summarize default operation."""

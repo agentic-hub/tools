@@ -2,15 +2,21 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class EmeliaCredentials(BaseModel):
+    """Credentials for emelia authentication."""
+    emelia_api: Optional[Dict[str, Any]] = Field(None, description="emeliaApi")
+
 class EmeliaDuplicateToolInput(BaseModel):
-    contactEmail: Optional[str] = Field(None, description="The email of the contact to add to the campaign")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    # Allow users to provide their own credentials
+    credentials: Optional[EmeliaCredentials] = Field(None, description="Custom credentials for authentication")
+    contact_email: Optional[str] = Field(None, description="The email of the contact to add to the campaign")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
     resource: Optional[str] = Field(None, description="Resource")
-    campaignId: Optional[str] = Field(None, description="The ID of the campaign to duplicate. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    campaign_id: Optional[str] = Field(None, description="The ID of the campaign to duplicate. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     limit: Optional[float] = Field(None, description="Max number of results to return")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
-    campaignName: Optional[str] = Field(None, description="The name of the new campaign to create")
+    campaign_name: Optional[str] = Field(None, description="The name of the new campaign to create")
     operation: Optional[str] = Field(None, description="Operation")
 
 
@@ -18,10 +24,31 @@ class EmeliaDuplicateTool(BaseTool):
     name = "emelia_duplicate"
     description = "Tool for emelia duplicate operation - duplicate operation"
     
+    def __init__(self, credentials: Optional[EmeliaCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the emelia duplicate operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running emelia duplicate operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running emelia duplicate operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running emelia duplicate operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the emelia duplicate operation asynchronously."""

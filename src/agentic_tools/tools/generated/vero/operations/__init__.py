@@ -1,6 +1,7 @@
 # vero operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import VeroCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all vero operation tools."""

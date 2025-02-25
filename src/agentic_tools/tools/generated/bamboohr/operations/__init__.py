@@ -1,6 +1,7 @@
 # bambooHr operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import BamboohrCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all bambooHr operation tools."""

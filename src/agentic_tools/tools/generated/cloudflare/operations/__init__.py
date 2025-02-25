@@ -1,6 +1,7 @@
 # cloudflare operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import CloudflareCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all cloudflare operation tools."""

@@ -1,6 +1,7 @@
 # github operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GithubCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all github operation tools."""

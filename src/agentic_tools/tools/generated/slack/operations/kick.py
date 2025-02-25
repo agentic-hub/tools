@@ -2,17 +2,24 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class SlackCredentials(BaseModel):
+    """Credentials for slack authentication."""
+    slack_api: Optional[Dict[str, Any]] = Field(None, description="slackApi")
+    slack_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="slackOAuth2Api")
+
 class SlackKickToolInput(BaseModel):
-    updateFields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
-    userIds: Optional[str] = Field(None, description="userIds")
+    # Allow users to provide their own credentials
+    credentials: Optional[SlackCredentials] = Field(None, description="Custom credentials for authentication")
+    update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
+    user_ids: Optional[str] = Field(None, description="userIds")
     timestamp: Optional[float] = Field(None, description="Timestamp of the message to message")
-    fileId: Optional[str] = Field(None, description="File to add star to")
-    channelId: Optional[Dict[str, Any]] = Field(None, description="The Slack channel to kick the user from")
+    file_id: Optional[str] = Field(None, description="File to add star to")
+    channel_id: Optional[Dict[str, Any]] = Field(None, description="The Slack channel to kick the user from")
     text: Optional[str] = Field(None, description="The message text to post. Supports <a href=\"https://api.slack.com/reference/surfaces/formatting\">markdown</a> by default - this can be disabled in \"Options\".")
     select: Optional[str] = Field(None, description="Send Message To")
-    userId: Optional[str] = Field(None, description="Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
-    userGroupId: Optional[str] = Field(None, description="The encoded ID of the User Group to update")
+    user_id: Optional[str] = Field(None, description="Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    user_group_id: Optional[str] = Field(None, description="The encoded ID of the User Group to update")
     operation: Optional[str] = Field(None, description="Operation")
     name: Optional[str] = Field(None, description="New name for conversation")
     limit: Optional[float] = Field(None, description="Max number of results to return")
@@ -28,10 +35,31 @@ class SlackKickTool(BaseTool):
     name = "slack_kick"
     description = "Tool for slack kick operation - kick operation"
     
+    def __init__(self, credentials: Optional[SlackCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the slack kick operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running slack kick operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running slack kick operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running slack kick operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the slack kick operation asynchronously."""

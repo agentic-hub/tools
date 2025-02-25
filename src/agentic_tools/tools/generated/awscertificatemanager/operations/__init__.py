@@ -1,6 +1,7 @@
 # awsCertificateManager operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import AwscertificatemanagerCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all awsCertificateManager operation tools."""

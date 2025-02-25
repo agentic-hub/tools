@@ -1,6 +1,7 @@
 # bitly operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import BitlyCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all bitly operation tools."""

@@ -1,6 +1,7 @@
 # wordpress operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import WordpressCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all wordpress operation tools."""

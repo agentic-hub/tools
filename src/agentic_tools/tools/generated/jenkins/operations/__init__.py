@@ -1,6 +1,7 @@
 # jenkins operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import JenkinsCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all jenkins operation tools."""

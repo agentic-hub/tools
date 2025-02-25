@@ -1,8 +1,25 @@
-# lingvaNex toolkit
+# lingvanex toolkit
 from langchain.tools import BaseTool
 from typing import List
 
 def get_lingvanex_tools() -> List[BaseTool]:
-    """Get all lingvaNex tools."""
+    """Get all lingvanex tools."""
     from . import operations
     return operations.get_tools()
+
+class LingvanexToolkit:
+    """Toolkit for interacting with lingvanex."""
+
+    def __init__(self):
+        """Initialize the lingvanex toolkit."""
+
+    def get_tools(self) -> List[BaseTool]:
+        """Get all lingvanex tools with the configured credentials."""
+        from . import operations
+        tools = operations.get_tools()
+        return tools
+
+    @staticmethod
+    def get_default_tools() -> List[BaseTool]:
+        """Get all lingvanex tools with default credentials."""
+        return get_lingvanex_tools()

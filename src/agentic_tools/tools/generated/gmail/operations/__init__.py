@@ -1,6 +1,7 @@
 # gmail operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GmailCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all gmail operation tools."""

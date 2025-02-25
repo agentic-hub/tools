@@ -1,8 +1,25 @@
-# nextCloud toolkit
+# nextcloud toolkit
 from langchain.tools import BaseTool
 from typing import List
 
 def get_nextcloud_tools() -> List[BaseTool]:
-    """Get all nextCloud tools."""
+    """Get all nextcloud tools."""
     from . import operations
     return operations.get_tools()
+
+class NextcloudToolkit:
+    """Toolkit for interacting with nextcloud."""
+
+    def __init__(self):
+        """Initialize the nextcloud toolkit."""
+
+    def get_tools(self) -> List[BaseTool]:
+        """Get all nextcloud tools with the configured credentials."""
+        from . import operations
+        tools = operations.get_tools()
+        return tools
+
+    @staticmethod
+    def get_default_tools() -> List[BaseTool]:
+        """Get all nextcloud tools with default credentials."""
+        return get_nextcloud_tools()

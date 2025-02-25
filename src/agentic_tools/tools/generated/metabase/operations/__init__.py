@@ -1,6 +1,7 @@
 # metabase operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MetabaseCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all metabase operation tools."""

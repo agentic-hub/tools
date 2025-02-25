@@ -1,6 +1,7 @@
 # awsSns operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import AwssnsCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all awsSns operation tools."""

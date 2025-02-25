@@ -4,14 +4,22 @@ from typing import Optional, Dict, Any, List, Union
 
 class HtmlConverttohtmltableToolInput(BaseModel):
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
-    extractionValues: Optional[Dict[str, Any]] = Field(None, description="Extraction Values")
+    extraction_values: Optional[Dict[str, Any]] = Field(None, description="Extraction Values")
     operation: Optional[str] = Field(None, description="Operation")
-    dataPropertyName: Optional[str] = Field(None, description="Input Binary Field")
+    data_property_name: Optional[str] = Field(None, description="Input Binary Field")
 
 
 class HtmlConverttohtmltableTool(BaseTool):
     name = "html_converttohtmltable"
     description = "Tool for html convertToHtmlTable operation - convertToHtmlTable operation"
+    
+    def __init__(self, **kwargs):
+        """Initialize the tool.
+        
+        Args:
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
     
     def _run(self, **kwargs):
         """Run the html convertToHtmlTable operation."""

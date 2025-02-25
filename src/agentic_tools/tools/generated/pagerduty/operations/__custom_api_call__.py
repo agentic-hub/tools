@@ -2,26 +2,54 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class PagerdutyCredentials(BaseModel):
+    """Credentials for pagerDuty authentication."""
+    pager_duty_api: Optional[Dict[str, Any]] = Field(None, description="pagerDutyApi")
+    pager_duty_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="pagerDutyOAuth2Api")
+
 class Pagerduty__custom_api_call__ToolInput(BaseModel):
-    conferenceBridgeUi: Optional[Dict[str, Any]] = Field(None, description="Conference Bridge")
+    # Allow users to provide their own credentials
+    credentials: Optional[PagerdutyCredentials] = Field(None, description="Custom credentials for authentication")
+    conference_bridge_ui: Optional[Dict[str, Any]] = Field(None, description="Conference Bridge")
     resource: Optional[str] = Field(None, description="Resource")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     limit: Optional[float] = Field(None, description="Max number of results to return")
     email: Optional[str] = Field(None, description="The email address of a valid user associated with the account making the request")
     authentication: Optional[str] = Field(None, description="Authentication")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
     operation: Optional[str] = Field(None, description="Operation")
-    incidentId: Optional[str] = Field(None, description="Unique identifier for the incident")
+    incident_id: Optional[str] = Field(None, description="Unique identifier for the incident")
 
 
 class Pagerduty__custom_api_call__Tool(BaseTool):
     name = "pagerduty___custom_api_call__"
     description = "Tool for pagerDuty __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     
+    def __init__(self, credentials: Optional[PagerdutyCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the pagerDuty __CUSTOM_API_CALL__ operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running pagerDuty __CUSTOM_API_CALL__ operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running pagerDuty __CUSTOM_API_CALL__ operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running pagerDuty __CUSTOM_API_CALL__ operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the pagerDuty __CUSTOM_API_CALL__ operation asynchronously."""

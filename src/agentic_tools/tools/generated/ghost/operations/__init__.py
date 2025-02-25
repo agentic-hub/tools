@@ -1,6 +1,7 @@
 # ghost operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GhostCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all ghost operation tools."""

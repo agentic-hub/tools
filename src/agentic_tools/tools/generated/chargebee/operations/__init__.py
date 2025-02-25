@@ -1,6 +1,7 @@
 # chargebee operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import ChargebeeCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all chargebee operation tools."""

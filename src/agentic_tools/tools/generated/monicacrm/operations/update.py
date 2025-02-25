@@ -2,31 +2,37 @@ from langchain.tools import BaseTool
 from agentic_tools.tools.base.BaseTool import BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
+class MonicacrmCredentials(BaseModel):
+    """Credentials for monicaCrm authentication."""
+    monica_crm_api: Optional[Dict[str, Any]] = Field(None, description="monicaCrmApi")
+
 class MonicacrmUpdateToolInput(BaseModel):
-    updateFields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
+    # Allow users to provide their own credentials
+    credentials: Optional[MonicacrmCredentials] = Field(None, description="Custom credentials for authentication")
+    update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     content: Optional[str] = Field(None, description="Description of the call - max 100,000 characters")
     data: Optional[str] = Field(None, description="Content of the contact field - max 255 characters")
-    tagsToRemove: Optional[str] = Field(None, description="tagsToRemove")
-    contactFieldTypeId: Optional[str] = Field(None, description="Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>")
-    reminderId: Optional[str] = Field(None, description="ID of the reminder to update")
-    journalId: Optional[str] = Field(None, description="ID of the journal entry to update")
-    returnAll: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
-    contactFieldId: Optional[str] = Field(None, description="ID of the contact field to update")
-    tagsToAdd: Optional[str] = Field(None, description="tagsToAdd")
-    activityId: Optional[str] = Field(None, description="ID of the activity to update")
-    happenedAt: Optional[str] = Field(None, description="Date when the conversation happened")
+    tags_to_remove: Optional[str] = Field(None, description="tagsToRemove")
+    contact_field_type_id: Optional[str] = Field(None, description="Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>")
+    reminder_id: Optional[str] = Field(None, description="ID of the reminder to update")
+    journal_id: Optional[str] = Field(None, description="ID of the journal entry to update")
+    return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
+    contact_field_id: Optional[str] = Field(None, description="ID of the contact field to update")
+    tags_to_add: Optional[str] = Field(None, description="tagsToAdd")
+    activity_id: Optional[str] = Field(None, description="ID of the activity to update")
+    happened_at: Optional[str] = Field(None, description="Date when the conversation happened")
     operation: Optional[str] = Field(None, description="Operation")
-    taskId: Optional[str] = Field(None, description="ID of the task to update")
+    task_id: Optional[str] = Field(None, description="ID of the task to update")
     name: Optional[str] = Field(None, description="Name of the tag - max 250 characters")
     limit: Optional[float] = Field(None, description="Max number of results to return")
-    callId: Optional[str] = Field(None, description="ID of the call to update")
-    conversationId: Optional[str] = Field(None, description="ID of the conversation to update")
-    tagId: Optional[str] = Field(None, description="ID of the tag to update")
-    messageId: Optional[str] = Field(None, description="ID of the message to update")
+    call_id: Optional[str] = Field(None, description="ID of the call to update")
+    conversation_id: Optional[str] = Field(None, description="ID of the conversation to update")
+    tag_id: Optional[str] = Field(None, description="ID of the tag to update")
+    message_id: Optional[str] = Field(None, description="ID of the message to update")
     resource: Optional[str] = Field(None, description="Resource")
-    additionalFields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
-    contactId: Optional[str] = Field(None, description="ID of the contact to update")
-    noteId: Optional[str] = Field(None, description="ID of the note to update")
+    additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
+    contact_id: Optional[str] = Field(None, description="ID of the contact to update")
+    note_id: Optional[str] = Field(None, description="ID of the note to update")
     title: Optional[str] = Field(None, description="Title of the journal entry - max 250 characters")
 
 
@@ -34,10 +40,31 @@ class MonicacrmUpdateTool(BaseTool):
     name = "monicacrm_update"
     description = "Tool for monicaCrm update operation - update operation"
     
+    def __init__(self, credentials: Optional[MonicacrmCredentials] = None, **kwargs):
+        """Initialize the tool with optional custom credentials.
+        
+        Args:
+            credentials: Credentials for authentication
+            **kwargs: Additional keyword arguments
+        """
+        super().__init__(**kwargs)
+        self.credentials = credentials
+    
     def _run(self, **kwargs):
         """Run the monicaCrm update operation."""
+        # Extract credentials if provided in the run arguments
+        run_credentials = kwargs.pop("credentials", None)
+        
+        # Use run-time credentials if provided, otherwise use the ones from initialization
+        credentials = run_credentials or self.credentials
+        
         # Implement the tool logic here
-        return f"Running monicaCrm update operation with args: {kwargs}"
+        if credentials:
+            # Create a safe copy of credentials for logging (hide sensitive values)
+            safe_credentials = "{...}"  # Just indicate credentials are present
+            return f"Running monicaCrm update operation with custom credentials {safe_credentials} and args: {kwargs}"
+        else:
+            return f"Running monicaCrm update operation with default credentials and args: {kwargs}"
     
     async def _arun(self, **kwargs):
         """Run the monicaCrm update operation asynchronously."""

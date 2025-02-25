@@ -1,6 +1,7 @@
 # mailerLite operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MailerliteCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all mailerLite operation tools."""

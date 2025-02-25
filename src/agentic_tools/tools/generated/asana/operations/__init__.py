@@ -1,6 +1,7 @@
 # asana operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import AsanaCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all asana operation tools."""

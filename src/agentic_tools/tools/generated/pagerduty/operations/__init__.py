@@ -1,6 +1,7 @@
 # pagerDuty operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import PagerdutyCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all pagerDuty operation tools."""

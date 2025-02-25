@@ -1,6 +1,7 @@
 # strapi operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import StrapiCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all strapi operation tools."""

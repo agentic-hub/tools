@@ -1,6 +1,7 @@
 # googleFirebaseCloudFirestore operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import GooglefirebasecloudfirestoreCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all googleFirebaseCloudFirestore operation tools."""

@@ -1,6 +1,7 @@
 # openAi operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import OpenaiCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all openAi operation tools."""

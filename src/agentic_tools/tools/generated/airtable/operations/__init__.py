@@ -1,6 +1,7 @@
 # airtable operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import AirtableCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all airtable operation tools."""

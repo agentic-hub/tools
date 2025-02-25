@@ -1,6 +1,7 @@
 # mindee operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import MindeeCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all mindee operation tools."""

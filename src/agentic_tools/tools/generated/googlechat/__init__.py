@@ -1,8 +1,25 @@
-# googleChat toolkit
+# googlechat toolkit
 from langchain.tools import BaseTool
 from typing import List
 
 def get_googlechat_tools() -> List[BaseTool]:
-    """Get all googleChat tools."""
+    """Get all googlechat tools."""
     from . import operations
     return operations.get_tools()
+
+class GooglechatToolkit:
+    """Toolkit for interacting with googlechat."""
+
+    def __init__(self):
+        """Initialize the googlechat toolkit."""
+
+    def get_tools(self) -> List[BaseTool]:
+        """Get all googlechat tools with the configured credentials."""
+        from . import operations
+        tools = operations.get_tools()
+        return tools
+
+    @staticmethod
+    def get_default_tools() -> List[BaseTool]:
+        """Get all googlechat tools with default credentials."""
+        return get_googlechat_tools()

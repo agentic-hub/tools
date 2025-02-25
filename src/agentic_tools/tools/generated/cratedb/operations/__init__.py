@@ -1,6 +1,7 @@
 # crateDb operations
 from typing import List
 from langchain.tools import BaseTool
+from .. import CratedbCredentials
 
 def get_tools() -> List[BaseTool]:
     """Get all crateDb operation tools."""
