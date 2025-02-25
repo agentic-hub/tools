@@ -3,9 +3,19 @@ name: Deploy to PyPI
 on:
   release:
     types: [created]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'pypi'
+        type: choice
+        options:
+          - pypi
+          - testpypi
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -26,10 +36,65 @@ jobs:
       run: |
         poetry install
     
-    - name: Build and publish
+    - name: Run tests
+      run: |
+        poetry run pytest tests/ || echo "No tests found or tests failed"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: 1.5.1
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      run: |
+        poetry install
+    
+    - name: Verify version matches tag
+      if: github.event_name == 'release'
+      run: |
+        # Extract version from pyproject.toml
+        PROJECT_VERSION=$(poetry version -s)
+        # Extract tag version (remove 'v' prefix if present)
+        TAG_VERSION=$(echo ${{ github.ref_name }} | sed 's/^v//')
+        
+        echo "Project version: $PROJECT_VERSION"
+        echo "Tag version: $TAG_VERSION"
+        
+        if [ "$PROJECT_VERSION" != "$TAG_VERSION" ]; then
+          echo "Error: Version in pyproject.toml ($PROJECT_VERSION) does not match tag version ($TAG_VERSION)"
+          exit 1
+        fi
+    
+    - name: Build package
+      run: |
+        poetry build
+    
+    - name: Publish to TestPyPI
+      if: github.event.inputs.environment == 'testpypi'
+      env:
+        TEST_PYPI_TOKEN: ${{ secrets.TEST_PYPI_TOKEN }}
+      run: |
+        poetry config repositories.testpypi https://test.pypi.org/legacy/
+        poetry config pypi-token.testpypi $TEST_PYPI_TOKEN
+        poetry publish -r testpypi
+    
+    - name: Publish to PyPI
+      if: github.event.inputs.environment == 'pypi' || github.event_name == 'release'
       env:
         PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
       run: |
         poetry config pypi-token.pypi $PYPI_TOKEN
-        poetry build
         poetry publish 

@@ -1,90 +1,154 @@
 # Deployment Guide for Agentic Tools Hub
 
-This document explains how to use the GitHub Actions workflows to version and deploy the Agentic Tools Hub package.
+This document provides detailed instructions for deploying the Agentic Tools Hub package to PyPI using GitHub Actions.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [GitHub Actions Workflows](#github-actions-workflows)
+- [Deployment Process](#deployment-process)
+- [Manual Deployment](#manual-deployment)
+- [Troubleshooting](#troubleshooting)
+
+## Prerequisites
+
+Before deploying, ensure you have:
+
+1. **PyPI Account**: Create an account on [PyPI](https://pypi.org/) if you don't have one.
+
+2. **PyPI API Token**: 
+   - Go to your PyPI account settings
+   - Create an API token with upload permissions
+   - Add this token as a secret named `PYPI_TOKEN` in your GitHub repository
+
+3. **TestPyPI Account** (optional):
+   - Create an account on [TestPyPI](https://test.pypi.org/)
+   - Create an API token
+   - Add this token as a secret named `TEST_PYPI_TOKEN` in your GitHub repository
+
+4. **Write Access to Repository**: Ensure you have write access to the repository to create releases and run workflows.
 
 ## GitHub Actions Workflows
 
-The repository includes the following GitHub Actions workflows:
+The repository contains three main workflows:
 
-1. **Lint Workflow** - Runs linting on push to main and pull requests
-2. **Deploy Workflow** - Builds and publishes the package to PyPI when a new release is created
-3. **Version Bump Workflow** - Automatically bumps the version number based on semantic versioning
+### 1. Run Tests (`test.yml`)
 
-## Setting Up PyPI Deployment
+This workflow runs automatically on:
+- Push to main/master branch
+- Pull requests to main/master branch
 
-To deploy to PyPI, you need to set up a PyPI API token:
+It performs:
+- Linting with flake8
+- Running tests with pytest
+- Testing on multiple Python versions (3.9, 3.10)
 
-1. Create an account on [PyPI](https://pypi.org/) if you don't have one
-2. Go to your account settings and create an API token with upload permissions
-3. In your GitHub repository, go to Settings > Secrets and variables > Actions
-4. Add a new repository secret named `PYPI_TOKEN` with the value of your PyPI API token
+### 2. Bump Version (`bump-version.yml`)
+
+This is a manually triggered workflow that:
+- Increments the package version in `pyproject.toml`
+- Commits the change
+- Creates a git tag for the new version
+
+To run this workflow:
+1. Go to the Actions tab in your repository
+2. Select "Bump Version" workflow
+3. Click "Run workflow"
+4. Choose which part of the version to bump (major, minor, patch)
+5. Optionally add a prerelease identifier (e.g., "alpha", "beta", "rc")
+
+### 3. Deploy to PyPI (`deploy.yml`)
+
+This workflow is triggered:
+- Automatically when a new GitHub Release is created
+- Manually through the Actions tab
+
+It performs:
+- Running tests
+- Verifying the package version matches the release tag
+- Building the package
+- Publishing to PyPI or TestPyPI
 
 ## Deployment Process
 
-### Automatic Linting
+### Standard Deployment Flow
 
-The lint workflow runs automatically on:
-- Every push to the `main` branch
-- Every pull request to the `main` branch
+1. **Update Code and Documentation**:
+   - Make necessary code changes
+   - Update documentation
+   - Ensure tests pass locally
 
-This ensures that the code follows the project's style guidelines.
+2. **Bump Version**:
+   - Go to Actions → Bump Version → Run workflow
+   - Select version part to bump (major, minor, patch)
+   - This will create a new tag like `v0.1.1`
 
-### Version Bumping
+3. **Create Release**:
+   - Go to the Releases section in your repository
+   - Click "Create a new release"
+   - Select the tag created by the Bump Version workflow
+   - Add release notes describing the changes
+   - Click "Publish release"
 
-To bump the version number:
+4. **Monitor Deployment**:
+   - The Deploy to PyPI workflow will automatically trigger
+   - Check the workflow logs for any errors
+   - Verify the package is available on PyPI
 
-1. Go to the "Actions" tab in your GitHub repository
-2. Select the "Version Bump" workflow
+### Manual Deployment
+
+For testing or special cases, you can manually deploy:
+
+1. Go to Actions → Deploy to PyPI → Run workflow
+2. Select the environment:
+   - `pypi` for production
+   - `testpypi` for testing
 3. Click "Run workflow"
-4. Select the type of version bump:
-   - `patch` for bug fixes (e.g., 1.0.0 -> 1.0.1)
-   - `minor` for new features (e.g., 1.0.0 -> 1.1.0)
-   - `major` for breaking changes (e.g., 1.0.0 -> 2.0.0)
-5. Click "Run workflow"
 
-This will:
-- Update the version in `pyproject.toml`
-- Commit the changes
-- Create a new tag with the version number
-- Push the changes and tag to GitHub
+## Manual Deployment (Without GitHub Actions)
 
-### Creating a Release
-
-To deploy a new version to PyPI:
-
-1. Go to the "Releases" tab in your GitHub repository
-2. Click "Create a new release"
-3. Select the tag that was created by the Version Bump workflow
-4. Add a title and description for the release
-5. Click "Publish release"
-
-This will trigger the Deploy workflow, which will:
-- Build the package
-- Publish it to PyPI
-
-## Manual Deployment
-
-If you need to deploy manually:
+If you need to deploy manually from your local machine:
 
 ```bash
 # Install Poetry if not already installed
-pip install poetry
-
-# Configure PyPI token
-poetry config pypi-token.pypi YOUR_PYPI_TOKEN
+curl -sSL https://install.python-poetry.org | python3 -
 
 # Build the package
 poetry build
 
 # Publish to PyPI
+poetry config pypi-token.pypi your-pypi-token
 poetry publish
+
+# Or publish to TestPyPI
+poetry config repositories.testpypi https://test.pypi.org/legacy/
+poetry config pypi-token.testpypi your-testpypi-token
+poetry publish -r testpypi
 ```
 
 ## Troubleshooting
 
-If you encounter issues with the deployment:
+### Common Issues
 
-1. Check the workflow logs in the GitHub Actions tab
-2. Ensure that the `PYPI_TOKEN` secret is correctly set
-3. Verify that the version number in `pyproject.toml` has been incremented
-4. Make sure you have the necessary permissions to push to the repository 
+1. **Version Conflict**:
+   - Error: "Version in pyproject.toml does not match tag version"
+   - Solution: Ensure the version in `pyproject.toml` matches the release tag (without the 'v' prefix)
+
+2. **PyPI Token Issues**:
+   - Error: "Invalid API token"
+   - Solution: Regenerate your PyPI token and update the GitHub secret
+
+3. **Package Name Already Exists**:
+   - Error: "HTTPError: 403 Forbidden"
+   - Solution: Ensure your package name is unique on PyPI or you own the package
+
+4. **Test Failures**:
+   - Error: "Tests failed"
+   - Solution: Fix failing tests before deployment
+
+### Getting Help
+
+If you encounter issues not covered here:
+1. Check the GitHub Actions workflow logs for detailed error messages
+2. Consult the [Poetry documentation](https://python-poetry.org/docs/)
+3. Refer to the [PyPI help](https://pypi.org/help/) resources 

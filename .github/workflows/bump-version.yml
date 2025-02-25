@@ -1,0 +1,74 @@
+name: Bump Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_part:
+        description: 'Part of version to bump (major, minor, patch)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+      prerelease:
+        description: 'Prerelease identifier (alpha, beta, rc, etc.)'
+        required: false
+        type: string
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: 1.5.1
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+    
+    - name: Bump version
+      id: bump_version
+      run: |
+        # Get current version
+        CURRENT_VERSION=$(poetry version -s)
+        echo "Current version: $CURRENT_VERSION"
+        
+        # Bump version
+        if [ -z "${{ github.event.inputs.prerelease }}" ]; then
+          poetry version ${{ github.event.inputs.version_part }}
+        else
+          poetry version ${{ github.event.inputs.version_part }}
+          poetry version ${{ github.event.inputs.prerelease }}
+        fi
+        
+        # Get new version
+        NEW_VERSION=$(poetry version -s)
+        echo "New version: $NEW_VERSION"
+        echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+    
+    - name: Commit and push changes
+      run: |
+        git add pyproject.toml
+        git commit -m "Bump version to ${{ steps.bump_version.outputs.new_version }}"
+        git push
+    
+    - name: Create tag
+      run: |
+        git tag v${{ steps.bump_version.outputs.new_version }}
+        git push --tags 

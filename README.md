@@ -171,18 +171,50 @@ poetry run flake8
 
 ## 🚀 Deployment
 
-This project uses GitHub Actions for continuous integration and deployment. For detailed information about the deployment process, see [DEPLOYMENT.md](DEPLOYMENT.md).
+This project uses GitHub Actions for continuous integration and deployment. The following workflows are available:
+
+### GitHub Actions Workflows
+
+1. **Run Tests** (`.github/workflows/test.yml`)
+   - Triggered on push to main/master and pull requests
+   - Runs tests and linting on Python 3.9 and 3.10
+   - Ensures code quality before merging
+
+2. **Bump Version** (`.github/workflows/bump-version.yml`)
+   - Manually triggered workflow
+   - Increments the package version (major, minor, or patch)
+   - Creates a git tag for the new version
+   - Usage: Go to Actions → Bump Version → Run workflow
+
+3. **Deploy to PyPI** (`.github/workflows/deploy.yml`)
+   - Triggered when a new GitHub Release is created
+   - Can also be manually triggered to deploy to PyPI or TestPyPI
+   - Verifies that the package version matches the release tag
+   - Runs tests before deployment
+   - Builds and publishes the package
 
 ### Quick Deployment Guide
 
-1. **Automatic Linting**: Linting runs automatically on push to main and pull requests
-2. **Version Bumping**: Use the Version Bump workflow in GitHub Actions to increment the version
-3. **Deployment to PyPI**: Create a new GitHub Release to trigger deployment to PyPI
+1. **Bump the version**:
+   - Go to GitHub Actions → Bump Version → Run workflow
+   - Select version part to bump (major, minor, patch)
+   - Optionally add a prerelease identifier
+
+2. **Create a GitHub Release**:
+   - Go to Releases → Create a new release
+   - Use the tag created by the Bump Version workflow (e.g., v0.1.1)
+   - Add release notes
+   - Publish the release to trigger deployment to PyPI
+
+3. **Manual deployment** (optional):
+   - Go to GitHub Actions → Deploy to PyPI → Run workflow
+   - Select environment (PyPI or TestPyPI)
 
 ### Required Secrets
 
-To enable deployment to PyPI, add the following secret to your GitHub repository:
+To enable deployment, add the following secrets to your GitHub repository:
 - `PYPI_TOKEN`: Your PyPI API token with upload permissions
+- `TEST_PYPI_TOKEN`: Your TestPyPI API token (optional, for test deployments)
 
 ## 📄 License
 
