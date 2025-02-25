@@ -12,6 +12,7 @@ A centralized platform for managing and generating tools for AI agents. This pro
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [Development](#development)
+- [Deployment](#deployment)
 - [License](#license)
 
 ## 🔍 Overview
@@ -170,6 +171,21 @@ This project follows PEP 8 style guidelines. You can check your code style with:
 ```bash
 poetry run flake8
 ```
+
+## 🚀 Deployment
+
+This project uses GitHub Actions for continuous integration and deployment. For detailed information about the deployment process, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
+### Quick Deployment Guide
+
+1. **Automatic Testing**: Tests run automatically on push to main and pull requests
+2. **Version Bumping**: Use the Version Bump workflow in GitHub Actions to increment the version
+3. **Deployment to PyPI**: Create a new GitHub Release to trigger deployment to PyPI
+
+### Required Secrets
+
+To enable deployment to PyPI, add the following secret to your GitHub repository:
+- `PYPI_TOKEN`: Your PyPI API token with upload permissions
 
 ## 📄 License
 
