@@ -68,39 +68,209 @@ agent_executor.run("Update our Google Sheet with yesterday's sales data")
 AgenticHub includes connectors for:
 
 ### Cloud Services
-- AWS (DynamoDB, SNS, SQS, Transcribe, Textract)
-- Google (BigQuery, Drive, Sheets, Firebase, Ads)
-- Microsoft (Excel, Teams, Dynamics CRM, Graph)
+- **AWS**: DynamoDB, SNS, SQS, Transcribe, Textract
+- **Google**: BigQuery, Drive, Sheets, Firebase Realtime Database, Ads, Contacts
+- **Microsoft**: Excel, Teams, Dynamics CRM, Graph Security
+- **Cisco**: Webex
 
-### Databases
+### Databases & Data Management
 - MongoDB
 - MySQL
 - Elasticsearch
 - Snowflake
 - Supabase
 - CrateDB
+- NocoDB
+- Baserow
+- Kafka
+- Spreadsheet File Operations
 
-### Communication
+### Communication & Messaging
 - Discord
-- Slack
 - Gmail
 - Mailchimp
-- Twilio
 - Plivo
 - Webhook
+- Rocket.Chat
+- Microsoft Teams
+- Mandrill
+- SMS77
+- Pushbullet
+- Pushover
+- Pushcut
+- MQTT
+- SIGNL4
 
-### Productivity
+### Productivity & Project Management
 - Todoist
 - Zoom
-- Notion
 - Salesforce
 - QuickBooks
 - Odoo
 - ERPNext
+- Taiga
+- Kitemaker
+- Invoice Ninja
+- KoboToolbox
+- Contentful
+- Storyblok
+- Strapi
+- G Suite Admin
 
-### And many more...
+### Marketing & Analytics
+- Mailchimp
+- GetResponse
+- ConvertKit
+- Sendy
+- Automizy
+- PostHog
+- Iterable
+- Facebook Graph API
+- LinkedIn
+- Google Ads
+- Medium
 
-See the [full list of connectors](#) for details on all available tools.
+### E-commerce & Payment
+- PayPal
+- Paddle
+- Wise (formerly TransferWise)
+- DHL
+
+### Security & Identity
+- Bitwarden
+- TOTP (Time-based One-Time Password)
+- Security Scorecard
+- The Hive Project
+- Sentry.io
+
+### CI/CD & DevOps
+- CircleCI
+- Travis CI
+- Splunk
+- Zammad
+
+### Utilities & File Operations
+- Read PDF
+- Write Binary File
+- Move Binary Data
+- Extract From File
+- HTML Processing
+- iCal
+- Mail Check
+- Email Read IMAP
+- Rename Keys
+- Sort
+- Split in Batches
+- If (Conditional Logic)
+- Execute Workflow
+- UpLead
+- Interval
+- UProc
+- Home Assistant
+- Open Thesaurus
+- Demio
+- Oura
+
+### Full Alphabetical List
+1. AWS DynamoDB
+2. AWS SNS
+3. AWS SQS
+4. AWS Transcribe
+5. AWS Textract
+6. Automizy
+7. Baserow
+8. Bitwarden
+9. CircleCI
+10. Cisco Webex
+11. Contentful
+12. ConvertKit
+13. CrateDB
+14. Demio
+15. DHL
+16. Discord
+17. Drift
+18. Elasticsearch
+19. Email Read IMAP
+20. ERPNext
+21. Execute Workflow
+22. Extract From File
+23. Facebook Graph API
+24. Gmail
+25. Google Ads
+26. Google BigQuery
+27. Google Contacts
+28. Google Drive
+29. Google Firebase Realtime Database
+30. Google Sheets
+31. GetResponse
+32. G Suite Admin
+33. Home Assistant
+34. HTML Processing
+35. iCal
+36. If (Conditional Logic)
+37. Interval
+38. Invoice Ninja
+39. Iterable
+40. Kafka
+41. Kitemaker
+42. KoboToolbox
+43. LinkedIn
+44. Mail Check
+45. Mailchimp
+46. Mandrill
+47. Medium
+48. Microsoft Dynamics CRM
+49. Microsoft Excel
+50. Microsoft Graph Security
+51. Microsoft Teams
+52. MongoDB
+53. Move Binary Data
+54. MQTT
+55. MySQL
+56. NocoDB
+57. Odoo
+58. Onfleet
+59. Open Thesaurus
+60. Oura
+61. Paddle
+62. PayPal
+63. Plivo
+64. PostHog
+65. Pushbullet
+66. Pushcut
+67. Pushover
+68. QuickBooks
+69. Read PDF
+70. Rename Keys
+71. Rocket.Chat
+72. Salesforce
+73. SCADE Tools
+74. Security Scorecard
+75. Sendy
+76. Sentry.io
+77. SIGNL4
+78. SMS77
+79. Snowflake
+80. Sort
+81. Split in Batches
+82. Splunk
+83. Spreadsheet File
+84. Storyblok
+85. Strapi
+86. Supabase
+87. Taiga
+88. The Hive
+89. The Hive Project
+90. Todoist
+91. TOTP
+92. Travis CI
+93. UpLead
+94. UProc
+95. Webhook
+96. Wise
+97. Write Binary File
+98. Zammad
+99. Zoom
 
 ## 👥 Contributing
 
