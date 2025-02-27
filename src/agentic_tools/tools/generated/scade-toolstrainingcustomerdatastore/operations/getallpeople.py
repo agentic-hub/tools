@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class Scade-toolstrainingcustomerdatastoreGetallpeopleToolInput(BaseModel):
@@ -9,23 +8,6 @@ class Scade-toolstrainingcustomerdatastoreGetallpeopleToolInput(BaseModel):
 
 
 class Scade-toolstrainingcustomerdatastoreGetallpeopleTool(BaseTool):
-    name = "scade-toolstrainingcustomerdatastore_getallpeople"
-    description = "Tool for scade-toolsTrainingCustomerDatastore getAllPeople operation - getAllPeople operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the scade-toolsTrainingCustomerDatastore getAllPeople operation."""
-        # Implement the tool logic here
-        return f"Running scade-toolsTrainingCustomerDatastore getAllPeople operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the scade-toolsTrainingCustomerDatastore getAllPeople operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "scade-toolstrainingcustomerdatastore_getallpeople"
+    description: str = "Tool for scade-toolsTrainingCustomerDatastore getAllPeople operation - getAllPeople operation"
+    args_schema: type[BaseModel] | None = Scade-toolstrainingcustomerdatastoreGetallpeopleToolInput

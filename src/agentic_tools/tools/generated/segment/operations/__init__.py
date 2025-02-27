@@ -1,6 +1,6 @@
 # segment operations
 from typing import List
-from langchain.tools import BaseTool
+from agentic_tools.tools import BaseTool, BaseModel
 from .. import SegmentCredentials
 
 def get_tools() -> List[BaseTool]:

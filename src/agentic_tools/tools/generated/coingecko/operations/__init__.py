@@ -1,6 +1,6 @@
 # coinGecko operations
 from typing import List
-from langchain.tools import BaseTool
+from agentic_tools.tools import BaseTool, BaseModel
 
 def get_tools() -> List[BaseTool]:
     """Get all coinGecko operation tools."""

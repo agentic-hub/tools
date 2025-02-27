@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class BoxCredentials(BaseModel):
-    """Credentials for box authentication."""
-    box_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="boxOAuth2Api")
+from .. import BoxCredentials
 
 class BoxCopyToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[BoxCredentials] = Field(None, description="Custom credentials for authentication")
     parent_id: Optional[str] = Field(None, description="The ID of folder to copy the file to. If not defined will be copied to the root folder.")
     role: Optional[str] = Field(None, description="The level of access granted")
     file_id: Optional[str] = Field(None, description="File ID")
@@ -29,36 +24,7 @@ class BoxCopyToolInput(BaseModel):
 
 
 class BoxCopyTool(BaseTool):
-    name = "box_copy"
-    description = "Tool for box copy operation - copy operation"
-    
-    def __init__(self, credentials: Optional[BoxCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the box copy operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running box copy operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running box copy operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the box copy operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "box_copy"
+    description: str = "Tool for box copy operation - copy operation"
+    args_schema: type[BaseModel] | None = BoxCopyToolInput
+    credentials: Optional[BoxCredentials] = None

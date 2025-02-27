@@ -1,15 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class MediumCredentials(BaseModel):
-    """Credentials for medium authentication."""
-    medium_api: Optional[Dict[str, Any]] = Field(None, description="mediumApi")
-    medium_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="mediumOAuth2Api")
+from .. import MediumCredentials
 
 class MediumCreateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[MediumCredentials] = Field(None, description="Custom credentials for authentication")
     publication: Optional[bool] = Field(None, description="Whether you are posting for a publication")
     content: Optional[str] = Field(None, description="The body of the post, in a valid semantic HTML fragment, or Markdown")
     resource: Optional[str] = Field(None, description="Resource")
@@ -22,36 +16,7 @@ class MediumCreateToolInput(BaseModel):
 
 
 class MediumCreateTool(BaseTool):
-    name = "medium_create"
-    description = "Tool for medium create operation - create operation"
-    
-    def __init__(self, credentials: Optional[MediumCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the medium create operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running medium create operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running medium create operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the medium create operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "medium_create"
+    description: str = "Tool for medium create operation - create operation"
+    args_schema: type[BaseModel] | None = MediumCreateToolInput
+    credentials: Optional[MediumCredentials] = None

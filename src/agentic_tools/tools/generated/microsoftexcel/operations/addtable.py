@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class MicrosoftexcelCredentials(BaseModel):
-    """Credentials for microsoftExcel authentication."""
-    microsoft_excel_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="microsoftExcelOAuth2Api")
+from .. import MicrosoftexcelCredentials
 
 class MicrosoftexcelAddtableToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[MicrosoftexcelCredentials] = Field(None, description="Custom credentials for authentication")
     data: Optional[str] = Field(None, description="Raw values for the specified range as array of string arrays in JSON format")
     workbook: Optional[Dict[str, Any]] = Field(None, description="Workbook")
     table: Optional[Dict[str, Any]] = Field(None, description="Table")
@@ -33,36 +28,7 @@ class MicrosoftexcelAddtableToolInput(BaseModel):
 
 
 class MicrosoftexcelAddtableTool(BaseTool):
-    name = "microsoftexcel_addtable"
-    description = "Tool for microsoftExcel addTable operation - addTable operation"
-    
-    def __init__(self, credentials: Optional[MicrosoftexcelCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the microsoftExcel addTable operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running microsoftExcel addTable operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running microsoftExcel addTable operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the microsoftExcel addTable operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "microsoftexcel_addtable"
+    description: str = "Tool for microsoftExcel addTable operation - addTable operation"
+    args_schema: type[BaseModel] | None = MicrosoftexcelAddtableToolInput
+    credentials: Optional[MicrosoftexcelCredentials] = None

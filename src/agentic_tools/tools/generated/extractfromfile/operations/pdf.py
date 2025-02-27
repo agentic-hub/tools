@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ExtractfromfilePdfToolInput(BaseModel):
@@ -9,23 +8,6 @@ class ExtractfromfilePdfToolInput(BaseModel):
 
 
 class ExtractfromfilePdfTool(BaseTool):
-    name = "extractfromfile_pdf"
-    description = "Tool for extractFromFile pdf operation - pdf operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the extractFromFile pdf operation."""
-        # Implement the tool logic here
-        return f"Running extractFromFile pdf operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the extractFromFile pdf operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "extractfromfile_pdf"
+    description: str = "Tool for extractFromFile pdf operation - pdf operation"
+    args_schema: type[BaseModel] | None = ExtractfromfilePdfToolInput

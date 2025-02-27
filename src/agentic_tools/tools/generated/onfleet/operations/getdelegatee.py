@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class OnfleetCredentials(BaseModel):
-    """Credentials for onfleet authentication."""
-    onfleet_api: Optional[Dict[str, Any]] = Field(None, description="onfleetApi")
+from .. import OnfleetCredentials
 
 class OnfleetGetdelegateeToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[OnfleetCredentials] = Field(None, description="Custom credentials for authentication")
     update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     teams: Optional[str] = Field(None, description="teams")
     workers: Optional[str] = Field(None, description="workers")
@@ -27,36 +22,7 @@ class OnfleetGetdelegateeToolInput(BaseModel):
 
 
 class OnfleetGetdelegateeTool(BaseTool):
-    name = "onfleet_getdelegatee"
-    description = "Tool for onfleet getDelegatee operation - getDelegatee operation"
-    
-    def __init__(self, credentials: Optional[OnfleetCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the onfleet getDelegatee operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running onfleet getDelegatee operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running onfleet getDelegatee operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the onfleet getDelegatee operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "onfleet_getdelegatee"
+    description: str = "Tool for onfleet getDelegatee operation - getDelegatee operation"
+    args_schema: type[BaseModel] | None = OnfleetGetdelegateeToolInput
+    credentials: Optional[OnfleetCredentials] = None

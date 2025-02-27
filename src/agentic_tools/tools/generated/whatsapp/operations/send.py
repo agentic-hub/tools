@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class WhatsappCredentials(BaseModel):
-    """Credentials for whatsApp authentication."""
-    whats_app_api: Optional[Dict[str, Any]] = Field(None, description="whatsAppApi")
+from .. import WhatsappCredentials
 
 class WhatsappSendToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[WhatsappCredentials] = Field(None, description="Custom credentials for authentication")
     media_id: Optional[str] = Field(None, description="ID of the media to be sent")
     latitude: Optional[float] = Field(None, description="Latitude")
     message_type: Optional[str] = Field(None, description="The type of the message")
@@ -28,36 +23,7 @@ class WhatsappSendToolInput(BaseModel):
 
 
 class WhatsappSendTool(BaseTool):
-    name = "whatsapp_send"
-    description = "Tool for whatsApp send operation - send operation"
-    
-    def __init__(self, credentials: Optional[WhatsappCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the whatsApp send operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running whatsApp send operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running whatsApp send operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the whatsApp send operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "whatsapp_send"
+    description: str = "Tool for whatsApp send operation - send operation"
+    args_schema: type[BaseModel] | None = WhatsappSendToolInput
+    credentials: Optional[WhatsappCredentials] = None

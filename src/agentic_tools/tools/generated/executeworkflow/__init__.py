@@ -1,13 +1,14 @@
 # executeworkflow toolkit
-from langchain.tools import BaseTool
-from typing import List
+from agentic_tools.tools import BaseTool, BaseModel, Field
+from agentic_tools.toolkit import AgenticHubToolkit
+from typing import List, Optional, Dict, Any
 
 def get_executeworkflow_tools() -> List[BaseTool]:
     """Get all executeworkflow tools."""
     from . import operations
     return operations.get_tools()
 
-class ExecuteworkflowToolkit:
+class ExecuteworkflowToolkit(AgenticHubToolkit):
     """Toolkit for interacting with executeworkflow."""
 
     def __init__(self):
@@ -16,7 +17,7 @@ class ExecuteworkflowToolkit:
     def get_tools(self) -> List[BaseTool]:
         """Get all executeworkflow tools with the configured credentials."""
         from . import operations
-        tools = operations.get_tools()
+        return self.get_tools_from_operations(operations)
         return tools
 
     @staticmethod

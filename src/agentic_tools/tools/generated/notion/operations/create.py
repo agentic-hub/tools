@@ -1,21 +1,15 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class NotionCredentials(BaseModel):
-    """Credentials for notion authentication."""
-    notion_api: Optional[Dict[str, Any]] = Field(None, description="notionApi")
+from .. import NotionCredentials
 
 class NotionCreateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[NotionCredentials] = Field(None, description="Custom credentials for authentication")
     database_id: Optional[Dict[str, Any]] = Field(None, description="The Notion Database to operate on")
     page_id: Optional[Dict[str, Any]] = Field(None, description="The Notion Database Page to create a child page for")
     text: Optional[str] = Field(None, description="The text to search for")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     block_ui: Optional[Dict[str, Any]] = Field(None, description="Blocks")
     operation: Optional[str] = Field(None, description="Operation")
-    credentials: Optional[str] = Field(None, description="Credentials")
     limit: Optional[float] = Field(None, description="Max number of results to return")
     options: Optional[Dict[str, Any]] = Field(None, description="Options")
     block_id: Optional[Dict[str, Any]] = Field(None, description="The Notion Block to append blocks to")
@@ -27,36 +21,7 @@ class NotionCreateToolInput(BaseModel):
 
 
 class NotionCreateTool(BaseTool):
-    name = "notion_create"
-    description = "Tool for notion create operation - create operation"
-    
-    def __init__(self, credentials: Optional[NotionCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the notion create operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running notion create operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running notion create operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the notion create operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "notion_create"
+    description: str = "Tool for notion create operation - create operation"
+    args_schema: type[BaseModel] | None = NotionCreateToolInput
+    credentials: Optional[NotionCredentials] = None

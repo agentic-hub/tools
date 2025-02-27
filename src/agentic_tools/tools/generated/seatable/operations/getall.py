@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class SeatableCredentials(BaseModel):
-    """Credentials for seaTable authentication."""
-    sea_table_api: Optional[Dict[str, Any]] = Field(None, description="seaTableApi")
+from .. import SeatableCredentials
 
 class SeatableGetallToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[SeatableCredentials] = Field(None, description="Custom credentials for authentication")
     filters: Optional[Dict[str, Any]] = Field(None, description="Filters")
     resource: Optional[str] = Field(None, description="Resource")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
@@ -20,36 +15,7 @@ class SeatableGetallToolInput(BaseModel):
 
 
 class SeatableGetallTool(BaseTool):
-    name = "seatable_getall"
-    description = "Tool for seaTable getAll operation - getAll operation"
-    
-    def __init__(self, credentials: Optional[SeatableCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the seaTable getAll operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running seaTable getAll operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running seaTable getAll operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the seaTable getAll operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "seatable_getall"
+    description: str = "Tool for seaTable getAll operation - getAll operation"
+    args_schema: type[BaseModel] | None = SeatableGetallToolInput
+    credentials: Optional[SeatableCredentials] = None

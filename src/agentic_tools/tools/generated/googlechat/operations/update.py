@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class GooglechatCredentials(BaseModel):
-    """Credentials for googleChat authentication."""
-    google_api: Optional[Dict[str, Any]] = Field(None, description="googleApi")
+from .. import GooglechatCredentials
 
 class GooglechatUpdateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[GooglechatCredentials] = Field(None, description="Custom credentials for authentication")
     update_fields_ui: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     resource: Optional[str] = Field(None, description="Resource")
@@ -22,36 +17,7 @@ class GooglechatUpdateToolInput(BaseModel):
 
 
 class GooglechatUpdateTool(BaseTool):
-    name = "googlechat_update"
-    description = "Tool for googleChat update operation - update operation"
-    
-    def __init__(self, credentials: Optional[GooglechatCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the googleChat update operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running googleChat update operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running googleChat update operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the googleChat update operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "googlechat_update"
+    description: str = "Tool for googleChat update operation - update operation"
+    args_schema: type[BaseModel] | None = GooglechatUpdateToolInput
+    credentials: Optional[GooglechatCredentials] = None

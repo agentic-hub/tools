@@ -1,23 +1,16 @@
 from pydantic import BaseModel as PydanticBaseModel, Field as PydanticField
 from typing import Any, Dict, Optional
+from langchain.tools import BaseTool as LangchainBaseTool
+
+from agentic_tools.service.scade import ScadeService
 
 # Re-export BaseModel and Field from pydantic
 BaseModel = PydanticBaseModel
 Field = PydanticField
 
 
-class BaseTool:
+class BaseTool(LangchainBaseTool):
     """Base class for all tools."""
-
-    name: str
-    description: str
-
-    def __init__(self, name: str = None, description: str = None):
-        """Initialize the tool with a name and description."""
-        if name:
-            self.name = name
-        if description:
-            self.description = description
 
     def _run(self, **kwargs: Dict[str, Any]) -> Any:
         """Run the tool."""
@@ -25,4 +18,10 @@ class BaseTool:
 
     async def _arun(self, **kwargs: Dict[str, Any]) -> Any:
         """Run the tool asynchronously."""
-        return self._run(**kwargs)
+
+        result = await ScadeService.execute_connector(
+            connector_id=self.connector_id,
+            credentials=self.credentials,
+            data=kwargs,
+        )
+        return result

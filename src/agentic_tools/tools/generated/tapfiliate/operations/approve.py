@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class TapfiliateCredentials(BaseModel):
-    """Credentials for tapfiliate authentication."""
-    tapfiliate_api: Optional[Dict[str, Any]] = Field(None, description="tapfiliateApi")
+from .. import TapfiliateCredentials
 
 class TapfiliateApproveToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[TapfiliateCredentials] = Field(None, description="Custom credentials for authentication")
     filters: Optional[Dict[str, Any]] = Field(None, description="Filters")
     resource: Optional[str] = Field(None, description="Resource")
     additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
@@ -21,36 +16,7 @@ class TapfiliateApproveToolInput(BaseModel):
 
 
 class TapfiliateApproveTool(BaseTool):
-    name = "tapfiliate_approve"
-    description = "Tool for tapfiliate approve operation - approve operation"
-    
-    def __init__(self, credentials: Optional[TapfiliateCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the tapfiliate approve operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running tapfiliate approve operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running tapfiliate approve operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the tapfiliate approve operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "tapfiliate_approve"
+    description: str = "Tool for tapfiliate approve operation - approve operation"
+    args_schema: type[BaseModel] | None = TapfiliateApproveToolInput
+    credentials: Optional[TapfiliateCredentials] = None

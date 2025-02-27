@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class IterableCredentials(BaseModel):
-    """Credentials for iterable authentication."""
-    iterable_api: Optional[Dict[str, Any]] = Field(None, description="iterableApi")
+from .. import IterableCredentials
 
 class IterableTrackToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[IterableCredentials] = Field(None, description="Custom credentials for authentication")
     name: Optional[str] = Field(None, description="The name of the event to track")
     user_id: Optional[str] = Field(None, description="Unique identifier for a particular user")
     additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
@@ -22,36 +17,7 @@ class IterableTrackToolInput(BaseModel):
 
 
 class IterableTrackTool(BaseTool):
-    name = "iterable_track"
-    description = "Tool for iterable track operation - track operation"
-    
-    def __init__(self, credentials: Optional[IterableCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the iterable track operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running iterable track operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running iterable track operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the iterable track operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "iterable_track"
+    description: str = "Tool for iterable track operation - track operation"
+    args_schema: type[BaseModel] | None = IterableTrackToolInput
+    credentials: Optional[IterableCredentials] = None

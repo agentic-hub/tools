@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ItemlistsSortToolInput(BaseModel):
@@ -16,23 +15,6 @@ class ItemlistsSortToolInput(BaseModel):
 
 
 class ItemlistsSortTool(BaseTool):
-    name = "itemlists_sort"
-    description = "Tool for itemLists sort operation - sort operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the itemLists sort operation."""
-        # Implement the tool logic here
-        return f"Running itemLists sort operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the itemLists sort operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "itemlists_sort"
+    description: str = "Tool for itemLists sort operation - sort operation"
+    args_schema: type[BaseModel] | None = ItemlistsSortToolInput

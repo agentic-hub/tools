@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class MattermostCredentials(BaseModel):
-    """Credentials for mattermost authentication."""
-    mattermost_api: Optional[Dict[str, Any]] = Field(None, description="mattermostApi")
+from .. import MattermostCredentials
 
 class MattermostGetbyidToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[MattermostCredentials] = Field(None, description="Custom credentials for authentication")
     post_id: Optional[str] = Field(None, description="ID of the post to delete")
     user_ids: Optional[str] = Field(None, description="User's ID")
     emoji_name: Optional[str] = Field(None, description="Emoji to use for this reaction")
@@ -25,36 +20,7 @@ class MattermostGetbyidToolInput(BaseModel):
 
 
 class MattermostGetbyidTool(BaseTool):
-    name = "mattermost_getbyid"
-    description = "Tool for mattermost getById operation - getById operation"
-    
-    def __init__(self, credentials: Optional[MattermostCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the mattermost getById operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running mattermost getById operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running mattermost getById operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the mattermost getById operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "mattermost_getbyid"
+    description: str = "Tool for mattermost getById operation - getById operation"
+    args_schema: type[BaseModel] | None = MattermostGetbyidToolInput
+    credentials: Optional[MattermostCredentials] = None

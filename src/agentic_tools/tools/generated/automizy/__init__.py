@@ -1,22 +1,37 @@
 # automizy toolkit
-from langchain.tools import BaseTool
-from typing import List
+from agentic_tools.tools import BaseTool, BaseModel, Field
+from agentic_tools.toolkit import AgenticHubToolkit
+from typing import List, Optional, Dict, Any
 
 def get_automizy_tools() -> List[BaseTool]:
     """Get all automizy tools."""
     from . import operations
     return operations.get_tools()
 
-class AutomizyToolkit:
+class AutomizyCredentials(BaseModel):
+    """Credentials for automizy authentication."""
+    automizy_api: Optional[Dict[str, Any]] = Field(None, description="automizyApi")
+
+class AutomizyToolkit(AgenticHubToolkit):
     """Toolkit for interacting with automizy."""
 
-    def __init__(self):
-        """Initialize the automizy toolkit."""
+    def __init__(self, credentials: Optional[AutomizyCredentials] = None):
+        """Initialize the automizy toolkit with optional credentials.
+
+        Args:
+            credentials: AutomizyCredentials object containing authentication credentials
+        """
+        self.credentials = credentials
 
     def get_tools(self) -> List[BaseTool]:
         """Get all automizy tools with the configured credentials."""
         from . import operations
-        tools = operations.get_tools()
+        return self.get_tools_from_operations(operations)
+        # Apply credentials to each tool if provided
+        if self.credentials:
+            for tool in tools:
+                # Set credentials on each tool instance
+                tool.credentials = self.credentials
         return tools
 
     @staticmethod

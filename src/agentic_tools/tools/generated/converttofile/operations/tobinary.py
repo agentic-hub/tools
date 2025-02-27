@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ConverttofileTobinaryToolInput(BaseModel):
@@ -10,23 +9,6 @@ class ConverttofileTobinaryToolInput(BaseModel):
 
 
 class ConverttofileTobinaryTool(BaseTool):
-    name = "converttofile_tobinary"
-    description = "Tool for convertToFile toBinary operation - toBinary operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the convertToFile toBinary operation."""
-        # Implement the tool logic here
-        return f"Running convertToFile toBinary operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the convertToFile toBinary operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "converttofile_tobinary"
+    description: str = "Tool for convertToFile toBinary operation - toBinary operation"
+    args_schema: type[BaseModel] | None = ConverttofileTobinaryToolInput

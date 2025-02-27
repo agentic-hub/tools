@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ItemlistsSplitoutitemsToolInput(BaseModel):
@@ -14,23 +13,6 @@ class ItemlistsSplitoutitemsToolInput(BaseModel):
 
 
 class ItemlistsSplitoutitemsTool(BaseTool):
-    name = "itemlists_splitoutitems"
-    description = "Tool for itemLists splitOutItems operation - splitOutItems operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the itemLists splitOutItems operation."""
-        # Implement the tool logic here
-        return f"Running itemLists splitOutItems operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the itemLists splitOutItems operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "itemlists_splitoutitems"
+    description: str = "Tool for itemLists splitOutItems operation - splitOutItems operation"
+    args_schema: type[BaseModel] | None = ItemlistsSplitoutitemsToolInput

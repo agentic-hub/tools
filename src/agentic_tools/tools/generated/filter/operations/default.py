@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class FilterDefaultToolInput(BaseModel):
@@ -8,23 +7,6 @@ class FilterDefaultToolInput(BaseModel):
 
 
 class FilterDefaultTool(BaseTool):
-    name = "filter_default"
-    description = "Tool for filter default operation - default operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the filter default operation."""
-        # Implement the tool logic here
-        return f"Running filter default operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the filter default operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "filter_default"
+    description: str = "Tool for filter default operation - default operation"
+    args_schema: type[BaseModel] | None = FilterDefaultToolInput

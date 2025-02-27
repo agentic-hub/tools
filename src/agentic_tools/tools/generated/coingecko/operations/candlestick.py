@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class CoingeckoCandlestickToolInput(BaseModel):
@@ -17,23 +16,6 @@ class CoingeckoCandlestickToolInput(BaseModel):
 
 
 class CoingeckoCandlestickTool(BaseTool):
-    name = "coingecko_candlestick"
-    description = "Tool for coinGecko candlestick operation - candlestick operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the coinGecko candlestick operation."""
-        # Implement the tool logic here
-        return f"Running coinGecko candlestick operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the coinGecko candlestick operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "coingecko_candlestick"
+    description: str = "Tool for coinGecko candlestick operation - candlestick operation"
+    args_schema: type[BaseModel] | None = CoingeckoCandlestickToolInput

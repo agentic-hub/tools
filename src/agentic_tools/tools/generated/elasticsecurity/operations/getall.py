@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class ElasticsecurityCredentials(BaseModel):
-    """Credentials for elasticSecurity authentication."""
-    elastic_security_api: Optional[Dict[str, Any]] = Field(None, description="elasticSecurityApi")
+from .. import ElasticsecurityCredentials
 
 class ElasticsecurityGetallToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[ElasticsecurityCredentials] = Field(None, description="Custom credentials for authentication")
     comment_id: Optional[str] = Field(None, description="ID of the case comment to retrieve")
     sort_options: Optional[Dict[str, Any]] = Field(None, description="Sort")
     tag: Optional[str] = Field(None, description="Tag to attach to the case. Choose from the list, or specify an ID using an <a href=\"https://docs.n8n.io/code-examples/expressions/\">expression</a>.")
@@ -25,36 +20,7 @@ class ElasticsecurityGetallToolInput(BaseModel):
 
 
 class ElasticsecurityGetallTool(BaseTool):
-    name = "elasticsecurity_getall"
-    description = "Tool for elasticSecurity getAll operation - getAll operation"
-    
-    def __init__(self, credentials: Optional[ElasticsecurityCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the elasticSecurity getAll operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running elasticSecurity getAll operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running elasticSecurity getAll operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the elasticSecurity getAll operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "elasticsecurity_getall"
+    description: str = "Tool for elasticSecurity getAll operation - getAll operation"
+    args_schema: type[BaseModel] | None = ElasticsecurityGetallToolInput
+    credentials: Optional[ElasticsecurityCredentials] = None

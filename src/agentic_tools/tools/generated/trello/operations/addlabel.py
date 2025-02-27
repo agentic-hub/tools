@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class TrelloCredentials(BaseModel):
-    """Credentials for trello authentication."""
-    trello_api: Optional[Dict[str, Any]] = Field(None, description="trelloApi")
+from .. import TrelloCredentials
 
 class TrelloAddlabelToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[TrelloCredentials] = Field(None, description="Custom credentials for authentication")
     update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     check_item_id: Optional[str] = Field(None, description="The ID of the checklist item to delete")
     description: Optional[str] = Field(None, description="The description of the board")
@@ -26,36 +21,7 @@ class TrelloAddlabelToolInput(BaseModel):
 
 
 class TrelloAddlabelTool(BaseTool):
-    name = "trello_addlabel"
-    description = "Tool for trello addLabel operation - addLabel operation"
-    
-    def __init__(self, credentials: Optional[TrelloCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the trello addLabel operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running trello addLabel operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running trello addLabel operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the trello addLabel operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "trello_addlabel"
+    description: str = "Tool for trello addLabel operation - addLabel operation"
+    args_schema: type[BaseModel] | None = TrelloAddlabelToolInput
+    credentials: Optional[TrelloCredentials] = None

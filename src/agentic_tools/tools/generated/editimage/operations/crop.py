@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class EditimageCropToolInput(BaseModel):
@@ -15,23 +14,6 @@ class EditimageCropToolInput(BaseModel):
 
 
 class EditimageCropTool(BaseTool):
-    name = "editimage_crop"
-    description = "Tool for editImage crop operation - crop operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the editImage crop operation."""
-        # Implement the tool logic here
-        return f"Running editImage crop operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the editImage crop operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "editimage_crop"
+    description: str = "Tool for editImage crop operation - crop operation"
+    args_schema: type[BaseModel] | None = EditimageCropToolInput

@@ -1,15 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class ServicenowCredentials(BaseModel):
-    """Credentials for serviceNow authentication."""
-    service_now_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="serviceNowOAuth2Api")
-    service_now_basic_api: Optional[Dict[str, Any]] = Field(None, description="serviceNowBasicApi")
+from .. import ServicenowCredentials
 
 class ServicenowUploadToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[ServicenowCredentials] = Field(None, description="Custom credentials for authentication")
     update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     short_description: Optional[str] = Field(None, description="Short description of the incident")
     input_data_field_name: Optional[str] = Field(None, description="Name of the binary property that contains the data to upload")
@@ -29,36 +23,7 @@ class ServicenowUploadToolInput(BaseModel):
 
 
 class ServicenowUploadTool(BaseTool):
-    name = "servicenow_upload"
-    description = "Tool for serviceNow upload operation - upload operation"
-    
-    def __init__(self, credentials: Optional[ServicenowCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the serviceNow upload operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running serviceNow upload operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running serviceNow upload operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the serviceNow upload operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "servicenow_upload"
+    description: str = "Tool for serviceNow upload operation - upload operation"
+    args_schema: type[BaseModel] | None = ServicenowUploadToolInput
+    credentials: Optional[ServicenowCredentials] = None

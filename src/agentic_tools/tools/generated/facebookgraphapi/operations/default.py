@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class FacebookgraphapiCredentials(BaseModel):
-    """Credentials for facebookGraphApi authentication."""
-    facebook_graph_api: Optional[Dict[str, Any]] = Field(None, description="facebookGraphApi")
+from .. import FacebookgraphapiCredentials
 
 class FacebookgraphapiDefaultToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[FacebookgraphapiCredentials] = Field(None, description="Custom credentials for authentication")
     send_binary_data: Optional[bool] = Field(None, description="Whether binary data should be sent as body")
     graph_api_version: Optional[str] = Field(None, description="The version of the Graph API to be used in the request")
     binary_property_name: Optional[str] = Field(None, description="For Form-Data Multipart, they can be provided in the format: <code>\"sendKey1:binaryProperty1,sendKey2:binaryProperty2</code>")
@@ -21,36 +16,7 @@ class FacebookgraphapiDefaultToolInput(BaseModel):
 
 
 class FacebookgraphapiDefaultTool(BaseTool):
-    name = "facebookgraphapi_default"
-    description = "Tool for facebookGraphApi default operation - default operation"
-    
-    def __init__(self, credentials: Optional[FacebookgraphapiCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the facebookGraphApi default operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running facebookGraphApi default operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running facebookGraphApi default operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the facebookGraphApi default operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "facebookgraphapi_default"
+    description: str = "Tool for facebookGraphApi default operation - default operation"
+    args_schema: type[BaseModel] | None = FacebookgraphapiDefaultToolInput
+    credentials: Optional[FacebookgraphapiCredentials] = None

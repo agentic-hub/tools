@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class CrowddevCredentials(BaseModel):
-    """Credentials for crowdDev authentication."""
-    crowd_dev_api: Optional[Dict[str, Any]] = Field(None, description="crowdDevApi")
+from .. import CrowddevCredentials
 
 class CrowddevUpdateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[CrowddevCredentials] = Field(None, description="Custom credentials for authentication")
     timestamp: Optional[str] = Field(None, description="Date and time when the activity took place")
     platform: Optional[str] = Field(None, description="Platform on which the activity took place")
     type: Optional[str] = Field(None, description="Type of activity")
@@ -25,36 +20,7 @@ class CrowddevUpdateToolInput(BaseModel):
 
 
 class CrowddevUpdateTool(BaseTool):
-    name = "crowddev_update"
-    description = "Tool for crowdDev update operation - update operation"
-    
-    def __init__(self, credentials: Optional[CrowddevCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the crowdDev update operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running crowdDev update operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running crowdDev update operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the crowdDev update operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "crowddev_update"
+    description: str = "Tool for crowdDev update operation - update operation"
+    args_schema: type[BaseModel] | None = CrowddevUpdateToolInput
+    credentials: Optional[CrowddevCredentials] = None

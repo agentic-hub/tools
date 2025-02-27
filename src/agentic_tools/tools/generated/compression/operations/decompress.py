@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class CompressionDecompressToolInput(BaseModel):
@@ -12,23 +11,6 @@ class CompressionDecompressToolInput(BaseModel):
 
 
 class CompressionDecompressTool(BaseTool):
-    name = "compression_decompress"
-    description = "Tool for compression decompress operation - decompress operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the compression decompress operation."""
-        # Implement the tool logic here
-        return f"Running compression decompress operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the compression decompress operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "compression_decompress"
+    description: str = "Tool for compression decompress operation - decompress operation"
+    args_schema: type[BaseModel] | None = CompressionDecompressToolInput

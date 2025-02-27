@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class UprocCredentials(BaseModel):
-    """Credentials for uproc authentication."""
-    uproc_api: Optional[Dict[str, Any]] = Field(None, description="uprocApi")
+from .. import UprocCredentials
 
 class UprocDefaultToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[UprocCredentials] = Field(None, description="Custom credentials for authentication")
     vin: Optional[str] = Field(None, description="The \"Vin\" value to use as a parameter for this Operation")
     price_liter: Optional[str] = Field(None, description="The \"Price liter\" value to use as a parameter for this Operation")
     latitude: Optional[str] = Field(None, description="The \"Latitude\" value to use as a parameter for this Operation")
@@ -157,36 +152,7 @@ class UprocDefaultToolInput(BaseModel):
 
 
 class UprocDefaultTool(BaseTool):
-    name = "uproc_default"
-    description = "Tool for uproc default operation - default operation"
-    
-    def __init__(self, credentials: Optional[UprocCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the uproc default operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running uproc default operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running uproc default operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the uproc default operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "uproc_default"
+    description: str = "Tool for uproc default operation - default operation"
+    args_schema: type[BaseModel] | None = UprocDefaultToolInput
+    credentials: Optional[UprocCredentials] = None

@@ -1,13 +1,14 @@
 # removeduplicates toolkit
-from langchain.tools import BaseTool
-from typing import List
+from agentic_tools.tools import BaseTool, BaseModel, Field
+from agentic_tools.toolkit import AgenticHubToolkit
+from typing import List, Optional, Dict, Any
 
 def get_removeduplicates_tools() -> List[BaseTool]:
     """Get all removeduplicates tools."""
     from . import operations
     return operations.get_tools()
 
-class RemoveduplicatesToolkit:
+class RemoveduplicatesToolkit(AgenticHubToolkit):
     """Toolkit for interacting with removeduplicates."""
 
     def __init__(self):
@@ -16,7 +17,7 @@ class RemoveduplicatesToolkit:
     def get_tools(self) -> List[BaseTool]:
         """Get all removeduplicates tools with the configured credentials."""
         from . import operations
-        tools = operations.get_tools()
+        return self.get_tools_from_operations(operations)
         return tools
 
     @staticmethod

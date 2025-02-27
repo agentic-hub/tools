@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class FreshworkscrmCredentials(BaseModel):
-    """Credentials for freshworksCrm authentication."""
-    freshworks_crm_api: Optional[Dict[str, Any]] = Field(None, description="freshworksCrmApi")
+from .. import FreshworkscrmCredentials
 
 class FreshworkscrmLookupToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[FreshworkscrmCredentials] = Field(None, description="Custom credentials for authentication")
     update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     appointment_id: Optional[str] = Field(None, description="ID of the appointment to delete")
     search_field: Optional[str] = Field(None, description="Field against which the entities have to be searched")
@@ -38,36 +33,7 @@ class FreshworkscrmLookupToolInput(BaseModel):
 
 
 class FreshworkscrmLookupTool(BaseTool):
-    name = "freshworkscrm_lookup"
-    description = "Tool for freshworksCrm lookup operation - lookup operation"
-    
-    def __init__(self, credentials: Optional[FreshworkscrmCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the freshworksCrm lookup operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running freshworksCrm lookup operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running freshworksCrm lookup operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the freshworksCrm lookup operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "freshworkscrm_lookup"
+    description: str = "Tool for freshworksCrm lookup operation - lookup operation"
+    args_schema: type[BaseModel] | None = FreshworkscrmLookupToolInput
+    credentials: Optional[FreshworkscrmCredentials] = None

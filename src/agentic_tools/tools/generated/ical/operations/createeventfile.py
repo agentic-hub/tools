@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class IcalCreateeventfileToolInput(BaseModel):
@@ -13,23 +12,6 @@ class IcalCreateeventfileToolInput(BaseModel):
 
 
 class IcalCreateeventfileTool(BaseTool):
-    name = "ical_createeventfile"
-    description = "Tool for iCal createEventFile operation - createEventFile operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the iCal createEventFile operation."""
-        # Implement the tool logic here
-        return f"Running iCal createEventFile operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the iCal createEventFile operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "ical_createeventfile"
+    description: str = "Tool for iCal createEventFile operation - createEventFile operation"
+    args_schema: type[BaseModel] | None = IcalCreateeventfileToolInput

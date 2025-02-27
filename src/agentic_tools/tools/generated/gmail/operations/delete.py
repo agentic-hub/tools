@@ -1,15 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class GmailCredentials(BaseModel):
-    """Credentials for gmail authentication."""
-    google_api: Optional[Dict[str, Any]] = Field(None, description="googleApi")
-    gmail_o_auth2: Optional[Dict[str, Any]] = Field(None, description="gmailOAuth2")
+from .. import GmailCredentials
 
 class GmailDeleteToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[GmailCredentials] = Field(None, description="Custom credentials for authentication")
     thread_id: Optional[str] = Field(None, description="The ID of the thread you are operating on")
     label_id: Optional[str] = Field(None, description="The ID of the label")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
@@ -29,36 +23,7 @@ class GmailDeleteToolInput(BaseModel):
 
 
 class GmailDeleteTool(BaseTool):
-    name = "gmail_delete"
-    description = "Tool for gmail delete operation - delete operation"
-    
-    def __init__(self, credentials: Optional[GmailCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the gmail delete operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running gmail delete operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running gmail delete operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the gmail delete operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "gmail_delete"
+    description: str = "Tool for gmail delete operation - delete operation"
+    args_schema: type[BaseModel] | None = GmailDeleteToolInput
+    credentials: Optional[GmailCredentials] = None

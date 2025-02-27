@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class PostgresCredentials(BaseModel):
-    """Credentials for postgres authentication."""
-    postgres: Optional[Dict[str, Any]] = Field(None, description="postgres")
+from .. import PostgresCredentials
 
 class PostgresDeletetableToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[PostgresCredentials] = Field(None, description="Custom credentials for authentication")
     table: Optional[str] = Field(None, description="By Name")
     values_to_send: Optional[Dict[str, Any]] = Field(None, description="Values to Send")
     restart_sequences: Optional[bool] = Field(None, description="Whether to reset identity (auto-increment) columns to their initial values")
@@ -29,36 +24,7 @@ class PostgresDeletetableToolInput(BaseModel):
 
 
 class PostgresDeletetableTool(BaseTool):
-    name = "postgres_deletetable"
-    description = "Tool for postgres deleteTable operation - deleteTable operation"
-    
-    def __init__(self, credentials: Optional[PostgresCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the postgres deleteTable operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running postgres deleteTable operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running postgres deleteTable operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the postgres deleteTable operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "postgres_deletetable"
+    description: str = "Tool for postgres deleteTable operation - deleteTable operation"
+    args_schema: type[BaseModel] | None = PostgresDeletetableToolInput
+    credentials: Optional[PostgresCredentials] = None

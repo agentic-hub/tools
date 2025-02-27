@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class HackernewsGetallToolInput(BaseModel):
@@ -11,23 +10,6 @@ class HackernewsGetallToolInput(BaseModel):
 
 
 class HackernewsGetallTool(BaseTool):
-    name = "hackernews_getall"
-    description = "Tool for hackerNews getAll operation - getAll operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the hackerNews getAll operation."""
-        # Implement the tool logic here
-        return f"Running hackerNews getAll operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the hackerNews getAll operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "hackernews_getall"
+    description: str = "Tool for hackerNews getAll operation - getAll operation"
+    args_schema: type[BaseModel] | None = HackernewsGetallToolInput

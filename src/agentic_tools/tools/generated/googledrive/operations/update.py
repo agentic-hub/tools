@@ -1,15 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class GoogledriveCredentials(BaseModel):
-    """Credentials for googleDrive authentication."""
-    google_api: Optional[Dict[str, Any]] = Field(None, description="googleApi")
-    google_drive_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="googleDriveOAuth2Api")
+from .. import GoogledriveCredentials
 
 class GoogledriveUpdateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[GoogledriveCredentials] = Field(None, description="Custom credentials for authentication")
     query_string: Optional[str] = Field(None, description="The name of the file or folder to search for. Returns also files and folders whose names partially match this search term.")
     change_file_content: Optional[bool] = Field(None, description="Whether to send a new binary data to update the file")
     file_id: Optional[Dict[str, Any]] = Field(None, description="The file to update")
@@ -29,36 +23,7 @@ class GoogledriveUpdateToolInput(BaseModel):
 
 
 class GoogledriveUpdateTool(BaseTool):
-    name = "googledrive_update"
-    description = "Tool for googleDrive update operation - update operation"
-    
-    def __init__(self, credentials: Optional[GoogledriveCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the googleDrive update operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running googleDrive update operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running googleDrive update operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the googleDrive update operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "googledrive_update"
+    description: str = "Tool for googleDrive update operation - update operation"
+    args_schema: type[BaseModel] | None = GoogledriveUpdateToolInput
+    credentials: Optional[GoogledriveCredentials] = None

@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class BrandfetchCredentials(BaseModel):
-    """Credentials for Brandfetch authentication."""
-    brandfetch_api: Optional[Dict[str, Any]] = Field(None, description="brandfetchApi")
+from .. import BrandfetchCredentials
 
 class BrandfetchFontToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[BrandfetchCredentials] = Field(None, description="Custom credentials for authentication")
     image_types: Optional[str] = Field(None, description="imageTypes")
     image_formats: Optional[str] = Field(None, description="imageFormats")
     operation: Optional[str] = Field(None, description="Operation")
@@ -16,36 +11,7 @@ class BrandfetchFontToolInput(BaseModel):
 
 
 class BrandfetchFontTool(BaseTool):
-    name = "brandfetch_font"
-    description = "Tool for Brandfetch font operation - font operation"
-    
-    def __init__(self, credentials: Optional[BrandfetchCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the Brandfetch font operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running Brandfetch font operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running Brandfetch font operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the Brandfetch font operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "brandfetch_font"
+    description: str = "Tool for Brandfetch font operation - font operation"
+    args_schema: type[BaseModel] | None = BrandfetchFontToolInput
+    credentials: Optional[BrandfetchCredentials] = None

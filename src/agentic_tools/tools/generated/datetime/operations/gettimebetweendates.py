@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class DatetimeGettimebetweendatesToolInput(BaseModel):
@@ -17,23 +16,6 @@ class DatetimeGettimebetweendatesToolInput(BaseModel):
 
 
 class DatetimeGettimebetweendatesTool(BaseTool):
-    name = "datetime_gettimebetweendates"
-    description = "Tool for dateTime getTimeBetweenDates operation - getTimeBetweenDates operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the dateTime getTimeBetweenDates operation."""
-        # Implement the tool logic here
-        return f"Running dateTime getTimeBetweenDates operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the dateTime getTimeBetweenDates operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "datetime_gettimebetweendates"
+    description: str = "Tool for dateTime getTimeBetweenDates operation - getTimeBetweenDates operation"
+    args_schema: type[BaseModel] | None = DatetimeGettimebetweendatesToolInput

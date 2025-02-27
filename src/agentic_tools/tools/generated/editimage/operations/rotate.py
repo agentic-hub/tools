@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class EditimageRotateToolInput(BaseModel):
@@ -16,23 +15,6 @@ class EditimageRotateToolInput(BaseModel):
 
 
 class EditimageRotateTool(BaseTool):
-    name = "editimage_rotate"
-    description = "Tool for editImage rotate operation - rotate operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the editImage rotate operation."""
-        # Implement the tool logic here
-        return f"Running editImage rotate operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the editImage rotate operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "editimage_rotate"
+    description: str = "Tool for editImage rotate operation - rotate operation"
+    args_schema: type[BaseModel] | None = EditimageRotateToolInput

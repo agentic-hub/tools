@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class AggregateDefaultToolInput(BaseModel):
@@ -13,23 +12,6 @@ class AggregateDefaultToolInput(BaseModel):
 
 
 class AggregateDefaultTool(BaseTool):
-    name = "aggregate_default"
-    description = "Tool for aggregate default operation - default operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the aggregate default operation."""
-        # Implement the tool logic here
-        return f"Running aggregate default operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the aggregate default operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "aggregate_default"
+    description: str = "Tool for aggregate default operation - default operation"
+    args_schema: type[BaseModel] | None = AggregateDefaultToolInput

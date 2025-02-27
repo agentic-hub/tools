@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class HtmlConverttohtmltableToolInput(BaseModel):
@@ -10,23 +9,6 @@ class HtmlConverttohtmltableToolInput(BaseModel):
 
 
 class HtmlConverttohtmltableTool(BaseTool):
-    name = "html_converttohtmltable"
-    description = "Tool for html convertToHtmlTable operation - convertToHtmlTable operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the html convertToHtmlTable operation."""
-        # Implement the tool logic here
-        return f"Running html convertToHtmlTable operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the html convertToHtmlTable operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "html_converttohtmltable"
+    description: str = "Tool for html convertToHtmlTable operation - convertToHtmlTable operation"
+    args_schema: type[BaseModel] | None = HtmlConverttohtmltableToolInput

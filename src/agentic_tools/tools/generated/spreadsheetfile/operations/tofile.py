@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class SpreadsheetfileTofileToolInput(BaseModel):
@@ -10,23 +9,6 @@ class SpreadsheetfileTofileToolInput(BaseModel):
 
 
 class SpreadsheetfileTofileTool(BaseTool):
-    name = "spreadsheetfile_tofile"
-    description = "Tool for spreadsheetFile toFile operation - toFile operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the spreadsheetFile toFile operation."""
-        # Implement the tool logic here
-        return f"Running spreadsheetFile toFile operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the spreadsheetFile toFile operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "spreadsheetfile_tofile"
+    description: str = "Tool for spreadsheetFile toFile operation - toFile operation"
+    args_schema: type[BaseModel] | None = SpreadsheetfileTofileToolInput

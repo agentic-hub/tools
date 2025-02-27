@@ -1,6 +1,6 @@
 # demio operations
 from typing import List
-from langchain.tools import BaseTool
+from agentic_tools.tools import BaseTool, BaseModel
 from .. import DemioCredentials
 
 def get_tools() -> List[BaseTool]:

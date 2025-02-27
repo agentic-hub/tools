@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class ThehiveprojectCredentials(BaseModel):
-    """Credentials for theHiveProject authentication."""
-    the_hive_project_api: Optional[Dict[str, Any]] = Field(None, description="theHiveProjectApi")
+from .. import ThehiveprojectCredentials
 
 class ThehiveprojectDeleteattachmentToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[ThehiveprojectCredentials] = Field(None, description="Custom credentials for authentication")
     sort: Optional[Dict[str, Any]] = Field(None, description="Sort")
     content: Optional[str] = Field(None, description="Content")
     location: Optional[str] = Field(None, description="Create in")
@@ -45,36 +40,7 @@ class ThehiveprojectDeleteattachmentToolInput(BaseModel):
 
 
 class ThehiveprojectDeleteattachmentTool(BaseTool):
-    name = "thehiveproject_deleteattachment"
-    description = "Tool for theHiveProject deleteAttachment operation - deleteAttachment operation"
-    
-    def __init__(self, credentials: Optional[ThehiveprojectCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the theHiveProject deleteAttachment operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running theHiveProject deleteAttachment operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running theHiveProject deleteAttachment operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the theHiveProject deleteAttachment operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "thehiveproject_deleteattachment"
+    description: str = "Tool for theHiveProject deleteAttachment operation - deleteAttachment operation"
+    args_schema: type[BaseModel] | None = ThehiveprojectDeleteattachmentToolInput
+    credentials: Optional[ThehiveprojectCredentials] = None

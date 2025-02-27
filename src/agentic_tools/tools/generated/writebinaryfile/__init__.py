@@ -1,13 +1,14 @@
 # writebinaryfile toolkit
-from langchain.tools import BaseTool
-from typing import List
+from agentic_tools.tools import BaseTool, BaseModel, Field
+from agentic_tools.toolkit import AgenticHubToolkit
+from typing import List, Optional, Dict, Any
 
 def get_writebinaryfile_tools() -> List[BaseTool]:
     """Get all writebinaryfile tools."""
     from . import operations
     return operations.get_tools()
 
-class WritebinaryfileToolkit:
+class WritebinaryfileToolkit(AgenticHubToolkit):
     """Toolkit for interacting with writebinaryfile."""
 
     def __init__(self):
@@ -16,7 +17,7 @@ class WritebinaryfileToolkit:
     def get_tools(self) -> List[BaseTool]:
         """Get all writebinaryfile tools with the configured credentials."""
         from . import operations
-        tools = operations.get_tools()
+        return self.get_tools_from_operations(operations)
         return tools
 
     @staticmethod

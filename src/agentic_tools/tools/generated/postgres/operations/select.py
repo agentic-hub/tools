@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class PostgresCredentials(BaseModel):
-    """Credentials for postgres authentication."""
-    postgres: Optional[Dict[str, Any]] = Field(None, description="postgres")
+from .. import PostgresCredentials
 
 class PostgresSelectToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[PostgresCredentials] = Field(None, description="Custom credentials for authentication")
     sort: Optional[Dict[str, Any]] = Field(None, description="Sort")
     table: Optional[str] = Field(None, description="By Name")
     values_to_send: Optional[Dict[str, Any]] = Field(None, description="Values to Send")
@@ -30,36 +25,7 @@ class PostgresSelectToolInput(BaseModel):
 
 
 class PostgresSelectTool(BaseTool):
-    name = "postgres_select"
-    description = "Tool for postgres select operation - select operation"
-    
-    def __init__(self, credentials: Optional[PostgresCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the postgres select operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running postgres select operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running postgres select operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the postgres select operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "postgres_select"
+    description: str = "Tool for postgres select operation - select operation"
+    args_schema: type[BaseModel] | None = PostgresSelectToolInput
+    credentials: Optional[PostgresCredentials] = None

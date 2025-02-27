@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class StripeCredentials(BaseModel):
-    """Credentials for stripe authentication."""
-    stripe_api: Optional[Dict[str, Any]] = Field(None, description="stripeApi")
+from .. import StripeCredentials
 
 class StripeUpdateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[StripeCredentials] = Field(None, description="Custom credentials for authentication")
     update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     customer_id: Optional[str] = Field(None, description="ID of the customer to update")
     type: Optional[str] = Field(None, description="Whether the coupon discount is a percentage or a fixed amount")
@@ -24,36 +19,7 @@ class StripeUpdateToolInput(BaseModel):
 
 
 class StripeUpdateTool(BaseTool):
-    name = "stripe_update"
-    description = "Tool for stripe update operation - update operation"
-    
-    def __init__(self, credentials: Optional[StripeCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the stripe update operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running stripe update operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running stripe update operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the stripe update operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "stripe_update"
+    description: str = "Tool for stripe update operation - update operation"
+    args_schema: type[BaseModel] | None = StripeUpdateToolInput
+    credentials: Optional[StripeCredentials] = None

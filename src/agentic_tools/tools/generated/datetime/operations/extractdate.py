@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class DatetimeExtractdateToolInput(BaseModel):
@@ -16,23 +15,6 @@ class DatetimeExtractdateToolInput(BaseModel):
 
 
 class DatetimeExtractdateTool(BaseTool):
-    name = "datetime_extractdate"
-    description = "Tool for dateTime extractDate operation - extractDate operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the dateTime extractDate operation."""
-        # Implement the tool logic here
-        return f"Running dateTime extractDate operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the dateTime extractDate operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "datetime_extractdate"
+    description: str = "Tool for dateTime extractDate operation - extractDate operation"
+    args_schema: type[BaseModel] | None = DatetimeExtractdateToolInput

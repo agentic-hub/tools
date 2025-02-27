@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class CoingeckoGetToolInput(BaseModel):
@@ -18,23 +17,6 @@ class CoingeckoGetToolInput(BaseModel):
 
 
 class CoingeckoGetTool(BaseTool):
-    name = "coingecko_get"
-    description = "Tool for coinGecko get operation - get operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the coinGecko get operation."""
-        # Implement the tool logic here
-        return f"Running coinGecko get operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the coinGecko get operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "coingecko_get"
+    description: str = "Tool for coinGecko get operation - get operation"
+    args_schema: type[BaseModel] | None = CoingeckoGetToolInput

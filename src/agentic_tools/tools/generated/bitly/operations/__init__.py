@@ -1,6 +1,6 @@
 # bitly operations
 from typing import List
-from langchain.tools import BaseTool
+from agentic_tools.tools import BaseTool, BaseModel
 from .. import BitlyCredentials
 
 def get_tools() -> List[BaseTool]:

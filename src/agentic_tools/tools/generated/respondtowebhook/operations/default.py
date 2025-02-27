@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class RespondtowebhookDefaultToolInput(BaseModel):
@@ -14,23 +13,6 @@ class RespondtowebhookDefaultToolInput(BaseModel):
 
 
 class RespondtowebhookDefaultTool(BaseTool):
-    name = "respondtowebhook_default"
-    description = "Tool for respondToWebhook default operation - default operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the respondToWebhook default operation."""
-        # Implement the tool logic here
-        return f"Running respondToWebhook default operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the respondToWebhook default operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "respondtowebhook_default"
+    description: str = "Tool for respondToWebhook default operation - default operation"
+    args_schema: type[BaseModel] | None = RespondtowebhookDefaultToolInput

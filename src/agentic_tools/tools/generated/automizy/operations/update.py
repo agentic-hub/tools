@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class AutomizyCredentials(BaseModel):
-    """Credentials for automizy authentication."""
-    automizy_api: Optional[Dict[str, Any]] = Field(None, description="automizyApi")
+from .. import AutomizyCredentials
 
 class AutomizyUpdateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[AutomizyCredentials] = Field(None, description="Custom credentials for authentication")
     update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     name: Optional[str] = Field(None, description="Name")
     additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
@@ -22,36 +17,7 @@ class AutomizyUpdateToolInput(BaseModel):
 
 
 class AutomizyUpdateTool(BaseTool):
-    name = "automizy_update"
-    description = "Tool for automizy update operation - update operation"
-    
-    def __init__(self, credentials: Optional[AutomizyCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the automizy update operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running automizy update operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running automizy update operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the automizy update operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "automizy_update"
+    description: str = "Tool for automizy update operation - update operation"
+    args_schema: type[BaseModel] | None = AutomizyUpdateToolInput
+    credentials: Optional[AutomizyCredentials] = None

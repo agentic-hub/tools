@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class InvoiceninjaCredentials(BaseModel):
-    """Credentials for invoiceNinja authentication."""
-    invoice_ninja_api: Optional[Dict[str, Any]] = Field(None, description="invoiceNinjaApi")
+from .. import InvoiceninjaCredentials
 
 class InvoiceninjaDeleteToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[InvoiceninjaCredentials] = Field(None, description="Custom credentials for authentication")
     invoice_id: Optional[str] = Field(None, description="Invoice ID")
     invoice_items_ui: Optional[Dict[str, Any]] = Field(None, description="Invoice Items")
     expense_id: Optional[str] = Field(None, description="Expense ID")
@@ -26,36 +21,7 @@ class InvoiceninjaDeleteToolInput(BaseModel):
 
 
 class InvoiceninjaDeleteTool(BaseTool):
-    name = "invoiceninja_delete"
-    description = "Tool for invoiceNinja delete operation - delete operation"
-    
-    def __init__(self, credentials: Optional[InvoiceninjaCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the invoiceNinja delete operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running invoiceNinja delete operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running invoiceNinja delete operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the invoiceNinja delete operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "invoiceninja_delete"
+    description: str = "Tool for invoiceNinja delete operation - delete operation"
+    args_schema: type[BaseModel] | None = InvoiceninjaDeleteToolInput
+    credentials: Optional[InvoiceninjaCredentials] = None

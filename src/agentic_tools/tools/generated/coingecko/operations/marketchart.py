@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class CoingeckoMarketchartToolInput(BaseModel):
@@ -20,23 +19,6 @@ class CoingeckoMarketchartToolInput(BaseModel):
 
 
 class CoingeckoMarketchartTool(BaseTool):
-    name = "coingecko_marketchart"
-    description = "Tool for coinGecko marketChart operation - marketChart operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the coinGecko marketChart operation."""
-        # Implement the tool logic here
-        return f"Running coinGecko marketChart operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the coinGecko marketChart operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "coingecko_marketchart"
+    description: str = "Tool for coinGecko marketChart operation - marketChart operation"
+    args_schema: type[BaseModel] | None = CoingeckoMarketchartToolInput

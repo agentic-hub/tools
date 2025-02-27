@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class S3Credentials(BaseModel):
-    """Credentials for s3 authentication."""
-    s3: Optional[Dict[str, Any]] = Field(None, description="s3")
+from .. import S3Credentials
 
 class S3DeleteToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[S3Credentials] = Field(None, description="Custom credentials for authentication")
     folder_key: Optional[str] = Field(None, description="Folder Key")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     binary_property_name: Optional[str] = Field(None, description="Input Binary Field")
@@ -24,36 +19,7 @@ class S3DeleteToolInput(BaseModel):
 
 
 class S3DeleteTool(BaseTool):
-    name = "s3_delete"
-    description = "Tool for s3 delete operation - delete operation"
-    
-    def __init__(self, credentials: Optional[S3Credentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the s3 delete operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running s3 delete operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running s3 delete operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the s3 delete operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "s3_delete"
+    description: str = "Tool for s3 delete operation - delete operation"
+    args_schema: type[BaseModel] | None = S3DeleteToolInput
+    credentials: Optional[S3Credentials] = None

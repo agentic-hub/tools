@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class ZulipCredentials(BaseModel):
-    """Credentials for zulip authentication."""
-    zulip_api: Optional[Dict[str, Any]] = Field(None, description="zulipApi")
+from .. import ZulipCredentials
 
 class ZulipCreateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[ZulipCredentials] = Field(None, description="Custom credentials for authentication")
     content: Optional[str] = Field(None, description="The content of the message")
     full_name: Optional[str] = Field(None, description="The full name of the new user")
     json_parameters: Optional[bool] = Field(None, description="JSON Parameters")
@@ -27,36 +22,7 @@ class ZulipCreateToolInput(BaseModel):
 
 
 class ZulipCreateTool(BaseTool):
-    name = "zulip_create"
-    description = "Tool for zulip create operation - create operation"
-    
-    def __init__(self, credentials: Optional[ZulipCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the zulip create operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running zulip create operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running zulip create operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the zulip create operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "zulip_create"
+    description: str = "Tool for zulip create operation - create operation"
+    args_schema: type[BaseModel] | None = ZulipCreateToolInput
+    credentials: Optional[ZulipCredentials] = None

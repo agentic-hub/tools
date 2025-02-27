@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class MysqlCredentials(BaseModel):
-    """Credentials for mySql authentication."""
-    my_sql: Optional[Dict[str, Any]] = Field(None, description="mySql")
+from .. import MysqlCredentials
 
 class MysqlUpsertToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[MysqlCredentials] = Field(None, description="Custom credentials for authentication")
     data_mode: Optional[str] = Field(None, description="Whether to map node input properties and the table data automatically or manually")
     resource: Optional[str] = Field(None, description="Resource")
     table: Optional[str] = Field(None, description="Name")
@@ -25,36 +20,7 @@ class MysqlUpsertToolInput(BaseModel):
 
 
 class MysqlUpsertTool(BaseTool):
-    name = "mysql_upsert"
-    description = "Tool for mySql upsert operation - upsert operation"
-    
-    def __init__(self, credentials: Optional[MysqlCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the mySql upsert operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running mySql upsert operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running mySql upsert operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the mySql upsert operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "mysql_upsert"
+    description: str = "Tool for mySql upsert operation - upsert operation"
+    args_schema: type[BaseModel] | None = MysqlUpsertToolInput
+    credentials: Optional[MysqlCredentials] = None

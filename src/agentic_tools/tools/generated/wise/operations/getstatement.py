@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class WiseCredentials(BaseModel):
-    """Credentials for wise authentication."""
-    wise_api: Optional[Dict[str, Any]] = Field(None, description="wiseApi")
+from .. import WiseCredentials
 
 class WiseGetstatementToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[WiseCredentials] = Field(None, description="Custom credentials for authentication")
     format: Optional[str] = Field(None, description="File format to retrieve the statement in")
     quote_id: Optional[str] = Field(None, description="ID of the quote to retrieve")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
@@ -26,36 +21,7 @@ class WiseGetstatementToolInput(BaseModel):
 
 
 class WiseGetstatementTool(BaseTool):
-    name = "wise_getstatement"
-    description = "Tool for wise getStatement operation - getStatement operation"
-    
-    def __init__(self, credentials: Optional[WiseCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the wise getStatement operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running wise getStatement operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running wise getStatement operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the wise getStatement operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "wise_getstatement"
+    description: str = "Tool for wise getStatement operation - getStatement operation"
+    args_schema: type[BaseModel] | None = WiseGetstatementToolInput
+    credentials: Optional[WiseCredentials] = None

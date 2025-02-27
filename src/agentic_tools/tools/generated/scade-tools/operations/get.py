@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class Scade-toolsCredentials(BaseModel):
-    """Credentials for scade-tools authentication."""
-    n8n_api: Optional[Dict[str, Any]] = Field(None, description="n8nApi")
+from .. import Scade-toolsCredentials
 
 class Scade-toolsGetToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[Scade-toolsCredentials] = Field(None, description="Custom credentials for authentication")
     filters: Optional[Dict[str, Any]] = Field(None, description="Filters")
     workflow_id: Optional[Dict[str, Any]] = Field(None, description="Workflow to filter the executions by")
     resource: Optional[str] = Field(None, description="Resource")
@@ -23,36 +18,7 @@ class Scade-toolsGetToolInput(BaseModel):
 
 
 class Scade-toolsGetTool(BaseTool):
-    name = "scade-tools_get"
-    description = "Tool for scade-tools get operation - get operation"
-    
-    def __init__(self, credentials: Optional[Scade-toolsCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the scade-tools get operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running scade-tools get operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running scade-tools get operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the scade-tools get operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "scade-tools_get"
+    description: str = "Tool for scade-tools get operation - get operation"
+    args_schema: type[BaseModel] | None = Scade-toolsGetToolInput
+    credentials: Optional[Scade-toolsCredentials] = None

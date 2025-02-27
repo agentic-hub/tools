@@ -1,6 +1,6 @@
 # signl4 operations
 from typing import List
-from langchain.tools import BaseTool
+from agentic_tools.tools import BaseTool, BaseModel
 from .. import Signl4Credentials
 
 def get_tools() -> List[BaseTool]:

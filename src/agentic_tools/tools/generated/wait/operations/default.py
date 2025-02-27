@@ -1,15 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class WaitCredentials(BaseModel):
-    """Credentials for wait authentication."""
-    http_basic_auth: Optional[Dict[str, Any]] = Field(None, description="httpBasicAuth")
-    http_header_auth: Optional[Dict[str, Any]] = Field(None, description="httpHeaderAuth")
+from .. import WaitCredentials
 
 class WaitDefaultToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[WaitCredentials] = Field(None, description="Custom credentials for authentication")
     webhook_notice: Optional[str] = Field(None, description="The webhook URL will be generated at run time. It can be referenced with the <strong>$execution.resumeUrl</strong> variable. Send it somewhere before getting to this node. <a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.wait/?utm_source=n8n_app&utm_medium=node_settings_modal-credential_link&utm_campaign=n8n-nodes-base.wait\" target=\"_blank\">More info</a>")
     form_fields: Optional[Dict[str, Any]] = Field(None, description="Form Fields")
     limit_wait_time: Optional[bool] = Field(None, description="Whether the workflow will automatically resume execution after the specified limit type")
@@ -34,36 +28,7 @@ class WaitDefaultToolInput(BaseModel):
 
 
 class WaitDefaultTool(BaseTool):
-    name = "wait_default"
-    description = "Tool for wait default operation - default operation"
-    
-    def __init__(self, credentials: Optional[WaitCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the wait default operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running wait default operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running wait default operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the wait default operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "wait_default"
+    description: str = "Tool for wait default operation - default operation"
+    args_schema: type[BaseModel] | None = WaitDefaultToolInput
+    credentials: Optional[WaitCredentials] = None

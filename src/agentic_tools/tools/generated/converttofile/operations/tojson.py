@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ConverttofileTojsonToolInput(BaseModel):
@@ -10,23 +9,6 @@ class ConverttofileTojsonToolInput(BaseModel):
 
 
 class ConverttofileTojsonTool(BaseTool):
-    name = "converttofile_tojson"
-    description = "Tool for convertToFile toJson operation - toJson operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the convertToFile toJson operation."""
-        # Implement the tool logic here
-        return f"Running convertToFile toJson operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the convertToFile toJson operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "converttofile_tojson"
+    description: str = "Tool for convertToFile toJson operation - toJson operation"
+    args_schema: type[BaseModel] | None = ConverttofileTojsonToolInput

@@ -1,15 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class GooglesheetsCredentials(BaseModel):
-    """Credentials for googleSheets authentication."""
-    google_api: Optional[Dict[str, Any]] = Field(None, description="googleApi")
-    google_sheets_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="googleSheetsOAuth2Api")
+from .. import GooglesheetsCredentials
 
 class GooglesheetsReadToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[GooglesheetsCredentials] = Field(None, description="Custom credentials for authentication")
     start_index: Optional[float] = Field(None, description="The row number to delete from, The first row is 1")
     document_id: Optional[Dict[str, Any]] = Field(None, description="Document")
     operation: Optional[str] = Field(None, description="Operation")
@@ -28,36 +22,7 @@ class GooglesheetsReadToolInput(BaseModel):
 
 
 class GooglesheetsReadTool(BaseTool):
-    name = "googlesheets_read"
-    description = "Tool for googleSheets read operation - read operation"
-    
-    def __init__(self, credentials: Optional[GooglesheetsCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the googleSheets read operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running googleSheets read operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running googleSheets read operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the googleSheets read operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "googlesheets_read"
+    description: str = "Tool for googleSheets read operation - read operation"
+    args_schema: type[BaseModel] | None = GooglesheetsReadToolInput
+    credentials: Optional[GooglesheetsCredentials] = None

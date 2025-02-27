@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ExtractfromfileRtfToolInput(BaseModel):
@@ -9,23 +8,6 @@ class ExtractfromfileRtfToolInput(BaseModel):
 
 
 class ExtractfromfileRtfTool(BaseTool):
-    name = "extractfromfile_rtf"
-    description = "Tool for extractFromFile rtf operation - rtf operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the extractFromFile rtf operation."""
-        # Implement the tool logic here
-        return f"Running extractFromFile rtf operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the extractFromFile rtf operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "extractfromfile_rtf"
+    description: str = "Tool for extractFromFile rtf operation - rtf operation"
+    args_schema: type[BaseModel] | None = ExtractfromfileRtfToolInput

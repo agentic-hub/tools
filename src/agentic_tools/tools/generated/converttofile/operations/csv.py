@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ConverttofileCsvToolInput(BaseModel):
@@ -9,23 +8,6 @@ class ConverttofileCsvToolInput(BaseModel):
 
 
 class ConverttofileCsvTool(BaseTool):
-    name = "converttofile_csv"
-    description = "Tool for convertToFile csv operation - csv operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the convertToFile csv operation."""
-        # Implement the tool logic here
-        return f"Running convertToFile csv operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the convertToFile csv operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "converttofile_csv"
+    description: str = "Tool for convertToFile csv operation - csv operation"
+    args_schema: type[BaseModel] | None = ConverttofileCsvToolInput

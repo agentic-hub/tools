@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ItemlistsRemoveduplicatesToolInput(BaseModel):
@@ -15,23 +14,6 @@ class ItemlistsRemoveduplicatesToolInput(BaseModel):
 
 
 class ItemlistsRemoveduplicatesTool(BaseTool):
-    name = "itemlists_removeduplicates"
-    description = "Tool for itemLists removeDuplicates operation - removeDuplicates operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the itemLists removeDuplicates operation."""
-        # Implement the tool logic here
-        return f"Running itemLists removeDuplicates operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the itemLists removeDuplicates operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "itemlists_removeduplicates"
+    description: str = "Tool for itemLists removeDuplicates operation - removeDuplicates operation"
+    args_schema: type[BaseModel] | None = ItemlistsRemoveduplicatesToolInput

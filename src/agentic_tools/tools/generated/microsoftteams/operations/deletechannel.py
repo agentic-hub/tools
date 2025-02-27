@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class MicrosoftteamsCredentials(BaseModel):
-    """Credentials for microsoftTeams authentication."""
-    microsoft_teams_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="microsoftTeamsOAuth2Api")
+from .. import MicrosoftteamsCredentials
 
 class MicrosoftteamsDeletechannelToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[MicrosoftteamsCredentials] = Field(None, description="Custom credentials for authentication")
     team_id: Optional[Dict[str, Any]] = Field(None, description="Select the team from the list, by URL, or by ID (the ID is the \"groupId\" parameter in the URL you get from \"Get a link to the team\")")
     channel_id: Optional[Dict[str, Any]] = Field(None, description="Select the channel from the list, by URL, or by ID (the ID is the \"threadId\" in the URL)")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
@@ -26,36 +21,7 @@ class MicrosoftteamsDeletechannelToolInput(BaseModel):
 
 
 class MicrosoftteamsDeletechannelTool(BaseTool):
-    name = "microsoftteams_deletechannel"
-    description = "Tool for microsoftTeams deleteChannel operation - deleteChannel operation"
-    
-    def __init__(self, credentials: Optional[MicrosoftteamsCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the microsoftTeams deleteChannel operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running microsoftTeams deleteChannel operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running microsoftTeams deleteChannel operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the microsoftTeams deleteChannel operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "microsoftteams_deletechannel"
+    description: str = "Tool for microsoftTeams deleteChannel operation - deleteChannel operation"
+    args_schema: type[BaseModel] | None = MicrosoftteamsDeletechannelToolInput
+    credentials: Optional[MicrosoftteamsCredentials] = None

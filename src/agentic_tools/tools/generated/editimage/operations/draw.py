@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class EditimageDrawToolInput(BaseModel):
@@ -21,23 +20,6 @@ class EditimageDrawToolInput(BaseModel):
 
 
 class EditimageDrawTool(BaseTool):
-    name = "editimage_draw"
-    description = "Tool for editImage draw operation - draw operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the editImage draw operation."""
-        # Implement the tool logic here
-        return f"Running editImage draw operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the editImage draw operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "editimage_draw"
+    description: str = "Tool for editImage draw operation - draw operation"
+    args_schema: type[BaseModel] | None = EditimageDrawToolInput

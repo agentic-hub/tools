@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class ContentfulCredentials(BaseModel):
-    """Credentials for contentful authentication."""
-    contentful_api: Optional[Dict[str, Any]] = Field(None, description="contentfulApi")
+from .. import ContentfulCredentials
 
 class ContentfulGetallToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[ContentfulCredentials] = Field(None, description="Custom credentials for authentication")
     source: Optional[str] = Field(None, description="Pick where your data comes from, delivery or preview API")
     resource: Optional[str] = Field(None, description="Resource")
     additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
@@ -19,36 +14,7 @@ class ContentfulGetallToolInput(BaseModel):
 
 
 class ContentfulGetallTool(BaseTool):
-    name = "contentful_getall"
-    description = "Tool for contentful getAll operation - getAll operation"
-    
-    def __init__(self, credentials: Optional[ContentfulCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the contentful getAll operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running contentful getAll operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running contentful getAll operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the contentful getAll operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "contentful_getall"
+    description: str = "Tool for contentful getAll operation - getAll operation"
+    args_schema: type[BaseModel] | None = ContentfulGetallToolInput
+    credentials: Optional[ContentfulCredentials] = None

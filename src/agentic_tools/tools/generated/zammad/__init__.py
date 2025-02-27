@@ -1,22 +1,38 @@
 # zammad toolkit
-from langchain.tools import BaseTool
-from typing import List
+from agentic_tools.tools import BaseTool, BaseModel, Field
+from agentic_tools.toolkit import AgenticHubToolkit
+from typing import List, Optional, Dict, Any
 
 def get_zammad_tools() -> List[BaseTool]:
     """Get all zammad tools."""
     from . import operations
     return operations.get_tools()
 
-class ZammadToolkit:
+class ZammadCredentials(BaseModel):
+    """Credentials for zammad authentication."""
+    zammad_basic_auth_api: Optional[Dict[str, Any]] = Field(None, description="zammadBasicAuthApi")
+    zammad_token_auth_api: Optional[Dict[str, Any]] = Field(None, description="zammadTokenAuthApi")
+
+class ZammadToolkit(AgenticHubToolkit):
     """Toolkit for interacting with zammad."""
 
-    def __init__(self):
-        """Initialize the zammad toolkit."""
+    def __init__(self, credentials: Optional[ZammadCredentials] = None):
+        """Initialize the zammad toolkit with optional credentials.
+
+        Args:
+            credentials: ZammadCredentials object containing authentication credentials
+        """
+        self.credentials = credentials
 
     def get_tools(self) -> List[BaseTool]:
         """Get all zammad tools with the configured credentials."""
         from . import operations
-        tools = operations.get_tools()
+        return self.get_tools_from_operations(operations)
+        # Apply credentials to each tool if provided
+        if self.credentials:
+            for tool in tools:
+                # Set credentials on each tool instance
+                tool.credentials = self.credentials
         return tools
 
     @staticmethod

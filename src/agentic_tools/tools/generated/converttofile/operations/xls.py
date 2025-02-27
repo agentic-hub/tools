@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ConverttofileXlsToolInput(BaseModel):
@@ -9,23 +8,6 @@ class ConverttofileXlsToolInput(BaseModel):
 
 
 class ConverttofileXlsTool(BaseTool):
-    name = "converttofile_xls"
-    description = "Tool for convertToFile xls operation - xls operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the convertToFile xls operation."""
-        # Implement the tool logic here
-        return f"Running convertToFile xls operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the convertToFile xls operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "converttofile_xls"
+    description: str = "Tool for convertToFile xls operation - xls operation"
+    args_schema: type[BaseModel] | None = ConverttofileXlsToolInput

@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class XmlDefaultToolInput(BaseModel):
@@ -10,23 +9,6 @@ class XmlDefaultToolInput(BaseModel):
 
 
 class XmlDefaultTool(BaseTool):
-    name = "xml_default"
-    description = "Tool for xml default operation - default operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the xml default operation."""
-        # Implement the tool logic here
-        return f"Running xml default operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the xml default operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "xml_default"
+    description: str = "Tool for xml default operation - default operation"
+    args_schema: type[BaseModel] | None = XmlDefaultToolInput

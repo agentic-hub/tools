@@ -1,6 +1,6 @@
 # googleAnalytics operations
 from typing import List
-from langchain.tools import BaseTool
+from agentic_tools.tools import BaseTool, BaseModel
 from .. import GoogleanalyticsCredentials
 
 def get_tools() -> List[BaseTool]:

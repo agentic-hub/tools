@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class SpotifyCredentials(BaseModel):
-    """Credentials for spotify authentication."""
-    spotify_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="spotifyOAuth2Api")
+from .. import SpotifyCredentials
 
 class SpotifyGettracksToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[SpotifyCredentials] = Field(None, description="Custom credentials for authentication")
     filters: Optional[Dict[str, Any]] = Field(None, description="Filters")
     resource: Optional[str] = Field(None, description="Resource")
     additional_fields: Optional[Dict[str, Any]] = Field(None, description="Additional Fields")
@@ -20,36 +15,7 @@ class SpotifyGettracksToolInput(BaseModel):
 
 
 class SpotifyGettracksTool(BaseTool):
-    name = "spotify_gettracks"
-    description = "Tool for spotify getTracks operation - getTracks operation"
-    
-    def __init__(self, credentials: Optional[SpotifyCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the spotify getTracks operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running spotify getTracks operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running spotify getTracks operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the spotify getTracks operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "spotify_gettracks"
+    description: str = "Tool for spotify getTracks operation - getTracks operation"
+    args_schema: type[BaseModel] | None = SpotifyGettracksToolInput
+    credentials: Optional[SpotifyCredentials] = None

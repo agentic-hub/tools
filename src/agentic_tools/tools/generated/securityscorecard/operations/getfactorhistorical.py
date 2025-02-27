@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class SecurityscorecardCredentials(BaseModel):
-    """Credentials for securityScorecard authentication."""
-    security_scorecard_api: Optional[Dict[str, Any]] = Field(None, description="securityScorecardApi")
+from .. import SecurityscorecardCredentials
 
 class SecurityscorecardGetfactorhistoricalToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[SecurityscorecardCredentials] = Field(None, description="Custom credentials for authentication")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
     operation: Optional[str] = Field(None, description="Operation")
     limit: Optional[float] = Field(None, description="Max number of results to return")
@@ -22,36 +17,7 @@ class SecurityscorecardGetfactorhistoricalToolInput(BaseModel):
 
 
 class SecurityscorecardGetfactorhistoricalTool(BaseTool):
-    name = "securityscorecard_getfactorhistorical"
-    description = "Tool for securityScorecard getFactorHistorical operation - getFactorHistorical operation"
-    
-    def __init__(self, credentials: Optional[SecurityscorecardCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the securityScorecard getFactorHistorical operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running securityScorecard getFactorHistorical operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running securityScorecard getFactorHistorical operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the securityScorecard getFactorHistorical operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "securityscorecard_getfactorhistorical"
+    description: str = "Tool for securityScorecard getFactorHistorical operation - getFactorHistorical operation"
+    args_schema: type[BaseModel] | None = SecurityscorecardGetfactorhistoricalToolInput
+    credentials: Optional[SecurityscorecardCredentials] = None

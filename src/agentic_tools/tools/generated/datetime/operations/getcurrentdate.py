@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class DatetimeGetcurrentdateToolInput(BaseModel):
@@ -16,23 +15,6 @@ class DatetimeGetcurrentdateToolInput(BaseModel):
 
 
 class DatetimeGetcurrentdateTool(BaseTool):
-    name = "datetime_getcurrentdate"
-    description = "Tool for dateTime getCurrentDate operation - getCurrentDate operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the dateTime getCurrentDate operation."""
-        # Implement the tool logic here
-        return f"Running dateTime getCurrentDate operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the dateTime getCurrentDate operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "datetime_getcurrentdate"
+    description: str = "Tool for dateTime getCurrentDate operation - getCurrentDate operation"
+    args_schema: type[BaseModel] | None = DatetimeGetcurrentdateToolInput

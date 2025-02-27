@@ -1,14 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class SplunkCredentials(BaseModel):
-    """Credentials for splunk authentication."""
-    splunk_api: Optional[Dict[str, Any]] = Field(None, description="splunkApi")
+from .. import SplunkCredentials
 
 class SplunkGetreportToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[SplunkCredentials] = Field(None, description="Custom credentials for authentication")
     search_configuration_id: Optional[str] = Field(None, description="ID of the search configuration to delete")
     user_id: Optional[str] = Field(None, description="ID of the user to delete")
     return_all: Optional[bool] = Field(None, description="Whether to return all results or only up to a given limit")
@@ -22,36 +17,7 @@ class SplunkGetreportToolInput(BaseModel):
 
 
 class SplunkGetreportTool(BaseTool):
-    name = "splunk_getreport"
-    description = "Tool for splunk getReport operation - getReport operation"
-    
-    def __init__(self, credentials: Optional[SplunkCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the splunk getReport operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running splunk getReport operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running splunk getReport operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the splunk getReport operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "splunk_getreport"
+    description: str = "Tool for splunk getReport operation - getReport operation"
+    args_schema: type[BaseModel] | None = SplunkGetreportToolInput
+    credentials: Optional[SplunkCredentials] = None

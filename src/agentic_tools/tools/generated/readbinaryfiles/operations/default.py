@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ReadbinaryfilesDefaultToolInput(BaseModel):
@@ -8,23 +7,6 @@ class ReadbinaryfilesDefaultToolInput(BaseModel):
 
 
 class ReadbinaryfilesDefaultTool(BaseTool):
-    name = "readbinaryfiles_default"
-    description = "Tool for readBinaryFiles default operation - default operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the readBinaryFiles default operation."""
-        # Implement the tool logic here
-        return f"Running readBinaryFiles default operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the readBinaryFiles default operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "readbinaryfiles_default"
+    description: str = "Tool for readBinaryFiles default operation - default operation"
+    args_schema: type[BaseModel] | None = ReadbinaryfilesDefaultToolInput

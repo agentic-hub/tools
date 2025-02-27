@@ -1,15 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class JiraCredentials(BaseModel):
-    """Credentials for jira authentication."""
-    jira_software_cloud_api: Optional[Dict[str, Any]] = Field(None, description="jiraSoftwareCloudApi")
-    jira_software_server_api: Optional[Dict[str, Any]] = Field(None, description="jiraSoftwareServerApi")
+from .. import JiraCredentials
 
 class JiraUpdateToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[JiraCredentials] = Field(None, description="Custom credentials for authentication")
     update_fields: Optional[Dict[str, Any]] = Field(None, description="Update Fields")
     comment_json: Optional[str] = Field(None, description="The Atlassian Document Format (ADF). Online builder can be found <a href=\"https://developer.atlassian.com/cloud/jira/platform/apis/document/playground/\">here</a>.")
     comment_id: Optional[str] = Field(None, description="The ID of the comment")
@@ -30,36 +24,7 @@ class JiraUpdateToolInput(BaseModel):
 
 
 class JiraUpdateTool(BaseTool):
-    name = "jira_update"
-    description = "Tool for jira update operation - update operation"
-    
-    def __init__(self, credentials: Optional[JiraCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the jira update operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running jira update operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running jira update operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the jira update operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "jira_update"
+    description: str = "Tool for jira update operation - update operation"
+    args_schema: type[BaseModel] | None = JiraUpdateToolInput
+    credentials: Optional[JiraCredentials] = None

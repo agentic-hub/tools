@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class EditimageTransparentToolInput(BaseModel):
@@ -15,23 +14,6 @@ class EditimageTransparentToolInput(BaseModel):
 
 
 class EditimageTransparentTool(BaseTool):
-    name = "editimage_transparent"
-    description = "Tool for editImage transparent operation - transparent operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the editImage transparent operation."""
-        # Implement the tool logic here
-        return f"Running editImage transparent operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the editImage transparent operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "editimage_transparent"
+    description: str = "Tool for editImage transparent operation - transparent operation"
+    args_schema: type[BaseModel] | None = EditimageTransparentToolInput

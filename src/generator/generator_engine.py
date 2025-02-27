@@ -70,7 +70,9 @@ class Generator:
                 # Create an __init__.py file in the tool directory
                 with open(os.path.join(tool_dir, "__init__.py"), "w") as init_file:
                     init_file.write(f"# {tool_name} toolkit\n")
-                    init_file.write("from langchain.tools import BaseTool\n")
+                    init_file.write(
+                        "from agentic_tools.tools import BaseTool, BaseModel, Field\n"
+                    )
                     init_file.write("from typing import List, Optional, Dict, Any\n")
                     init_file.write("from .operations import get_tools\n\n")
 
@@ -98,7 +100,9 @@ class Generator:
                 ) as init_file:
                     init_file.write(f"# {tool_name} operations\n")
                     init_file.write("from typing import List\n")
-                    init_file.write("from langchain.tools import BaseTool\n")
+                    init_file.write(
+                        "from agentic_tools.tools import BaseTool, BaseModel\n"
+                    )
 
                     # Import credentials class if available
                     credentials_class = self._generate_credentials_class(
@@ -134,6 +138,7 @@ class Generator:
                         init_file.write(
                             f"    from .{operation.lower()} import {tool_name.capitalize()}{operation.capitalize()}Tool\n"
                         )
+                        # Create tool instance without credentials - they will be added by the toolkit
                         init_file.write(
                             f"    tools.append({tool_name.capitalize()}{operation.capitalize()}Tool())\n"
                         )
@@ -158,30 +163,32 @@ class Generator:
             d
             for d in os.listdir(generated_dir)
             if os.path.isdir(os.path.join(generated_dir, d))
-            and "trigger" not in d.lower()
+            and ("trigger" not in d.lower() and "__pycache__" not in d.lower())
         ]
 
         # Create or update the __init__.py file in the generated directory
         init_path = os.path.join(generated_dir, "__init__.py")
-        with open(init_path, "w") as init_file:
-            init_file.write("# Generated tools package\n")
-            init_file.write("from typing import List\n")
-            init_file.write("from langchain.tools import BaseTool\n\n")
+        # with open(init_path, "w") as init_file:
+        #     init_file.write("# Generated tools package\n")
+        #     init_file.write("from typing import List\n")
+        #     init_file.write(
+        #         "from agentic_tools.tools import BaseTool, BaseModel, Field\n\n"
+        #     )
 
-            # Import all toolkit classes
-            for tool_dir in tool_dirs:
-                # Convert directory name to a valid Python identifier
-                tool_name = tool_dir.lower()
-                toolkit_class_name = self._get_toolkit_class_name(tool_name)
-                init_file.write(f"from .{tool_name} import {toolkit_class_name}\n")
+        #     # Import all toolkit classes
+        #     for tool_dir in tool_dirs:
+        #         # Convert directory name to a valid Python identifier
+        #         tool_name = tool_dir.lower()
+        #         toolkit_class_name = self._get_toolkit_class_name(tool_name)
+        #         init_file.write(f"from .{tool_name} import {toolkit_class_name}\n")
 
-            init_file.write("\n\n# Export all toolkit classes\n")
-            init_file.write("__all__ = [\n")
-            for tool_dir in tool_dirs:
-                tool_name = tool_dir.lower()
-                toolkit_class_name = self._get_toolkit_class_name(tool_name)
-                init_file.write(f"    '{toolkit_class_name}',\n")
-            init_file.write("]\n")
+        #     init_file.write("\n\n# Export all toolkit classes\n")
+        #     init_file.write("__all__ = [\n")
+        #     for tool_dir in tool_dirs:
+        #         tool_name = tool_dir.lower()
+        #         toolkit_class_name = self._get_toolkit_class_name(tool_name)
+        #         init_file.write(f"    '{toolkit_class_name}',\n")
+        #     init_file.write("]\n")
 
         print(f"Created Langchain toolkit with {len(tool_dirs)} toolkit classes")
 
@@ -201,8 +208,13 @@ class Generator:
             if f"class {toolkit_class_name}" not in content:
                 with open(tool_init_path, "w") as init_file:
                     init_file.write(f"# {tool_name} toolkit\n")
-                    init_file.write("from langchain.tools import BaseTool\n")
-                    init_file.write("from typing import List\n\n")
+                    init_file.write(
+                        "from agentic_tools.tools import BaseTool, BaseModel, Field\n"
+                    )
+                    init_file.write(
+                        "from agentic_tools.toolkit import AgenticHubToolkit\n"
+                    )
+                    init_file.write("from typing import List, Optional, Dict, Any\n\n")
 
                     # Add the get_tools function
                     init_file.write(f"def get_{tool_name}_tools() -> List[BaseTool]:\n")
@@ -210,19 +222,22 @@ class Generator:
                     init_file.write("    from . import operations\n")
                     init_file.write("    return operations.get_tools()\n\n")
 
+                    # Check if this tool has credentials
+                    config = self.tool_configs.get(tool_name.lower(), {})
+                    credentials_class = self._generate_credentials_class(
+                        tool_name, config
+                    )
+                    has_credentials = credentials_class is not None
+
+                    # Add the credentials class if available
+                    if has_credentials:
+                        init_file.write(f"{credentials_class}\n")
+
                     # Add the toolkit class
-                    init_file.write(f"class {toolkit_class_name}:\n")
+                    init_file.write(f"class {toolkit_class_name}(AgenticHubToolkit):\n")
                     init_file.write(
                         f'    """Toolkit for interacting with {tool_name}."""\n\n'
                     )
-
-                    # # Check if this tool has credentials
-                    # config = self.tool_configs.get(tool_name.lower(), {})
-                    # credentials_class = self._generate_credentials_class(
-                    #     tool_name, config
-                    # )
-                    # has_credentials = credentials_class is not None
-                    has_credentials = False
 
                     if has_credentials:
                         init_file.write(
@@ -248,7 +263,9 @@ class Generator:
                         f'        """Get all {tool_name} tools with the configured credentials."""\n'
                     )
                     init_file.write("        from . import operations\n")
-                    init_file.write("        tools = operations.get_tools()\n")
+                    init_file.write(
+                        "        return self.get_tools_from_operations(operations)\n"
+                    )
 
                     if has_credentials:
                         init_file.write(
@@ -256,6 +273,9 @@ class Generator:
                         )
                         init_file.write("        if self.credentials:\n")
                         init_file.write("            for tool in tools:\n")
+                        init_file.write(
+                            "                # Set credentials on each tool instance\n"
+                        )
                         init_file.write(
                             "                tool.credentials = self.credentials\n"
                         )
@@ -284,18 +304,31 @@ class Generator:
                 main_init_file.write("#    tools = S3Toolkit().get_tools()\n")
                 main_init_file.write("#\n")
                 main_init_file.write("# 2. With custom credentials:\n")
-                main_init_file.write("#    from agentic_tools.tools import S3Toolkit\n")
-                main_init_file.write("#    credentials = {\n")
                 main_init_file.write(
-                    "#        'aws_access_key_id': 'your-access-key',\n"
+                    "#    from agentic_tools.tools import S3Toolkit, S3Credentials\n"
                 )
+                main_init_file.write("#    credentials = S3Credentials(\n")
+                main_init_file.write("#        aws_access_key_id='your-access-key',\n")
                 main_init_file.write(
-                    "#        'aws_secret_access_key': 'your-secret-key',\n"
+                    "#        aws_secret_access_key='your-secret-key',\n"
                 )
-                main_init_file.write("#        'region_name': 'us-west-2'\n")
-                main_init_file.write("#    }\n")
+                main_init_file.write("#        region_name='us-west-2'\n")
+                main_init_file.write("#    )\n")
                 main_init_file.write(
                     "#    tools = S3Toolkit(credentials=credentials).get_tools()\n"
+                )
+                main_init_file.write("#\n")
+                main_init_file.write("# 3. Using with LangChain:\n")
+                main_init_file.write(
+                    "#    from langchain.agents import initialize_agent\n"
+                )
+                main_init_file.write("#    from langchain.llms import OpenAI\n")
+                main_init_file.write("#    from agentic_tools.tools import S3Toolkit\n")
+                main_init_file.write("#\n")
+                main_init_file.write("#    llm = OpenAI(temperature=0)\n")
+                main_init_file.write("#    tools = S3Toolkit().get_tools()\n")
+                main_init_file.write(
+                    "#    agent = initialize_agent(tools, llm, agent='zero-shot-react-description')\n"
                 )
 
             print(
@@ -410,27 +443,25 @@ class Generator:
         has_credentials = credentials_class is not None
 
         # Generate the class definition
-        class_definition = f"""from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+        class_definition = f"""from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 """
-        # Add credentials class if available
+        # Add credentials class import if available
         if has_credentials:
-            class_definition += f"{credentials_class}\n"
+            class_definition += (
+                f"from .. import {tool_name.capitalize()}Credentials\n\n"
+            )
 
         class_definition += f"""class {class_name}Input(BaseModel):
 """
-        # Add credentials field if available
-        if has_credentials:
-            class_definition += f"    # Allow users to provide their own credentials\n"
-            class_definition += f'    credentials: Optional[{tool_name.capitalize()}Credentials] = Field(None, description="Custom credentials for authentication")\n'
+        # Remove credentials field from InputParams - it will be in the constructor instead
 
         # Generate the input fields relevant to this operation
         properties = input_schema.get("properties", {})
         for prop_name, prop_details in properties.items():
-            # Skip credentials as we've already added it if needed
-            if prop_name in ["load_files", "credentials"]:
+            # Skip credentials and load_files
+            if prop_name.lower() in ["load_files", "credentials"]:
                 continue
 
             # Check if this property is relevant for this operation
@@ -480,67 +511,14 @@ from typing import Optional, Dict, Any, List, Union
         class_definition += f"""
 
 class {class_name}(BaseTool):
-    name = "{tool_name.lower()}_{operation.lower()}"
-    description = "{description} - {operation} operation"
-    """
+    name: str = "{tool_name.lower()}_{operation.lower()}"
+    description: str = "{description} - {operation} operation"
+    args_schema: type[BaseModel] | None = {class_name}Input
+"""
 
-        # Add __init__ with credentials if available
+        # Add credentials handling if needed
         if has_credentials:
-            class_definition += f"""
-    def __init__(self, credentials: Optional[{tool_name.capitalize()}Credentials] = None, **kwargs):
-        \"\"\"Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        \"\"\"
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    """
-        else:
-            class_definition += f"""
-    def __init__(self, **kwargs):
-        \"\"\"Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        \"\"\"
-        super().__init__(**kwargs)
-    """
-
-        # Add _run method with or without credentials handling
-        if has_credentials:
-            class_definition += f"""
-    def _run(self, **kwargs):
-        \"\"\"Run the {tool_name} {operation} operation.\"\"\"
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{{...}}"  # Just indicate credentials are present
-            return f"Running {tool_name} {operation} operation with custom credentials {{safe_credentials}} and args: {{kwargs}}"
-        else:
-            return f"Running {tool_name} {operation} operation with default credentials and args: {{kwargs}}"
-    """
-        else:
-            class_definition += f"""
-    def _run(self, **kwargs):
-        \"\"\"Run the {tool_name} {operation} operation.\"\"\"
-        # Implement the tool logic here
-        return f"Running {tool_name} {operation} operation with args: {{kwargs}}"
-    """
-
-        # Add _arun method
-        class_definition += f"""
-    async def _arun(self, **kwargs):
-        \"\"\"Run the {tool_name} {operation} operation asynchronously.\"\"\"
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+            class_definition += f"""    credentials: Optional[{tool_name.capitalize()}Credentials] = None
 """
 
         return class_definition

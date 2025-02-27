@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class ItemlistsConcatenateitemsToolInput(BaseModel):
@@ -16,23 +15,6 @@ class ItemlistsConcatenateitemsToolInput(BaseModel):
 
 
 class ItemlistsConcatenateitemsTool(BaseTool):
-    name = "itemlists_concatenateitems"
-    description = "Tool for itemLists concatenateItems operation - concatenateItems operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the itemLists concatenateItems operation."""
-        # Implement the tool logic here
-        return f"Running itemLists concatenateItems operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the itemLists concatenateItems operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "itemlists_concatenateitems"
+    description: str = "Tool for itemLists concatenateItems operation - concatenateItems operation"
+    args_schema: type[BaseModel] | None = ItemlistsConcatenateitemsToolInput

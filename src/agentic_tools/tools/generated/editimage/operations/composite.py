@@ -1,5 +1,4 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
 class EditimageCompositeToolInput(BaseModel):
@@ -17,23 +16,6 @@ class EditimageCompositeToolInput(BaseModel):
 
 
 class EditimageCompositeTool(BaseTool):
-    name = "editimage_composite"
-    description = "Tool for editImage composite operation - composite operation"
-    
-    def __init__(self, **kwargs):
-        """Initialize the tool.
-        
-        Args:
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-    
-    def _run(self, **kwargs):
-        """Run the editImage composite operation."""
-        # Implement the tool logic here
-        return f"Running editImage composite operation with args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the editImage composite operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "editimage_composite"
+    description: str = "Tool for editImage composite operation - composite operation"
+    args_schema: type[BaseModel] | None = EditimageCompositeToolInput

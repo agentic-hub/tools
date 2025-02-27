@@ -1,16 +1,9 @@
-from langchain.tools import BaseTool
-from agentic_tools.tools.base.BaseTool import BaseModel, Field
+from agentic_tools.tools import BaseTool, BaseModel, Field
 from typing import Optional, Dict, Any, List, Union
 
-class DiscordCredentials(BaseModel):
-    """Credentials for discord authentication."""
-    discord_bot_api: Optional[Dict[str, Any]] = Field(None, description="discordBotApi")
-    discord_o_auth2_api: Optional[Dict[str, Any]] = Field(None, description="discordOAuth2Api")
-    discord_webhook_api: Optional[Dict[str, Any]] = Field(None, description="discordWebhookApi")
+from .. import DiscordCredentials
 
 class DiscordDeletechannelToolInput(BaseModel):
-    # Allow users to provide their own credentials
-    credentials: Optional[DiscordCredentials] = Field(None, description="Custom credentials for authentication")
     content: Optional[str] = Field(None, description="The content of the message (up to 2000 characters)")
     files: Optional[Dict[str, Any]] = Field(None, description="Files")
     role: Optional[str] = Field(None, description="role")
@@ -29,36 +22,7 @@ class DiscordDeletechannelToolInput(BaseModel):
 
 
 class DiscordDeletechannelTool(BaseTool):
-    name = "discord_deletechannel"
-    description = "Tool for discord deleteChannel operation - deleteChannel operation"
-    
-    def __init__(self, credentials: Optional[DiscordCredentials] = None, **kwargs):
-        """Initialize the tool with optional custom credentials.
-        
-        Args:
-            credentials: Credentials for authentication
-            **kwargs: Additional keyword arguments
-        """
-        super().__init__(**kwargs)
-        self.credentials = credentials
-    
-    def _run(self, **kwargs):
-        """Run the discord deleteChannel operation."""
-        # Extract credentials if provided in the run arguments
-        run_credentials = kwargs.pop("credentials", None)
-        
-        # Use run-time credentials if provided, otherwise use the ones from initialization
-        credentials = run_credentials or self.credentials
-        
-        # Implement the tool logic here
-        if credentials:
-            # Create a safe copy of credentials for logging (hide sensitive values)
-            safe_credentials = "{...}"  # Just indicate credentials are present
-            return f"Running discord deleteChannel operation with custom credentials {safe_credentials} and args: {kwargs}"
-        else:
-            return f"Running discord deleteChannel operation with default credentials and args: {kwargs}"
-    
-    async def _arun(self, **kwargs):
-        """Run the discord deleteChannel operation asynchronously."""
-        # Implement the async tool logic here
-        return self._run(**kwargs)
+    name: str = "discord_deletechannel"
+    description: str = "Tool for discord deleteChannel operation - deleteChannel operation"
+    args_schema: type[BaseModel] | None = DiscordDeletechannelToolInput
+    credentials: Optional[DiscordCredentials] = None
