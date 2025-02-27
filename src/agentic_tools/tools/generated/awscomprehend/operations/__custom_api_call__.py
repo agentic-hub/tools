@@ -11,6 +11,7 @@ class Awscomprehend__custom_api_call__ToolInput(BaseModel):
 
 class Awscomprehend__custom_api_call__Tool(BaseTool):
     name: str = "awscomprehend___custom_api_call__"
+    connector_id: str = "nodes-base.awsComprehend"
     description: str = "Tool for awsComprehend __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awscomprehend__custom_api_call__ToolInput
     credentials: Optional[AwscomprehendCredentials] = None

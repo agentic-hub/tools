@@ -22,6 +22,7 @@ class GooglesheetsCreateToolInput(BaseModel):
 
 class GooglesheetsCreateTool(BaseTool):
     name: str = "googlesheets_create"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets create operation - create operation"
     args_schema: type[BaseModel] | None = GooglesheetsCreateToolInput
     credentials: Optional[GooglesheetsCredentials] = None

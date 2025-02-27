@@ -23,6 +23,7 @@ class WekanDeleteToolInput(BaseModel):
 
 class WekanDeleteTool(BaseTool):
     name: str = "wekan_delete"
+    connector_id: str = "nodes-base.wekan"
     description: str = "Tool for wekan delete operation - delete operation"
     args_schema: type[BaseModel] | None = WekanDeleteToolInput
     credentials: Optional[WekanCredentials] = None

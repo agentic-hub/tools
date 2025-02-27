@@ -14,6 +14,7 @@ class MailerliteGetallToolInput(BaseModel):
 
 class MailerliteGetallTool(BaseTool):
     name: str = "mailerlite_getall"
+    connector_id: str = "nodes-base.mailerLite"
     description: str = "Tool for mailerLite getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MailerliteGetallToolInput
     credentials: Optional[MailerliteCredentials] = None

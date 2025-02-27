@@ -24,6 +24,7 @@ class AsanaGetallToolInput(BaseModel):
 
 class AsanaGetallTool(BaseTool):
     name: str = "asana_getall"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = AsanaGetallToolInput
     credentials: Optional[AsanaCredentials] = None

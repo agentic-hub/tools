@@ -21,6 +21,7 @@ class HighlevelLookupToolInput(BaseModel):
 
 class HighlevelLookupTool(BaseTool):
     name: str = "highlevel_lookup"
+    connector_id: str = "nodes-base.highLevel"
     description: str = "Tool for highLevel lookup operation - lookup operation"
     args_schema: type[BaseModel] | None = HighlevelLookupToolInput
     credentials: Optional[HighlevelCredentials] = None

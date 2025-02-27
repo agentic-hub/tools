@@ -20,6 +20,7 @@ class MicrosoftonedriveCreateToolInput(BaseModel):
 
 class MicrosoftonedriveCreateTool(BaseTool):
     name: str = "microsoftonedrive_create"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive create operation - create operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveCreateToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

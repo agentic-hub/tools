@@ -15,6 +15,7 @@ class OnesimpleapiInstagramprofileToolInput(BaseModel):
 
 class OnesimpleapiInstagramprofileTool(BaseTool):
     name: str = "onesimpleapi_instagramprofile"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi instagramProfile operation - instagramProfile operation"
     args_schema: type[BaseModel] | None = OnesimpleapiInstagramprofileToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

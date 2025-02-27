@@ -27,6 +27,7 @@ class HubspotRemoveToolInput(BaseModel):
 
 class HubspotRemoveTool(BaseTool):
     name: str = "hubspot_remove"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot remove operation - remove operation"
     args_schema: type[BaseModel] | None = HubspotRemoveToolInput
     credentials: Optional[HubspotCredentials] = None

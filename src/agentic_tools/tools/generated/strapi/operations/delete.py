@@ -14,6 +14,7 @@ class StrapiDeleteToolInput(BaseModel):
 
 class StrapiDeleteTool(BaseTool):
     name: str = "strapi_delete"
+    connector_id: str = "nodes-base.strapi"
     description: str = "Tool for strapi delete operation - delete operation"
     args_schema: type[BaseModel] | None = StrapiDeleteToolInput
     credentials: Optional[StrapiCredentials] = None

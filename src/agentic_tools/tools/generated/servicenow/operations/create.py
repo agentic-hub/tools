@@ -23,6 +23,7 @@ class ServicenowCreateToolInput(BaseModel):
 
 class ServicenowCreateTool(BaseTool):
     name: str = "servicenow_create"
+    connector_id: str = "nodes-base.serviceNow"
     description: str = "Tool for serviceNow create operation - create operation"
     args_schema: type[BaseModel] | None = ServicenowCreateToolInput
     credentials: Optional[ServicenowCredentials] = None

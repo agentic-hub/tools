@@ -11,6 +11,7 @@ class Deepl__custom_api_call__ToolInput(BaseModel):
 
 class Deepl__custom_api_call__Tool(BaseTool):
     name: str = "deepl___custom_api_call__"
+    connector_id: str = "nodes-base.deepL"
     description: str = "Tool for deepL __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Deepl__custom_api_call__ToolInput
     credentials: Optional[DeeplCredentials] = None

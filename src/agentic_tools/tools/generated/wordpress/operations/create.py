@@ -24,6 +24,7 @@ class WordpressCreateToolInput(BaseModel):
 
 class WordpressCreateTool(BaseTool):
     name: str = "wordpress_create"
+    connector_id: str = "nodes-base.wordpress"
     description: str = "Tool for wordpress create operation - create operation"
     args_schema: type[BaseModel] | None = WordpressCreateToolInput
     credentials: Optional[WordpressCredentials] = None

@@ -13,6 +13,7 @@ class GoogletranslateTranslateToolInput(BaseModel):
 
 class GoogletranslateTranslateTool(BaseTool):
     name: str = "googletranslate_translate"
+    connector_id: str = "nodes-base.googleTranslate"
     description: str = "Tool for googleTranslate translate operation - translate operation"
     args_schema: type[BaseModel] | None = GoogletranslateTranslateToolInput
     credentials: Optional[GoogletranslateCredentials] = None

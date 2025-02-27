@@ -8,5 +8,6 @@ class LimitDefaultToolInput(BaseModel):
 
 class LimitDefaultTool(BaseTool):
     name: str = "limit_default"
+    connector_id: str = "nodes-base.limit"
     description: str = "Tool for limit default operation - default operation"
     args_schema: type[BaseModel] | None = LimitDefaultToolInput

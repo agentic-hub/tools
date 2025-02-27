@@ -13,6 +13,7 @@ class LinearUpdateToolInput(BaseModel):
 
 class LinearUpdateTool(BaseTool):
     name: str = "linear_update"
+    connector_id: str = "nodes-base.linear"
     description: str = "Tool for linear update operation - update operation"
     args_schema: type[BaseModel] | None = LinearUpdateToolInput
     credentials: Optional[LinearCredentials] = None

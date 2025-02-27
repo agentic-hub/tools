@@ -15,6 +15,7 @@ class PushbulletGetallToolInput(BaseModel):
 
 class PushbulletGetallTool(BaseTool):
     name: str = "pushbullet_getall"
+    connector_id: str = "nodes-base.pushbullet"
     description: str = "Tool for pushbullet getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = PushbulletGetallToolInput
     credentials: Optional[PushbulletCredentials] = None

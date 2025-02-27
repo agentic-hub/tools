@@ -21,6 +21,7 @@ class MailjetSendToolInput(BaseModel):
 
 class MailjetSendTool(BaseTool):
     name: str = "mailjet_send"
+    connector_id: str = "nodes-base.mailjet"
     description: str = "Tool for mailjet send operation - send operation"
     args_schema: type[BaseModel] | None = MailjetSendToolInput
     credentials: Optional[MailjetCredentials] = None

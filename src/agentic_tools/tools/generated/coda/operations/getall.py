@@ -18,6 +18,7 @@ class CodaGetallToolInput(BaseModel):
 
 class CodaGetallTool(BaseTool):
     name: str = "coda_getall"
+    connector_id: str = "nodes-base.coda"
     description: str = "Tool for coda getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = CodaGetallToolInput
     credentials: Optional[CodaCredentials] = None

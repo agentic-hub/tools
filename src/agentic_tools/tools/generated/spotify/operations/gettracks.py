@@ -16,6 +16,7 @@ class SpotifyGettracksToolInput(BaseModel):
 
 class SpotifyGettracksTool(BaseTool):
     name: str = "spotify_gettracks"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify getTracks operation - getTracks operation"
     args_schema: type[BaseModel] | None = SpotifyGettracksToolInput
     credentials: Optional[SpotifyCredentials] = None

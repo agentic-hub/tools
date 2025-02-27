@@ -16,6 +16,7 @@ class CockpitGetToolInput(BaseModel):
 
 class CockpitGetTool(BaseTool):
     name: str = "cockpit_get"
+    connector_id: str = "nodes-base.cockpit"
     description: str = "Tool for cockpit get operation - get operation"
     args_schema: type[BaseModel] | None = CockpitGetToolInput
     credentials: Optional[CockpitCredentials] = None

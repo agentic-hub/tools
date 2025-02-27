@@ -20,6 +20,7 @@ class SecurityscorecardUpdateToolInput(BaseModel):
 
 class SecurityscorecardUpdateTool(BaseTool):
     name: str = "securityscorecard_update"
+    connector_id: str = "nodes-base.securityScorecard"
     description: str = "Tool for securityScorecard update operation - update operation"
     args_schema: type[BaseModel] | None = SecurityscorecardUpdateToolInput
     credentials: Optional[SecurityscorecardCredentials] = None

@@ -19,6 +19,7 @@ class S3GetallToolInput(BaseModel):
 
 class S3GetallTool(BaseTool):
     name: str = "s3_getall"
+    connector_id: str = "nodes-base.s3"
     description: str = "Tool for s3 getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = S3GetallToolInput
     credentials: Optional[S3Credentials] = None

@@ -20,6 +20,7 @@ class MondaycomArchiveToolInput(BaseModel):
 
 class MondaycomArchiveTool(BaseTool):
     name: str = "mondaycom_archive"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom archive operation - archive operation"
     args_schema: type[BaseModel] | None = MondaycomArchiveToolInput
     credentials: Optional[MondaycomCredentials] = None

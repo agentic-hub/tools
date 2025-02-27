@@ -30,6 +30,7 @@ class HarvestCreateToolInput(BaseModel):
 
 class HarvestCreateTool(BaseTool):
     name: str = "harvest_create"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest create operation - create operation"
     args_schema: type[BaseModel] | None = HarvestCreateToolInput
     credentials: Optional[HarvestCredentials] = None

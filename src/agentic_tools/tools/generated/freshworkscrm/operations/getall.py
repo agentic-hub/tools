@@ -29,6 +29,7 @@ class FreshworkscrmGetallToolInput(BaseModel):
 
 class FreshworkscrmGetallTool(BaseTool):
     name: str = "freshworkscrm_getall"
+    connector_id: str = "nodes-base.freshworksCrm"
     description: str = "Tool for freshworksCrm getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = FreshworkscrmGetallToolInput
     credentials: Optional[FreshworkscrmCredentials] = None

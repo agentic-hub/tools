@@ -12,6 +12,7 @@ class MicrosoftsqlExecutequeryToolInput(BaseModel):
 
 class MicrosoftsqlExecutequeryTool(BaseTool):
     name: str = "microsoftsql_executequery"
+    connector_id: str = "nodes-base.microsoftSql"
     description: str = "Tool for microsoftSql executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = MicrosoftsqlExecutequeryToolInput
     credentials: Optional[MicrosoftsqlCredentials] = None

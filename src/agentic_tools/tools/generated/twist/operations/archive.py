@@ -22,6 +22,7 @@ class TwistArchiveToolInput(BaseModel):
 
 class TwistArchiveTool(BaseTool):
     name: str = "twist_archive"
+    connector_id: str = "nodes-base.twist"
     description: str = "Tool for twist archive operation - archive operation"
     args_schema: type[BaseModel] | None = TwistArchiveToolInput
     credentials: Optional[TwistCredentials] = None

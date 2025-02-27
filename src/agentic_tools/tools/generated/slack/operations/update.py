@@ -26,6 +26,7 @@ class SlackUpdateToolInput(BaseModel):
 
 class SlackUpdateTool(BaseTool):
     name: str = "slack_update"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack update operation - update operation"
     args_schema: type[BaseModel] | None = SlackUpdateToolInput
     credentials: Optional[SlackCredentials] = None

@@ -11,6 +11,7 @@ class AwstextractAnalyzeexpenseToolInput(BaseModel):
 
 class AwstextractAnalyzeexpenseTool(BaseTool):
     name: str = "awstextract_analyzeexpense"
+    connector_id: str = "nodes-base.awsTextract"
     description: str = "Tool for awsTextract analyzeExpense operation - analyzeExpense operation"
     args_schema: type[BaseModel] | None = AwstextractAnalyzeexpenseToolInput
     credentials: Optional[AwstextractCredentials] = None

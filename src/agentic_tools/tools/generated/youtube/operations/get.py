@@ -24,6 +24,7 @@ class YoutubeGetToolInput(BaseModel):
 
 class YoutubeGetTool(BaseTool):
     name: str = "youtube_get"
+    connector_id: str = "nodes-base.youTube"
     description: str = "Tool for youTube get operation - get operation"
     args_schema: type[BaseModel] | None = YoutubeGetToolInput
     credentials: Optional[YoutubeCredentials] = None

@@ -25,6 +25,7 @@ class YoutubeRateToolInput(BaseModel):
 
 class YoutubeRateTool(BaseTool):
     name: str = "youtube_rate"
+    connector_id: str = "nodes-base.youTube"
     description: str = "Tool for youTube rate operation - rate operation"
     args_schema: type[BaseModel] | None = YoutubeRateToolInput
     credentials: Optional[YoutubeCredentials] = None

@@ -19,6 +19,7 @@ class ElasticsecurityDeleteToolInput(BaseModel):
 
 class ElasticsecurityDeleteTool(BaseTool):
     name: str = "elasticsecurity_delete"
+    connector_id: str = "nodes-base.elasticSecurity"
     description: str = "Tool for elasticSecurity delete operation - delete operation"
     args_schema: type[BaseModel] | None = ElasticsecurityDeleteToolInput
     credentials: Optional[ElasticsecurityCredentials] = None

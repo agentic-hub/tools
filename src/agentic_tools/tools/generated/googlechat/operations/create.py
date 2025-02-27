@@ -19,6 +19,7 @@ class GooglechatCreateToolInput(BaseModel):
 
 class GooglechatCreateTool(BaseTool):
     name: str = "googlechat_create"
+    connector_id: str = "nodes-base.googleChat"
     description: str = "Tool for googleChat create operation - create operation"
     args_schema: type[BaseModel] | None = GooglechatCreateToolInput
     credentials: Optional[GooglechatCredentials] = None

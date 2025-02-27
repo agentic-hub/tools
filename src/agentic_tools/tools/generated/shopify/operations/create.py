@@ -20,6 +20,7 @@ class ShopifyCreateToolInput(BaseModel):
 
 class ShopifyCreateTool(BaseTool):
     name: str = "shopify_create"
+    connector_id: str = "nodes-base.shopify"
     description: str = "Tool for shopify create operation - create operation"
     args_schema: type[BaseModel] | None = ShopifyCreateToolInput
     credentials: Optional[ShopifyCredentials] = None

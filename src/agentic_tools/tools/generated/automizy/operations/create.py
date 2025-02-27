@@ -17,6 +17,7 @@ class AutomizyCreateToolInput(BaseModel):
 
 class AutomizyCreateTool(BaseTool):
     name: str = "automizy_create"
+    connector_id: str = "nodes-base.automizy"
     description: str = "Tool for automizy create operation - create operation"
     args_schema: type[BaseModel] | None = AutomizyCreateToolInput
     credentials: Optional[AutomizyCredentials] = None

@@ -14,6 +14,7 @@ class MicrosoftdynamicscrmGetallToolInput(BaseModel):
 
 class MicrosoftdynamicscrmGetallTool(BaseTool):
     name: str = "microsoftdynamicscrm_getall"
+    connector_id: str = "nodes-base.microsoftDynamicsCrm"
     description: str = "Tool for microsoftDynamicsCrm getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MicrosoftdynamicscrmGetallToolInput
     credentials: Optional[MicrosoftdynamicscrmCredentials] = None

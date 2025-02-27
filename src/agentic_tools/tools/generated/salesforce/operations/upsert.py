@@ -36,6 +36,7 @@ class SalesforceUpsertToolInput(BaseModel):
 
 class SalesforceUpsertTool(BaseTool):
     name: str = "salesforce_upsert"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = SalesforceUpsertToolInput
     credentials: Optional[SalesforceCredentials] = None

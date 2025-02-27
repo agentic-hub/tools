@@ -14,6 +14,7 @@ class LemlistDeleteToolInput(BaseModel):
 
 class LemlistDeleteTool(BaseTool):
     name: str = "lemlist_delete"
+    connector_id: str = "nodes-base.lemlist"
     description: str = "Tool for lemlist delete operation - delete operation"
     args_schema: type[BaseModel] | None = LemlistDeleteToolInput
     credentials: Optional[LemlistCredentials] = None

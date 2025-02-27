@@ -27,6 +27,7 @@ class SlackEnableToolInput(BaseModel):
 
 class SlackEnableTool(BaseTool):
     name: str = "slack_enable"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack enable operation - enable operation"
     args_schema: type[BaseModel] | None = SlackEnableToolInput
     credentials: Optional[SlackCredentials] = None

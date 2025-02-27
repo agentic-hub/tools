@@ -13,6 +13,7 @@ class BrandfetchLogoToolInput(BaseModel):
 
 class BrandfetchLogoTool(BaseTool):
     name: str = "brandfetch_logo"
+    connector_id: str = "nodes-base.Brandfetch"
     description: str = "Tool for Brandfetch logo operation - logo operation"
     args_schema: type[BaseModel] | None = BrandfetchLogoToolInput
     credentials: Optional[BrandfetchCredentials] = None

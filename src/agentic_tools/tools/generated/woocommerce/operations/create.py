@@ -29,6 +29,7 @@ class WoocommerceCreateToolInput(BaseModel):
 
 class WoocommerceCreateTool(BaseTool):
     name: str = "woocommerce_create"
+    connector_id: str = "nodes-base.wooCommerce"
     description: str = "Tool for wooCommerce create operation - create operation"
     args_schema: type[BaseModel] | None = WoocommerceCreateToolInput
     credentials: Optional[WoocommerceCredentials] = None

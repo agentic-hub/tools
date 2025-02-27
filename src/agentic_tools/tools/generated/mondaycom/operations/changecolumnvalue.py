@@ -20,6 +20,7 @@ class MondaycomChangecolumnvalueToolInput(BaseModel):
 
 class MondaycomChangecolumnvalueTool(BaseTool):
     name: str = "mondaycom_changecolumnvalue"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom changeColumnValue operation - changeColumnValue operation"
     args_schema: type[BaseModel] | None = MondaycomChangecolumnvalueToolInput
     credentials: Optional[MondaycomCredentials] = None

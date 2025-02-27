@@ -14,6 +14,7 @@ class OnesimpleapiImagemetadataToolInput(BaseModel):
 
 class OnesimpleapiImagemetadataTool(BaseTool):
     name: str = "onesimpleapi_imagemetadata"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi imageMetadata operation - imageMetadata operation"
     args_schema: type[BaseModel] | None = OnesimpleapiImagemetadataToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

@@ -14,6 +14,7 @@ class PlivoSendToolInput(BaseModel):
 
 class PlivoSendTool(BaseTool):
     name: str = "plivo_send"
+    connector_id: str = "nodes-base.plivo"
     description: str = "Tool for plivo send operation - send operation"
     args_schema: type[BaseModel] | None = PlivoSendToolInput
     credentials: Optional[PlivoCredentials] = None

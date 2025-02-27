@@ -23,6 +23,7 @@ class GitlabGetallToolInput(BaseModel):
 
 class GitlabGetallTool(BaseTool):
     name: str = "gitlab_getall"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GitlabGetallToolInput
     credentials: Optional[GitlabCredentials] = None

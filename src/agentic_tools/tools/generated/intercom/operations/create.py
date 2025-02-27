@@ -24,6 +24,7 @@ class IntercomCreateToolInput(BaseModel):
 
 class IntercomCreateTool(BaseTool):
     name: str = "intercom_create"
+    connector_id: str = "nodes-base.intercom"
     description: str = "Tool for intercom create operation - create operation"
     args_schema: type[BaseModel] | None = IntercomCreateToolInput
     credentials: Optional[IntercomCredentials] = None

@@ -19,6 +19,7 @@ class MicrosofttodoDeleteToolInput(BaseModel):
 
 class MicrosofttodoDeleteTool(BaseTool):
     name: str = "microsofttodo_delete"
+    connector_id: str = "nodes-base.microsoftToDo"
     description: str = "Tool for microsoftToDo delete operation - delete operation"
     args_schema: type[BaseModel] | None = MicrosofttodoDeleteToolInput
     credentials: Optional[MicrosofttodoCredentials] = None

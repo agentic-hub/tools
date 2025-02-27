@@ -11,6 +11,7 @@ class GitFetchToolInput(BaseModel):
 
 class GitFetchTool(BaseTool):
     name: str = "git_fetch"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git fetch operation - fetch operation"
     args_schema: type[BaseModel] | None = GitFetchToolInput
     credentials: Optional[GitCredentials] = None

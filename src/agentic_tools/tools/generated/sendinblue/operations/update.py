@@ -21,6 +21,7 @@ class SendinblueUpdateToolInput(BaseModel):
 
 class SendinblueUpdateTool(BaseTool):
     name: str = "sendinblue_update"
+    connector_id: str = "nodes-base.sendInBlue"
     description: str = "Tool for sendInBlue update operation - update operation"
     args_schema: type[BaseModel] | None = SendinblueUpdateToolInput
     credentials: Optional[SendinblueCredentials] = None

@@ -22,6 +22,7 @@ class ActionnetworkUpdateToolInput(BaseModel):
 
 class ActionnetworkUpdateTool(BaseTool):
     name: str = "actionnetwork_update"
+    connector_id: str = "nodes-base.actionNetwork"
     description: str = "Tool for actionNetwork update operation - update operation"
     args_schema: type[BaseModel] | None = ActionnetworkUpdateToolInput
     credentials: Optional[ActionnetworkCredentials] = None

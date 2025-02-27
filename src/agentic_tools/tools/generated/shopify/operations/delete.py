@@ -18,6 +18,7 @@ class ShopifyDeleteToolInput(BaseModel):
 
 class ShopifyDeleteTool(BaseTool):
     name: str = "shopify_delete"
+    connector_id: str = "nodes-base.shopify"
     description: str = "Tool for shopify delete operation - delete operation"
     args_schema: type[BaseModel] | None = ShopifyDeleteToolInput
     credentials: Optional[ShopifyCredentials] = None

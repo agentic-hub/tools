@@ -21,6 +21,7 @@ class AwssesSendToolInput(BaseModel):
 
 class AwssesSendTool(BaseTool):
     name: str = "awsses_send"
+    connector_id: str = "nodes-base.awsSes"
     description: str = "Tool for awsSes send operation - send operation"
     args_schema: type[BaseModel] | None = AwssesSendToolInput
     credentials: Optional[AwssesCredentials] = None

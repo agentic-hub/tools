@@ -12,6 +12,7 @@ class SnowflakeExecutequeryToolInput(BaseModel):
 
 class SnowflakeExecutequeryTool(BaseTool):
     name: str = "snowflake_executequery"
+    connector_id: str = "nodes-base.snowflake"
     description: str = "Tool for snowflake executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = SnowflakeExecutequeryToolInput
     credentials: Optional[SnowflakeCredentials] = None

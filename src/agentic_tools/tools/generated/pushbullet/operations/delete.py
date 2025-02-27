@@ -12,6 +12,7 @@ class PushbulletDeleteToolInput(BaseModel):
 
 class PushbulletDeleteTool(BaseTool):
     name: str = "pushbullet_delete"
+    connector_id: str = "nodes-base.pushbullet"
     description: str = "Tool for pushbullet delete operation - delete operation"
     args_schema: type[BaseModel] | None = PushbulletDeleteToolInput
     credentials: Optional[PushbulletCredentials] = None

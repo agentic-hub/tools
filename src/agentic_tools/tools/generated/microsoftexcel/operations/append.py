@@ -27,6 +27,7 @@ class MicrosoftexcelAppendToolInput(BaseModel):
 
 class MicrosoftexcelAppendTool(BaseTool):
     name: str = "microsoftexcel_append"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel append operation - append operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelAppendToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

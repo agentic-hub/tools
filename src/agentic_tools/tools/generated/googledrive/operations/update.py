@@ -24,6 +24,7 @@ class GoogledriveUpdateToolInput(BaseModel):
 
 class GoogledriveUpdateTool(BaseTool):
     name: str = "googledrive_update"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive update operation - update operation"
     args_schema: type[BaseModel] | None = GoogledriveUpdateToolInput
     credentials: Optional[GoogledriveCredentials] = None

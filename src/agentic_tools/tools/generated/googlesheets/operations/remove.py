@@ -22,6 +22,7 @@ class GooglesheetsRemoveToolInput(BaseModel):
 
 class GooglesheetsRemoveTool(BaseTool):
     name: str = "googlesheets_remove"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets remove operation - remove operation"
     args_schema: type[BaseModel] | None = GooglesheetsRemoveToolInput
     credentials: Optional[GooglesheetsCredentials] = None

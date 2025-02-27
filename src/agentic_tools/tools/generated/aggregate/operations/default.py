@@ -13,5 +13,6 @@ class AggregateDefaultToolInput(BaseModel):
 
 class AggregateDefaultTool(BaseTool):
     name: str = "aggregate_default"
+    connector_id: str = "nodes-base.aggregate"
     description: str = "Tool for aggregate default operation - default operation"
     args_schema: type[BaseModel] | None = AggregateDefaultToolInput

@@ -24,6 +24,7 @@ class YoutubeAddToolInput(BaseModel):
 
 class YoutubeAddTool(BaseTool):
     name: str = "youtube_add"
+    connector_id: str = "nodes-base.youTube"
     description: str = "Tool for youTube add operation - add operation"
     args_schema: type[BaseModel] | None = YoutubeAddToolInput
     credentials: Optional[YoutubeCredentials] = None

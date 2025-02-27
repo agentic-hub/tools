@@ -10,5 +10,6 @@ class ExtractfromfileTextToolInput(BaseModel):
 
 class ExtractfromfileTextTool(BaseTool):
     name: str = "extractfromfile_text"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile text operation - text operation"
     args_schema: type[BaseModel] | None = ExtractfromfileTextToolInput

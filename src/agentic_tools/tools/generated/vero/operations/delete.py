@@ -15,6 +15,7 @@ class VeroDeleteToolInput(BaseModel):
 
 class VeroDeleteTool(BaseTool):
     name: str = "vero_delete"
+    connector_id: str = "nodes-base.vero"
     description: str = "Tool for vero delete operation - delete operation"
     args_schema: type[BaseModel] | None = VeroDeleteToolInput
     credentials: Optional[VeroCredentials] = None

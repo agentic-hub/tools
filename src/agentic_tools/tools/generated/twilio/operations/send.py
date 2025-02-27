@@ -15,6 +15,7 @@ class TwilioSendToolInput(BaseModel):
 
 class TwilioSendTool(BaseTool):
     name: str = "twilio_send"
+    connector_id: str = "nodes-base.twilio"
     description: str = "Tool for twilio send operation - send operation"
     args_schema: type[BaseModel] | None = TwilioSendToolInput
     credentials: Optional[TwilioCredentials] = None

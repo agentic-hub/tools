@@ -9,5 +9,6 @@ class PostbinRemovefirstToolInput(BaseModel):
 
 class PostbinRemovefirstTool(BaseTool):
     name: str = "postbin_removefirst"
+    connector_id: str = "nodes-base.postBin"
     description: str = "Tool for postBin removeFirst operation - removeFirst operation"
     args_schema: type[BaseModel] | None = PostbinRemovefirstToolInput

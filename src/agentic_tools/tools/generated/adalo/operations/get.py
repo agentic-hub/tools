@@ -12,6 +12,7 @@ class AdaloGetToolInput(BaseModel):
 
 class AdaloGetTool(BaseTool):
     name: str = "adalo_get"
+    connector_id: str = "nodes-base.adalo"
     description: str = "Tool for adalo get operation - get operation"
     args_schema: type[BaseModel] | None = AdaloGetToolInput
     credentials: Optional[AdaloCredentials] = None

@@ -22,6 +22,7 @@ class TrelloGetcheckitemToolInput(BaseModel):
 
 class TrelloGetcheckitemTool(BaseTool):
     name: str = "trello_getcheckitem"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello getCheckItem operation - getCheckItem operation"
     args_schema: type[BaseModel] | None = TrelloGetcheckitemToolInput
     credentials: Optional[TrelloCredentials] = None

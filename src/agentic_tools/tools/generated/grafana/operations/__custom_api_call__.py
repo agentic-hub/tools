@@ -18,6 +18,7 @@ class Grafana__custom_api_call__ToolInput(BaseModel):
 
 class Grafana__custom_api_call__Tool(BaseTool):
     name: str = "grafana___custom_api_call__"
+    connector_id: str = "nodes-base.grafana"
     description: str = "Tool for grafana __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Grafana__custom_api_call__ToolInput
     credentials: Optional[GrafanaCredentials] = None

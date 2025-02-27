@@ -30,6 +30,7 @@ class PipedriveDuplicateToolInput(BaseModel):
 
 class PipedriveDuplicateTool(BaseTool):
     name: str = "pipedrive_duplicate"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive duplicate operation - duplicate operation"
     args_schema: type[BaseModel] | None = PipedriveDuplicateToolInput
     credentials: Optional[PipedriveCredentials] = None

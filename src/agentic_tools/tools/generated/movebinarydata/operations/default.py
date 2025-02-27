@@ -12,5 +12,6 @@ class MovebinarydataDefaultToolInput(BaseModel):
 
 class MovebinarydataDefaultTool(BaseTool):
     name: str = "movebinarydata_default"
+    connector_id: str = "nodes-base.moveBinaryData"
     description: str = "Tool for moveBinaryData default operation - default operation"
     args_schema: type[BaseModel] | None = MovebinarydataDefaultToolInput

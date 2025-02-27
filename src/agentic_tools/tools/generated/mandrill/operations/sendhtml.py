@@ -22,6 +22,7 @@ class MandrillSendhtmlToolInput(BaseModel):
 
 class MandrillSendhtmlTool(BaseTool):
     name: str = "mandrill_sendhtml"
+    connector_id: str = "nodes-base.mandrill"
     description: str = "Tool for mandrill sendHtml operation - sendHtml operation"
     args_schema: type[BaseModel] | None = MandrillSendhtmlToolInput
     credentials: Optional[MandrillCredentials] = None

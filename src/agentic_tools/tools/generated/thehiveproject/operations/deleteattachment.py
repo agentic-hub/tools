@@ -41,6 +41,7 @@ class ThehiveprojectDeleteattachmentToolInput(BaseModel):
 
 class ThehiveprojectDeleteattachmentTool(BaseTool):
     name: str = "thehiveproject_deleteattachment"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject deleteAttachment operation - deleteAttachment operation"
     args_schema: type[BaseModel] | None = ThehiveprojectDeleteattachmentToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

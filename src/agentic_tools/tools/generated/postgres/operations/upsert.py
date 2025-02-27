@@ -23,6 +23,7 @@ class PostgresUpsertToolInput(BaseModel):
 
 class PostgresUpsertTool(BaseTool):
     name: str = "postgres_upsert"
+    connector_id: str = "nodes-base.postgres"
     description: str = "Tool for postgres upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = PostgresUpsertToolInput
     credentials: Optional[PostgresCredentials] = None

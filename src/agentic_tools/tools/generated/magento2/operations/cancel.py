@@ -24,6 +24,7 @@ class Magento2CancelToolInput(BaseModel):
 
 class Magento2CancelTool(BaseTool):
     name: str = "magento2_cancel"
+    connector_id: str = "nodes-base.magento2"
     description: str = "Tool for magento2 cancel operation - cancel operation"
     args_schema: type[BaseModel] | None = Magento2CancelToolInput
     credentials: Optional[Magento2Credentials] = None

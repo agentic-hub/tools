@@ -14,6 +14,7 @@ class VenafitlsprotectdatacenterGetmanyToolInput(BaseModel):
 
 class VenafitlsprotectdatacenterGetmanyTool(BaseTool):
     name: str = "venafitlsprotectdatacenter_getmany"
+    connector_id: str = "nodes-base.venafiTlsProtectDatacenter"
     description: str = "Tool for venafiTlsProtectDatacenter getMany operation - getMany operation"
     args_schema: type[BaseModel] | None = VenafitlsprotectdatacenterGetmanyToolInput
     credentials: Optional[VenafitlsprotectdatacenterCredentials] = None

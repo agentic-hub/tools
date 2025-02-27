@@ -12,6 +12,7 @@ class SnowflakeUpdateToolInput(BaseModel):
 
 class SnowflakeUpdateTool(BaseTool):
     name: str = "snowflake_update"
+    connector_id: str = "nodes-base.snowflake"
     description: str = "Tool for snowflake update operation - update operation"
     args_schema: type[BaseModel] | None = SnowflakeUpdateToolInput
     credentials: Optional[SnowflakeCredentials] = None

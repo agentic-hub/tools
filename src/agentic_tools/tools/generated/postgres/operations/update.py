@@ -23,6 +23,7 @@ class PostgresUpdateToolInput(BaseModel):
 
 class PostgresUpdateTool(BaseTool):
     name: str = "postgres_update"
+    connector_id: str = "nodes-base.postgres"
     description: str = "Tool for postgres update operation - update operation"
     args_schema: type[BaseModel] | None = PostgresUpdateToolInput
     credentials: Optional[PostgresCredentials] = None

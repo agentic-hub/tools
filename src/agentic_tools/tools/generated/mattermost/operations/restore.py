@@ -20,6 +20,7 @@ class MattermostRestoreToolInput(BaseModel):
 
 class MattermostRestoreTool(BaseTool):
     name: str = "mattermost_restore"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost restore operation - restore operation"
     args_schema: type[BaseModel] | None = MattermostRestoreToolInput
     credentials: Optional[MattermostCredentials] = None

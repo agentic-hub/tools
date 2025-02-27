@@ -18,6 +18,7 @@ class PaddleGetallToolInput(BaseModel):
 
 class PaddleGetallTool(BaseTool):
     name: str = "paddle_getall"
+    connector_id: str = "nodes-base.paddle"
     description: str = "Tool for paddle getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = PaddleGetallToolInput
     credentials: Optional[PaddleCredentials] = None

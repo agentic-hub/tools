@@ -15,6 +15,7 @@ class AutopilotUpsertToolInput(BaseModel):
 
 class AutopilotUpsertTool(BaseTool):
     name: str = "autopilot_upsert"
+    connector_id: str = "nodes-base.autopilot"
     description: str = "Tool for autopilot upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = AutopilotUpsertToolInput
     credentials: Optional[AutopilotCredentials] = None

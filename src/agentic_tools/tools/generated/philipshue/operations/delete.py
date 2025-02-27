@@ -11,6 +11,7 @@ class PhilipshueDeleteToolInput(BaseModel):
 
 class PhilipshueDeleteTool(BaseTool):
     name: str = "philipshue_delete"
+    connector_id: str = "nodes-base.philipsHue"
     description: str = "Tool for philipsHue delete operation - delete operation"
     args_schema: type[BaseModel] | None = PhilipshueDeleteToolInput
     credentials: Optional[PhilipshueCredentials] = None

@@ -27,6 +27,7 @@ class SlackSettopicToolInput(BaseModel):
 
 class SlackSettopicTool(BaseTool):
     name: str = "slack_settopic"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack setTopic operation - setTopic operation"
     args_schema: type[BaseModel] | None = SlackSettopicToolInput
     credentials: Optional[SlackCredentials] = None

@@ -12,6 +12,7 @@ class DriftGetcustomattributesToolInput(BaseModel):
 
 class DriftGetcustomattributesTool(BaseTool):
     name: str = "drift_getcustomattributes"
+    connector_id: str = "nodes-base.drift"
     description: str = "Tool for drift getCustomAttributes operation - getCustomAttributes operation"
     args_schema: type[BaseModel] | None = DriftGetcustomattributesToolInput
     credentials: Optional[DriftCredentials] = None

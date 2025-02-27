@@ -11,6 +11,7 @@ class YourlsStatsToolInput(BaseModel):
 
 class YourlsStatsTool(BaseTool):
     name: str = "yourls_stats"
+    connector_id: str = "nodes-base.yourls"
     description: str = "Tool for yourls stats operation - stats operation"
     args_schema: type[BaseModel] | None = YourlsStatsToolInput
     credentials: Optional[YourlsCredentials] = None

@@ -21,6 +21,7 @@ class MattermostInviteToolInput(BaseModel):
 
 class MattermostInviteTool(BaseTool):
     name: str = "mattermost_invite"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost invite operation - invite operation"
     args_schema: type[BaseModel] | None = MattermostInviteToolInput
     credentials: Optional[MattermostCredentials] = None

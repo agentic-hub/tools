@@ -12,6 +12,7 @@ class HunterEmailfinderToolInput(BaseModel):
 
 class HunterEmailfinderTool(BaseTool):
     name: str = "hunter_emailfinder"
+    connector_id: str = "nodes-base.hunter"
     description: str = "Tool for hunter emailFinder operation - emailFinder operation"
     args_schema: type[BaseModel] | None = HunterEmailfinderToolInput
     credentials: Optional[HunterCredentials] = None

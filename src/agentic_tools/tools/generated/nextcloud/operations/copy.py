@@ -17,6 +17,7 @@ class NextcloudCopyToolInput(BaseModel):
 
 class NextcloudCopyTool(BaseTool):
     name: str = "nextcloud_copy"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud copy operation - copy operation"
     args_schema: type[BaseModel] | None = NextcloudCopyToolInput
     credentials: Optional[NextcloudCredentials] = None

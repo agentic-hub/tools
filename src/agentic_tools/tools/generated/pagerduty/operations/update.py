@@ -18,6 +18,7 @@ class PagerdutyUpdateToolInput(BaseModel):
 
 class PagerdutyUpdateTool(BaseTool):
     name: str = "pagerduty_update"
+    connector_id: str = "nodes-base.pagerDuty"
     description: str = "Tool for pagerDuty update operation - update operation"
     args_schema: type[BaseModel] | None = PagerdutyUpdateToolInput
     credentials: Optional[PagerdutyCredentials] = None

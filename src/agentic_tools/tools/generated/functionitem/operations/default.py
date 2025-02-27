@@ -8,5 +8,6 @@ class FunctionitemDefaultToolInput(BaseModel):
 
 class FunctionitemDefaultTool(BaseTool):
     name: str = "functionitem_default"
+    connector_id: str = "nodes-base.functionItem"
     description: str = "Tool for functionItem default operation - default operation"
     args_schema: type[BaseModel] | None = FunctionitemDefaultToolInput

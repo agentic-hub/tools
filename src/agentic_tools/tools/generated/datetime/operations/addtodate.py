@@ -15,5 +15,6 @@ class DatetimeAddtodateToolInput(BaseModel):
 
 class DatetimeAddtodateTool(BaseTool):
     name: str = "datetime_addtodate"
+    connector_id: str = "nodes-base.dateTime"
     description: str = "Tool for dateTime addToDate operation - addToDate operation"
     args_schema: type[BaseModel] | None = DatetimeAddtodateToolInput

@@ -23,6 +23,7 @@ class DiscordRoleremoveToolInput(BaseModel):
 
 class DiscordRoleremoveTool(BaseTool):
     name: str = "discord_roleremove"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord roleRemove operation - roleRemove operation"
     args_schema: type[BaseModel] | None = DiscordRoleremoveToolInput
     credentials: Optional[DiscordCredentials] = None

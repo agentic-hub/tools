@@ -13,6 +13,7 @@ class BaserowDeleteToolInput(BaseModel):
 
 class BaserowDeleteTool(BaseTool):
     name: str = "baserow_delete"
+    connector_id: str = "nodes-base.baserow"
     description: str = "Tool for baserow delete operation - delete operation"
     args_schema: type[BaseModel] | None = BaserowDeleteToolInput
     credentials: Optional[BaserowCredentials] = None

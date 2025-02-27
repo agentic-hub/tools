@@ -22,6 +22,7 @@ class GithubListpopularpathsToolInput(BaseModel):
 
 class GithubListpopularpathsTool(BaseTool):
     name: str = "github_listpopularpaths"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github listPopularPaths operation - listPopularPaths operation"
     args_schema: type[BaseModel] | None = GithubListpopularpathsToolInput
     credentials: Optional[GithubCredentials] = None

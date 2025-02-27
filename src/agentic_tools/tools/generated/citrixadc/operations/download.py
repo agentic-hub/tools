@@ -16,6 +16,7 @@ class CitrixadcDownloadToolInput(BaseModel):
 
 class CitrixadcDownloadTool(BaseTool):
     name: str = "citrixadc_download"
+    connector_id: str = "nodes-base.citrixAdc"
     description: str = "Tool for citrixAdc download operation - download operation"
     args_schema: type[BaseModel] | None = CitrixadcDownloadToolInput
     credentials: Optional[CitrixadcCredentials] = None

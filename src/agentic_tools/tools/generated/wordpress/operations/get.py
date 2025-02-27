@@ -17,6 +17,7 @@ class WordpressGetToolInput(BaseModel):
 
 class WordpressGetTool(BaseTool):
     name: str = "wordpress_get"
+    connector_id: str = "nodes-base.wordpress"
     description: str = "Tool for wordpress get operation - get operation"
     args_schema: type[BaseModel] | None = WordpressGetToolInput
     credentials: Optional[WordpressCredentials] = None

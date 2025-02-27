@@ -17,6 +17,7 @@ class IterableRemoveToolInput(BaseModel):
 
 class IterableRemoveTool(BaseTool):
     name: str = "iterable_remove"
+    connector_id: str = "nodes-base.iterable"
     description: str = "Tool for iterable remove operation - remove operation"
     args_schema: type[BaseModel] | None = IterableRemoveToolInput
     credentials: Optional[IterableCredentials] = None

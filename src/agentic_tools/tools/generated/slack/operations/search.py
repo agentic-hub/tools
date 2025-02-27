@@ -28,6 +28,7 @@ class SlackSearchToolInput(BaseModel):
 
 class SlackSearchTool(BaseTool):
     name: str = "slack_search"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack search operation - search operation"
     args_schema: type[BaseModel] | None = SlackSearchToolInput
     credentials: Optional[SlackCredentials] = None

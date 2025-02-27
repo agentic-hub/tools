@@ -16,6 +16,7 @@ class ConvertkitDeleteToolInput(BaseModel):
 
 class ConvertkitDeleteTool(BaseTool):
     name: str = "convertkit_delete"
+    connector_id: str = "nodes-base.convertKit"
     description: str = "Tool for convertKit delete operation - delete operation"
     args_schema: type[BaseModel] | None = ConvertkitDeleteToolInput
     credentials: Optional[ConvertkitCredentials] = None

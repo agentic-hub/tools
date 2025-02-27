@@ -21,5 +21,6 @@ class EditimageDrawToolInput(BaseModel):
 
 class EditimageDrawTool(BaseTool):
     name: str = "editimage_draw"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage draw operation - draw operation"
     args_schema: type[BaseModel] | None = EditimageDrawToolInput

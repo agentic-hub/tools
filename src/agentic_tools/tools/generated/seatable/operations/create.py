@@ -15,6 +15,7 @@ class SeatableCreateToolInput(BaseModel):
 
 class SeatableCreateTool(BaseTool):
     name: str = "seatable_create"
+    connector_id: str = "nodes-base.seaTable"
     description: str = "Tool for seaTable create operation - create operation"
     args_schema: type[BaseModel] | None = SeatableCreateToolInput
     credentials: Optional[SeatableCredentials] = None

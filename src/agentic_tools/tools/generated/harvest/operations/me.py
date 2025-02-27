@@ -24,6 +24,7 @@ class HarvestMeToolInput(BaseModel):
 
 class HarvestMeTool(BaseTool):
     name: str = "harvest_me"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest me operation - me operation"
     args_schema: type[BaseModel] | None = HarvestMeToolInput
     credentials: Optional[HarvestCredentials] = None

@@ -26,6 +26,7 @@ class SlackInfoToolInput(BaseModel):
 
 class SlackInfoTool(BaseTool):
     name: str = "slack_info"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack info operation - info operation"
     args_schema: type[BaseModel] | None = SlackInfoToolInput
     credentials: Optional[SlackCredentials] = None

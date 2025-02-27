@@ -12,6 +12,7 @@ class DriftGetToolInput(BaseModel):
 
 class DriftGetTool(BaseTool):
     name: str = "drift_get"
+    connector_id: str = "nodes-base.drift"
     description: str = "Tool for drift get operation - get operation"
     args_schema: type[BaseModel] | None = DriftGetToolInput
     credentials: Optional[DriftCredentials] = None

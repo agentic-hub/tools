@@ -16,6 +16,7 @@ class TwitterCreateToolInput(BaseModel):
 
 class TwitterCreateTool(BaseTool):
     name: str = "twitter_create"
+    connector_id: str = "nodes-base.twitter"
     description: str = "Tool for twitter create operation - create operation"
     args_schema: type[BaseModel] | None = TwitterCreateToolInput
     credentials: Optional[TwitterCredentials] = None

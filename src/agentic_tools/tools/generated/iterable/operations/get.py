@@ -17,6 +17,7 @@ class IterableGetToolInput(BaseModel):
 
 class IterableGetTool(BaseTool):
     name: str = "iterable_get"
+    connector_id: str = "nodes-base.iterable"
     description: str = "Tool for iterable get operation - get operation"
     args_schema: type[BaseModel] | None = IterableGetToolInput
     credentials: Optional[IterableCredentials] = None

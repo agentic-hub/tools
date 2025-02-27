@@ -23,6 +23,7 @@ class OnfleetGettimeestimatesToolInput(BaseModel):
 
 class OnfleetGettimeestimatesTool(BaseTool):
     name: str = "onfleet_gettimeestimates"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet getTimeEstimates operation - getTimeEstimates operation"
     args_schema: type[BaseModel] | None = OnfleetGettimeestimatesToolInput
     credentials: Optional[OnfleetCredentials] = None

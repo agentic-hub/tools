@@ -29,6 +29,7 @@ class WaitDefaultToolInput(BaseModel):
 
 class WaitDefaultTool(BaseTool):
     name: str = "wait_default"
+    connector_id: str = "nodes-base.wait"
     description: str = "Tool for wait default operation - default operation"
     args_schema: type[BaseModel] | None = WaitDefaultToolInput
     credentials: Optional[WaitCredentials] = None

@@ -15,5 +15,6 @@ class ItemlistsRemoveduplicatesToolInput(BaseModel):
 
 class ItemlistsRemoveduplicatesTool(BaseTool):
     name: str = "itemlists_removeduplicates"
+    connector_id: str = "nodes-base.itemLists"
     description: str = "Tool for itemLists removeDuplicates operation - removeDuplicates operation"
     args_schema: type[BaseModel] | None = ItemlistsRemoveduplicatesToolInput

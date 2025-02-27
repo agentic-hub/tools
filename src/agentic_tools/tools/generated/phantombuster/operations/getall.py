@@ -15,6 +15,7 @@ class PhantombusterGetallToolInput(BaseModel):
 
 class PhantombusterGetallTool(BaseTool):
     name: str = "phantombuster_getall"
+    connector_id: str = "nodes-base.phantombuster"
     description: str = "Tool for phantombuster getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = PhantombusterGetallToolInput
     credentials: Optional[PhantombusterCredentials] = None

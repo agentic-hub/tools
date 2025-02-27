@@ -20,6 +20,7 @@ class MattermostGetbyemailToolInput(BaseModel):
 
 class MattermostGetbyemailTool(BaseTool):
     name: str = "mattermost_getbyemail"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost getByEmail operation - getByEmail operation"
     args_schema: type[BaseModel] | None = MattermostGetbyemailToolInput
     credentials: Optional[MattermostCredentials] = None

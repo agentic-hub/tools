@@ -11,6 +11,7 @@ class Beeminder__custom_api_call__ToolInput(BaseModel):
 
 class Beeminder__custom_api_call__Tool(BaseTool):
     name: str = "beeminder___custom_api_call__"
+    connector_id: str = "nodes-base.beeminder"
     description: str = "Tool for beeminder __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Beeminder__custom_api_call__ToolInput
     credentials: Optional[BeeminderCredentials] = None

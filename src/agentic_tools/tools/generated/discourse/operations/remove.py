@@ -20,6 +20,7 @@ class DiscourseRemoveToolInput(BaseModel):
 
 class DiscourseRemoveTool(BaseTool):
     name: str = "discourse_remove"
+    connector_id: str = "nodes-base.discourse"
     description: str = "Tool for discourse remove operation - remove operation"
     args_schema: type[BaseModel] | None = DiscourseRemoveToolInput
     credentials: Optional[DiscourseCredentials] = None

@@ -27,6 +27,7 @@ class WoocommerceGetToolInput(BaseModel):
 
 class WoocommerceGetTool(BaseTool):
     name: str = "woocommerce_get"
+    connector_id: str = "nodes-base.wooCommerce"
     description: str = "Tool for wooCommerce get operation - get operation"
     args_schema: type[BaseModel] | None = WoocommerceGetToolInput
     credentials: Optional[WoocommerceCredentials] = None

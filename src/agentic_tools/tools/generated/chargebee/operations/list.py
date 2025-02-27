@@ -13,6 +13,7 @@ class ChargebeeListToolInput(BaseModel):
 
 class ChargebeeListTool(BaseTool):
     name: str = "chargebee_list"
+    connector_id: str = "nodes-base.chargebee"
     description: str = "Tool for chargebee list operation - list operation"
     args_schema: type[BaseModel] | None = ChargebeeListToolInput
     credentials: Optional[ChargebeeCredentials] = None

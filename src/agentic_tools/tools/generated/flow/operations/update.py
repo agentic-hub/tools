@@ -14,6 +14,7 @@ class FlowUpdateToolInput(BaseModel):
 
 class FlowUpdateTool(BaseTool):
     name: str = "flow_update"
+    connector_id: str = "nodes-base.flow"
     description: str = "Tool for flow update operation - update operation"
     args_schema: type[BaseModel] | None = FlowUpdateToolInput
     credentials: Optional[FlowCredentials] = None

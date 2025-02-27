@@ -16,6 +16,7 @@ class GooglechatDeleteToolInput(BaseModel):
 
 class GooglechatDeleteTool(BaseTool):
     name: str = "googlechat_delete"
+    connector_id: str = "nodes-base.googleChat"
     description: str = "Tool for googleChat delete operation - delete operation"
     args_schema: type[BaseModel] | None = GooglechatDeleteToolInput
     credentials: Optional[GooglechatCredentials] = None

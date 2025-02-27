@@ -22,6 +22,7 @@ class MailchimpDeleteToolInput(BaseModel):
 
 class MailchimpDeleteTool(BaseTool):
     name: str = "mailchimp_delete"
+    connector_id: str = "nodes-base.mailchimp"
     description: str = "Tool for mailchimp delete operation - delete operation"
     args_schema: type[BaseModel] | None = MailchimpDeleteToolInput
     credentials: Optional[MailchimpCredentials] = None

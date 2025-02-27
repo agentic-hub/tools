@@ -13,6 +13,7 @@ class GitLogToolInput(BaseModel):
 
 class GitLogTool(BaseTool):
     name: str = "git_log"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git log operation - log operation"
     args_schema: type[BaseModel] | None = GitLogToolInput
     credentials: Optional[GitCredentials] = None

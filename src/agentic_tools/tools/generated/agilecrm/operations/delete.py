@@ -25,6 +25,7 @@ class AgilecrmDeleteToolInput(BaseModel):
 
 class AgilecrmDeleteTool(BaseTool):
     name: str = "agilecrm_delete"
+    connector_id: str = "nodes-base.agileCrm"
     description: str = "Tool for agileCrm delete operation - delete operation"
     args_schema: type[BaseModel] | None = AgilecrmDeleteToolInput
     credentials: Optional[AgilecrmCredentials] = None

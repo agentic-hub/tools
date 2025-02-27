@@ -15,6 +15,7 @@ class Citrixadc__custom_api_call__ToolInput(BaseModel):
 
 class Citrixadc__custom_api_call__Tool(BaseTool):
     name: str = "citrixadc___custom_api_call__"
+    connector_id: str = "nodes-base.citrixAdc"
     description: str = "Tool for citrixAdc __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Citrixadc__custom_api_call__ToolInput
     credentials: Optional[CitrixadcCredentials] = None

@@ -23,6 +23,7 @@ class MandrillSendtemplateToolInput(BaseModel):
 
 class MandrillSendtemplateTool(BaseTool):
     name: str = "mandrill_sendtemplate"
+    connector_id: str = "nodes-base.mandrill"
     description: str = "Tool for mandrill sendTemplate operation - sendTemplate operation"
     args_schema: type[BaseModel] | None = MandrillSendtemplateToolInput
     credentials: Optional[MandrillCredentials] = None

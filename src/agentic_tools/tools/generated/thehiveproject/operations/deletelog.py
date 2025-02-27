@@ -41,6 +41,7 @@ class ThehiveprojectDeletelogToolInput(BaseModel):
 
 class ThehiveprojectDeletelogTool(BaseTool):
     name: str = "thehiveproject_deletelog"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject deleteLog operation - deleteLog operation"
     args_schema: type[BaseModel] | None = ThehiveprojectDeletelogToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

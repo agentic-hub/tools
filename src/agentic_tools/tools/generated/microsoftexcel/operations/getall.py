@@ -27,6 +27,7 @@ class MicrosoftexcelGetallToolInput(BaseModel):
 
 class MicrosoftexcelGetallTool(BaseTool):
     name: str = "microsoftexcel_getall"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelGetallToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

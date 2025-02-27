@@ -18,6 +18,7 @@ class WhatsappSendtemplateToolInput(BaseModel):
 
 class WhatsappSendtemplateTool(BaseTool):
     name: str = "whatsapp_sendtemplate"
+    connector_id: str = "nodes-base.whatsApp"
     description: str = "Tool for whatsApp sendTemplate operation - sendTemplate operation"
     args_schema: type[BaseModel] | None = WhatsappSendtemplateToolInput
     credentials: Optional[WhatsappCredentials] = None

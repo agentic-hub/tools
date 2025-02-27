@@ -20,6 +20,7 @@ class HalopsaUpdateToolInput(BaseModel):
 
 class HalopsaUpdateTool(BaseTool):
     name: str = "halopsa_update"
+    connector_id: str = "nodes-base.haloPSA"
     description: str = "Tool for haloPSA update operation - update operation"
     args_schema: type[BaseModel] | None = HalopsaUpdateToolInput
     credentials: Optional[HalopsaCredentials] = None

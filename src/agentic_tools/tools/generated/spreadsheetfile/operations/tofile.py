@@ -10,5 +10,6 @@ class SpreadsheetfileTofileToolInput(BaseModel):
 
 class SpreadsheetfileTofileTool(BaseTool):
     name: str = "spreadsheetfile_tofile"
+    connector_id: str = "nodes-base.spreadsheetFile"
     description: str = "Tool for spreadsheetFile toFile operation - toFile operation"
     args_schema: type[BaseModel] | None = SpreadsheetfileTofileToolInput

@@ -15,6 +15,7 @@ class TwilioMakeToolInput(BaseModel):
 
 class TwilioMakeTool(BaseTool):
     name: str = "twilio_make"
+    connector_id: str = "nodes-base.twilio"
     description: str = "Tool for twilio make operation - make operation"
     args_schema: type[BaseModel] | None = TwilioMakeToolInput
     credentials: Optional[TwilioCredentials] = None

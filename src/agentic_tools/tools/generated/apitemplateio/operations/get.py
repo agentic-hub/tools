@@ -10,6 +10,7 @@ class ApitemplateioGetToolInput(BaseModel):
 
 class ApitemplateioGetTool(BaseTool):
     name: str = "apitemplateio_get"
+    connector_id: str = "nodes-base.apiTemplateIo"
     description: str = "Tool for apiTemplateIo get operation - get operation"
     args_schema: type[BaseModel] | None = ApitemplateioGetToolInput
     credentials: Optional[ApitemplateioCredentials] = None

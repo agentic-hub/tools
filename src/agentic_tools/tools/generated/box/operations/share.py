@@ -25,6 +25,7 @@ class BoxShareToolInput(BaseModel):
 
 class BoxShareTool(BaseTool):
     name: str = "box_share"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box share operation - share operation"
     args_schema: type[BaseModel] | None = BoxShareToolInput
     credentials: Optional[BoxCredentials] = None

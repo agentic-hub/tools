@@ -24,6 +24,7 @@ class GooglecloudstorageCreateToolInput(BaseModel):
 
 class GooglecloudstorageCreateTool(BaseTool):
     name: str = "googlecloudstorage_create"
+    connector_id: str = "nodes-base.googleCloudStorage"
     description: str = "Tool for googleCloudStorage create operation - create operation"
     args_schema: type[BaseModel] | None = GooglecloudstorageCreateToolInput
     credentials: Optional[GooglecloudstorageCredentials] = None

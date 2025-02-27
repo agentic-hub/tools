@@ -25,6 +25,7 @@ class BoxGetToolInput(BaseModel):
 
 class BoxGetTool(BaseTool):
     name: str = "box_get"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box get operation - get operation"
     args_schema: type[BaseModel] | None = BoxGetToolInput
     credentials: Optional[BoxCredentials] = None

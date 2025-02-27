@@ -14,6 +14,7 @@ class KitemakerGetallToolInput(BaseModel):
 
 class KitemakerGetallTool(BaseTool):
     name: str = "kitemaker_getall"
+    connector_id: str = "nodes-base.kitemaker"
     description: str = "Tool for kitemaker getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = KitemakerGetallToolInput
     credentials: Optional[KitemakerCredentials] = None

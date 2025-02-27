@@ -15,6 +15,7 @@ class GoogleslidesGetthumbnailToolInput(BaseModel):
 
 class GoogleslidesGetthumbnailTool(BaseTool):
     name: str = "googleslides_getthumbnail"
+    connector_id: str = "nodes-base.googleSlides"
     description: str = "Tool for googleSlides getThumbnail operation - getThumbnail operation"
     args_schema: type[BaseModel] | None = GoogleslidesGetthumbnailToolInput
     credentials: Optional[GoogleslidesCredentials] = None

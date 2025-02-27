@@ -11,6 +11,7 @@ class AmqpDefaultToolInput(BaseModel):
 
 class AmqpDefaultTool(BaseTool):
     name: str = "amqp_default"
+    connector_id: str = "nodes-base.amqp"
     description: str = "Tool for amqp default operation - default operation"
     args_schema: type[BaseModel] | None = AmqpDefaultToolInput
     credentials: Optional[AmqpCredentials] = None

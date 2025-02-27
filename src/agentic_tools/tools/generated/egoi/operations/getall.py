@@ -16,6 +16,7 @@ class EgoiGetallToolInput(BaseModel):
 
 class EgoiGetallTool(BaseTool):
     name: str = "egoi_getall"
+    connector_id: str = "nodes-base.egoi"
     description: str = "Tool for egoi getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = EgoiGetallToolInput
     credentials: Optional[EgoiCredentials] = None

@@ -27,6 +27,7 @@ class SlackKickToolInput(BaseModel):
 
 class SlackKickTool(BaseTool):
     name: str = "slack_kick"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack kick operation - kick operation"
     args_schema: type[BaseModel] | None = SlackKickToolInput
     credentials: Optional[SlackCredentials] = None

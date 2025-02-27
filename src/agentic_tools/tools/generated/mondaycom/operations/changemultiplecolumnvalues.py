@@ -21,6 +21,7 @@ class MondaycomChangemultiplecolumnvaluesToolInput(BaseModel):
 
 class MondaycomChangemultiplecolumnvaluesTool(BaseTool):
     name: str = "mondaycom_changemultiplecolumnvalues"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom changeMultipleColumnValues operation - changeMultipleColumnValues operation"
     args_schema: type[BaseModel] | None = MondaycomChangemultiplecolumnvaluesToolInput
     credentials: Optional[MondaycomCredentials] = None

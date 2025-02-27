@@ -16,5 +16,6 @@ class DebughelperDefaultToolInput(BaseModel):
 
 class DebughelperDefaultTool(BaseTool):
     name: str = "debughelper_default"
+    connector_id: str = "nodes-base.debugHelper"
     description: str = "Tool for debugHelper default operation - default operation"
     args_schema: type[BaseModel] | None = DebughelperDefaultToolInput

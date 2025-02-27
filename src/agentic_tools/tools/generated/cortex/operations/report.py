@@ -16,6 +16,7 @@ class CortexReportToolInput(BaseModel):
 
 class CortexReportTool(BaseTool):
     name: str = "cortex_report"
+    connector_id: str = "nodes-base.cortex"
     description: str = "Tool for cortex report operation - report operation"
     args_schema: type[BaseModel] | None = CortexReportToolInput
     credentials: Optional[CortexCredentials] = None

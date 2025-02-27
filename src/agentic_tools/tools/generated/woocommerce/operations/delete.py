@@ -27,6 +27,7 @@ class WoocommerceDeleteToolInput(BaseModel):
 
 class WoocommerceDeleteTool(BaseTool):
     name: str = "woocommerce_delete"
+    connector_id: str = "nodes-base.wooCommerce"
     description: str = "Tool for wooCommerce delete operation - delete operation"
     args_schema: type[BaseModel] | None = WoocommerceDeleteToolInput
     credentials: Optional[WoocommerceCredentials] = None

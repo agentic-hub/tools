@@ -15,6 +15,7 @@ class EgoiUpdateToolInput(BaseModel):
 
 class EgoiUpdateTool(BaseTool):
     name: str = "egoi_update"
+    connector_id: str = "nodes-base.egoi"
     description: str = "Tool for egoi update operation - update operation"
     args_schema: type[BaseModel] | None = EgoiUpdateToolInput
     credentials: Optional[EgoiCredentials] = None

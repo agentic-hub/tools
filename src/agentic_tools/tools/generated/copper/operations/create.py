@@ -24,6 +24,7 @@ class CopperCreateToolInput(BaseModel):
 
 class CopperCreateTool(BaseTool):
     name: str = "copper_create"
+    connector_id: str = "nodes-base.copper"
     description: str = "Tool for copper create operation - create operation"
     args_schema: type[BaseModel] | None = CopperCreateToolInput
     credentials: Optional[CopperCredentials] = None

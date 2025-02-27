@@ -19,6 +19,7 @@ class QuickbaseUpsertToolInput(BaseModel):
 
 class QuickbaseUpsertTool(BaseTool):
     name: str = "quickbase_upsert"
+    connector_id: str = "nodes-base.quickbase"
     description: str = "Tool for quickbase upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = QuickbaseUpsertToolInput
     credentials: Optional[QuickbaseCredentials] = None

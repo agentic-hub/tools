@@ -15,6 +15,7 @@ class VeroRemovetagsToolInput(BaseModel):
 
 class VeroRemovetagsTool(BaseTool):
     name: str = "vero_removetags"
+    connector_id: str = "nodes-base.vero"
     description: str = "Tool for vero removeTags operation - removeTags operation"
     args_schema: type[BaseModel] | None = VeroRemovetagsToolInput
     credentials: Optional[VeroCredentials] = None

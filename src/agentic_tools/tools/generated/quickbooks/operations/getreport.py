@@ -30,6 +30,7 @@ class QuickbooksGetreportToolInput(BaseModel):
 
 class QuickbooksGetreportTool(BaseTool):
     name: str = "quickbooks_getreport"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks getReport operation - getReport operation"
     args_schema: type[BaseModel] | None = QuickbooksGetreportToolInput
     credentials: Optional[QuickbooksCredentials] = None

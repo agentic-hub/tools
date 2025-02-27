@@ -21,6 +21,7 @@ class TelegramAdministratorsToolInput(BaseModel):
 
 class TelegramAdministratorsTool(BaseTool):
     name: str = "telegram_administrators"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram administrators operation - administrators operation"
     args_schema: type[BaseModel] | None = TelegramAdministratorsToolInput
     credentials: Optional[TelegramCredentials] = None

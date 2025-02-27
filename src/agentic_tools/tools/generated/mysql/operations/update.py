@@ -21,6 +21,7 @@ class MysqlUpdateToolInput(BaseModel):
 
 class MysqlUpdateTool(BaseTool):
     name: str = "mysql_update"
+    connector_id: str = "nodes-base.mySql"
     description: str = "Tool for mySql update operation - update operation"
     args_schema: type[BaseModel] | None = MysqlUpdateToolInput
     credentials: Optional[MysqlCredentials] = None

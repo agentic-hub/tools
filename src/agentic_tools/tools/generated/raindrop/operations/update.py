@@ -16,6 +16,7 @@ class RaindropUpdateToolInput(BaseModel):
 
 class RaindropUpdateTool(BaseTool):
     name: str = "raindrop_update"
+    connector_id: str = "nodes-base.raindrop"
     description: str = "Tool for raindrop update operation - update operation"
     args_schema: type[BaseModel] | None = RaindropUpdateToolInput
     credentials: Optional[RaindropCredentials] = None

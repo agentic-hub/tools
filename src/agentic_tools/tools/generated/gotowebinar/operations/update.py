@@ -23,6 +23,7 @@ class GotowebinarUpdateToolInput(BaseModel):
 
 class GotowebinarUpdateTool(BaseTool):
     name: str = "gotowebinar_update"
+    connector_id: str = "nodes-base.goToWebinar"
     description: str = "Tool for goToWebinar update operation - update operation"
     args_schema: type[BaseModel] | None = GotowebinarUpdateToolInput
     credentials: Optional[GotowebinarCredentials] = None

@@ -31,5 +31,6 @@ class HttprequestDefaultToolInput(BaseModel):
 
 class HttprequestDefaultTool(BaseTool):
     name: str = "httprequest_default"
+    connector_id: str = "nodes-base.httpRequest"
     description: str = "Tool for httpRequest default operation - default operation"
     args_schema: type[BaseModel] | None = HttprequestDefaultToolInput

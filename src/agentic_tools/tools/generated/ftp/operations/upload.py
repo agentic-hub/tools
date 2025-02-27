@@ -15,6 +15,7 @@ class FtpUploadToolInput(BaseModel):
 
 class FtpUploadTool(BaseTool):
     name: str = "ftp_upload"
+    connector_id: str = "nodes-base.ftp"
     description: str = "Tool for ftp upload operation - upload operation"
     args_schema: type[BaseModel] | None = FtpUploadToolInput
     credentials: Optional[FtpCredentials] = None

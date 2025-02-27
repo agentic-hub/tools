@@ -19,6 +19,7 @@ class CiscowebexDeleteToolInput(BaseModel):
 
 class CiscowebexDeleteTool(BaseTool):
     name: str = "ciscowebex_delete"
+    connector_id: str = "nodes-base.ciscoWebex"
     description: str = "Tool for ciscoWebex delete operation - delete operation"
     args_schema: type[BaseModel] | None = CiscowebexDeleteToolInput
     credentials: Optional[CiscowebexCredentials] = None

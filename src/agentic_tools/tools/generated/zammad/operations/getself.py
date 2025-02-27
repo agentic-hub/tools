@@ -17,6 +17,7 @@ class ZammadGetselfToolInput(BaseModel):
 
 class ZammadGetselfTool(BaseTool):
     name: str = "zammad_getself"
+    connector_id: str = "nodes-base.zammad"
     description: str = "Tool for zammad getSelf operation - getSelf operation"
     args_schema: type[BaseModel] | None = ZammadGetselfToolInput
     credentials: Optional[ZammadCredentials] = None

@@ -31,6 +31,7 @@ class MicrosoftoutlookDownloadToolInput(BaseModel):
 
 class MicrosoftoutlookDownloadTool(BaseTool):
     name: str = "microsoftoutlook_download"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook download operation - download operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookDownloadToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

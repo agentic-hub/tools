@@ -18,6 +18,7 @@ class ZulipDeleteToolInput(BaseModel):
 
 class ZulipDeleteTool(BaseTool):
     name: str = "zulip_delete"
+    connector_id: str = "nodes-base.zulip"
     description: str = "Tool for zulip delete operation - delete operation"
     args_schema: type[BaseModel] | None = ZulipDeleteToolInput
     credentials: Optional[ZulipCredentials] = None

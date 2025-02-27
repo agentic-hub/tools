@@ -31,6 +31,7 @@ class PipedriveSearchToolInput(BaseModel):
 
 class PipedriveSearchTool(BaseTool):
     name: str = "pipedrive_search"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive search operation - search operation"
     args_schema: type[BaseModel] | None = PipedriveSearchToolInput
     credentials: Optional[PipedriveCredentials] = None

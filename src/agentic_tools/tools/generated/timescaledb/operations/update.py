@@ -15,6 +15,7 @@ class TimescaledbUpdateToolInput(BaseModel):
 
 class TimescaledbUpdateTool(BaseTool):
     name: str = "timescaledb_update"
+    connector_id: str = "nodes-base.timescaleDb"
     description: str = "Tool for timescaleDb update operation - update operation"
     args_schema: type[BaseModel] | None = TimescaledbUpdateToolInput
     credentials: Optional[TimescaledbCredentials] = None

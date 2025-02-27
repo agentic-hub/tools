@@ -18,6 +18,7 @@ class NextcloudCreateToolInput(BaseModel):
 
 class NextcloudCreateTool(BaseTool):
     name: str = "nextcloud_create"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud create operation - create operation"
     args_schema: type[BaseModel] | None = NextcloudCreateToolInput
     credentials: Optional[NextcloudCredentials] = None

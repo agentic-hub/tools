@@ -8,5 +8,6 @@ class FunctionDefaultToolInput(BaseModel):
 
 class FunctionDefaultTool(BaseTool):
     name: str = "function_default"
+    connector_id: str = "nodes-base.function"
     description: str = "Tool for function default operation - default operation"
     args_schema: type[BaseModel] | None = FunctionDefaultToolInput

@@ -18,6 +18,7 @@ class RedditReplyToolInput(BaseModel):
 
 class RedditReplyTool(BaseTool):
     name: str = "reddit_reply"
+    connector_id: str = "nodes-base.reddit"
     description: str = "Tool for reddit reply operation - reply operation"
     args_schema: type[BaseModel] | None = RedditReplyToolInput
     credentials: Optional[RedditCredentials] = None

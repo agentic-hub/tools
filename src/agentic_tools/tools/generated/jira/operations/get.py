@@ -25,6 +25,7 @@ class JiraGetToolInput(BaseModel):
 
 class JiraGetTool(BaseTool):
     name: str = "jira_get"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira get operation - get operation"
     args_schema: type[BaseModel] | None = JiraGetToolInput
     credentials: Optional[JiraCredentials] = None

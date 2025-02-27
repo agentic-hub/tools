@@ -15,6 +15,7 @@ class GhostDeleteToolInput(BaseModel):
 
 class GhostDeleteTool(BaseTool):
     name: str = "ghost_delete"
+    connector_id: str = "nodes-base.ghost"
     description: str = "Tool for ghost delete operation - delete operation"
     args_schema: type[BaseModel] | None = GhostDeleteToolInput
     credentials: Optional[GhostCredentials] = None

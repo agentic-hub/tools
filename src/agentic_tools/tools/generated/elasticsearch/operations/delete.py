@@ -20,6 +20,7 @@ class ElasticsearchDeleteToolInput(BaseModel):
 
 class ElasticsearchDeleteTool(BaseTool):
     name: str = "elasticsearch_delete"
+    connector_id: str = "nodes-base.elasticsearch"
     description: str = "Tool for elasticsearch delete operation - delete operation"
     args_schema: type[BaseModel] | None = ElasticsearchDeleteToolInput
     credentials: Optional[ElasticsearchCredentials] = None

@@ -14,6 +14,7 @@ class CratedbExecutequeryToolInput(BaseModel):
 
 class CratedbExecutequeryTool(BaseTool):
     name: str = "cratedb_executequery"
+    connector_id: str = "nodes-base.crateDb"
     description: str = "Tool for crateDb executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = CratedbExecutequeryToolInput
     credentials: Optional[CratedbCredentials] = None

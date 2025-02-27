@@ -41,6 +41,7 @@ class ThehiveprojectDeletecommentToolInput(BaseModel):
 
 class ThehiveprojectDeletecommentTool(BaseTool):
     name: str = "thehiveproject_deletecomment"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject deleteComment operation - deleteComment operation"
     args_schema: type[BaseModel] | None = ThehiveprojectDeletecommentToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

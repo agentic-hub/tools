@@ -26,6 +26,7 @@ class SlackOpenToolInput(BaseModel):
 
 class SlackOpenTool(BaseTool):
     name: str = "slack_open"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack open operation - open operation"
     args_schema: type[BaseModel] | None = SlackOpenToolInput
     credentials: Optional[SlackCredentials] = None

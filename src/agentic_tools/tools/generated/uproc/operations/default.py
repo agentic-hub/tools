@@ -153,6 +153,7 @@ class UprocDefaultToolInput(BaseModel):
 
 class UprocDefaultTool(BaseTool):
     name: str = "uproc_default"
+    connector_id: str = "nodes-base.uproc"
     description: str = "Tool for uproc default operation - default operation"
     args_schema: type[BaseModel] | None = UprocDefaultToolInput
     credentials: Optional[UprocCredentials] = None

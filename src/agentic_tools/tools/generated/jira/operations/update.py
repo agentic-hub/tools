@@ -25,6 +25,7 @@ class JiraUpdateToolInput(BaseModel):
 
 class JiraUpdateTool(BaseTool):
     name: str = "jira_update"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira update operation - update operation"
     args_schema: type[BaseModel] | None = JiraUpdateToolInput
     credentials: Optional[JiraCredentials] = None

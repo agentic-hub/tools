@@ -23,6 +23,7 @@ class GoogledriveCreatefromtextToolInput(BaseModel):
 
 class GoogledriveCreatefromtextTool(BaseTool):
     name: str = "googledrive_createfromtext"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive createFromText operation - createFromText operation"
     args_schema: type[BaseModel] | None = GoogledriveCreatefromtextToolInput
     credentials: Optional[GoogledriveCredentials] = None

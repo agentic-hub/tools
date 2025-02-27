@@ -17,6 +17,7 @@ class StoryblokPublishToolInput(BaseModel):
 
 class StoryblokPublishTool(BaseTool):
     name: str = "storyblok_publish"
+    connector_id: str = "nodes-base.storyblok"
     description: str = "Tool for storyblok publish operation - publish operation"
     args_schema: type[BaseModel] | None = StoryblokPublishToolInput
     credentials: Optional[StoryblokCredentials] = None

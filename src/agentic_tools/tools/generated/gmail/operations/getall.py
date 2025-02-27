@@ -23,6 +23,7 @@ class GmailGetallToolInput(BaseModel):
 
 class GmailGetallTool(BaseTool):
     name: str = "gmail_getall"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GmailGetallToolInput
     credentials: Optional[GmailCredentials] = None

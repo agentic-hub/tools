@@ -13,6 +13,7 @@ class PhilipshueUpdateToolInput(BaseModel):
 
 class PhilipshueUpdateTool(BaseTool):
     name: str = "philipshue_update"
+    connector_id: str = "nodes-base.philipsHue"
     description: str = "Tool for philipsHue update operation - update operation"
     args_schema: type[BaseModel] | None = PhilipshueUpdateToolInput
     credentials: Optional[PhilipshueCredentials] = None

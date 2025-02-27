@@ -13,6 +13,7 @@ class TodoistGetToolInput(BaseModel):
 
 class TodoistGetTool(BaseTool):
     name: str = "todoist_get"
+    connector_id: str = "nodes-base.todoist"
     description: str = "Tool for todoist get operation - get operation"
     args_schema: type[BaseModel] | None = TodoistGetToolInput
     credentials: Optional[TodoistCredentials] = None

@@ -20,6 +20,7 @@ class ElasticsearchUpdateToolInput(BaseModel):
 
 class ElasticsearchUpdateTool(BaseTool):
     name: str = "elasticsearch_update"
+    connector_id: str = "nodes-base.elasticsearch"
     description: str = "Tool for elasticsearch update operation - update operation"
     args_schema: type[BaseModel] | None = ElasticsearchUpdateToolInput
     credentials: Optional[ElasticsearchCredentials] = None

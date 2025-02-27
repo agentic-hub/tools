@@ -22,6 +22,7 @@ class GithubGetprofileToolInput(BaseModel):
 
 class GithubGetprofileTool(BaseTool):
     name: str = "github_getprofile"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github getProfile operation - getProfile operation"
     args_schema: type[BaseModel] | None = GithubGetprofileToolInput
     credentials: Optional[GithubCredentials] = None

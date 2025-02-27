@@ -33,6 +33,7 @@ class ZohocrmDeleteToolInput(BaseModel):
 
 class ZohocrmDeleteTool(BaseTool):
     name: str = "zohocrm_delete"
+    connector_id: str = "nodes-base.zohoCrm"
     description: str = "Tool for zohoCrm delete operation - delete operation"
     args_schema: type[BaseModel] | None = ZohocrmDeleteToolInput
     credentials: Optional[ZohocrmCredentials] = None

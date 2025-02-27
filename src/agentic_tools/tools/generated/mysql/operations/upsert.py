@@ -21,6 +21,7 @@ class MysqlUpsertToolInput(BaseModel):
 
 class MysqlUpsertTool(BaseTool):
     name: str = "mysql_upsert"
+    connector_id: str = "nodes-base.mySql"
     description: str = "Tool for mySql upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = MysqlUpsertToolInput
     credentials: Optional[MysqlCredentials] = None

@@ -23,6 +23,7 @@ class TelegramSendphotoToolInput(BaseModel):
 
 class TelegramSendphotoTool(BaseTool):
     name: str = "telegram_sendphoto"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendPhoto operation - sendPhoto operation"
     args_schema: type[BaseModel] | None = TelegramSendphotoToolInput
     credentials: Optional[TelegramCredentials] = None

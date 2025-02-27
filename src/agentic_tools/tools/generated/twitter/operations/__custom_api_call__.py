@@ -16,6 +16,7 @@ class Twitter__custom_api_call__ToolInput(BaseModel):
 
 class Twitter__custom_api_call__Tool(BaseTool):
     name: str = "twitter___custom_api_call__"
+    connector_id: str = "nodes-base.twitter"
     description: str = "Tool for twitter __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Twitter__custom_api_call__ToolInput
     credentials: Optional[TwitterCredentials] = None

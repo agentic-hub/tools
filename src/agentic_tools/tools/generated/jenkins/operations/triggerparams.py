@@ -14,6 +14,7 @@ class JenkinsTriggerparamsToolInput(BaseModel):
 
 class JenkinsTriggerparamsTool(BaseTool):
     name: str = "jenkins_triggerparams"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins triggerParams operation - triggerParams operation"
     args_schema: type[BaseModel] | None = JenkinsTriggerparamsToolInput
     credentials: Optional[JenkinsCredentials] = None

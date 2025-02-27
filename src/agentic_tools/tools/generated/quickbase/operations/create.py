@@ -18,6 +18,7 @@ class QuickbaseCreateToolInput(BaseModel):
 
 class QuickbaseCreateTool(BaseTool):
     name: str = "quickbase_create"
+    connector_id: str = "nodes-base.quickbase"
     description: str = "Tool for quickbase create operation - create operation"
     args_schema: type[BaseModel] | None = QuickbaseCreateToolInput
     credentials: Optional[QuickbaseCredentials] = None

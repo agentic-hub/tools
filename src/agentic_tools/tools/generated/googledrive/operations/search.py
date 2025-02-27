@@ -24,6 +24,7 @@ class GoogledriveSearchToolInput(BaseModel):
 
 class GoogledriveSearchTool(BaseTool):
     name: str = "googledrive_search"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive search operation - search operation"
     args_schema: type[BaseModel] | None = GoogledriveSearchToolInput
     credentials: Optional[GoogledriveCredentials] = None

@@ -22,6 +22,7 @@ class TrelloUpdatecheckitemToolInput(BaseModel):
 
 class TrelloUpdatecheckitemTool(BaseTool):
     name: str = "trello_updatecheckitem"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello updateCheckItem operation - updateCheckItem operation"
     args_schema: type[BaseModel] | None = TrelloUpdatecheckitemToolInput
     credentials: Optional[TrelloCredentials] = None

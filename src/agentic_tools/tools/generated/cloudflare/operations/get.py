@@ -12,6 +12,7 @@ class CloudflareGetToolInput(BaseModel):
 
 class CloudflareGetTool(BaseTool):
     name: str = "cloudflare_get"
+    connector_id: str = "nodes-base.cloudflare"
     description: str = "Tool for cloudflare get operation - get operation"
     args_schema: type[BaseModel] | None = CloudflareGetToolInput
     credentials: Optional[CloudflareCredentials] = None

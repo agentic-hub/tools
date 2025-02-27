@@ -15,6 +15,7 @@ class GoogletasksGetallToolInput(BaseModel):
 
 class GoogletasksGetallTool(BaseTool):
     name: str = "googletasks_getall"
+    connector_id: str = "nodes-base.googleTasks"
     description: str = "Tool for googleTasks getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GoogletasksGetallToolInput
     credentials: Optional[GoogletasksCredentials] = None

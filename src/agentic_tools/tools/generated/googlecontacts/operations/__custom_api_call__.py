@@ -13,6 +13,7 @@ class Googlecontacts__custom_api_call__ToolInput(BaseModel):
 
 class Googlecontacts__custom_api_call__Tool(BaseTool):
     name: str = "googlecontacts___custom_api_call__"
+    connector_id: str = "nodes-base.googleContacts"
     description: str = "Tool for googleContacts __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Googlecontacts__custom_api_call__ToolInput
     credentials: Optional[GooglecontactsCredentials] = None

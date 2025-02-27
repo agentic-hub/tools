@@ -15,6 +15,7 @@ class GoogledocsUpdateToolInput(BaseModel):
 
 class GoogledocsUpdateTool(BaseTool):
     name: str = "googledocs_update"
+    connector_id: str = "nodes-base.googleDocs"
     description: str = "Tool for googleDocs update operation - update operation"
     args_schema: type[BaseModel] | None = GoogledocsUpdateToolInput
     credentials: Optional[GoogledocsCredentials] = None

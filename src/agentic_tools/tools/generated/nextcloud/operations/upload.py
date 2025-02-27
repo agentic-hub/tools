@@ -19,6 +19,7 @@ class NextcloudUploadToolInput(BaseModel):
 
 class NextcloudUploadTool(BaseTool):
     name: str = "nextcloud_upload"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud upload operation - upload operation"
     args_schema: type[BaseModel] | None = NextcloudUploadToolInput
     credentials: Optional[NextcloudCredentials] = None

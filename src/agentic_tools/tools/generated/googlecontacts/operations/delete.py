@@ -13,6 +13,7 @@ class GooglecontactsDeleteToolInput(BaseModel):
 
 class GooglecontactsDeleteTool(BaseTool):
     name: str = "googlecontacts_delete"
+    connector_id: str = "nodes-base.googleContacts"
     description: str = "Tool for googleContacts delete operation - delete operation"
     args_schema: type[BaseModel] | None = GooglecontactsDeleteToolInput
     credentials: Optional[GooglecontactsCredentials] = None

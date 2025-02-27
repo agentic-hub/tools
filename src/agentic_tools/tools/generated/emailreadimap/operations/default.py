@@ -14,6 +14,7 @@ class EmailreadimapDefaultToolInput(BaseModel):
 
 class EmailreadimapDefaultTool(BaseTool):
     name: str = "emailreadimap_default"
+    connector_id: str = "nodes-base.emailReadImap"
     description: str = "Tool for emailReadImap default operation - default operation"
     args_schema: type[BaseModel] | None = EmailreadimapDefaultToolInput
     credentials: Optional[EmailreadimapCredentials] = None

@@ -22,6 +22,7 @@ class TrelloCompletedcheckitemsToolInput(BaseModel):
 
 class TrelloCompletedcheckitemsTool(BaseTool):
     name: str = "trello_completedcheckitems"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello completedCheckItems operation - completedCheckItems operation"
     args_schema: type[BaseModel] | None = TrelloCompletedcheckitemsToolInput
     credentials: Optional[TrelloCredentials] = None

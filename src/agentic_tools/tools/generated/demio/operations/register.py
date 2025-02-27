@@ -15,6 +15,7 @@ class DemioRegisterToolInput(BaseModel):
 
 class DemioRegisterTool(BaseTool):
     name: str = "demio_register"
+    connector_id: str = "nodes-base.demio"
     description: str = "Tool for demio register operation - register operation"
     args_schema: type[BaseModel] | None = DemioRegisterToolInput
     credentials: Optional[DemioCredentials] = None

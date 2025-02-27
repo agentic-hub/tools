@@ -24,6 +24,7 @@ class YoutubeUploadbannerToolInput(BaseModel):
 
 class YoutubeUploadbannerTool(BaseTool):
     name: str = "youtube_uploadbanner"
+    connector_id: str = "nodes-base.youTube"
     description: str = "Tool for youTube uploadBanner operation - uploadBanner operation"
     args_schema: type[BaseModel] | None = YoutubeUploadbannerToolInput
     credentials: Optional[YoutubeCredentials] = None

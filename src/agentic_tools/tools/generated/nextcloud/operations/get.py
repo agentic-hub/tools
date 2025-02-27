@@ -17,6 +17,7 @@ class NextcloudGetToolInput(BaseModel):
 
 class NextcloudGetTool(BaseTool):
     name: str = "nextcloud_get"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud get operation - get operation"
     args_schema: type[BaseModel] | None = NextcloudGetToolInput
     credentials: Optional[NextcloudCredentials] = None

@@ -20,6 +20,7 @@ class ZendeskUpdateToolInput(BaseModel):
 
 class ZendeskUpdateTool(BaseTool):
     name: str = "zendesk_update"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk update operation - update operation"
     args_schema: type[BaseModel] | None = ZendeskUpdateToolInput
     credentials: Optional[ZendeskCredentials] = None

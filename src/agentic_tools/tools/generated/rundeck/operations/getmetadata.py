@@ -11,6 +11,7 @@ class RundeckGetmetadataToolInput(BaseModel):
 
 class RundeckGetmetadataTool(BaseTool):
     name: str = "rundeck_getmetadata"
+    connector_id: str = "nodes-base.rundeck"
     description: str = "Tool for rundeck getMetadata operation - getMetadata operation"
     args_schema: type[BaseModel] | None = RundeckGetmetadataToolInput
     credentials: Optional[RundeckCredentials] = None

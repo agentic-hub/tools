@@ -11,5 +11,6 @@ class MarkdownDefaultToolInput(BaseModel):
 
 class MarkdownDefaultTool(BaseTool):
     name: str = "markdown_default"
+    connector_id: str = "nodes-base.markdown"
     description: str = "Tool for markdown default operation - default operation"
     args_schema: type[BaseModel] | None = MarkdownDefaultToolInput

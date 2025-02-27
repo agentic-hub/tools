@@ -9,5 +9,6 @@ class ConverttofileOdsToolInput(BaseModel):
 
 class ConverttofileOdsTool(BaseTool):
     name: str = "converttofile_ods"
+    connector_id: str = "nodes-base.convertToFile"
     description: str = "Tool for convertToFile ods operation - ods operation"
     args_schema: type[BaseModel] | None = ConverttofileOdsToolInput

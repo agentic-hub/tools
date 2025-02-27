@@ -20,6 +20,7 @@ class AffinityDeleteToolInput(BaseModel):
 
 class AffinityDeleteTool(BaseTool):
     name: str = "affinity_delete"
+    connector_id: str = "nodes-base.affinity"
     description: str = "Tool for affinity delete operation - delete operation"
     args_schema: type[BaseModel] | None = AffinityDeleteToolInput
     credentials: Optional[AffinityCredentials] = None

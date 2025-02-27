@@ -13,6 +13,7 @@ class BubbleGetToolInput(BaseModel):
 
 class BubbleGetTool(BaseTool):
     name: str = "bubble_get"
+    connector_id: str = "nodes-base.bubble"
     description: str = "Tool for bubble get operation - get operation"
     args_schema: type[BaseModel] | None = BubbleGetToolInput
     credentials: Optional[BubbleCredentials] = None

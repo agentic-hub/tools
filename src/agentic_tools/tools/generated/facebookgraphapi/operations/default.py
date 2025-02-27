@@ -17,6 +17,7 @@ class FacebookgraphapiDefaultToolInput(BaseModel):
 
 class FacebookgraphapiDefaultTool(BaseTool):
     name: str = "facebookgraphapi_default"
+    connector_id: str = "nodes-base.facebookGraphApi"
     description: str = "Tool for facebookGraphApi default operation - default operation"
     args_schema: type[BaseModel] | None = FacebookgraphapiDefaultToolInput
     credentials: Optional[FacebookgraphapiCredentials] = None

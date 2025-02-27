@@ -12,6 +12,7 @@ class AdaloDeleteToolInput(BaseModel):
 
 class AdaloDeleteTool(BaseTool):
     name: str = "adalo_delete"
+    connector_id: str = "nodes-base.adalo"
     description: str = "Tool for adalo delete operation - delete operation"
     args_schema: type[BaseModel] | None = AdaloDeleteToolInput
     credentials: Optional[AdaloCredentials] = None

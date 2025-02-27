@@ -16,6 +16,7 @@ class WhatsappMediauploadToolInput(BaseModel):
 
 class WhatsappMediauploadTool(BaseTool):
     name: str = "whatsapp_mediaupload"
+    connector_id: str = "nodes-base.whatsApp"
     description: str = "Tool for whatsApp mediaUpload operation - mediaUpload operation"
     args_schema: type[BaseModel] | None = WhatsappMediauploadToolInput
     credentials: Optional[WhatsappCredentials] = None

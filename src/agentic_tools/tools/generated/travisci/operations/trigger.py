@@ -14,6 +14,7 @@ class TravisciTriggerToolInput(BaseModel):
 
 class TravisciTriggerTool(BaseTool):
     name: str = "travisci_trigger"
+    connector_id: str = "nodes-base.travisCi"
     description: str = "Tool for travisCi trigger operation - trigger operation"
     args_schema: type[BaseModel] | None = TravisciTriggerToolInput
     credentials: Optional[TravisciCredentials] = None

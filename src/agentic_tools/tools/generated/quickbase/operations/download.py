@@ -22,6 +22,7 @@ class QuickbaseDownloadToolInput(BaseModel):
 
 class QuickbaseDownloadTool(BaseTool):
     name: str = "quickbase_download"
+    connector_id: str = "nodes-base.quickbase"
     description: str = "Tool for quickbase download operation - download operation"
     args_schema: type[BaseModel] | None = QuickbaseDownloadToolInput
     credentials: Optional[QuickbaseCredentials] = None

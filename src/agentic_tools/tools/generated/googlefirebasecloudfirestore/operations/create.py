@@ -18,6 +18,7 @@ class GooglefirebasecloudfirestoreCreateToolInput(BaseModel):
 
 class GooglefirebasecloudfirestoreCreateTool(BaseTool):
     name: str = "googlefirebasecloudfirestore_create"
+    connector_id: str = "nodes-base.googleFirebaseCloudFirestore"
     description: str = "Tool for googleFirebaseCloudFirestore create operation - create operation"
     args_schema: type[BaseModel] | None = GooglefirebasecloudfirestoreCreateToolInput
     credentials: Optional[GooglefirebasecloudfirestoreCredentials] = None

@@ -15,6 +15,7 @@ class SpotifyPrevioussongToolInput(BaseModel):
 
 class SpotifyPrevioussongTool(BaseTool):
     name: str = "spotify_previoussong"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify previousSong operation - previousSong operation"
     args_schema: type[BaseModel] | None = SpotifyPrevioussongToolInput
     credentials: Optional[SpotifyCredentials] = None

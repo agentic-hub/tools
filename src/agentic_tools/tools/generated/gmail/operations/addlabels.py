@@ -23,6 +23,7 @@ class GmailAddlabelsToolInput(BaseModel):
 
 class GmailAddlabelsTool(BaseTool):
     name: str = "gmail_addlabels"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail addLabels operation - addLabels operation"
     args_schema: type[BaseModel] | None = GmailAddlabelsToolInput
     credentials: Optional[GmailCredentials] = None

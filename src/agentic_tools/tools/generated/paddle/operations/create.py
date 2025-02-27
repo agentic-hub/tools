@@ -20,6 +20,7 @@ class PaddleCreateToolInput(BaseModel):
 
 class PaddleCreateTool(BaseTool):
     name: str = "paddle_create"
+    connector_id: str = "nodes-base.paddle"
     description: str = "Tool for paddle create operation - create operation"
     args_schema: type[BaseModel] | None = PaddleCreateToolInput
     credentials: Optional[PaddleCredentials] = None

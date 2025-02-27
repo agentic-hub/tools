@@ -13,6 +13,7 @@ class YourlsShortenToolInput(BaseModel):
 
 class YourlsShortenTool(BaseTool):
     name: str = "yourls_shorten"
+    connector_id: str = "nodes-base.yourls"
     description: str = "Tool for yourls shorten operation - shorten operation"
     args_schema: type[BaseModel] | None = YourlsShortenToolInput
     credentials: Optional[YourlsCredentials] = None

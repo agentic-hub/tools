@@ -23,6 +23,7 @@ class OnfleetUpdateToolInput(BaseModel):
 
 class OnfleetUpdateTool(BaseTool):
     name: str = "onfleet_update"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet update operation - update operation"
     args_schema: type[BaseModel] | None = OnfleetUpdateToolInput
     credentials: Optional[OnfleetCredentials] = None

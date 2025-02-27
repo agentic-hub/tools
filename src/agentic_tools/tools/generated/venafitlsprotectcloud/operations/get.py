@@ -18,6 +18,7 @@ class VenafitlsprotectcloudGetToolInput(BaseModel):
 
 class VenafitlsprotectcloudGetTool(BaseTool):
     name: str = "venafitlsprotectcloud_get"
+    connector_id: str = "nodes-base.venafiTlsProtectCloud"
     description: str = "Tool for venafiTlsProtectCloud get operation - get operation"
     args_schema: type[BaseModel] | None = VenafitlsprotectcloudGetToolInput
     credentials: Optional[VenafitlsprotectcloudCredentials] = None

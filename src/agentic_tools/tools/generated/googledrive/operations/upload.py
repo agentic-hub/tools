@@ -22,6 +22,7 @@ class GoogledriveUploadToolInput(BaseModel):
 
 class GoogledriveUploadTool(BaseTool):
     name: str = "googledrive_upload"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive upload operation - upload operation"
     args_schema: type[BaseModel] | None = GoogledriveUploadToolInput
     credentials: Optional[GoogledriveCredentials] = None

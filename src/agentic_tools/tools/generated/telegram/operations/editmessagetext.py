@@ -24,6 +24,7 @@ class TelegramEditmessagetextToolInput(BaseModel):
 
 class TelegramEditmessagetextTool(BaseTool):
     name: str = "telegram_editmessagetext"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram editMessageText operation - editMessageText operation"
     args_schema: type[BaseModel] | None = TelegramEditmessagetextToolInput
     credentials: Optional[TelegramCredentials] = None

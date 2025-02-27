@@ -14,5 +14,6 @@ class RespondtowebhookDefaultToolInput(BaseModel):
 
 class RespondtowebhookDefaultTool(BaseTool):
     name: str = "respondtowebhook_default"
+    connector_id: str = "nodes-base.respondToWebhook"
     description: str = "Tool for respondToWebhook default operation - default operation"
     args_schema: type[BaseModel] | None = RespondtowebhookDefaultToolInput

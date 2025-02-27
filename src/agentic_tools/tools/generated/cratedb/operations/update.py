@@ -15,6 +15,7 @@ class CratedbUpdateToolInput(BaseModel):
 
 class CratedbUpdateTool(BaseTool):
     name: str = "cratedb_update"
+    connector_id: str = "nodes-base.crateDb"
     description: str = "Tool for crateDb update operation - update operation"
     args_schema: type[BaseModel] | None = CratedbUpdateToolInput
     credentials: Optional[CratedbCredentials] = None

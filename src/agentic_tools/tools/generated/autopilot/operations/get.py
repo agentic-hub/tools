@@ -13,6 +13,7 @@ class AutopilotGetToolInput(BaseModel):
 
 class AutopilotGetTool(BaseTool):
     name: str = "autopilot_get"
+    connector_id: str = "nodes-base.autopilot"
     description: str = "Tool for autopilot get operation - get operation"
     args_schema: type[BaseModel] | None = AutopilotGetToolInput
     credentials: Optional[AutopilotCredentials] = None

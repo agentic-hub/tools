@@ -31,6 +31,7 @@ class ActivecampaignGetbyorderidToolInput(BaseModel):
 
 class ActivecampaignGetbyorderidTool(BaseTool):
     name: str = "activecampaign_getbyorderid"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign getByOrderId operation - getByOrderId operation"
     args_schema: type[BaseModel] | None = ActivecampaignGetbyorderidToolInput
     credentials: Optional[ActivecampaignCredentials] = None

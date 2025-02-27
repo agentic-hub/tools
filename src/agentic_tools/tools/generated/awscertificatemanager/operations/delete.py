@@ -13,6 +13,7 @@ class AwscertificatemanagerDeleteToolInput(BaseModel):
 
 class AwscertificatemanagerDeleteTool(BaseTool):
     name: str = "awscertificatemanager_delete"
+    connector_id: str = "nodes-base.awsCertificateManager"
     description: str = "Tool for awsCertificateManager delete operation - delete operation"
     args_schema: type[BaseModel] | None = AwscertificatemanagerDeleteToolInput
     credentials: Optional[AwscertificatemanagerCredentials] = None

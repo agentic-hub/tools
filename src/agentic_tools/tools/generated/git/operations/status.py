@@ -11,6 +11,7 @@ class GitStatusToolInput(BaseModel):
 
 class GitStatusTool(BaseTool):
     name: str = "git_status"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git status operation - status operation"
     args_schema: type[BaseModel] | None = GitStatusToolInput
     credentials: Optional[GitCredentials] = None

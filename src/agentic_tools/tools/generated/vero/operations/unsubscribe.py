@@ -15,6 +15,7 @@ class VeroUnsubscribeToolInput(BaseModel):
 
 class VeroUnsubscribeTool(BaseTool):
     name: str = "vero_unsubscribe"
+    connector_id: str = "nodes-base.vero"
     description: str = "Tool for vero unsubscribe operation - unsubscribe operation"
     args_schema: type[BaseModel] | None = VeroUnsubscribeToolInput
     credentials: Optional[VeroCredentials] = None

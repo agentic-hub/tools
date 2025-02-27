@@ -19,6 +19,7 @@ class SplunkGetallToolInput(BaseModel):
 
 class SplunkGetallTool(BaseTool):
     name: str = "splunk_getall"
+    connector_id: str = "nodes-base.splunk"
     description: str = "Tool for splunk getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = SplunkGetallToolInput
     credentials: Optional[SplunkCredentials] = None

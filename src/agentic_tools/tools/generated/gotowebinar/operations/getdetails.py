@@ -21,6 +21,7 @@ class GotowebinarGetdetailsToolInput(BaseModel):
 
 class GotowebinarGetdetailsTool(BaseTool):
     name: str = "gotowebinar_getdetails"
+    connector_id: str = "nodes-base.goToWebinar"
     description: str = "Tool for goToWebinar getDetails operation - getDetails operation"
     args_schema: type[BaseModel] | None = GotowebinarGetdetailsToolInput
     credentials: Optional[GotowebinarCredentials] = None

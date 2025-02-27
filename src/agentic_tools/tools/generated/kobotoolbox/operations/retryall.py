@@ -16,6 +16,7 @@ class KobotoolboxRetryallToolInput(BaseModel):
 
 class KobotoolboxRetryallTool(BaseTool):
     name: str = "kobotoolbox_retryall"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox retryAll operation - retryAll operation"
     args_schema: type[BaseModel] | None = KobotoolboxRetryallToolInput
     credentials: Optional[KobotoolboxCredentials] = None

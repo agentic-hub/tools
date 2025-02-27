@@ -17,6 +17,7 @@ class HomeassistantCallToolInput(BaseModel):
 
 class HomeassistantCallTool(BaseTool):
     name: str = "homeassistant_call"
+    connector_id: str = "nodes-base.homeAssistant"
     description: str = "Tool for homeAssistant call operation - call operation"
     args_schema: type[BaseModel] | None = HomeassistantCallToolInput
     credentials: Optional[HomeassistantCredentials] = None

@@ -19,6 +19,7 @@ class KobotoolboxGetallToolInput(BaseModel):
 
 class KobotoolboxGetallTool(BaseTool):
     name: str = "kobotoolbox_getall"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = KobotoolboxGetallToolInput
     credentials: Optional[KobotoolboxCredentials] = None

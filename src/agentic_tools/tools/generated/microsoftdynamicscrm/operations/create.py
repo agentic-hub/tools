@@ -13,6 +13,7 @@ class MicrosoftdynamicscrmCreateToolInput(BaseModel):
 
 class MicrosoftdynamicscrmCreateTool(BaseTool):
     name: str = "microsoftdynamicscrm_create"
+    connector_id: str = "nodes-base.microsoftDynamicsCrm"
     description: str = "Tool for microsoftDynamicsCrm create operation - create operation"
     args_schema: type[BaseModel] | None = MicrosoftdynamicscrmCreateToolInput
     credentials: Optional[MicrosoftdynamicscrmCredentials] = None

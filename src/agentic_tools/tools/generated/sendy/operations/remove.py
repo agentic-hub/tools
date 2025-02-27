@@ -13,6 +13,7 @@ class SendyRemoveToolInput(BaseModel):
 
 class SendyRemoveTool(BaseTool):
     name: str = "sendy_remove"
+    connector_id: str = "nodes-base.sendy"
     description: str = "Tool for sendy remove operation - remove operation"
     args_schema: type[BaseModel] | None = SendyRemoveToolInput
     credentials: Optional[SendyCredentials] = None

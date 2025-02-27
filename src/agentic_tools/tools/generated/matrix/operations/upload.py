@@ -15,6 +15,7 @@ class MatrixUploadToolInput(BaseModel):
 
 class MatrixUploadTool(BaseTool):
     name: str = "matrix_upload"
+    connector_id: str = "nodes-base.matrix"
     description: str = "Tool for matrix upload operation - upload operation"
     args_schema: type[BaseModel] | None = MatrixUploadToolInput
     credentials: Optional[MatrixCredentials] = None

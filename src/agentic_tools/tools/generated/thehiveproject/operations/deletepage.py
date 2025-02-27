@@ -41,6 +41,7 @@ class ThehiveprojectDeletepageToolInput(BaseModel):
 
 class ThehiveprojectDeletepageTool(BaseTool):
     name: str = "thehiveproject_deletepage"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject deletePage operation - deletePage operation"
     args_schema: type[BaseModel] | None = ThehiveprojectDeletepageToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

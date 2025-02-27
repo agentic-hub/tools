@@ -13,6 +13,7 @@ class FreshdeskGetToolInput(BaseModel):
 
 class FreshdeskGetTool(BaseTool):
     name: str = "freshdesk_get"
+    connector_id: str = "nodes-base.freshdesk"
     description: str = "Tool for freshdesk get operation - get operation"
     args_schema: type[BaseModel] | None = FreshdeskGetToolInput
     credentials: Optional[FreshdeskCredentials] = None

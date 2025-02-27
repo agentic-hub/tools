@@ -23,6 +23,7 @@ class AsanaGetToolInput(BaseModel):
 
 class AsanaGetTool(BaseTool):
     name: str = "asana_get"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana get operation - get operation"
     args_schema: type[BaseModel] | None = AsanaGetToolInput
     credentials: Optional[AsanaCredentials] = None

@@ -13,6 +13,7 @@ class BitlyGetToolInput(BaseModel):
 
 class BitlyGetTool(BaseTool):
     name: str = "bitly_get"
+    connector_id: str = "nodes-base.bitly"
     description: str = "Tool for bitly get operation - get operation"
     args_schema: type[BaseModel] | None = BitlyGetToolInput
     credentials: Optional[BitlyCredentials] = None

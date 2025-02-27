@@ -38,6 +38,7 @@ class BamboohrDeleteToolInput(BaseModel):
 
 class BamboohrDeleteTool(BaseTool):
     name: str = "bamboohr_delete"
+    connector_id: str = "nodes-base.bambooHr"
     description: str = "Tool for bambooHr delete operation - delete operation"
     args_schema: type[BaseModel] | None = BamboohrDeleteToolInput
     credentials: Optional[BamboohrCredentials] = None

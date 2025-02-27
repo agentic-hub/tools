@@ -15,5 +15,6 @@ class CoingeckoTickerToolInput(BaseModel):
 
 class CoingeckoTickerTool(BaseTool):
     name: str = "coingecko_ticker"
+    connector_id: str = "nodes-base.coinGecko"
     description: str = "Tool for coinGecko ticker operation - ticker operation"
     args_schema: type[BaseModel] | None = CoingeckoTickerToolInput

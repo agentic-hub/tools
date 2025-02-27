@@ -22,6 +22,7 @@ class GooglesheetsUpdateToolInput(BaseModel):
 
 class GooglesheetsUpdateTool(BaseTool):
     name: str = "googlesheets_update"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets update operation - update operation"
     args_schema: type[BaseModel] | None = GooglesheetsUpdateToolInput
     credentials: Optional[GooglesheetsCredentials] = None

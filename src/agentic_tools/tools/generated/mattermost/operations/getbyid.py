@@ -21,6 +21,7 @@ class MattermostGetbyidToolInput(BaseModel):
 
 class MattermostGetbyidTool(BaseTool):
     name: str = "mattermost_getbyid"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost getById operation - getById operation"
     args_schema: type[BaseModel] | None = MattermostGetbyidToolInput
     credentials: Optional[MattermostCredentials] = None

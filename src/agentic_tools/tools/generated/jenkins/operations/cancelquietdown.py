@@ -12,6 +12,7 @@ class JenkinsCancelquietdownToolInput(BaseModel):
 
 class JenkinsCancelquietdownTool(BaseTool):
     name: str = "jenkins_cancelquietdown"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins cancelQuietDown operation - cancelQuietDown operation"
     args_schema: type[BaseModel] | None = JenkinsCancelquietdownToolInput
     credentials: Optional[JenkinsCredentials] = None

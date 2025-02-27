@@ -16,6 +16,7 @@ class BitwardenGetallToolInput(BaseModel):
 
 class BitwardenGetallTool(BaseTool):
     name: str = "bitwarden_getall"
+    connector_id: str = "nodes-base.bitwarden"
     description: str = "Tool for bitwarden getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = BitwardenGetallToolInput
     credentials: Optional[BitwardenCredentials] = None

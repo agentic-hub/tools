@@ -18,6 +18,7 @@ class GsuiteadminGetallToolInput(BaseModel):
 
 class GsuiteadminGetallTool(BaseTool):
     name: str = "gsuiteadmin_getall"
+    connector_id: str = "nodes-base.gSuiteAdmin"
     description: str = "Tool for gSuiteAdmin getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GsuiteadminGetallToolInput
     credentials: Optional[GsuiteadminCredentials] = None

@@ -15,6 +15,7 @@ class SpotifyResumeToolInput(BaseModel):
 
 class SpotifyResumeTool(BaseTool):
     name: str = "spotify_resume"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify resume operation - resume operation"
     args_schema: type[BaseModel] | None = SpotifyResumeToolInput
     credentials: Optional[SpotifyCredentials] = None

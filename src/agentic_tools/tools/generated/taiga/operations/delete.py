@@ -21,6 +21,7 @@ class TaigaDeleteToolInput(BaseModel):
 
 class TaigaDeleteTool(BaseTool):
     name: str = "taiga_delete"
+    connector_id: str = "nodes-base.taiga"
     description: str = "Tool for taiga delete operation - delete operation"
     args_schema: type[BaseModel] | None = TaigaDeleteToolInput
     credentials: Optional[TaigaCredentials] = None

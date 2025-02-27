@@ -17,6 +17,7 @@ class DropboxDownloadToolInput(BaseModel):
 
 class DropboxDownloadTool(BaseTool):
     name: str = "dropbox_download"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox download operation - download operation"
     args_schema: type[BaseModel] | None = DropboxDownloadToolInput
     credentials: Optional[DropboxCredentials] = None

@@ -39,6 +39,7 @@ class BamboohrUpdateToolInput(BaseModel):
 
 class BamboohrUpdateTool(BaseTool):
     name: str = "bamboohr_update"
+    connector_id: str = "nodes-base.bambooHr"
     description: str = "Tool for bambooHr update operation - update operation"
     args_schema: type[BaseModel] | None = BamboohrUpdateToolInput
     credentials: Optional[BamboohrCredentials] = None

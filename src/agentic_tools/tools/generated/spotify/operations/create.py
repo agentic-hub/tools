@@ -16,6 +16,7 @@ class SpotifyCreateToolInput(BaseModel):
 
 class SpotifyCreateTool(BaseTool):
     name: str = "spotify_create"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify create operation - create operation"
     args_schema: type[BaseModel] | None = SpotifyCreateToolInput
     credentials: Optional[SpotifyCredentials] = None

@@ -19,6 +19,7 @@ class CiscowebexGetallToolInput(BaseModel):
 
 class CiscowebexGetallTool(BaseTool):
     name: str = "ciscowebex_getall"
+    connector_id: str = "nodes-base.ciscoWebex"
     description: str = "Tool for ciscoWebex getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = CiscowebexGetallToolInput
     credentials: Optional[CiscowebexCredentials] = None

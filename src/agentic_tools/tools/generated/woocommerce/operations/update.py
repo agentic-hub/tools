@@ -27,6 +27,7 @@ class WoocommerceUpdateToolInput(BaseModel):
 
 class WoocommerceUpdateTool(BaseTool):
     name: str = "woocommerce_update"
+    connector_id: str = "nodes-base.wooCommerce"
     description: str = "Tool for wooCommerce update operation - update operation"
     args_schema: type[BaseModel] | None = WoocommerceUpdateToolInput
     credentials: Optional[WoocommerceCredentials] = None

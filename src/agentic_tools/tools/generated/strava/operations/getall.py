@@ -14,6 +14,7 @@ class StravaGetallToolInput(BaseModel):
 
 class StravaGetallTool(BaseTool):
     name: str = "strava_getall"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = StravaGetallToolInput
     credentials: Optional[StravaCredentials] = None

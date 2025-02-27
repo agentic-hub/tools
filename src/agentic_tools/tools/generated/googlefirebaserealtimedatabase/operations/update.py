@@ -12,6 +12,7 @@ class GooglefirebaserealtimedatabaseUpdateToolInput(BaseModel):
 
 class GooglefirebaserealtimedatabaseUpdateTool(BaseTool):
     name: str = "googlefirebaserealtimedatabase_update"
+    connector_id: str = "nodes-base.googleFirebaseRealtimeDatabase"
     description: str = "Tool for googleFirebaseRealtimeDatabase update operation - update operation"
     args_schema: type[BaseModel] | None = GooglefirebaserealtimedatabaseUpdateToolInput
     credentials: Optional[GooglefirebaserealtimedatabaseCredentials] = None

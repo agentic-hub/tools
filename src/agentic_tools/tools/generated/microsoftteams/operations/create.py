@@ -24,6 +24,7 @@ class MicrosoftteamsCreateToolInput(BaseModel):
 
 class MicrosoftteamsCreateTool(BaseTool):
     name: str = "microsoftteams_create"
+    connector_id: str = "nodes-base.microsoftTeams"
     description: str = "Tool for microsoftTeams create operation - create operation"
     args_schema: type[BaseModel] | None = MicrosoftteamsCreateToolInput
     credentials: Optional[MicrosoftteamsCredentials] = None

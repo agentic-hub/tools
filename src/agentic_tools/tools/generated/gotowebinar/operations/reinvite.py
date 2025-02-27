@@ -21,6 +21,7 @@ class GotowebinarReinviteToolInput(BaseModel):
 
 class GotowebinarReinviteTool(BaseTool):
     name: str = "gotowebinar_reinvite"
+    connector_id: str = "nodes-base.goToWebinar"
     description: str = "Tool for goToWebinar reinvite operation - reinvite operation"
     args_schema: type[BaseModel] | None = GotowebinarReinviteToolInput
     credentials: Optional[GotowebinarCredentials] = None

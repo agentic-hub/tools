@@ -15,6 +15,7 @@ class SpotifyAddsongtoqueueToolInput(BaseModel):
 
 class SpotifyAddsongtoqueueTool(BaseTool):
     name: str = "spotify_addsongtoqueue"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify addSongToQueue operation - addSongToQueue operation"
     args_schema: type[BaseModel] | None = SpotifyAddsongtoqueueToolInput
     credentials: Optional[SpotifyCredentials] = None

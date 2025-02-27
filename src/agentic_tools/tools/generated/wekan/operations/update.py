@@ -23,6 +23,7 @@ class WekanUpdateToolInput(BaseModel):
 
 class WekanUpdateTool(BaseTool):
     name: str = "wekan_update"
+    connector_id: str = "nodes-base.wekan"
     description: str = "Tool for wekan update operation - update operation"
     args_schema: type[BaseModel] | None = WekanUpdateToolInput
     credentials: Optional[WekanCredentials] = None

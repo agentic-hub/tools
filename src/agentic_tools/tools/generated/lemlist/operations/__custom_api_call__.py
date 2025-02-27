@@ -14,6 +14,7 @@ class Lemlist__custom_api_call__ToolInput(BaseModel):
 
 class Lemlist__custom_api_call__Tool(BaseTool):
     name: str = "lemlist___custom_api_call__"
+    connector_id: str = "nodes-base.lemlist"
     description: str = "Tool for lemlist __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Lemlist__custom_api_call__ToolInput
     credentials: Optional[LemlistCredentials] = None

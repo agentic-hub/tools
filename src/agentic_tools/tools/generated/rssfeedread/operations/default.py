@@ -8,5 +8,6 @@ class RssfeedreadDefaultToolInput(BaseModel):
 
 class RssfeedreadDefaultTool(BaseTool):
     name: str = "rssfeedread_default"
+    connector_id: str = "nodes-base.rssFeedRead"
     description: str = "Tool for rssFeedRead default operation - default operation"
     args_schema: type[BaseModel] | None = RssfeedreadDefaultToolInput

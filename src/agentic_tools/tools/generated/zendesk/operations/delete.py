@@ -20,6 +20,7 @@ class ZendeskDeleteToolInput(BaseModel):
 
 class ZendeskDeleteTool(BaseTool):
     name: str = "zendesk_delete"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk delete operation - delete operation"
     args_schema: type[BaseModel] | None = ZendeskDeleteToolInput
     credentials: Optional[ZendeskCredentials] = None

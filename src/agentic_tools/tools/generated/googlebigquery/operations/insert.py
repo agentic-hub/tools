@@ -19,6 +19,7 @@ class GooglebigqueryInsertToolInput(BaseModel):
 
 class GooglebigqueryInsertTool(BaseTool):
     name: str = "googlebigquery_insert"
+    connector_id: str = "nodes-base.googleBigQuery"
     description: str = "Tool for googleBigQuery insert operation - insert operation"
     args_schema: type[BaseModel] | None = GooglebigqueryInsertToolInput
     credentials: Optional[GooglebigqueryCredentials] = None

@@ -18,6 +18,7 @@ class AutomizyUpdateToolInput(BaseModel):
 
 class AutomizyUpdateTool(BaseTool):
     name: str = "automizy_update"
+    connector_id: str = "nodes-base.automizy"
     description: str = "Tool for automizy update operation - update operation"
     args_schema: type[BaseModel] | None = AutomizyUpdateToolInput
     credentials: Optional[AutomizyCredentials] = None

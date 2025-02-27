@@ -19,6 +19,7 @@ class TwitterSearchToolInput(BaseModel):
 
 class TwitterSearchTool(BaseTool):
     name: str = "twitter_search"
+    connector_id: str = "nodes-base.twitter"
     description: str = "Tool for twitter search operation - search operation"
     args_schema: type[BaseModel] | None = TwitterSearchToolInput
     credentials: Optional[TwitterCredentials] = None

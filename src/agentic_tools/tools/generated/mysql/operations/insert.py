@@ -21,6 +21,7 @@ class MysqlInsertToolInput(BaseModel):
 
 class MysqlInsertTool(BaseTool):
     name: str = "mysql_insert"
+    connector_id: str = "nodes-base.mySql"
     description: str = "Tool for mySql insert operation - insert operation"
     args_schema: type[BaseModel] | None = MysqlInsertToolInput
     credentials: Optional[MysqlCredentials] = None

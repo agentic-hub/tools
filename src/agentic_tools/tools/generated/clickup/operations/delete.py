@@ -34,6 +34,7 @@ class ClickupDeleteToolInput(BaseModel):
 
 class ClickupDeleteTool(BaseTool):
     name: str = "clickup_delete"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp delete operation - delete operation"
     args_schema: type[BaseModel] | None = ClickupDeleteToolInput
     credentials: Optional[ClickupCredentials] = None

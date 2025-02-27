@@ -15,6 +15,7 @@ class SshExecuteToolInput(BaseModel):
 
 class SshExecuteTool(BaseTool):
     name: str = "ssh_execute"
+    connector_id: str = "nodes-base.ssh"
     description: str = "Tool for ssh execute operation - execute operation"
     args_schema: type[BaseModel] | None = SshExecuteToolInput
     credentials: Optional[SshCredentials] = None

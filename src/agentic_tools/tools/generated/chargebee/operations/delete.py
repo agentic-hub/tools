@@ -11,6 +11,7 @@ class ChargebeeDeleteToolInput(BaseModel):
 
 class ChargebeeDeleteTool(BaseTool):
     name: str = "chargebee_delete"
+    connector_id: str = "nodes-base.chargebee"
     description: str = "Tool for chargebee delete operation - delete operation"
     args_schema: type[BaseModel] | None = ChargebeeDeleteToolInput
     credentials: Optional[ChargebeeCredentials] = None

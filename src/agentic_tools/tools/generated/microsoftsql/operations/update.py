@@ -12,6 +12,7 @@ class MicrosoftsqlUpdateToolInput(BaseModel):
 
 class MicrosoftsqlUpdateTool(BaseTool):
     name: str = "microsoftsql_update"
+    connector_id: str = "nodes-base.microsoftSql"
     description: str = "Tool for microsoftSql update operation - update operation"
     args_schema: type[BaseModel] | None = MicrosoftsqlUpdateToolInput
     credentials: Optional[MicrosoftsqlCredentials] = None

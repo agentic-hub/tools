@@ -20,6 +20,7 @@ class Awss3DeleteToolInput(BaseModel):
 
 class Awss3DeleteTool(BaseTool):
     name: str = "awss3_delete"
+    connector_id: str = "nodes-base.awsS3"
     description: str = "Tool for awsS3 delete operation - delete operation"
     args_schema: type[BaseModel] | None = Awss3DeleteToolInput
     credentials: Optional[Awss3Credentials] = None

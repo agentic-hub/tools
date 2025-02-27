@@ -18,6 +18,7 @@ class QuickbaseRunToolInput(BaseModel):
 
 class QuickbaseRunTool(BaseTool):
     name: str = "quickbase_run"
+    connector_id: str = "nodes-base.quickbase"
     description: str = "Tool for quickbase run operation - run operation"
     args_schema: type[BaseModel] | None = QuickbaseRunToolInput
     credentials: Optional[QuickbaseCredentials] = None

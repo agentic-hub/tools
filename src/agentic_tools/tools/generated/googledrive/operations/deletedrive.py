@@ -22,6 +22,7 @@ class GoogledriveDeletedriveToolInput(BaseModel):
 
 class GoogledriveDeletedriveTool(BaseTool):
     name: str = "googledrive_deletedrive"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive deleteDrive operation - deleteDrive operation"
     args_schema: type[BaseModel] | None = GoogledriveDeletedriveToolInput
     credentials: Optional[GoogledriveCredentials] = None

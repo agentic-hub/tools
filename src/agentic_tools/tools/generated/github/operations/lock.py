@@ -23,6 +23,7 @@ class GithubLockToolInput(BaseModel):
 
 class GithubLockTool(BaseTool):
     name: str = "github_lock"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github lock operation - lock operation"
     args_schema: type[BaseModel] | None = GithubLockToolInput
     credentials: Optional[GithubCredentials] = None

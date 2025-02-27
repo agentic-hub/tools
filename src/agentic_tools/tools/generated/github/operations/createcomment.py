@@ -22,6 +22,7 @@ class GithubCreatecommentToolInput(BaseModel):
 
 class GithubCreatecommentTool(BaseTool):
     name: str = "github_createcomment"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github createComment operation - createComment operation"
     args_schema: type[BaseModel] | None = GithubCreatecommentToolInput
     credentials: Optional[GithubCredentials] = None

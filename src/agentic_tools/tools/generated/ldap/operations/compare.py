@@ -14,6 +14,7 @@ class LdapCompareToolInput(BaseModel):
 
 class LdapCompareTool(BaseTool):
     name: str = "ldap_compare"
+    connector_id: str = "nodes-base.ldap"
     description: str = "Tool for ldap compare operation - compare operation"
     args_schema: type[BaseModel] | None = LdapCompareToolInput
     credentials: Optional[LdapCredentials] = None

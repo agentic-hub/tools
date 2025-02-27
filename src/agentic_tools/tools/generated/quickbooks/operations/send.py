@@ -29,6 +29,7 @@ class QuickbooksSendToolInput(BaseModel):
 
 class QuickbooksSendTool(BaseTool):
     name: str = "quickbooks_send"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks send operation - send operation"
     args_schema: type[BaseModel] | None = QuickbooksSendToolInput
     credentials: Optional[QuickbooksCredentials] = None

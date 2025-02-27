@@ -21,6 +21,7 @@ class Gitlab__custom_api_call__ToolInput(BaseModel):
 
 class Gitlab__custom_api_call__Tool(BaseTool):
     name: str = "gitlab___custom_api_call__"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Gitlab__custom_api_call__ToolInput
     credentials: Optional[GitlabCredentials] = None

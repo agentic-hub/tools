@@ -21,6 +21,7 @@ class NocodbDeleteToolInput(BaseModel):
 
 class NocodbDeleteTool(BaseTool):
     name: str = "nocodb_delete"
+    connector_id: str = "nodes-base.nocoDb"
     description: str = "Tool for nocoDb delete operation - delete operation"
     args_schema: type[BaseModel] | None = NocodbDeleteToolInput
     credentials: Optional[NocodbCredentials] = None

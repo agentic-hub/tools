@@ -31,6 +31,7 @@ class ActivecampaignAddToolInput(BaseModel):
 
 class ActivecampaignAddTool(BaseTool):
     name: str = "activecampaign_add"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign add operation - add operation"
     args_schema: type[BaseModel] | None = ActivecampaignAddToolInput
     credentials: Optional[ActivecampaignCredentials] = None

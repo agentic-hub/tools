@@ -18,6 +18,7 @@ class AirtableDeleterecordToolInput(BaseModel):
 
 class AirtableDeleterecordTool(BaseTool):
     name: str = "airtable_deleterecord"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable deleteRecord operation - deleteRecord operation"
     args_schema: type[BaseModel] | None = AirtableDeleterecordToolInput
     credentials: Optional[AirtableCredentials] = None

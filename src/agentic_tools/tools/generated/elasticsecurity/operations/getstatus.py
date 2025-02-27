@@ -19,6 +19,7 @@ class ElasticsecurityGetstatusToolInput(BaseModel):
 
 class ElasticsecurityGetstatusTool(BaseTool):
     name: str = "elasticsecurity_getstatus"
+    connector_id: str = "nodes-base.elasticSecurity"
     description: str = "Tool for elasticSecurity getStatus operation - getStatus operation"
     args_schema: type[BaseModel] | None = ElasticsecurityGetstatusToolInput
     credentials: Optional[ElasticsecurityCredentials] = None

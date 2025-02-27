@@ -19,6 +19,7 @@ class WiseExecuteToolInput(BaseModel):
 
 class WiseExecuteTool(BaseTool):
     name: str = "wise_execute"
+    connector_id: str = "nodes-base.wise"
     description: str = "Tool for wise execute operation - execute operation"
     args_schema: type[BaseModel] | None = WiseExecuteToolInput
     credentials: Optional[WiseCredentials] = None

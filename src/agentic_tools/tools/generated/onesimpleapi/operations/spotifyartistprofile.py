@@ -15,6 +15,7 @@ class OnesimpleapiSpotifyartistprofileToolInput(BaseModel):
 
 class OnesimpleapiSpotifyartistprofileTool(BaseTool):
     name: str = "onesimpleapi_spotifyartistprofile"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi spotifyArtistProfile operation - spotifyArtistProfile operation"
     args_schema: type[BaseModel] | None = OnesimpleapiSpotifyartistprofileToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

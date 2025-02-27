@@ -17,6 +17,7 @@ class NextcloudListToolInput(BaseModel):
 
 class NextcloudListTool(BaseTool):
     name: str = "nextcloud_list"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud list operation - list operation"
     args_schema: type[BaseModel] | None = NextcloudListToolInput
     credentials: Optional[NextcloudCredentials] = None

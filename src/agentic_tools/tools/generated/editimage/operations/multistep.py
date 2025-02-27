@@ -16,5 +16,6 @@ class EditimageMultistepToolInput(BaseModel):
 
 class EditimageMultistepTool(BaseTool):
     name: str = "editimage_multistep"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage multiStep operation - multiStep operation"
     args_schema: type[BaseModel] | None = EditimageMultistepToolInput

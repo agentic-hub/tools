@@ -10,6 +10,7 @@ class TotpGeneratesecretToolInput(BaseModel):
 
 class TotpGeneratesecretTool(BaseTool):
     name: str = "totp_generatesecret"
+    connector_id: str = "nodes-base.totp"
     description: str = "Tool for totp generateSecret operation - generateSecret operation"
     args_schema: type[BaseModel] | None = TotpGeneratesecretToolInput
     credentials: Optional[TotpCredentials] = None

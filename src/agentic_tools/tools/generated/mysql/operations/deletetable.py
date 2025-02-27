@@ -22,6 +22,7 @@ class MysqlDeletetableToolInput(BaseModel):
 
 class MysqlDeletetableTool(BaseTool):
     name: str = "mysql_deletetable"
+    connector_id: str = "nodes-base.mySql"
     description: str = "Tool for mySql deleteTable operation - deleteTable operation"
     args_schema: type[BaseModel] | None = MysqlDeletetableToolInput
     credentials: Optional[MysqlCredentials] = None

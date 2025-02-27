@@ -24,6 +24,7 @@ class OdooCreateToolInput(BaseModel):
 
 class OdooCreateTool(BaseTool):
     name: str = "odoo_create"
+    connector_id: str = "nodes-base.odoo"
     description: str = "Tool for odoo create operation - create operation"
     args_schema: type[BaseModel] | None = OdooCreateToolInput
     credentials: Optional[OdooCredentials] = None

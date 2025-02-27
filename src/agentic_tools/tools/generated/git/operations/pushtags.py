@@ -11,6 +11,7 @@ class GitPushtagsToolInput(BaseModel):
 
 class GitPushtagsTool(BaseTool):
     name: str = "git_pushtags"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git pushTags operation - pushTags operation"
     args_schema: type[BaseModel] | None = GitPushtagsToolInput
     credentials: Optional[GitCredentials] = None

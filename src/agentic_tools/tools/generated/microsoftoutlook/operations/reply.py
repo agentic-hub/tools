@@ -33,6 +33,7 @@ class MicrosoftoutlookReplyToolInput(BaseModel):
 
 class MicrosoftoutlookReplyTool(BaseTool):
     name: str = "microsoftoutlook_reply"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook reply operation - reply operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookReplyToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

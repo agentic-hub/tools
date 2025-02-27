@@ -18,6 +18,7 @@ class MicrosoftonedriveGetToolInput(BaseModel):
 
 class MicrosoftonedriveGetTool(BaseTool):
     name: str = "microsoftonedrive_get"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive get operation - get operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveGetToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

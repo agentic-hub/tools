@@ -29,6 +29,7 @@ class MicrosoftexcelReadrowsToolInput(BaseModel):
 
 class MicrosoftexcelReadrowsTool(BaseTool):
     name: str = "microsoftexcel_readrows"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel readRows operation - readRows operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelReadrowsToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

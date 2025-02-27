@@ -18,5 +18,6 @@ class EditimageBorderToolInput(BaseModel):
 
 class EditimageBorderTool(BaseTool):
     name: str = "editimage_border"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage border operation - border operation"
     args_schema: type[BaseModel] | None = EditimageBorderToolInput

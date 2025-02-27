@@ -16,6 +16,7 @@ class Awselb__custom_api_call__ToolInput(BaseModel):
 
 class Awselb__custom_api_call__Tool(BaseTool):
     name: str = "awselb___custom_api_call__"
+    connector_id: str = "nodes-base.awsElb"
     description: str = "Tool for awsElb __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awselb__custom_api_call__ToolInput
     credentials: Optional[AwselbCredentials] = None

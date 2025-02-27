@@ -15,6 +15,7 @@ class VeroAddtagsToolInput(BaseModel):
 
 class VeroAddtagsTool(BaseTool):
     name: str = "vero_addtags"
+    connector_id: str = "nodes-base.vero"
     description: str = "Tool for vero addTags operation - addTags operation"
     args_schema: type[BaseModel] | None = VeroAddtagsToolInput
     credentials: Optional[VeroCredentials] = None

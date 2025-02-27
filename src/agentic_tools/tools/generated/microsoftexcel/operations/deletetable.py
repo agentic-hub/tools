@@ -27,6 +27,7 @@ class MicrosoftexcelDeletetableToolInput(BaseModel):
 
 class MicrosoftexcelDeletetableTool(BaseTool):
     name: str = "microsoftexcel_deletetable"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel deleteTable operation - deleteTable operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelDeletetableToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

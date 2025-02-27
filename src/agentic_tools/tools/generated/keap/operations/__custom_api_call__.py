@@ -24,6 +24,7 @@ class Keap__custom_api_call__ToolInput(BaseModel):
 
 class Keap__custom_api_call__Tool(BaseTool):
     name: str = "keap___custom_api_call__"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Keap__custom_api_call__ToolInput
     credentials: Optional[KeapCredentials] = None

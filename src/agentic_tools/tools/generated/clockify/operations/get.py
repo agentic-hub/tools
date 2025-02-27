@@ -21,6 +21,7 @@ class ClockifyGetToolInput(BaseModel):
 
 class ClockifyGetTool(BaseTool):
     name: str = "clockify_get"
+    connector_id: str = "nodes-base.clockify"
     description: str = "Tool for clockify get operation - get operation"
     args_schema: type[BaseModel] | None = ClockifyGetToolInput
     credentials: Optional[ClockifyCredentials] = None

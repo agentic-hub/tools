@@ -23,6 +23,7 @@ class DiscordRoleaddToolInput(BaseModel):
 
 class DiscordRoleaddTool(BaseTool):
     name: str = "discord_roleadd"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord roleAdd operation - roleAdd operation"
     args_schema: type[BaseModel] | None = DiscordRoleaddToolInput
     credentials: Optional[DiscordCredentials] = None

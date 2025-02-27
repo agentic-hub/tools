@@ -14,6 +14,7 @@ class StrapiCreateToolInput(BaseModel):
 
 class StrapiCreateTool(BaseTool):
     name: str = "strapi_create"
+    connector_id: str = "nodes-base.strapi"
     description: str = "Tool for strapi create operation - create operation"
     args_schema: type[BaseModel] | None = StrapiCreateToolInput
     credentials: Optional[StrapiCredentials] = None

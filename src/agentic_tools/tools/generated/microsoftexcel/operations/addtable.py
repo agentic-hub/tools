@@ -29,6 +29,7 @@ class MicrosoftexcelAddtableToolInput(BaseModel):
 
 class MicrosoftexcelAddtableTool(BaseTool):
     name: str = "microsoftexcel_addtable"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel addTable operation - addTable operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelAddtableToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

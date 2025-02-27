@@ -13,6 +13,7 @@ class FreshdeskDeleteToolInput(BaseModel):
 
 class FreshdeskDeleteTool(BaseTool):
     name: str = "freshdesk_delete"
+    connector_id: str = "nodes-base.freshdesk"
     description: str = "Tool for freshdesk delete operation - delete operation"
     args_schema: type[BaseModel] | None = FreshdeskDeleteToolInput
     credentials: Optional[FreshdeskCredentials] = None

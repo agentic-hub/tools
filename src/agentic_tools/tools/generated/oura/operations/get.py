@@ -13,6 +13,7 @@ class OuraGetToolInput(BaseModel):
 
 class OuraGetTool(BaseTool):
     name: str = "oura_get"
+    connector_id: str = "nodes-base.oura"
     description: str = "Tool for oura get operation - get operation"
     args_schema: type[BaseModel] | None = OuraGetToolInput
     credentials: Optional[OuraCredentials] = None

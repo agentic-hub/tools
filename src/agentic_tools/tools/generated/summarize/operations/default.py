@@ -9,5 +9,6 @@ class SummarizeDefaultToolInput(BaseModel):
 
 class SummarizeDefaultTool(BaseTool):
     name: str = "summarize_default"
+    connector_id: str = "nodes-base.summarize"
     description: str = "Tool for summarize default operation - default operation"
     args_schema: type[BaseModel] | None = SummarizeDefaultToolInput

@@ -12,6 +12,7 @@ class TravisciGetToolInput(BaseModel):
 
 class TravisciGetTool(BaseTool):
     name: str = "travisci_get"
+    connector_id: str = "nodes-base.travisCi"
     description: str = "Tool for travisCi get operation - get operation"
     args_schema: type[BaseModel] | None = TravisciGetToolInput
     credentials: Optional[TravisciCredentials] = None

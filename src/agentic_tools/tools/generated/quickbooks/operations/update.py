@@ -29,6 +29,7 @@ class QuickbooksUpdateToolInput(BaseModel):
 
 class QuickbooksUpdateTool(BaseTool):
     name: str = "quickbooks_update"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks update operation - update operation"
     args_schema: type[BaseModel] | None = QuickbooksUpdateToolInput
     credentials: Optional[QuickbooksCredentials] = None

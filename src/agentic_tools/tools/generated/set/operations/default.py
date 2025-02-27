@@ -16,5 +16,6 @@ class SetDefaultToolInput(BaseModel):
 
 class SetDefaultTool(BaseTool):
     name: str = "set_default"
+    connector_id: str = "nodes-base.set"
     description: str = "Tool for set default operation - default operation"
     args_schema: type[BaseModel] | None = SetDefaultToolInput

@@ -16,6 +16,7 @@ class GooglecloudstorageDeleteToolInput(BaseModel):
 
 class GooglecloudstorageDeleteTool(BaseTool):
     name: str = "googlecloudstorage_delete"
+    connector_id: str = "nodes-base.googleCloudStorage"
     description: str = "Tool for googleCloudStorage delete operation - delete operation"
     args_schema: type[BaseModel] | None = GooglecloudstorageDeleteToolInput
     credentials: Optional[GooglecloudstorageCredentials] = None

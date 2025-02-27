@@ -24,6 +24,7 @@ class HarvestCreatebystartendToolInput(BaseModel):
 
 class HarvestCreatebystartendTool(BaseTool):
     name: str = "harvest_createbystartend"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest createByStartEnd operation - createByStartEnd operation"
     args_schema: type[BaseModel] | None = HarvestCreatebystartendToolInput
     credentials: Optional[HarvestCredentials] = None

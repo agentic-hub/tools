@@ -20,6 +20,7 @@ class SyncromspGetToolInput(BaseModel):
 
 class SyncromspGetTool(BaseTool):
     name: str = "syncromsp_get"
+    connector_id: str = "nodes-base.syncroMsp"
     description: str = "Tool for syncroMsp get operation - get operation"
     args_schema: type[BaseModel] | None = SyncromspGetToolInput
     credentials: Optional[SyncromspCredentials] = None

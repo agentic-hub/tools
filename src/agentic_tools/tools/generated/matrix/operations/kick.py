@@ -13,6 +13,7 @@ class MatrixKickToolInput(BaseModel):
 
 class MatrixKickTool(BaseTool):
     name: str = "matrix_kick"
+    connector_id: str = "nodes-base.matrix"
     description: str = "Tool for matrix kick operation - kick operation"
     args_schema: type[BaseModel] | None = MatrixKickToolInput
     credentials: Optional[MatrixCredentials] = None

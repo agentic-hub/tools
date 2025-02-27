@@ -19,6 +19,7 @@ class Scade-toolsActivateToolInput(BaseModel):
 
 class Scade-toolsActivateTool(BaseTool):
     name: str = "scade-tools_activate"
+    connector_id: str = "nodes-base.scade-tools"
     description: str = "Tool for scade-tools activate operation - activate operation"
     args_schema: type[BaseModel] | None = Scade-toolsActivateToolInput
     credentials: Optional[Scade-toolsCredentials] = None

@@ -11,6 +11,7 @@ class AwstranscribeDeleteToolInput(BaseModel):
 
 class AwstranscribeDeleteTool(BaseTool):
     name: str = "awstranscribe_delete"
+    connector_id: str = "nodes-base.awsTranscribe"
     description: str = "Tool for awsTranscribe delete operation - delete operation"
     args_schema: type[BaseModel] | None = AwstranscribeDeleteToolInput
     credentials: Optional[AwstranscribeCredentials] = None

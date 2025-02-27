@@ -21,6 +21,7 @@ class ZendeskGetallToolInput(BaseModel):
 
 class ZendeskGetallTool(BaseTool):
     name: str = "zendesk_getall"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ZendeskGetallToolInput
     credentials: Optional[ZendeskCredentials] = None

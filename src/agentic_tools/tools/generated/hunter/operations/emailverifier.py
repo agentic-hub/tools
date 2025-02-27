@@ -11,6 +11,7 @@ class HunterEmailverifierToolInput(BaseModel):
 
 class HunterEmailverifierTool(BaseTool):
     name: str = "hunter_emailverifier"
+    connector_id: str = "nodes-base.hunter"
     description: str = "Tool for hunter emailVerifier operation - emailVerifier operation"
     args_schema: type[BaseModel] | None = HunterEmailverifierToolInput
     credentials: Optional[HunterCredentials] = None

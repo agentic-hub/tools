@@ -24,6 +24,7 @@ class GmailSendToolInput(BaseModel):
 
 class GmailSendTool(BaseTool):
     name: str = "gmail_send"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail send operation - send operation"
     args_schema: type[BaseModel] | None = GmailSendToolInput
     credentials: Optional[GmailCredentials] = None

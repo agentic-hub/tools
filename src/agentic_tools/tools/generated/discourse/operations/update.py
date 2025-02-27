@@ -21,6 +21,7 @@ class DiscourseUpdateToolInput(BaseModel):
 
 class DiscourseUpdateTool(BaseTool):
     name: str = "discourse_update"
+    connector_id: str = "nodes-base.discourse"
     description: str = "Tool for discourse update operation - update operation"
     args_schema: type[BaseModel] | None = DiscourseUpdateToolInput
     credentials: Optional[DiscourseCredentials] = None

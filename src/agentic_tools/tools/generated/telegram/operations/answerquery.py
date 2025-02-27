@@ -21,6 +21,7 @@ class TelegramAnswerqueryToolInput(BaseModel):
 
 class TelegramAnswerqueryTool(BaseTool):
     name: str = "telegram_answerquery"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram answerQuery operation - answerQuery operation"
     args_schema: type[BaseModel] | None = TelegramAnswerqueryToolInput
     credentials: Optional[TelegramCredentials] = None

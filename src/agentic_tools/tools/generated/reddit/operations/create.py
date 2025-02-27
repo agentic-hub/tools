@@ -23,6 +23,7 @@ class RedditCreateToolInput(BaseModel):
 
 class RedditCreateTool(BaseTool):
     name: str = "reddit_create"
+    connector_id: str = "nodes-base.reddit"
     description: str = "Tool for reddit create operation - create operation"
     args_schema: type[BaseModel] | None = RedditCreateToolInput
     credentials: Optional[RedditCredentials] = None

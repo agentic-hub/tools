@@ -28,6 +28,7 @@ class HubspotSearchbydomainToolInput(BaseModel):
 
 class HubspotSearchbydomainTool(BaseTool):
     name: str = "hubspot_searchbydomain"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot searchByDomain operation - searchByDomain operation"
     args_schema: type[BaseModel] | None = HubspotSearchbydomainToolInput
     credentials: Optional[HubspotCredentials] = None

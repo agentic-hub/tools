@@ -23,6 +23,7 @@ class MauticRemoveToolInput(BaseModel):
 
 class MauticRemoveTool(BaseTool):
     name: str = "mautic_remove"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic remove operation - remove operation"
     args_schema: type[BaseModel] | None = MauticRemoveToolInput
     credentials: Optional[MauticCredentials] = None

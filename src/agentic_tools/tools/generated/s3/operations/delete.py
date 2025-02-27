@@ -20,6 +20,7 @@ class S3DeleteToolInput(BaseModel):
 
 class S3DeleteTool(BaseTool):
     name: str = "s3_delete"
+    connector_id: str = "nodes-base.s3"
     description: str = "Tool for s3 delete operation - delete operation"
     args_schema: type[BaseModel] | None = S3DeleteToolInput
     credentials: Optional[S3Credentials] = None

@@ -23,6 +23,7 @@ class GithubGetissuesToolInput(BaseModel):
 
 class GithubGetissuesTool(BaseTool):
     name: str = "github_getissues"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github getIssues operation - getIssues operation"
     args_schema: type[BaseModel] | None = GithubGetissuesToolInput
     credentials: Optional[GithubCredentials] = None

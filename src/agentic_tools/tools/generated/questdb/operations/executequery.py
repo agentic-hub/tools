@@ -11,6 +11,7 @@ class QuestdbExecutequeryToolInput(BaseModel):
 
 class QuestdbExecutequeryTool(BaseTool):
     name: str = "questdb_executequery"
+    connector_id: str = "nodes-base.questDb"
     description: str = "Tool for questDb executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = QuestdbExecutequeryToolInput
     credentials: Optional[QuestdbCredentials] = None

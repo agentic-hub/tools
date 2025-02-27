@@ -33,6 +33,7 @@ class Zohocrm__custom_api_call__ToolInput(BaseModel):
 
 class Zohocrm__custom_api_call__Tool(BaseTool):
     name: str = "zohocrm___custom_api_call__"
+    connector_id: str = "nodes-base.zohoCrm"
     description: str = "Tool for zohoCrm __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Zohocrm__custom_api_call__ToolInput
     credentials: Optional[ZohocrmCredentials] = None

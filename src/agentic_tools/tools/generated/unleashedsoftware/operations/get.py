@@ -14,6 +14,7 @@ class UnleashedsoftwareGetToolInput(BaseModel):
 
 class UnleashedsoftwareGetTool(BaseTool):
     name: str = "unleashedsoftware_get"
+    connector_id: str = "nodes-base.unleashedSoftware"
     description: str = "Tool for unleashedSoftware get operation - get operation"
     args_schema: type[BaseModel] | None = UnleashedsoftwareGetToolInput
     credentials: Optional[UnleashedsoftwareCredentials] = None

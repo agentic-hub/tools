@@ -12,6 +12,7 @@ class MicrosoftdynamicscrmDeleteToolInput(BaseModel):
 
 class MicrosoftdynamicscrmDeleteTool(BaseTool):
     name: str = "microsoftdynamicscrm_delete"
+    connector_id: str = "nodes-base.microsoftDynamicsCrm"
     description: str = "Tool for microsoftDynamicsCrm delete operation - delete operation"
     args_schema: type[BaseModel] | None = MicrosoftdynamicscrmDeleteToolInput
     credentials: Optional[MicrosoftdynamicscrmCredentials] = None

@@ -13,6 +13,7 @@ class ErpnextCreateToolInput(BaseModel):
 
 class ErpnextCreateTool(BaseTool):
     name: str = "erpnext_create"
+    connector_id: str = "nodes-base.erpNext"
     description: str = "Tool for erpNext create operation - create operation"
     args_schema: type[BaseModel] | None = ErpnextCreateToolInput
     credentials: Optional[ErpnextCredentials] = None

@@ -18,6 +18,7 @@ class IterableTrackToolInput(BaseModel):
 
 class IterableTrackTool(BaseTool):
     name: str = "iterable_track"
+    connector_id: str = "nodes-base.iterable"
     description: str = "Tool for iterable track operation - track operation"
     args_schema: type[BaseModel] | None = IterableTrackToolInput
     credentials: Optional[IterableCredentials] = None

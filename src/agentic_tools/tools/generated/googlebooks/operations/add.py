@@ -13,6 +13,7 @@ class GooglebooksAddToolInput(BaseModel):
 
 class GooglebooksAddTool(BaseTool):
     name: str = "googlebooks_add"
+    connector_id: str = "nodes-base.googleBooks"
     description: str = "Tool for googleBooks add operation - add operation"
     args_schema: type[BaseModel] | None = GooglebooksAddToolInput
     credentials: Optional[GooglebooksCredentials] = None

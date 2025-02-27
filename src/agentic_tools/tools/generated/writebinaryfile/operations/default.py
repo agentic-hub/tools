@@ -9,5 +9,6 @@ class WritebinaryfileDefaultToolInput(BaseModel):
 
 class WritebinaryfileDefaultTool(BaseTool):
     name: str = "writebinaryfile_default"
+    connector_id: str = "nodes-base.writeBinaryFile"
     description: str = "Tool for writeBinaryFile default operation - default operation"
     args_schema: type[BaseModel] | None = WritebinaryfileDefaultToolInput

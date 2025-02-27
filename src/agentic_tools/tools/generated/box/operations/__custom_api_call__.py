@@ -25,6 +25,7 @@ class Box__custom_api_call__ToolInput(BaseModel):
 
 class Box__custom_api_call__Tool(BaseTool):
     name: str = "box___custom_api_call__"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Box__custom_api_call__ToolInput
     credentials: Optional[BoxCredentials] = None

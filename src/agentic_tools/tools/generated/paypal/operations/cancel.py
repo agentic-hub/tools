@@ -11,6 +11,7 @@ class PaypalCancelToolInput(BaseModel):
 
 class PaypalCancelTool(BaseTool):
     name: str = "paypal_cancel"
+    connector_id: str = "nodes-base.payPal"
     description: str = "Tool for payPal cancel operation - cancel operation"
     args_schema: type[BaseModel] | None = PaypalCancelToolInput
     credentials: Optional[PaypalCredentials] = None

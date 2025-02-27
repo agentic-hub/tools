@@ -23,6 +23,7 @@ class DiscordGetToolInput(BaseModel):
 
 class DiscordGetTool(BaseTool):
     name: str = "discord_get"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord get operation - get operation"
     args_schema: type[BaseModel] | None = DiscordGetToolInput
     credentials: Optional[DiscordCredentials] = None

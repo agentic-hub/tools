@@ -13,6 +13,7 @@ class MongodbFindToolInput(BaseModel):
 
 class MongodbFindTool(BaseTool):
     name: str = "mongodb_find"
+    connector_id: str = "nodes-base.mongoDb"
     description: str = "Tool for mongoDb find operation - find operation"
     args_schema: type[BaseModel] | None = MongodbFindToolInput
     credentials: Optional[MongodbCredentials] = None

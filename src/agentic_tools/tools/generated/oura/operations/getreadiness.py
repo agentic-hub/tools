@@ -13,6 +13,7 @@ class OuraGetreadinessToolInput(BaseModel):
 
 class OuraGetreadinessTool(BaseTool):
     name: str = "oura_getreadiness"
+    connector_id: str = "nodes-base.oura"
     description: str = "Tool for oura getReadiness operation - getReadiness operation"
     args_schema: type[BaseModel] | None = OuraGetreadinessToolInput
     credentials: Optional[OuraCredentials] = None

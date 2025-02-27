@@ -26,6 +26,7 @@ class SlackGetpermalinkToolInput(BaseModel):
 
 class SlackGetpermalinkTool(BaseTool):
     name: str = "slack_getpermalink"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack getPermalink operation - getPermalink operation"
     args_schema: type[BaseModel] | None = SlackGetpermalinkToolInput
     credentials: Optional[SlackCredentials] = None

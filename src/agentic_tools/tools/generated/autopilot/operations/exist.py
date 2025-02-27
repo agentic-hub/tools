@@ -14,6 +14,7 @@ class AutopilotExistToolInput(BaseModel):
 
 class AutopilotExistTool(BaseTool):
     name: str = "autopilot_exist"
+    connector_id: str = "nodes-base.autopilot"
     description: str = "Tool for autopilot exist operation - exist operation"
     args_schema: type[BaseModel] | None = AutopilotExistToolInput
     credentials: Optional[AutopilotCredentials] = None

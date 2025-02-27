@@ -12,5 +12,6 @@ class CompressionDecompressToolInput(BaseModel):
 
 class CompressionDecompressTool(BaseTool):
     name: str = "compression_decompress"
+    connector_id: str = "nodes-base.compression"
     description: str = "Tool for compression decompress operation - decompress operation"
     args_schema: type[BaseModel] | None = CompressionDecompressToolInput

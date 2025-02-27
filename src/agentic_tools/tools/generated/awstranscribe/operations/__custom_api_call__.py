@@ -10,6 +10,7 @@ class Awstranscribe__custom_api_call__ToolInput(BaseModel):
 
 class Awstranscribe__custom_api_call__Tool(BaseTool):
     name: str = "awstranscribe___custom_api_call__"
+    connector_id: str = "nodes-base.awsTranscribe"
     description: str = "Tool for awsTranscribe __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awstranscribe__custom_api_call__ToolInput
     credentials: Optional[AwstranscribeCredentials] = None

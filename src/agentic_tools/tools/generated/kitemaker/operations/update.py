@@ -15,6 +15,7 @@ class KitemakerUpdateToolInput(BaseModel):
 
 class KitemakerUpdateTool(BaseTool):
     name: str = "kitemaker_update"
+    connector_id: str = "nodes-base.kitemaker"
     description: str = "Tool for kitemaker update operation - update operation"
     args_schema: type[BaseModel] | None = KitemakerUpdateToolInput
     credentials: Optional[KitemakerCredentials] = None

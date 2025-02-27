@@ -13,5 +13,6 @@ class IcalCreateeventfileToolInput(BaseModel):
 
 class IcalCreateeventfileTool(BaseTool):
     name: str = "ical_createeventfile"
+    connector_id: str = "nodes-base.iCal"
     description: str = "Tool for iCal createEventFile operation - createEventFile operation"
     args_schema: type[BaseModel] | None = IcalCreateeventfileToolInput

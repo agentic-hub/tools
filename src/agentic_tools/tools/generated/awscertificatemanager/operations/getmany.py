@@ -13,6 +13,7 @@ class AwscertificatemanagerGetmanyToolInput(BaseModel):
 
 class AwscertificatemanagerGetmanyTool(BaseTool):
     name: str = "awscertificatemanager_getmany"
+    connector_id: str = "nodes-base.awsCertificateManager"
     description: str = "Tool for awsCertificateManager getMany operation - getMany operation"
     args_schema: type[BaseModel] | None = AwscertificatemanagerGetmanyToolInput
     credentials: Optional[AwscertificatemanagerCredentials] = None

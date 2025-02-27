@@ -13,6 +13,7 @@ class NetlifyDeleteToolInput(BaseModel):
 
 class NetlifyDeleteTool(BaseTool):
     name: str = "netlify_delete"
+    connector_id: str = "nodes-base.netlify"
     description: str = "Tool for netlify delete operation - delete operation"
     args_schema: type[BaseModel] | None = NetlifyDeleteToolInput
     credentials: Optional[NetlifyCredentials] = None

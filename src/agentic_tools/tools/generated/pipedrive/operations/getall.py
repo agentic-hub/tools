@@ -31,6 +31,7 @@ class PipedriveGetallToolInput(BaseModel):
 
 class PipedriveGetallTool(BaseTool):
     name: str = "pipedrive_getall"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = PipedriveGetallToolInput
     credentials: Optional[PipedriveCredentials] = None

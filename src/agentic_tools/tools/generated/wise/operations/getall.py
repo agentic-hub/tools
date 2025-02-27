@@ -20,6 +20,7 @@ class WiseGetallToolInput(BaseModel):
 
 class WiseGetallTool(BaseTool):
     name: str = "wise_getall"
+    connector_id: str = "nodes-base.wise"
     description: str = "Tool for wise getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = WiseGetallToolInput
     credentials: Optional[WiseCredentials] = None

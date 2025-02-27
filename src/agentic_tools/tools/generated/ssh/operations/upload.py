@@ -14,6 +14,7 @@ class SshUploadToolInput(BaseModel):
 
 class SshUploadTool(BaseTool):
     name: str = "ssh_upload"
+    connector_id: str = "nodes-base.ssh"
     description: str = "Tool for ssh upload operation - upload operation"
     args_schema: type[BaseModel] | None = SshUploadToolInput
     credentials: Optional[SshCredentials] = None

@@ -18,6 +18,7 @@ class XeroUpdateToolInput(BaseModel):
 
 class XeroUpdateTool(BaseTool):
     name: str = "xero_update"
+    connector_id: str = "nodes-base.xero"
     description: str = "Tool for xero update operation - update operation"
     args_schema: type[BaseModel] | None = XeroUpdateToolInput
     credentials: Optional[XeroCredentials] = None

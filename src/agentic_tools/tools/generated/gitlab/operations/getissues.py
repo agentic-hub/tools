@@ -24,6 +24,7 @@ class GitlabGetissuesToolInput(BaseModel):
 
 class GitlabGetissuesTool(BaseTool):
     name: str = "gitlab_getissues"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab getIssues operation - getIssues operation"
     args_schema: type[BaseModel] | None = GitlabGetissuesToolInput
     credentials: Optional[GitlabCredentials] = None

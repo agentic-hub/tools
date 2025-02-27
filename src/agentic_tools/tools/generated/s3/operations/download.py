@@ -19,6 +19,7 @@ class S3DownloadToolInput(BaseModel):
 
 class S3DownloadTool(BaseTool):
     name: str = "s3_download"
+    connector_id: str = "nodes-base.s3"
     description: str = "Tool for s3 download operation - download operation"
     args_schema: type[BaseModel] | None = S3DownloadToolInput
     credentials: Optional[S3Credentials] = None

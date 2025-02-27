@@ -15,6 +15,7 @@ class NpmSearchToolInput(BaseModel):
 
 class NpmSearchTool(BaseTool):
     name: str = "npm_search"
+    connector_id: str = "nodes-base.npm"
     description: str = "Tool for npm search operation - search operation"
     args_schema: type[BaseModel] | None = NpmSearchToolInput
     credentials: Optional[NpmCredentials] = None

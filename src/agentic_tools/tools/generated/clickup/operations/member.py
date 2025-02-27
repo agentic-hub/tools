@@ -34,6 +34,7 @@ class ClickupMemberToolInput(BaseModel):
 
 class ClickupMemberTool(BaseTool):
     name: str = "clickup_member"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp member operation - member operation"
     args_schema: type[BaseModel] | None = ClickupMemberToolInput
     credentials: Optional[ClickupCredentials] = None

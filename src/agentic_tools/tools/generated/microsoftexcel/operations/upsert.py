@@ -27,6 +27,7 @@ class MicrosoftexcelUpsertToolInput(BaseModel):
 
 class MicrosoftexcelUpsertTool(BaseTool):
     name: str = "microsoftexcel_upsert"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelUpsertToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

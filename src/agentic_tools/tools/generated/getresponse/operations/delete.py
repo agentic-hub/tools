@@ -13,6 +13,7 @@ class GetresponseDeleteToolInput(BaseModel):
 
 class GetresponseDeleteTool(BaseTool):
     name: str = "getresponse_delete"
+    connector_id: str = "nodes-base.getResponse"
     description: str = "Tool for getResponse delete operation - delete operation"
     args_schema: type[BaseModel] | None = GetresponseDeleteToolInput
     credentials: Optional[GetresponseCredentials] = None

@@ -21,6 +21,7 @@ class StripeRemoveToolInput(BaseModel):
 
 class StripeRemoveTool(BaseTool):
     name: str = "stripe_remove"
+    connector_id: str = "nodes-base.stripe"
     description: str = "Tool for stripe remove operation - remove operation"
     args_schema: type[BaseModel] | None = StripeRemoveToolInput
     credentials: Optional[StripeCredentials] = None

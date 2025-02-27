@@ -22,6 +22,7 @@ class GoogledriveCreateToolInput(BaseModel):
 
 class GoogledriveCreateTool(BaseTool):
     name: str = "googledrive_create"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive create operation - create operation"
     args_schema: type[BaseModel] | None = GoogledriveCreateToolInput
     credentials: Optional[GoogledriveCredentials] = None

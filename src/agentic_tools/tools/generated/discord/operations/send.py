@@ -24,6 +24,7 @@ class DiscordSendToolInput(BaseModel):
 
 class DiscordSendTool(BaseTool):
     name: str = "discord_send"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord send operation - send operation"
     args_schema: type[BaseModel] | None = DiscordSendToolInput
     credentials: Optional[DiscordCredentials] = None

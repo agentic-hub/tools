@@ -21,6 +21,7 @@ class Scade-toolsCreateToolInput(BaseModel):
 
 class Scade-toolsCreateTool(BaseTool):
     name: str = "scade-tools_create"
+    connector_id: str = "nodes-base.scade-tools"
     description: str = "Tool for scade-tools create operation - create operation"
     args_schema: type[BaseModel] | None = Scade-toolsCreateToolInput
     credentials: Optional[Scade-toolsCredentials] = None

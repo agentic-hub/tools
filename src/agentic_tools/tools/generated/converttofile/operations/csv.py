@@ -9,5 +9,6 @@ class ConverttofileCsvToolInput(BaseModel):
 
 class ConverttofileCsvTool(BaseTool):
     name: str = "converttofile_csv"
+    connector_id: str = "nodes-base.convertToFile"
     description: str = "Tool for convertToFile csv operation - csv operation"
     args_schema: type[BaseModel] | None = ConverttofileCsvToolInput

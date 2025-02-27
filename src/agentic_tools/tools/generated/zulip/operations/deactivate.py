@@ -18,6 +18,7 @@ class ZulipDeactivateToolInput(BaseModel):
 
 class ZulipDeactivateTool(BaseTool):
     name: str = "zulip_deactivate"
+    connector_id: str = "nodes-base.zulip"
     description: str = "Tool for zulip deactivate operation - deactivate operation"
     args_schema: type[BaseModel] | None = ZulipDeactivateToolInput
     credentials: Optional[ZulipCredentials] = None

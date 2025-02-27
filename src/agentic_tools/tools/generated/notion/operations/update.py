@@ -22,6 +22,7 @@ class NotionUpdateToolInput(BaseModel):
 
 class NotionUpdateTool(BaseTool):
     name: str = "notion_update"
+    connector_id: str = "nodes-base.notion"
     description: str = "Tool for notion update operation - update operation"
     args_schema: type[BaseModel] | None = NotionUpdateToolInput
     credentials: Optional[NotionCredentials] = None

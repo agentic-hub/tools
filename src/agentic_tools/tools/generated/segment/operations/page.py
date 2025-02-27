@@ -16,6 +16,7 @@ class SegmentPageToolInput(BaseModel):
 
 class SegmentPageTool(BaseTool):
     name: str = "segment_page"
+    connector_id: str = "nodes-base.segment"
     description: str = "Tool for segment page operation - page operation"
     args_schema: type[BaseModel] | None = SegmentPageToolInput
     credentials: Optional[SegmentCredentials] = None

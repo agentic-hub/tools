@@ -12,6 +12,7 @@ class ChargebeeCancelToolInput(BaseModel):
 
 class ChargebeeCancelTool(BaseTool):
     name: str = "chargebee_cancel"
+    connector_id: str = "nodes-base.chargebee"
     description: str = "Tool for chargebee cancel operation - cancel operation"
     args_schema: type[BaseModel] | None = ChargebeeCancelToolInput
     credentials: Optional[ChargebeeCredentials] = None

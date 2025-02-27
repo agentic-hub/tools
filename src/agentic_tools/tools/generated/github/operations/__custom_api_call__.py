@@ -22,6 +22,7 @@ class Github__custom_api_call__ToolInput(BaseModel):
 
 class Github__custom_api_call__Tool(BaseTool):
     name: str = "github___custom_api_call__"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Github__custom_api_call__ToolInput
     credentials: Optional[GithubCredentials] = None

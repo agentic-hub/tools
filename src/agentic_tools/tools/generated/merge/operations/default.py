@@ -14,5 +14,6 @@ class MergeDefaultToolInput(BaseModel):
 
 class MergeDefaultTool(BaseTool):
     name: str = "merge_default"
+    connector_id: str = "nodes-base.merge"
     description: str = "Tool for merge default operation - default operation"
     args_schema: type[BaseModel] | None = MergeDefaultToolInput

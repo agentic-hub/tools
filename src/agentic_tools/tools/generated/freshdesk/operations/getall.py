@@ -16,6 +16,7 @@ class FreshdeskGetallToolInput(BaseModel):
 
 class FreshdeskGetallTool(BaseTool):
     name: str = "freshdesk_getall"
+    connector_id: str = "nodes-base.freshdesk"
     description: str = "Tool for freshdesk getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = FreshdeskGetallToolInput
     credentials: Optional[FreshdeskCredentials] = None

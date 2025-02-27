@@ -14,5 +14,6 @@ class ConverttofileIcalToolInput(BaseModel):
 
 class ConverttofileIcalTool(BaseTool):
     name: str = "converttofile_ical"
+    connector_id: str = "nodes-base.convertToFile"
     description: str = "Tool for convertToFile iCal operation - iCal operation"
     args_schema: type[BaseModel] | None = ConverttofileIcalToolInput

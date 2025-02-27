@@ -16,6 +16,7 @@ class SendgridUpdateToolInput(BaseModel):
 
 class SendgridUpdateTool(BaseTool):
     name: str = "sendgrid_update"
+    connector_id: str = "nodes-base.sendGrid"
     description: str = "Tool for sendGrid update operation - update operation"
     args_schema: type[BaseModel] | None = SendgridUpdateToolInput
     credentials: Optional[SendgridCredentials] = None

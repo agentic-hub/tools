@@ -11,6 +11,7 @@ class GooglefirebaserealtimedatabaseGetToolInput(BaseModel):
 
 class GooglefirebaserealtimedatabaseGetTool(BaseTool):
     name: str = "googlefirebaserealtimedatabase_get"
+    connector_id: str = "nodes-base.googleFirebaseRealtimeDatabase"
     description: str = "Tool for googleFirebaseRealtimeDatabase get operation - get operation"
     args_schema: type[BaseModel] | None = GooglefirebaserealtimedatabaseGetToolInput
     credentials: Optional[GooglefirebaserealtimedatabaseCredentials] = None

@@ -17,6 +17,7 @@ class DropboxDeleteToolInput(BaseModel):
 
 class DropboxDeleteTool(BaseTool):
     name: str = "dropbox_delete"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox delete operation - delete operation"
     args_schema: type[BaseModel] | None = DropboxDeleteToolInput
     credentials: Optional[DropboxCredentials] = None

@@ -21,6 +21,7 @@ class TaigaGetToolInput(BaseModel):
 
 class TaigaGetTool(BaseTool):
     name: str = "taiga_get"
+    connector_id: str = "nodes-base.taiga"
     description: str = "Tool for taiga get operation - get operation"
     args_schema: type[BaseModel] | None = TaigaGetToolInput
     credentials: Optional[TaigaCredentials] = None

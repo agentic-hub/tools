@@ -16,6 +16,7 @@ class SendgridCreateToolInput(BaseModel):
 
 class SendgridCreateTool(BaseTool):
     name: str = "sendgrid_create"
+    connector_id: str = "nodes-base.sendGrid"
     description: str = "Tool for sendGrid create operation - create operation"
     args_schema: type[BaseModel] | None = SendgridCreateToolInput
     credentials: Optional[SendgridCredentials] = None

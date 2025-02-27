@@ -16,6 +16,7 @@ class EmeliaAddcontactToolInput(BaseModel):
 
 class EmeliaAddcontactTool(BaseTool):
     name: str = "emelia_addcontact"
+    connector_id: str = "nodes-base.emelia"
     description: str = "Tool for emelia addContact operation - addContact operation"
     args_schema: type[BaseModel] | None = EmeliaAddcontactToolInput
     credentials: Optional[EmeliaCredentials] = None

@@ -12,6 +12,7 @@ class Signl4SendToolInput(BaseModel):
 
 class Signl4SendTool(BaseTool):
     name: str = "signl4_send"
+    connector_id: str = "nodes-base.signl4"
     description: str = "Tool for signl4 send operation - send operation"
     args_schema: type[BaseModel] | None = Signl4SendToolInput
     credentials: Optional[Signl4Credentials] = None

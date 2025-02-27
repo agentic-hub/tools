@@ -12,6 +12,7 @@ class NpmGetmanyToolInput(BaseModel):
 
 class NpmGetmanyTool(BaseTool):
     name: str = "npm_getmany"
+    connector_id: str = "nodes-base.npm"
     description: str = "Tool for npm getMany operation - getMany operation"
     args_schema: type[BaseModel] | None = NpmGetmanyToolInput
     credentials: Optional[NpmCredentials] = None

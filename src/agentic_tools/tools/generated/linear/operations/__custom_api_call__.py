@@ -12,6 +12,7 @@ class Linear__custom_api_call__ToolInput(BaseModel):
 
 class Linear__custom_api_call__Tool(BaseTool):
     name: str = "linear___custom_api_call__"
+    connector_id: str = "nodes-base.linear"
     description: str = "Tool for linear __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Linear__custom_api_call__ToolInput
     credentials: Optional[LinearCredentials] = None

@@ -17,6 +17,7 @@ class Venafitlsprotectcloud__custom_api_call__ToolInput(BaseModel):
 
 class Venafitlsprotectcloud__custom_api_call__Tool(BaseTool):
     name: str = "venafitlsprotectcloud___custom_api_call__"
+    connector_id: str = "nodes-base.venafiTlsProtectCloud"
     description: str = "Tool for venafiTlsProtectCloud __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Venafitlsprotectcloud__custom_api_call__ToolInput
     credentials: Optional[VenafitlsprotectcloudCredentials] = None

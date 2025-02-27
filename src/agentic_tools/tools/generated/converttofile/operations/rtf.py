@@ -9,5 +9,6 @@ class ConverttofileRtfToolInput(BaseModel):
 
 class ConverttofileRtfTool(BaseTool):
     name: str = "converttofile_rtf"
+    connector_id: str = "nodes-base.convertToFile"
     description: str = "Tool for convertToFile rtf operation - rtf operation"
     args_schema: type[BaseModel] | None = ConverttofileRtfToolInput

@@ -18,6 +18,7 @@ class ZammadGetallToolInput(BaseModel):
 
 class ZammadGetallTool(BaseTool):
     name: str = "zammad_getall"
+    connector_id: str = "nodes-base.zammad"
     description: str = "Tool for zammad getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ZammadGetallToolInput
     credentials: Optional[ZammadCredentials] = None

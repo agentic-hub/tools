@@ -19,6 +19,7 @@ class GrafanaRemoveToolInput(BaseModel):
 
 class GrafanaRemoveTool(BaseTool):
     name: str = "grafana_remove"
+    connector_id: str = "nodes-base.grafana"
     description: str = "Tool for grafana remove operation - remove operation"
     args_schema: type[BaseModel] | None = GrafanaRemoveToolInput
     credentials: Optional[GrafanaCredentials] = None

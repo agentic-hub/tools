@@ -12,6 +12,7 @@ class VenafitlsprotectdatacenterDeleteToolInput(BaseModel):
 
 class VenafitlsprotectdatacenterDeleteTool(BaseTool):
     name: str = "venafitlsprotectdatacenter_delete"
+    connector_id: str = "nodes-base.venafiTlsProtectDatacenter"
     description: str = "Tool for venafiTlsProtectDatacenter delete operation - delete operation"
     args_schema: type[BaseModel] | None = VenafitlsprotectdatacenterDeleteToolInput
     credentials: Optional[VenafitlsprotectdatacenterCredentials] = None

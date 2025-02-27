@@ -12,6 +12,7 @@ class MatrixLeaveToolInput(BaseModel):
 
 class MatrixLeaveTool(BaseTool):
     name: str = "matrix_leave"
+    connector_id: str = "nodes-base.matrix"
     description: str = "Tool for matrix leave operation - leave operation"
     args_schema: type[BaseModel] | None = MatrixLeaveToolInput
     credentials: Optional[MatrixCredentials] = None

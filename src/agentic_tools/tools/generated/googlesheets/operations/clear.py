@@ -27,6 +27,7 @@ class GooglesheetsClearToolInput(BaseModel):
 
 class GooglesheetsClearTool(BaseTool):
     name: str = "googlesheets_clear"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets clear operation - clear operation"
     args_schema: type[BaseModel] | None = GooglesheetsClearToolInput
     credentials: Optional[GooglesheetsCredentials] = None

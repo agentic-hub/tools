@@ -16,6 +16,7 @@ class SpotifyDeleteToolInput(BaseModel):
 
 class SpotifyDeleteTool(BaseTool):
     name: str = "spotify_delete"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify delete operation - delete operation"
     args_schema: type[BaseModel] | None = SpotifyDeleteToolInput
     credentials: Optional[SpotifyCredentials] = None

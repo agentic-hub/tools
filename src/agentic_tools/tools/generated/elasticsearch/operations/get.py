@@ -20,6 +20,7 @@ class ElasticsearchGetToolInput(BaseModel):
 
 class ElasticsearchGetTool(BaseTool):
     name: str = "elasticsearch_get"
+    connector_id: str = "nodes-base.elasticsearch"
     description: str = "Tool for elasticsearch get operation - get operation"
     args_schema: type[BaseModel] | None = ElasticsearchGetToolInput
     credentials: Optional[ElasticsearchCredentials] = None

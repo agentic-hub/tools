@@ -27,6 +27,7 @@ class MicrosoftexcelConverttorangeToolInput(BaseModel):
 
 class MicrosoftexcelConverttorangeTool(BaseTool):
     name: str = "microsoftexcel_converttorange"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel convertToRange operation - convertToRange operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelConverttorangeToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

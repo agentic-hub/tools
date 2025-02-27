@@ -16,6 +16,7 @@ class TwitterLikeToolInput(BaseModel):
 
 class TwitterLikeTool(BaseTool):
     name: str = "twitter_like"
+    connector_id: str = "nodes-base.twitter"
     description: str = "Tool for twitter like operation - like operation"
     args_schema: type[BaseModel] | None = TwitterLikeToolInput
     credentials: Optional[TwitterCredentials] = None

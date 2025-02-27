@@ -18,6 +18,7 @@ class BitwardenDeleteToolInput(BaseModel):
 
 class BitwardenDeleteTool(BaseTool):
     name: str = "bitwarden_delete"
+    connector_id: str = "nodes-base.bitwarden"
     description: str = "Tool for bitwarden delete operation - delete operation"
     args_schema: type[BaseModel] | None = BitwardenDeleteToolInput
     credentials: Optional[BitwardenCredentials] = None

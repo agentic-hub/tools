@@ -12,6 +12,7 @@ class AwssnsPublishToolInput(BaseModel):
 
 class AwssnsPublishTool(BaseTool):
     name: str = "awssns_publish"
+    connector_id: str = "nodes-base.awsSns"
     description: str = "Tool for awsSns publish operation - publish operation"
     args_schema: type[BaseModel] | None = AwssnsPublishToolInput
     credentials: Optional[AwssnsCredentials] = None

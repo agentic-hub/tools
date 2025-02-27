@@ -20,6 +20,7 @@ class MondaycomGetToolInput(BaseModel):
 
 class MondaycomGetTool(BaseTool):
     name: str = "mondaycom_get"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom get operation - get operation"
     args_schema: type[BaseModel] | None = MondaycomGetToolInput
     credentials: Optional[MondaycomCredentials] = None

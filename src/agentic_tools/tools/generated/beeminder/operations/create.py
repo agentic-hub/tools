@@ -13,6 +13,7 @@ class BeeminderCreateToolInput(BaseModel):
 
 class BeeminderCreateTool(BaseTool):
     name: str = "beeminder_create"
+    connector_id: str = "nodes-base.beeminder"
     description: str = "Tool for beeminder create operation - create operation"
     args_schema: type[BaseModel] | None = BeeminderCreateToolInput
     credentials: Optional[BeeminderCredentials] = None

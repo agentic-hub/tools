@@ -13,6 +13,7 @@ class MediumGetallToolInput(BaseModel):
 
 class MediumGetallTool(BaseTool):
     name: str = "medium_getall"
+    connector_id: str = "nodes-base.medium"
     description: str = "Tool for medium getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MediumGetallToolInput
     credentials: Optional[MediumCredentials] = None

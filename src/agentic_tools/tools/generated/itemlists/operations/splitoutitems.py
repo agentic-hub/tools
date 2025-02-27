@@ -14,5 +14,6 @@ class ItemlistsSplitoutitemsToolInput(BaseModel):
 
 class ItemlistsSplitoutitemsTool(BaseTool):
     name: str = "itemlists_splitoutitems"
+    connector_id: str = "nodes-base.itemLists"
     description: str = "Tool for itemLists splitOutItems operation - splitOutItems operation"
     args_schema: type[BaseModel] | None = ItemlistsSplitoutitemsToolInput

@@ -21,6 +21,7 @@ class MondaycomGetbycolumnvalueToolInput(BaseModel):
 
 class MondaycomGetbycolumnvalueTool(BaseTool):
     name: str = "mondaycom_getbycolumnvalue"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom getByColumnValue operation - getByColumnValue operation"
     args_schema: type[BaseModel] | None = MondaycomGetbycolumnvalueToolInput
     credentials: Optional[MondaycomCredentials] = None

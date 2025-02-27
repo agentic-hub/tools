@@ -19,6 +19,7 @@ class Awss3SearchToolInput(BaseModel):
 
 class Awss3SearchTool(BaseTool):
     name: str = "awss3_search"
+    connector_id: str = "nodes-base.awsS3"
     description: str = "Tool for awsS3 search operation - search operation"
     args_schema: type[BaseModel] | None = Awss3SearchToolInput
     credentials: Optional[Awss3Credentials] = None

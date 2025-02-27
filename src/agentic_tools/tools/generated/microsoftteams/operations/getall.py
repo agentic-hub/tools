@@ -23,6 +23,7 @@ class MicrosoftteamsGetallToolInput(BaseModel):
 
 class MicrosoftteamsGetallTool(BaseTool):
     name: str = "microsoftteams_getall"
+    connector_id: str = "nodes-base.microsoftTeams"
     description: str = "Tool for microsoftTeams getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MicrosoftteamsGetallToolInput
     credentials: Optional[MicrosoftteamsCredentials] = None

@@ -23,6 +23,7 @@ class TrelloArchiveToolInput(BaseModel):
 
 class TrelloArchiveTool(BaseTool):
     name: str = "trello_archive"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello archive operation - archive operation"
     args_schema: type[BaseModel] | None = TrelloArchiveToolInput
     credentials: Optional[TrelloCredentials] = None

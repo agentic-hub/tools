@@ -41,6 +41,7 @@ class ThehiveprojectDeletetaskToolInput(BaseModel):
 
 class ThehiveprojectDeletetaskTool(BaseTool):
     name: str = "thehiveproject_deletetask"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject deleteTask operation - deleteTask operation"
     args_schema: type[BaseModel] | None = ThehiveprojectDeletetaskToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

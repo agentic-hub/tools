@@ -18,6 +18,7 @@ class MicrosoftonedriveGetchildrenToolInput(BaseModel):
 
 class MicrosoftonedriveGetchildrenTool(BaseTool):
     name: str = "microsoftonedrive_getchildren"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive getChildren operation - getChildren operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveGetchildrenToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

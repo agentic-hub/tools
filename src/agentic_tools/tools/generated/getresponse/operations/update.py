@@ -14,6 +14,7 @@ class GetresponseUpdateToolInput(BaseModel):
 
 class GetresponseUpdateTool(BaseTool):
     name: str = "getresponse_update"
+    connector_id: str = "nodes-base.getResponse"
     description: str = "Tool for getResponse update operation - update operation"
     args_schema: type[BaseModel] | None = GetresponseUpdateToolInput
     credentials: Optional[GetresponseCredentials] = None

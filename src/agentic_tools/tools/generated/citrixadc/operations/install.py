@@ -20,6 +20,7 @@ class CitrixadcInstallToolInput(BaseModel):
 
 class CitrixadcInstallTool(BaseTool):
     name: str = "citrixadc_install"
+    connector_id: str = "nodes-base.citrixAdc"
     description: str = "Tool for citrixAdc install operation - install operation"
     args_schema: type[BaseModel] | None = CitrixadcInstallToolInput
     credentials: Optional[CitrixadcCredentials] = None

@@ -11,5 +11,6 @@ class HtmlExtracthtmlcontentToolInput(BaseModel):
 
 class HtmlExtracthtmlcontentTool(BaseTool):
     name: str = "html_extracthtmlcontent"
+    connector_id: str = "nodes-base.html"
     description: str = "Tool for html extractHtmlContent operation - extractHtmlContent operation"
     args_schema: type[BaseModel] | None = HtmlExtracthtmlcontentToolInput

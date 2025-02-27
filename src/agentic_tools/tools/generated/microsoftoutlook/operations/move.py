@@ -31,6 +31,7 @@ class MicrosoftoutlookMoveToolInput(BaseModel):
 
 class MicrosoftoutlookMoveTool(BaseTool):
     name: str = "microsoftoutlook_move"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook move operation - move operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookMoveToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

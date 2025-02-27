@@ -20,6 +20,7 @@ class S3CreateToolInput(BaseModel):
 
 class S3CreateTool(BaseTool):
     name: str = "s3_create"
+    connector_id: str = "nodes-base.s3"
     description: str = "Tool for s3 create operation - create operation"
     args_schema: type[BaseModel] | None = S3CreateToolInput
     credentials: Optional[S3Credentials] = None

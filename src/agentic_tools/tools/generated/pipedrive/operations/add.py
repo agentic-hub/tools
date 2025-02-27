@@ -33,6 +33,7 @@ class PipedriveAddToolInput(BaseModel):
 
 class PipedriveAddTool(BaseTool):
     name: str = "pipedrive_add"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive add operation - add operation"
     args_schema: type[BaseModel] | None = PipedriveAddToolInput
     credentials: Optional[PipedriveCredentials] = None

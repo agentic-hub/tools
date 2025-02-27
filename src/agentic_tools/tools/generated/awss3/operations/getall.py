@@ -19,6 +19,7 @@ class Awss3GetallToolInput(BaseModel):
 
 class Awss3GetallTool(BaseTool):
     name: str = "awss3_getall"
+    connector_id: str = "nodes-base.awsS3"
     description: str = "Tool for awsS3 getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = Awss3GetallToolInput
     credentials: Optional[Awss3Credentials] = None

@@ -8,5 +8,6 @@ class ReadbinaryfilesDefaultToolInput(BaseModel):
 
 class ReadbinaryfilesDefaultTool(BaseTool):
     name: str = "readbinaryfiles_default"
+    connector_id: str = "nodes-base.readBinaryFiles"
     description: str = "Tool for readBinaryFiles default operation - default operation"
     args_schema: type[BaseModel] | None = ReadbinaryfilesDefaultToolInput

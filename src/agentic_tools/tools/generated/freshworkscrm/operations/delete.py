@@ -29,6 +29,7 @@ class FreshworkscrmDeleteToolInput(BaseModel):
 
 class FreshworkscrmDeleteTool(BaseTool):
     name: str = "freshworkscrm_delete"
+    connector_id: str = "nodes-base.freshworksCrm"
     description: str = "Tool for freshworksCrm delete operation - delete operation"
     args_schema: type[BaseModel] | None = FreshworkscrmDeleteToolInput
     credentials: Optional[FreshworkscrmCredentials] = None

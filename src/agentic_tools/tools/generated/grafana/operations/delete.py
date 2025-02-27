@@ -18,6 +18,7 @@ class GrafanaDeleteToolInput(BaseModel):
 
 class GrafanaDeleteTool(BaseTool):
     name: str = "grafana_delete"
+    connector_id: str = "nodes-base.grafana"
     description: str = "Tool for grafana delete operation - delete operation"
     args_schema: type[BaseModel] | None = GrafanaDeleteToolInput
     credentials: Optional[GrafanaCredentials] = None

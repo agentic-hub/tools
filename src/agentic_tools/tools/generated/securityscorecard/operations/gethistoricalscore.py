@@ -17,6 +17,7 @@ class SecurityscorecardGethistoricalscoreToolInput(BaseModel):
 
 class SecurityscorecardGethistoricalscoreTool(BaseTool):
     name: str = "securityscorecard_gethistoricalscore"
+    connector_id: str = "nodes-base.securityScorecard"
     description: str = "Tool for securityScorecard getHistoricalScore operation - getHistoricalScore operation"
     args_schema: type[BaseModel] | None = SecurityscorecardGethistoricalscoreToolInput
     credentials: Optional[SecurityscorecardCredentials] = None

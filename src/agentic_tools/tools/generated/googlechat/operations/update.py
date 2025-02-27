@@ -18,6 +18,7 @@ class GooglechatUpdateToolInput(BaseModel):
 
 class GooglechatUpdateTool(BaseTool):
     name: str = "googlechat_update"
+    connector_id: str = "nodes-base.googleChat"
     description: str = "Tool for googleChat update operation - update operation"
     args_schema: type[BaseModel] | None = GooglechatUpdateToolInput
     credentials: Optional[GooglechatCredentials] = None

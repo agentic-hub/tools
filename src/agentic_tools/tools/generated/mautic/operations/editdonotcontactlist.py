@@ -22,6 +22,7 @@ class MauticEditdonotcontactlistToolInput(BaseModel):
 
 class MauticEditdonotcontactlistTool(BaseTool):
     name: str = "mautic_editdonotcontactlist"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic editDoNotContactList operation - editDoNotContactList operation"
     args_schema: type[BaseModel] | None = MauticEditdonotcontactlistToolInput
     credentials: Optional[MauticCredentials] = None

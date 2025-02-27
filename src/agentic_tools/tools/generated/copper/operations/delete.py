@@ -22,6 +22,7 @@ class CopperDeleteToolInput(BaseModel):
 
 class CopperDeleteTool(BaseTool):
     name: str = "copper_delete"
+    connector_id: str = "nodes-base.copper"
     description: str = "Tool for copper delete operation - delete operation"
     args_schema: type[BaseModel] | None = CopperDeleteToolInput
     credentials: Optional[CopperCredentials] = None

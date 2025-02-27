@@ -16,6 +16,7 @@ class EmeliaCreateToolInput(BaseModel):
 
 class EmeliaCreateTool(BaseTool):
     name: str = "emelia_create"
+    connector_id: str = "nodes-base.emelia"
     description: str = "Tool for emelia create operation - create operation"
     args_schema: type[BaseModel] | None = EmeliaCreateToolInput
     credentials: Optional[EmeliaCredentials] = None

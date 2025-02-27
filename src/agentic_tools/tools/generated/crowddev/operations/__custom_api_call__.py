@@ -17,6 +17,7 @@ class Crowddev__custom_api_call__ToolInput(BaseModel):
 
 class Crowddev__custom_api_call__Tool(BaseTool):
     name: str = "crowddev___custom_api_call__"
+    connector_id: str = "nodes-base.crowdDev"
     description: str = "Tool for crowdDev __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Crowddev__custom_api_call__ToolInput
     credentials: Optional[CrowddevCredentials] = None

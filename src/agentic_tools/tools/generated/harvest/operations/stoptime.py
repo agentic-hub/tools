@@ -24,6 +24,7 @@ class HarvestStoptimeToolInput(BaseModel):
 
 class HarvestStoptimeTool(BaseTool):
     name: str = "harvest_stoptime"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest stopTime operation - stopTime operation"
     args_schema: type[BaseModel] | None = HarvestStoptimeToolInput
     credentials: Optional[HarvestCredentials] = None

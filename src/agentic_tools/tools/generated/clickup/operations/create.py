@@ -41,6 +41,7 @@ class ClickupCreateToolInput(BaseModel):
 
 class ClickupCreateTool(BaseTool):
     name: str = "clickup_create"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp create operation - create operation"
     args_schema: type[BaseModel] | None = ClickupCreateToolInput
     credentials: Optional[ClickupCredentials] = None

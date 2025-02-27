@@ -17,6 +17,7 @@ class KobotoolboxCreateToolInput(BaseModel):
 
 class KobotoolboxCreateTool(BaseTool):
     name: str = "kobotoolbox_create"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox create operation - create operation"
     args_schema: type[BaseModel] | None = KobotoolboxCreateToolInput
     credentials: Optional[KobotoolboxCredentials] = None

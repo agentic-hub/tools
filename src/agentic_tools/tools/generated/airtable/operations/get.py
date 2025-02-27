@@ -18,6 +18,7 @@ class AirtableGetToolInput(BaseModel):
 
 class AirtableGetTool(BaseTool):
     name: str = "airtable_get"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable get operation - get operation"
     args_schema: type[BaseModel] | None = AirtableGetToolInput
     credentials: Optional[AirtableCredentials] = None

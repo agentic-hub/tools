@@ -17,6 +17,7 @@ class DropboxCreateToolInput(BaseModel):
 
 class DropboxCreateTool(BaseTool):
     name: str = "dropbox_create"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox create operation - create operation"
     args_schema: type[BaseModel] | None = DropboxCreateToolInput
     credentials: Optional[DropboxCredentials] = None

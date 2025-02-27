@@ -23,6 +23,7 @@ class GoogledriveCopyToolInput(BaseModel):
 
 class GoogledriveCopyTool(BaseTool):
     name: str = "googledrive_copy"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive copy operation - copy operation"
     args_schema: type[BaseModel] | None = GoogledriveCopyToolInput
     credentials: Optional[GoogledriveCredentials] = None

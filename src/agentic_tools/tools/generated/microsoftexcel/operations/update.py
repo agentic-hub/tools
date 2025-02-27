@@ -27,6 +27,7 @@ class MicrosoftexcelUpdateToolInput(BaseModel):
 
 class MicrosoftexcelUpdateTool(BaseTool):
     name: str = "microsoftexcel_update"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel update operation - update operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelUpdateToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

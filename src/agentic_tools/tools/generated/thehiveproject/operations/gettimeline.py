@@ -41,6 +41,7 @@ class ThehiveprojectGettimelineToolInput(BaseModel):
 
 class ThehiveprojectGettimelineTool(BaseTool):
     name: str = "thehiveproject_gettimeline"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject getTimeline operation - getTimeline operation"
     args_schema: type[BaseModel] | None = ThehiveprojectGettimelineToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

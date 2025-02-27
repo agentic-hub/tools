@@ -17,6 +17,7 @@ class KobotoolboxSetvalidationToolInput(BaseModel):
 
 class KobotoolboxSetvalidationTool(BaseTool):
     name: str = "kobotoolbox_setvalidation"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox setValidation operation - setValidation operation"
     args_schema: type[BaseModel] | None = KobotoolboxSetvalidationToolInput
     credentials: Optional[KobotoolboxCredentials] = None

@@ -13,6 +13,7 @@ class MetabaseGetToolInput(BaseModel):
 
 class MetabaseGetTool(BaseTool):
     name: str = "metabase_get"
+    connector_id: str = "nodes-base.metabase"
     description: str = "Tool for metabase get operation - get operation"
     args_schema: type[BaseModel] | None = MetabaseGetToolInput
     credentials: Optional[MetabaseCredentials] = None

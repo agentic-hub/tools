@@ -14,6 +14,7 @@ class HomeassistantGetallToolInput(BaseModel):
 
 class HomeassistantGetallTool(BaseTool):
     name: str = "homeassistant_getall"
+    connector_id: str = "nodes-base.homeAssistant"
     description: str = "Tool for homeAssistant getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = HomeassistantGetallToolInput
     credentials: Optional[HomeassistantCredentials] = None

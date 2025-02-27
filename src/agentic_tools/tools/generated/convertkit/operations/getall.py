@@ -16,6 +16,7 @@ class ConvertkitGetallToolInput(BaseModel):
 
 class ConvertkitGetallTool(BaseTool):
     name: str = "convertkit_getall"
+    connector_id: str = "nodes-base.convertKit"
     description: str = "Tool for convertKit getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ConvertkitGetallToolInput
     credentials: Optional[ConvertkitCredentials] = None

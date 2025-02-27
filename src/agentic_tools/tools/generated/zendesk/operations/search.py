@@ -19,6 +19,7 @@ class ZendeskSearchToolInput(BaseModel):
 
 class ZendeskSearchTool(BaseTool):
     name: str = "zendesk_search"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk search operation - search operation"
     args_schema: type[BaseModel] | None = ZendeskSearchToolInput
     credentials: Optional[ZendeskCredentials] = None

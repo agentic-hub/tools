@@ -20,6 +20,7 @@ class CrowddevCreatewithmemberToolInput(BaseModel):
 
 class CrowddevCreatewithmemberTool(BaseTool):
     name: str = "crowddev_createwithmember"
+    connector_id: str = "nodes-base.crowdDev"
     description: str = "Tool for crowdDev createWithMember operation - createWithMember operation"
     args_schema: type[BaseModel] | None = CrowddevCreatewithmemberToolInput
     credentials: Optional[CrowddevCredentials] = None

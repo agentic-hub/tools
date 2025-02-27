@@ -19,6 +19,7 @@ class ElasticsecurityRemoveToolInput(BaseModel):
 
 class ElasticsecurityRemoveTool(BaseTool):
     name: str = "elasticsecurity_remove"
+    connector_id: str = "nodes-base.elasticSecurity"
     description: str = "Tool for elasticSecurity remove operation - remove operation"
     args_schema: type[BaseModel] | None = ElasticsecurityRemoveToolInput
     credentials: Optional[ElasticsecurityCredentials] = None

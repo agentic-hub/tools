@@ -17,6 +17,7 @@ class CrowddevDestroyToolInput(BaseModel):
 
 class CrowddevDestroyTool(BaseTool):
     name: str = "crowddev_destroy"
+    connector_id: str = "nodes-base.crowdDev"
     description: str = "Tool for crowdDev destroy operation - destroy operation"
     args_schema: type[BaseModel] | None = CrowddevDestroyToolInput
     credentials: Optional[CrowddevCredentials] = None

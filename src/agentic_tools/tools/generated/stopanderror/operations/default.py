@@ -9,5 +9,6 @@ class StopanderrorDefaultToolInput(BaseModel):
 
 class StopanderrorDefaultTool(BaseTool):
     name: str = "stopanderror_default"
+    connector_id: str = "nodes-base.stopAndError"
     description: str = "Tool for stopAndError default operation - default operation"
     args_schema: type[BaseModel] | None = StopanderrorDefaultToolInput

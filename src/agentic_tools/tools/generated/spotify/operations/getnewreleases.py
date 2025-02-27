@@ -16,6 +16,7 @@ class SpotifyGetnewreleasesToolInput(BaseModel):
 
 class SpotifyGetnewreleasesTool(BaseTool):
     name: str = "spotify_getnewreleases"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify getNewReleases operation - getNewReleases operation"
     args_schema: type[BaseModel] | None = SpotifyGetnewreleasesToolInput
     credentials: Optional[SpotifyCredentials] = None

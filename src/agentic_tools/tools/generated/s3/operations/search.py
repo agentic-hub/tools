@@ -19,6 +19,7 @@ class S3SearchToolInput(BaseModel):
 
 class S3SearchTool(BaseTool):
     name: str = "s3_search"
+    connector_id: str = "nodes-base.s3"
     description: str = "Tool for s3 search operation - search operation"
     args_schema: type[BaseModel] | None = S3SearchToolInput
     credentials: Optional[S3Credentials] = None

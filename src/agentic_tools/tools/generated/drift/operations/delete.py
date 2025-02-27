@@ -12,6 +12,7 @@ class DriftDeleteToolInput(BaseModel):
 
 class DriftDeleteTool(BaseTool):
     name: str = "drift_delete"
+    connector_id: str = "nodes-base.drift"
     description: str = "Tool for drift delete operation - delete operation"
     args_schema: type[BaseModel] | None = DriftDeleteToolInput
     credentials: Optional[DriftCredentials] = None

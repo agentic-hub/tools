@@ -22,6 +22,7 @@ class GooglesheetsAppendorupdateToolInput(BaseModel):
 
 class GooglesheetsAppendorupdateTool(BaseTool):
     name: str = "googlesheets_appendorupdate"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets appendOrUpdate operation - appendOrUpdate operation"
     args_schema: type[BaseModel] | None = GooglesheetsAppendorupdateToolInput
     credentials: Optional[GooglesheetsCredentials] = None

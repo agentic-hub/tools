@@ -26,6 +26,7 @@ class SlackLeaveToolInput(BaseModel):
 
 class SlackLeaveTool(BaseTool):
     name: str = "slack_leave"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack leave operation - leave operation"
     args_schema: type[BaseModel] | None = SlackLeaveToolInput
     credentials: Optional[SlackCredentials] = None

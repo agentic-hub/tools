@@ -25,6 +25,7 @@ class SentryioCreateToolInput(BaseModel):
 
 class SentryioCreateTool(BaseTool):
     name: str = "sentryio_create"
+    connector_id: str = "nodes-base.sentryIo"
     description: str = "Tool for sentryIo create operation - create operation"
     args_schema: type[BaseModel] | None = SentryioCreateToolInput
     credentials: Optional[SentryioCredentials] = None

@@ -23,6 +23,7 @@ class TrelloCreatecheckitemToolInput(BaseModel):
 
 class TrelloCreatecheckitemTool(BaseTool):
     name: str = "trello_createcheckitem"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello createCheckItem operation - createCheckItem operation"
     args_schema: type[BaseModel] | None = TrelloCreatecheckitemToolInput
     credentials: Optional[TrelloCredentials] = None

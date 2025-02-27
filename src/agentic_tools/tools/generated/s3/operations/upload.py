@@ -22,6 +22,7 @@ class S3UploadToolInput(BaseModel):
 
 class S3UploadTool(BaseTool):
     name: str = "s3_upload"
+    connector_id: str = "nodes-base.s3"
     description: str = "Tool for s3 upload operation - upload operation"
     args_schema: type[BaseModel] | None = S3UploadToolInput
     credentials: Optional[S3Credentials] = None

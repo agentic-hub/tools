@@ -23,6 +23,7 @@ class AsanaAddToolInput(BaseModel):
 
 class AsanaAddTool(BaseTool):
     name: str = "asana_add"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana add operation - add operation"
     args_schema: type[BaseModel] | None = AsanaAddToolInput
     credentials: Optional[AsanaCredentials] = None

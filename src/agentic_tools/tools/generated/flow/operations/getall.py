@@ -15,6 +15,7 @@ class FlowGetallToolInput(BaseModel):
 
 class FlowGetallTool(BaseTool):
     name: str = "flow_getall"
+    connector_id: str = "nodes-base.flow"
     description: str = "Tool for flow getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = FlowGetallToolInput
     credentials: Optional[FlowCredentials] = None

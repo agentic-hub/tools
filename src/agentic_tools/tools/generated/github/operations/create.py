@@ -30,6 +30,7 @@ class GithubCreateToolInput(BaseModel):
 
 class GithubCreateTool(BaseTool):
     name: str = "github_create"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github create operation - create operation"
     args_schema: type[BaseModel] | None = GithubCreateToolInput
     credentials: Optional[GithubCredentials] = None

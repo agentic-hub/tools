@@ -18,6 +18,7 @@ class XeroGetToolInput(BaseModel):
 
 class XeroGetTool(BaseTool):
     name: str = "xero_get"
+    connector_id: str = "nodes-base.xero"
     description: str = "Tool for xero get operation - get operation"
     args_schema: type[BaseModel] | None = XeroGetToolInput
     credentials: Optional[XeroCredentials] = None

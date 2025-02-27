@@ -23,6 +23,7 @@ class ZulipCreateToolInput(BaseModel):
 
 class ZulipCreateTool(BaseTool):
     name: str = "zulip_create"
+    connector_id: str = "nodes-base.zulip"
     description: str = "Tool for zulip create operation - create operation"
     args_schema: type[BaseModel] | None = ZulipCreateToolInput
     credentials: Optional[ZulipCredentials] = None

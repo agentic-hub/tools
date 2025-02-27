@@ -12,6 +12,7 @@ class ChargebeeCreateToolInput(BaseModel):
 
 class ChargebeeCreateTool(BaseTool):
     name: str = "chargebee_create"
+    connector_id: str = "nodes-base.chargebee"
     description: str = "Tool for chargebee create operation - create operation"
     args_schema: type[BaseModel] | None = ChargebeeCreateToolInput
     credentials: Optional[ChargebeeCredentials] = None

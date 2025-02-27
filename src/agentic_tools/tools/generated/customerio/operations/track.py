@@ -17,6 +17,7 @@ class CustomerioTrackToolInput(BaseModel):
 
 class CustomerioTrackTool(BaseTool):
     name: str = "customerio_track"
+    connector_id: str = "nodes-base.customerIo"
     description: str = "Tool for customerIo track operation - track operation"
     args_schema: type[BaseModel] | None = CustomerioTrackToolInput
     credentials: Optional[CustomerioCredentials] = None

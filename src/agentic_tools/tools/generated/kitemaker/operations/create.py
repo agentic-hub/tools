@@ -17,6 +17,7 @@ class KitemakerCreateToolInput(BaseModel):
 
 class KitemakerCreateTool(BaseTool):
     name: str = "kitemaker_create"
+    connector_id: str = "nodes-base.kitemaker"
     description: str = "Tool for kitemaker create operation - create operation"
     args_schema: type[BaseModel] | None = KitemakerCreateToolInput
     credentials: Optional[KitemakerCredentials] = None

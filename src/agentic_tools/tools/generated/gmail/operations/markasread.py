@@ -23,6 +23,7 @@ class GmailMarkasreadToolInput(BaseModel):
 
 class GmailMarkasreadTool(BaseTool):
     name: str = "gmail_markasread"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail markAsRead operation - markAsRead operation"
     args_schema: type[BaseModel] | None = GmailMarkasreadToolInput
     credentials: Optional[GmailCredentials] = None

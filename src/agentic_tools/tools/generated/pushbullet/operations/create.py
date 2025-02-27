@@ -18,6 +18,7 @@ class PushbulletCreateToolInput(BaseModel):
 
 class PushbulletCreateTool(BaseTool):
     name: str = "pushbullet_create"
+    connector_id: str = "nodes-base.pushbullet"
     description: str = "Tool for pushbullet create operation - create operation"
     args_schema: type[BaseModel] | None = PushbulletCreateToolInput
     credentials: Optional[PushbulletCredentials] = None

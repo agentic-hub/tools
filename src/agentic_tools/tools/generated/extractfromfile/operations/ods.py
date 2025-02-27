@@ -9,5 +9,6 @@ class ExtractfromfileOdsToolInput(BaseModel):
 
 class ExtractfromfileOdsTool(BaseTool):
     name: str = "extractfromfile_ods"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile ods operation - ods operation"
     args_schema: type[BaseModel] | None = ExtractfromfileOdsToolInput

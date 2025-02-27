@@ -13,6 +13,7 @@ class MicrosoftdynamicscrmUpdateToolInput(BaseModel):
 
 class MicrosoftdynamicscrmUpdateTool(BaseTool):
     name: str = "microsoftdynamicscrm_update"
+    connector_id: str = "nodes-base.microsoftDynamicsCrm"
     description: str = "Tool for microsoftDynamicsCrm update operation - update operation"
     args_schema: type[BaseModel] | None = MicrosoftdynamicscrmUpdateToolInput
     credentials: Optional[MicrosoftdynamicscrmCredentials] = None

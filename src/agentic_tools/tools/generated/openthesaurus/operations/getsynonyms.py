@@ -9,5 +9,6 @@ class OpenthesaurusGetsynonymsToolInput(BaseModel):
 
 class OpenthesaurusGetsynonymsTool(BaseTool):
     name: str = "openthesaurus_getsynonyms"
+    connector_id: str = "nodes-base.openThesaurus"
     description: str = "Tool for openThesaurus getSynonyms operation - getSynonyms operation"
     args_schema: type[BaseModel] | None = OpenthesaurusGetsynonymsToolInput

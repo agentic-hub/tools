@@ -18,6 +18,7 @@ class RaindropCreateToolInput(BaseModel):
 
 class RaindropCreateTool(BaseTool):
     name: str = "raindrop_create"
+    connector_id: str = "nodes-base.raindrop"
     description: str = "Tool for raindrop create operation - create operation"
     args_schema: type[BaseModel] | None = RaindropCreateToolInput
     credentials: Optional[RaindropCredentials] = None

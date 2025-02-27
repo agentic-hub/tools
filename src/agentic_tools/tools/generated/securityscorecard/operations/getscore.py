@@ -18,6 +18,7 @@ class SecurityscorecardGetscoreToolInput(BaseModel):
 
 class SecurityscorecardGetscoreTool(BaseTool):
     name: str = "securityscorecard_getscore"
+    connector_id: str = "nodes-base.securityScorecard"
     description: str = "Tool for securityScorecard getScore operation - getScore operation"
     args_schema: type[BaseModel] | None = SecurityscorecardGetscoreToolInput
     credentials: Optional[SecurityscorecardCredentials] = None

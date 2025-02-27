@@ -18,6 +18,7 @@ class CodaPushbuttonToolInput(BaseModel):
 
 class CodaPushbuttonTool(BaseTool):
     name: str = "coda_pushbutton"
+    connector_id: str = "nodes-base.coda"
     description: str = "Tool for coda pushButton operation - pushButton operation"
     args_schema: type[BaseModel] | None = CodaPushbuttonToolInput
     credentials: Optional[CodaCredentials] = None

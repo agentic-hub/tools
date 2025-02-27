@@ -13,6 +13,7 @@ class LonescaleCreateToolInput(BaseModel):
 
 class LonescaleCreateTool(BaseTool):
     name: str = "lonescale_create"
+    connector_id: str = "nodes-base.loneScale"
     description: str = "Tool for loneScale create operation - create operation"
     args_schema: type[BaseModel] | None = LonescaleCreateToolInput
     credentials: Optional[LonescaleCredentials] = None

@@ -31,6 +31,7 @@ class Activecampaign__custom_api_call__ToolInput(BaseModel):
 
 class Activecampaign__custom_api_call__Tool(BaseTool):
     name: str = "activecampaign___custom_api_call__"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Activecampaign__custom_api_call__ToolInput
     credentials: Optional[ActivecampaignCredentials] = None

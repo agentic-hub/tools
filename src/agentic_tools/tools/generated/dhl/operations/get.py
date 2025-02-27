@@ -12,6 +12,7 @@ class DhlGetToolInput(BaseModel):
 
 class DhlGetTool(BaseTool):
     name: str = "dhl_get"
+    connector_id: str = "nodes-base.dhl"
     description: str = "Tool for dhl get operation - get operation"
     args_schema: type[BaseModel] | None = DhlGetToolInput
     credentials: Optional[DhlCredentials] = None

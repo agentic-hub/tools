@@ -16,5 +16,6 @@ class ItemlistsSortToolInput(BaseModel):
 
 class ItemlistsSortTool(BaseTool):
     name: str = "itemlists_sort"
+    connector_id: str = "nodes-base.itemLists"
     description: str = "Tool for itemLists sort operation - sort operation"
     args_schema: type[BaseModel] | None = ItemlistsSortToolInput

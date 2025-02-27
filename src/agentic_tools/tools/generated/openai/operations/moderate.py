@@ -16,6 +16,7 @@ class OpenaiModerateToolInput(BaseModel):
 
 class OpenaiModerateTool(BaseTool):
     name: str = "openai_moderate"
+    connector_id: str = "nodes-base.openAi"
     description: str = "Tool for openAi moderate operation - moderate operation"
     args_schema: type[BaseModel] | None = OpenaiModerateToolInput
     credentials: Optional[OpenaiCredentials] = None

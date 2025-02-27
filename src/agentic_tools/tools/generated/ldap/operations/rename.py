@@ -13,6 +13,7 @@ class LdapRenameToolInput(BaseModel):
 
 class LdapRenameTool(BaseTool):
     name: str = "ldap_rename"
+    connector_id: str = "nodes-base.ldap"
     description: str = "Tool for ldap rename operation - rename operation"
     args_schema: type[BaseModel] | None = LdapRenameToolInput
     credentials: Optional[LdapCredentials] = None

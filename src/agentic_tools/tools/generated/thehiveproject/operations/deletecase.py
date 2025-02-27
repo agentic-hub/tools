@@ -41,6 +41,7 @@ class ThehiveprojectDeletecaseToolInput(BaseModel):
 
 class ThehiveprojectDeletecaseTool(BaseTool):
     name: str = "thehiveproject_deletecase"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject deleteCase operation - deleteCase operation"
     args_schema: type[BaseModel] | None = ThehiveprojectDeletecaseToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

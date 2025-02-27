@@ -22,6 +22,7 @@ class SalesmateUpdateToolInput(BaseModel):
 
 class SalesmateUpdateTool(BaseTool):
     name: str = "salesmate_update"
+    connector_id: str = "nodes-base.salesmate"
     description: str = "Tool for salesmate update operation - update operation"
     args_schema: type[BaseModel] | None = SalesmateUpdateToolInput
     credentials: Optional[SalesmateCredentials] = None

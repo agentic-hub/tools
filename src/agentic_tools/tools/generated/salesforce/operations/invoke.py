@@ -37,6 +37,7 @@ class SalesforceInvokeToolInput(BaseModel):
 
 class SalesforceInvokeTool(BaseTool):
     name: str = "salesforce_invoke"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce invoke operation - invoke operation"
     args_schema: type[BaseModel] | None = SalesforceInvokeToolInput
     credentials: Optional[SalesforceCredentials] = None

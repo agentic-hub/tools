@@ -17,6 +17,7 @@ class Nextcloud__custom_api_call__ToolInput(BaseModel):
 
 class Nextcloud__custom_api_call__Tool(BaseTool):
     name: str = "nextcloud___custom_api_call__"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Nextcloud__custom_api_call__ToolInput
     credentials: Optional[NextcloudCredentials] = None

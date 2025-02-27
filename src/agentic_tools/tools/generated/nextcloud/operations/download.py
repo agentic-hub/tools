@@ -17,6 +17,7 @@ class NextcloudDownloadToolInput(BaseModel):
 
 class NextcloudDownloadTool(BaseTool):
     name: str = "nextcloud_download"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud download operation - download operation"
     args_schema: type[BaseModel] | None = NextcloudDownloadToolInput
     credentials: Optional[NextcloudCredentials] = None

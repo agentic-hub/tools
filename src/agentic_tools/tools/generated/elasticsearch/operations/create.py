@@ -20,6 +20,7 @@ class ElasticsearchCreateToolInput(BaseModel):
 
 class ElasticsearchCreateTool(BaseTool):
     name: str = "elasticsearch_create"
+    connector_id: str = "nodes-base.elasticsearch"
     description: str = "Tool for elasticsearch create operation - create operation"
     args_schema: type[BaseModel] | None = ElasticsearchCreateToolInput
     credentials: Optional[ElasticsearchCredentials] = None

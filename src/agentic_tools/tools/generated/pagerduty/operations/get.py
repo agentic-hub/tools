@@ -19,6 +19,7 @@ class PagerdutyGetToolInput(BaseModel):
 
 class PagerdutyGetTool(BaseTool):
     name: str = "pagerduty_get"
+    connector_id: str = "nodes-base.pagerDuty"
     description: str = "Tool for pagerDuty get operation - get operation"
     args_schema: type[BaseModel] | None = PagerdutyGetToolInput
     credentials: Optional[PagerdutyCredentials] = None

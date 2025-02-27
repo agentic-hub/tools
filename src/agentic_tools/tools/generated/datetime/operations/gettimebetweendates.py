@@ -17,5 +17,6 @@ class DatetimeGettimebetweendatesToolInput(BaseModel):
 
 class DatetimeGettimebetweendatesTool(BaseTool):
     name: str = "datetime_gettimebetweendates"
+    connector_id: str = "nodes-base.dateTime"
     description: str = "Tool for dateTime getTimeBetweenDates operation - getTimeBetweenDates operation"
     args_schema: type[BaseModel] | None = DatetimeGettimebetweendatesToolInput

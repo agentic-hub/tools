@@ -18,6 +18,7 @@ class SecurityscorecardAddToolInput(BaseModel):
 
 class SecurityscorecardAddTool(BaseTool):
     name: str = "securityscorecard_add"
+    connector_id: str = "nodes-base.securityScorecard"
     description: str = "Tool for securityScorecard add operation - add operation"
     args_schema: type[BaseModel] | None = SecurityscorecardAddToolInput
     credentials: Optional[SecurityscorecardCredentials] = None

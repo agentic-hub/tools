@@ -15,6 +15,7 @@ class GristCreateToolInput(BaseModel):
 
 class GristCreateTool(BaseTool):
     name: str = "grist_create"
+    connector_id: str = "nodes-base.grist"
     description: str = "Tool for grist create operation - create operation"
     args_schema: type[BaseModel] | None = GristCreateToolInput
     credentials: Optional[GristCredentials] = None

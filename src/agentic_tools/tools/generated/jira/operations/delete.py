@@ -25,6 +25,7 @@ class JiraDeleteToolInput(BaseModel):
 
 class JiraDeleteTool(BaseTool):
     name: str = "jira_delete"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira delete operation - delete operation"
     args_schema: type[BaseModel] | None = JiraDeleteToolInput
     credentials: Optional[JiraCredentials] = None

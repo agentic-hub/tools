@@ -31,6 +31,7 @@ class MicrosoftoutlookDeleteToolInput(BaseModel):
 
 class MicrosoftoutlookDeleteTool(BaseTool):
     name: str = "microsoftoutlook_delete"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook delete operation - delete operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookDeleteToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

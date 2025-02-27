@@ -15,6 +15,7 @@ class MongodbFindoneandreplaceToolInput(BaseModel):
 
 class MongodbFindoneandreplaceTool(BaseTool):
     name: str = "mongodb_findoneandreplace"
+    connector_id: str = "nodes-base.mongoDb"
     description: str = "Tool for mongoDb findOneAndReplace operation - findOneAndReplace operation"
     args_schema: type[BaseModel] | None = MongodbFindoneandreplaceToolInput
     credentials: Optional[MongodbCredentials] = None

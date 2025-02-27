@@ -23,6 +23,7 @@ class AsanaCreateToolInput(BaseModel):
 
 class AsanaCreateTool(BaseTool):
     name: str = "asana_create"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana create operation - create operation"
     args_schema: type[BaseModel] | None = AsanaCreateToolInput
     credentials: Optional[AsanaCredentials] = None

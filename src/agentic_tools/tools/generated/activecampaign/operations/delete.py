@@ -31,6 +31,7 @@ class ActivecampaignDeleteToolInput(BaseModel):
 
 class ActivecampaignDeleteTool(BaseTool):
     name: str = "activecampaign_delete"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign delete operation - delete operation"
     args_schema: type[BaseModel] | None = ActivecampaignDeleteToolInput
     credentials: Optional[ActivecampaignCredentials] = None

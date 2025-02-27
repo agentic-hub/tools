@@ -12,6 +12,7 @@ class BeeminderDeleteToolInput(BaseModel):
 
 class BeeminderDeleteTool(BaseTool):
     name: str = "beeminder_delete"
+    connector_id: str = "nodes-base.beeminder"
     description: str = "Tool for beeminder delete operation - delete operation"
     args_schema: type[BaseModel] | None = BeeminderDeleteToolInput
     credentials: Optional[BeeminderCredentials] = None

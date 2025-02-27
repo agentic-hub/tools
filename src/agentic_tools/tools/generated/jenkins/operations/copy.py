@@ -13,6 +13,7 @@ class JenkinsCopyToolInput(BaseModel):
 
 class JenkinsCopyTool(BaseTool):
     name: str = "jenkins_copy"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins copy operation - copy operation"
     args_schema: type[BaseModel] | None = JenkinsCopyToolInput
     credentials: Optional[JenkinsCredentials] = None

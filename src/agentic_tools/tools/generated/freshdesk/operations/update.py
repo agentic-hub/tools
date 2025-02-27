@@ -15,6 +15,7 @@ class FreshdeskUpdateToolInput(BaseModel):
 
 class FreshdeskUpdateTool(BaseTool):
     name: str = "freshdesk_update"
+    connector_id: str = "nodes-base.freshdesk"
     description: str = "Tool for freshdesk update operation - update operation"
     args_schema: type[BaseModel] | None = FreshdeskUpdateToolInput
     credentials: Optional[FreshdeskCredentials] = None

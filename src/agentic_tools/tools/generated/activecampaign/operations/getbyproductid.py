@@ -32,6 +32,7 @@ class ActivecampaignGetbyproductidToolInput(BaseModel):
 
 class ActivecampaignGetbyproductidTool(BaseTool):
     name: str = "activecampaign_getbyproductid"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign getByProductId operation - getByProductId operation"
     args_schema: type[BaseModel] | None = ActivecampaignGetbyproductidToolInput
     credentials: Optional[ActivecampaignCredentials] = None

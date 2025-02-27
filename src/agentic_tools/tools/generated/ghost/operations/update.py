@@ -16,6 +16,7 @@ class GhostUpdateToolInput(BaseModel):
 
 class GhostUpdateTool(BaseTool):
     name: str = "ghost_update"
+    connector_id: str = "nodes-base.ghost"
     description: str = "Tool for ghost update operation - update operation"
     args_schema: type[BaseModel] | None = GhostUpdateToolInput
     credentials: Optional[GhostCredentials] = None

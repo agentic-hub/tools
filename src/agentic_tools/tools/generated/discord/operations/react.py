@@ -24,6 +24,7 @@ class DiscordReactToolInput(BaseModel):
 
 class DiscordReactTool(BaseTool):
     name: str = "discord_react"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord react operation - react operation"
     args_schema: type[BaseModel] | None = DiscordReactToolInput
     credentials: Optional[DiscordCredentials] = None

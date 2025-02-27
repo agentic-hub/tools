@@ -12,6 +12,7 @@ class LdapCreateToolInput(BaseModel):
 
 class LdapCreateTool(BaseTool):
     name: str = "ldap_create"
+    connector_id: str = "nodes-base.ldap"
     description: str = "Tool for ldap create operation - create operation"
     args_schema: type[BaseModel] | None = LdapCreateToolInput
     credentials: Optional[LdapCredentials] = None

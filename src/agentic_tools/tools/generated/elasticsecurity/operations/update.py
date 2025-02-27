@@ -20,6 +20,7 @@ class ElasticsecurityUpdateToolInput(BaseModel):
 
 class ElasticsecurityUpdateTool(BaseTool):
     name: str = "elasticsecurity_update"
+    connector_id: str = "nodes-base.elasticSecurity"
     description: str = "Tool for elasticSecurity update operation - update operation"
     args_schema: type[BaseModel] | None = ElasticsecurityUpdateToolInput
     credentials: Optional[ElasticsecurityCredentials] = None

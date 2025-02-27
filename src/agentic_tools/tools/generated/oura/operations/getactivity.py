@@ -13,6 +13,7 @@ class OuraGetactivityToolInput(BaseModel):
 
 class OuraGetactivityTool(BaseTool):
     name: str = "oura_getactivity"
+    connector_id: str = "nodes-base.oura"
     description: str = "Tool for oura getActivity operation - getActivity operation"
     args_schema: type[BaseModel] | None = OuraGetactivityToolInput
     credentials: Optional[OuraCredentials] = None

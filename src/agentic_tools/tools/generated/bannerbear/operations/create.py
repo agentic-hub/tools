@@ -13,6 +13,7 @@ class BannerbearCreateToolInput(BaseModel):
 
 class BannerbearCreateTool(BaseTool):
     name: str = "bannerbear_create"
+    connector_id: str = "nodes-base.bannerbear"
     description: str = "Tool for bannerbear create operation - create operation"
     args_schema: type[BaseModel] | None = BannerbearCreateToolInput
     credentials: Optional[BannerbearCredentials] = None

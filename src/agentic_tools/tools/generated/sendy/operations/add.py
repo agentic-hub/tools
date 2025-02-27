@@ -13,6 +13,7 @@ class SendyAddToolInput(BaseModel):
 
 class SendyAddTool(BaseTool):
     name: str = "sendy_add"
+    connector_id: str = "nodes-base.sendy"
     description: str = "Tool for sendy add operation - add operation"
     args_schema: type[BaseModel] | None = SendyAddToolInput
     credentials: Optional[SendyCredentials] = None

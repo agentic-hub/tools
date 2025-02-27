@@ -16,6 +16,7 @@ class CustomerioTrackanonymousToolInput(BaseModel):
 
 class CustomerioTrackanonymousTool(BaseTool):
     name: str = "customerio_trackanonymous"
+    connector_id: str = "nodes-base.customerIo"
     description: str = "Tool for customerIo trackAnonymous operation - trackAnonymous operation"
     args_schema: type[BaseModel] | None = CustomerioTrackanonymousToolInput
     credentials: Optional[CustomerioCredentials] = None

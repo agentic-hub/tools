@@ -41,6 +41,7 @@ class ThehiveprojectMergeToolInput(BaseModel):
 
 class ThehiveprojectMergeTool(BaseTool):
     name: str = "thehiveproject_merge"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject merge operation - merge operation"
     args_schema: type[BaseModel] | None = ThehiveprojectMergeToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

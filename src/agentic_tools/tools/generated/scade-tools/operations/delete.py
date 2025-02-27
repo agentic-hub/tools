@@ -20,6 +20,7 @@ class Scade-toolsDeleteToolInput(BaseModel):
 
 class Scade-toolsDeleteTool(BaseTool):
     name: str = "scade-tools_delete"
+    connector_id: str = "nodes-base.scade-tools"
     description: str = "Tool for scade-tools delete operation - delete operation"
     args_schema: type[BaseModel] | None = Scade-toolsDeleteToolInput
     credentials: Optional[Scade-toolsCredentials] = None

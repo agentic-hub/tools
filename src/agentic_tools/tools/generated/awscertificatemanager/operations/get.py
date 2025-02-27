@@ -11,6 +11,7 @@ class AwscertificatemanagerGetToolInput(BaseModel):
 
 class AwscertificatemanagerGetTool(BaseTool):
     name: str = "awscertificatemanager_get"
+    connector_id: str = "nodes-base.awsCertificateManager"
     description: str = "Tool for awsCertificateManager get operation - get operation"
     args_schema: type[BaseModel] | None = AwscertificatemanagerGetToolInput
     credentials: Optional[AwscertificatemanagerCredentials] = None

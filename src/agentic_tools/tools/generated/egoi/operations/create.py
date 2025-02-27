@@ -15,6 +15,7 @@ class EgoiCreateToolInput(BaseModel):
 
 class EgoiCreateTool(BaseTool):
     name: str = "egoi_create"
+    connector_id: str = "nodes-base.egoi"
     description: str = "Tool for egoi create operation - create operation"
     args_schema: type[BaseModel] | None = EgoiCreateToolInput
     credentials: Optional[EgoiCredentials] = None

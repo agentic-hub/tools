@@ -17,6 +17,7 @@ class Openweathermap5dayforecastToolInput(BaseModel):
 
 class Openweathermap5dayforecastTool(BaseTool):
     name: str = "openweathermap_5dayforecast"
+    connector_id: str = "nodes-base.openWeatherMap"
     description: str = "Tool for openWeatherMap 5DayForecast operation - 5DayForecast operation"
     args_schema: type[BaseModel] | None = Openweathermap5dayforecastToolInput
     credentials: Optional[OpenweathermapCredentials] = None

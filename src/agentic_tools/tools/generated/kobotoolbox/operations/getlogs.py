@@ -19,6 +19,7 @@ class KobotoolboxGetlogsToolInput(BaseModel):
 
 class KobotoolboxGetlogsTool(BaseTool):
     name: str = "kobotoolbox_getlogs"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox getLogs operation - getLogs operation"
     args_schema: type[BaseModel] | None = KobotoolboxGetlogsToolInput
     credentials: Optional[KobotoolboxCredentials] = None

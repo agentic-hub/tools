@@ -16,6 +16,7 @@ class Awsdynamodb__custom_api_call__ToolInput(BaseModel):
 
 class Awsdynamodb__custom_api_call__Tool(BaseTool):
     name: str = "awsdynamodb___custom_api_call__"
+    connector_id: str = "nodes-base.awsDynamoDb"
     description: str = "Tool for awsDynamoDb __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awsdynamodb__custom_api_call__ToolInput
     credentials: Optional[AwsdynamodbCredentials] = None

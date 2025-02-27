@@ -41,6 +41,7 @@ class ThehiveprojectExecuteanalyzerToolInput(BaseModel):
 
 class ThehiveprojectExecuteanalyzerTool(BaseTool):
     name: str = "thehiveproject_executeanalyzer"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject executeAnalyzer operation - executeAnalyzer operation"
     args_schema: type[BaseModel] | None = ThehiveprojectExecuteanalyzerToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

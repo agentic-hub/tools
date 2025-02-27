@@ -12,5 +12,6 @@ class HtmlGeneratehtmltemplateToolInput(BaseModel):
 
 class HtmlGeneratehtmltemplateTool(BaseTool):
     name: str = "html_generatehtmltemplate"
+    connector_id: str = "nodes-base.html"
     description: str = "Tool for html generateHtmlTemplate operation - generateHtmlTemplate operation"
     args_schema: type[BaseModel] | None = HtmlGeneratehtmltemplateToolInput

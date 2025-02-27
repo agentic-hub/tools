@@ -29,6 +29,7 @@ class Quickbooks__custom_api_call__ToolInput(BaseModel):
 
 class Quickbooks__custom_api_call__Tool(BaseTool):
     name: str = "quickbooks___custom_api_call__"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Quickbooks__custom_api_call__ToolInput
     credentials: Optional[QuickbooksCredentials] = None

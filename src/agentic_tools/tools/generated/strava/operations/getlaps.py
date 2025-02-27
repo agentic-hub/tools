@@ -14,6 +14,7 @@ class StravaGetlapsToolInput(BaseModel):
 
 class StravaGetlapsTool(BaseTool):
     name: str = "strava_getlaps"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava getLaps operation - getLaps operation"
     args_schema: type[BaseModel] | None = StravaGetlapsToolInput
     credentials: Optional[StravaCredentials] = None

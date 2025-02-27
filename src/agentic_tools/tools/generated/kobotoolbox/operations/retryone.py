@@ -17,6 +17,7 @@ class KobotoolboxRetryoneToolInput(BaseModel):
 
 class KobotoolboxRetryoneTool(BaseTool):
     name: str = "kobotoolbox_retryone"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox retryOne operation - retryOne operation"
     args_schema: type[BaseModel] | None = KobotoolboxRetryoneToolInput
     credentials: Optional[KobotoolboxCredentials] = None

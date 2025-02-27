@@ -15,6 +15,7 @@ class SeatableUpdateToolInput(BaseModel):
 
 class SeatableUpdateTool(BaseTool):
     name: str = "seatable_update"
+    connector_id: str = "nodes-base.seaTable"
     description: str = "Tool for seaTable update operation - update operation"
     args_schema: type[BaseModel] | None = SeatableUpdateToolInput
     credentials: Optional[SeatableCredentials] = None

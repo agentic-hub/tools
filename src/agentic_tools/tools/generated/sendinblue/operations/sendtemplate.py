@@ -17,6 +17,7 @@ class SendinblueSendtemplateToolInput(BaseModel):
 
 class SendinblueSendtemplateTool(BaseTool):
     name: str = "sendinblue_sendtemplate"
+    connector_id: str = "nodes-base.sendInBlue"
     description: str = "Tool for sendInBlue sendTemplate operation - sendTemplate operation"
     args_schema: type[BaseModel] | None = SendinblueSendtemplateToolInput
     credentials: Optional[SendinblueCredentials] = None

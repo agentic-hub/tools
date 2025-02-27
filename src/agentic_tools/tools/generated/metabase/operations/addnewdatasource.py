@@ -19,6 +19,7 @@ class MetabaseAddnewdatasourceToolInput(BaseModel):
 
 class MetabaseAddnewdatasourceTool(BaseTool):
     name: str = "metabase_addnewdatasource"
+    connector_id: str = "nodes-base.metabase"
     description: str = "Tool for metabase addNewDatasource operation - addNewDatasource operation"
     args_schema: type[BaseModel] | None = MetabaseAddnewdatasourceToolInput
     credentials: Optional[MetabaseCredentials] = None

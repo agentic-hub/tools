@@ -41,6 +41,7 @@ class ThehiveprojectDeletealertToolInput(BaseModel):
 
 class ThehiveprojectDeletealertTool(BaseTool):
     name: str = "thehiveproject_deletealert"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject deleteAlert operation - deleteAlert operation"
     args_schema: type[BaseModel] | None = ThehiveprojectDeletealertToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

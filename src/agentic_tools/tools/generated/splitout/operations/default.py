@@ -10,5 +10,6 @@ class SplitoutDefaultToolInput(BaseModel):
 
 class SplitoutDefaultTool(BaseTool):
     name: str = "splitout_default"
+    connector_id: str = "nodes-base.splitOut"
     description: str = "Tool for splitOut default operation - default operation"
     args_schema: type[BaseModel] | None = SplitoutDefaultToolInput

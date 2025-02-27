@@ -17,6 +17,7 @@ class GooglecalendarAvailabilityToolInput(BaseModel):
 
 class GooglecalendarAvailabilityTool(BaseTool):
     name: str = "googlecalendar_availability"
+    connector_id: str = "nodes-base.googleCalendar"
     description: str = "Tool for googleCalendar availability operation - availability operation"
     args_schema: type[BaseModel] | None = GooglecalendarAvailabilityToolInput
     credentials: Optional[GooglecalendarCredentials] = None

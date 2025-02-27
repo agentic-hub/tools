@@ -12,6 +12,7 @@ class GooglebooksClearToolInput(BaseModel):
 
 class GooglebooksClearTool(BaseTool):
     name: str = "googlebooks_clear"
+    connector_id: str = "nodes-base.googleBooks"
     description: str = "Tool for googleBooks clear operation - clear operation"
     args_schema: type[BaseModel] | None = GooglebooksClearToolInput
     credentials: Optional[GooglebooksCredentials] = None

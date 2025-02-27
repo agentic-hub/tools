@@ -26,6 +26,7 @@ class SlackJoinToolInput(BaseModel):
 
 class SlackJoinTool(BaseTool):
     name: str = "slack_join"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack join operation - join operation"
     args_schema: type[BaseModel] | None = SlackJoinToolInput
     credentials: Optional[SlackCredentials] = None

@@ -18,6 +18,7 @@ class QuickbaseGetallToolInput(BaseModel):
 
 class QuickbaseGetallTool(BaseTool):
     name: str = "quickbase_getall"
+    connector_id: str = "nodes-base.quickbase"
     description: str = "Tool for quickbase getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = QuickbaseGetallToolInput
     credentials: Optional[QuickbaseCredentials] = None

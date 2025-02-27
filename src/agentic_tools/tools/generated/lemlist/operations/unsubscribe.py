@@ -14,6 +14,7 @@ class LemlistUnsubscribeToolInput(BaseModel):
 
 class LemlistUnsubscribeTool(BaseTool):
     name: str = "lemlist_unsubscribe"
+    connector_id: str = "nodes-base.lemlist"
     description: str = "Tool for lemlist unsubscribe operation - unsubscribe operation"
     args_schema: type[BaseModel] | None = LemlistUnsubscribeToolInput
     credentials: Optional[LemlistCredentials] = None

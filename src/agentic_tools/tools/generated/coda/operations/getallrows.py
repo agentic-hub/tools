@@ -18,6 +18,7 @@ class CodaGetallrowsToolInput(BaseModel):
 
 class CodaGetallrowsTool(BaseTool):
     name: str = "coda_getallrows"
+    connector_id: str = "nodes-base.coda"
     description: str = "Tool for coda getAllRows operation - getAllRows operation"
     args_schema: type[BaseModel] | None = CodaGetallrowsToolInput
     credentials: Optional[CodaCredentials] = None

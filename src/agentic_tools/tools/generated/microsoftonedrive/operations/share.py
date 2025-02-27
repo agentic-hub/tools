@@ -18,6 +18,7 @@ class MicrosoftonedriveShareToolInput(BaseModel):
 
 class MicrosoftonedriveShareTool(BaseTool):
     name: str = "microsoftonedrive_share"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive share operation - share operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveShareToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

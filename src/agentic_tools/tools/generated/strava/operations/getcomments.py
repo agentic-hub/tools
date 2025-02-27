@@ -14,6 +14,7 @@ class StravaGetcommentsToolInput(BaseModel):
 
 class StravaGetcommentsTool(BaseTool):
     name: str = "strava_getcomments"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava getComments operation - getComments operation"
     args_schema: type[BaseModel] | None = StravaGetcommentsToolInput
     credentials: Optional[StravaCredentials] = None

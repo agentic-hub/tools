@@ -17,6 +17,7 @@ class TwitterDeleteToolInput(BaseModel):
 
 class TwitterDeleteTool(BaseTool):
     name: str = "twitter_delete"
+    connector_id: str = "nodes-base.twitter"
     description: str = "Tool for twitter delete operation - delete operation"
     args_schema: type[BaseModel] | None = TwitterDeleteToolInput
     credentials: Optional[TwitterCredentials] = None

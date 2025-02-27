@@ -22,6 +22,7 @@ class Awss3UploadToolInput(BaseModel):
 
 class Awss3UploadTool(BaseTool):
     name: str = "awss3_upload"
+    connector_id: str = "nodes-base.awsS3"
     description: str = "Tool for awsS3 upload operation - upload operation"
     args_schema: type[BaseModel] | None = Awss3UploadToolInput
     credentials: Optional[Awss3Credentials] = None

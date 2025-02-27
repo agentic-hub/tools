@@ -15,6 +15,7 @@ class JenkinsCreateToolInput(BaseModel):
 
 class JenkinsCreateTool(BaseTool):
     name: str = "jenkins_create"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins create operation - create operation"
     args_schema: type[BaseModel] | None = JenkinsCreateToolInput
     credentials: Optional[JenkinsCredentials] = None

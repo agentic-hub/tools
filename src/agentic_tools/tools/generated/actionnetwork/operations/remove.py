@@ -23,6 +23,7 @@ class ActionnetworkRemoveToolInput(BaseModel):
 
 class ActionnetworkRemoveTool(BaseTool):
     name: str = "actionnetwork_remove"
+    connector_id: str = "nodes-base.actionNetwork"
     description: str = "Tool for actionNetwork remove operation - remove operation"
     args_schema: type[BaseModel] | None = ActionnetworkRemoveToolInput
     credentials: Optional[ActionnetworkCredentials] = None

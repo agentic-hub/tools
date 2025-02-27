@@ -17,6 +17,7 @@ class CrowddevListToolInput(BaseModel):
 
 class CrowddevListTool(BaseTool):
     name: str = "crowddev_list"
+    connector_id: str = "nodes-base.crowdDev"
     description: str = "Tool for crowdDev list operation - list operation"
     args_schema: type[BaseModel] | None = CrowddevListToolInput
     credentials: Optional[CrowddevCredentials] = None

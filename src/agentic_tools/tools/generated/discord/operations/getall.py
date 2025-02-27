@@ -24,6 +24,7 @@ class DiscordGetallToolInput(BaseModel):
 
 class DiscordGetallTool(BaseTool):
     name: str = "discord_getall"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = DiscordGetallToolInput
     credentials: Optional[DiscordCredentials] = None

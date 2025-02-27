@@ -12,6 +12,7 @@ class PushcutSendToolInput(BaseModel):
 
 class PushcutSendTool(BaseTool):
     name: str = "pushcut_send"
+    connector_id: str = "nodes-base.pushcut"
     description: str = "Tool for pushcut send operation - send operation"
     args_schema: type[BaseModel] | None = PushcutSendToolInput
     credentials: Optional[PushcutCredentials] = None

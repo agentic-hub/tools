@@ -27,6 +27,7 @@ class HubspotGetrecentlycreatedupdatedToolInput(BaseModel):
 
 class HubspotGetrecentlycreatedupdatedTool(BaseTool):
     name: str = "hubspot_getrecentlycreatedupdated"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot getRecentlyCreatedUpdated operation - getRecentlyCreatedUpdated operation"
     args_schema: type[BaseModel] | None = HubspotGetrecentlycreatedupdatedToolInput
     credentials: Optional[HubspotCredentials] = None

@@ -22,6 +22,7 @@ class OdooUpdateToolInput(BaseModel):
 
 class OdooUpdateTool(BaseTool):
     name: str = "odoo_update"
+    connector_id: str = "nodes-base.odoo"
     description: str = "Tool for odoo update operation - update operation"
     args_schema: type[BaseModel] | None = OdooUpdateToolInput
     credentials: Optional[OdooCredentials] = None

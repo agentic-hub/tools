@@ -42,6 +42,7 @@ class ThehiveprojectAddToolInput(BaseModel):
 
 class ThehiveprojectAddTool(BaseTool):
     name: str = "thehiveproject_add"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject add operation - add operation"
     args_schema: type[BaseModel] | None = ThehiveprojectAddToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

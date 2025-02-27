@@ -14,6 +14,7 @@ class LinearGetallToolInput(BaseModel):
 
 class LinearGetallTool(BaseTool):
     name: str = "linear_getall"
+    connector_id: str = "nodes-base.linear"
     description: str = "Tool for linear getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = LinearGetallToolInput
     credentials: Optional[LinearCredentials] = None

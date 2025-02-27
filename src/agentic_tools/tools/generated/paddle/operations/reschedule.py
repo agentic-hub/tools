@@ -19,6 +19,7 @@ class PaddleRescheduleToolInput(BaseModel):
 
 class PaddleRescheduleTool(BaseTool):
     name: str = "paddle_reschedule"
+    connector_id: str = "nodes-base.paddle"
     description: str = "Tool for paddle reschedule operation - reschedule operation"
     args_schema: type[BaseModel] | None = PaddleRescheduleToolInput
     credentials: Optional[PaddleCredentials] = None

@@ -22,6 +22,7 @@ class GoogledriveMoveToolInput(BaseModel):
 
 class GoogledriveMoveTool(BaseTool):
     name: str = "googledrive_move"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive move operation - move operation"
     args_schema: type[BaseModel] | None = GoogledriveMoveToolInput
     credentials: Optional[GoogledriveCredentials] = None

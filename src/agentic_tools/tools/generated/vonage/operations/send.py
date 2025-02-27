@@ -14,6 +14,7 @@ class VonageSendToolInput(BaseModel):
 
 class VonageSendTool(BaseTool):
     name: str = "vonage_send"
+    connector_id: str = "nodes-base.vonage"
     description: str = "Tool for vonage send operation - send operation"
     args_schema: type[BaseModel] | None = VonageSendToolInput
     credentials: Optional[VonageCredentials] = None

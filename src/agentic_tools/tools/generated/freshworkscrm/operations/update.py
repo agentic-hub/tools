@@ -29,6 +29,7 @@ class FreshworkscrmUpdateToolInput(BaseModel):
 
 class FreshworkscrmUpdateTool(BaseTool):
     name: str = "freshworkscrm_update"
+    connector_id: str = "nodes-base.freshworksCrm"
     description: str = "Tool for freshworksCrm update operation - update operation"
     args_schema: type[BaseModel] | None = FreshworkscrmUpdateToolInput
     credentials: Optional[FreshworkscrmCredentials] = None

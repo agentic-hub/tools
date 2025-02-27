@@ -9,5 +9,6 @@ class ReadpdfDefaultToolInput(BaseModel):
 
 class ReadpdfDefaultTool(BaseTool):
     name: str = "readpdf_default"
+    connector_id: str = "nodes-base.readPDF"
     description: str = "Tool for readPDF default operation - default operation"
     args_schema: type[BaseModel] | None = ReadpdfDefaultToolInput

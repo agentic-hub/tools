@@ -21,6 +21,7 @@ class GitlabCreatecommentToolInput(BaseModel):
 
 class GitlabCreatecommentTool(BaseTool):
     name: str = "gitlab_createcomment"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab createComment operation - createComment operation"
     args_schema: type[BaseModel] | None = GitlabCreatecommentToolInput
     credentials: Optional[GitlabCredentials] = None

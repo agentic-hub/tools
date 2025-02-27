@@ -11,6 +11,7 @@ class MailcheckCheckToolInput(BaseModel):
 
 class MailcheckCheckTool(BaseTool):
     name: str = "mailcheck_check"
+    connector_id: str = "nodes-base.mailcheck"
     description: str = "Tool for mailcheck check operation - check operation"
     args_schema: type[BaseModel] | None = MailcheckCheckToolInput
     credentials: Optional[MailcheckCredentials] = None

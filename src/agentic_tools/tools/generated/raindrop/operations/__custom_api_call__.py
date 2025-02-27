@@ -16,6 +16,7 @@ class Raindrop__custom_api_call__ToolInput(BaseModel):
 
 class Raindrop__custom_api_call__Tool(BaseTool):
     name: str = "raindrop___custom_api_call__"
+    connector_id: str = "nodes-base.raindrop"
     description: str = "Tool for raindrop __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Raindrop__custom_api_call__ToolInput
     credentials: Optional[RaindropCredentials] = None

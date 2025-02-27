@@ -25,6 +25,7 @@ class AgilecrmUpdateToolInput(BaseModel):
 
 class AgilecrmUpdateTool(BaseTool):
     name: str = "agilecrm_update"
+    connector_id: str = "nodes-base.agileCrm"
     description: str = "Tool for agileCrm update operation - update operation"
     args_schema: type[BaseModel] | None = AgilecrmUpdateToolInput
     credentials: Optional[AgilecrmCredentials] = None

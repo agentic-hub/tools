@@ -22,6 +22,7 @@ class TelegramSettitleToolInput(BaseModel):
 
 class TelegramSettitleTool(BaseTool):
     name: str = "telegram_settitle"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram setTitle operation - setTitle operation"
     args_schema: type[BaseModel] | None = TelegramSettitleToolInput
     credentials: Optional[TelegramCredentials] = None

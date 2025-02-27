@@ -23,6 +23,7 @@ class GooglesheetsAppendToolInput(BaseModel):
 
 class GooglesheetsAppendTool(BaseTool):
     name: str = "googlesheets_append"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets append operation - append operation"
     args_schema: type[BaseModel] | None = GooglesheetsAppendToolInput
     credentials: Optional[GooglesheetsCredentials] = None

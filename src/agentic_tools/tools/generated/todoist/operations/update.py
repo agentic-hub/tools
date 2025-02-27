@@ -14,6 +14,7 @@ class TodoistUpdateToolInput(BaseModel):
 
 class TodoistUpdateTool(BaseTool):
     name: str = "todoist_update"
+    connector_id: str = "nodes-base.todoist"
     description: str = "Tool for todoist update operation - update operation"
     args_schema: type[BaseModel] | None = TodoistUpdateToolInput
     credentials: Optional[TodoistCredentials] = None

@@ -12,6 +12,7 @@ class Linkedin__custom_api_call__ToolInput(BaseModel):
 
 class Linkedin__custom_api_call__Tool(BaseTool):
     name: str = "linkedin___custom_api_call__"
+    connector_id: str = "nodes-base.linkedIn"
     description: str = "Tool for linkedIn __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Linkedin__custom_api_call__ToolInput
     credentials: Optional[LinkedinCredentials] = None

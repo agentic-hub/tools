@@ -18,6 +18,7 @@ class CodaDeleterowToolInput(BaseModel):
 
 class CodaDeleterowTool(BaseTool):
     name: str = "coda_deleterow"
+    connector_id: str = "nodes-base.coda"
     description: str = "Tool for coda deleteRow operation - deleteRow operation"
     args_schema: type[BaseModel] | None = CodaDeleterowToolInput
     credentials: Optional[CodaCredentials] = None

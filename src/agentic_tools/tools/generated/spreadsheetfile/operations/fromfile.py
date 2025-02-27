@@ -10,5 +10,6 @@ class SpreadsheetfileFromfileToolInput(BaseModel):
 
 class SpreadsheetfileFromfileTool(BaseTool):
     name: str = "spreadsheetfile_fromfile"
+    connector_id: str = "nodes-base.spreadsheetFile"
     description: str = "Tool for spreadsheetFile fromFile operation - fromFile operation"
     args_schema: type[BaseModel] | None = SpreadsheetfileFromfileToolInput

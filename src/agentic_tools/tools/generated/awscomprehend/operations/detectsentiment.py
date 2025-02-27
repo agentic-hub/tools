@@ -12,6 +12,7 @@ class AwscomprehendDetectsentimentToolInput(BaseModel):
 
 class AwscomprehendDetectsentimentTool(BaseTool):
     name: str = "awscomprehend_detectsentiment"
+    connector_id: str = "nodes-base.awsComprehend"
     description: str = "Tool for awsComprehend detectSentiment operation - detectSentiment operation"
     args_schema: type[BaseModel] | None = AwscomprehendDetectsentimentToolInput
     credentials: Optional[AwscomprehendCredentials] = None

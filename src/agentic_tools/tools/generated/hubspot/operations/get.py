@@ -27,6 +27,7 @@ class HubspotGetToolInput(BaseModel):
 
 class HubspotGetTool(BaseTool):
     name: str = "hubspot_get"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot get operation - get operation"
     args_schema: type[BaseModel] | None = HubspotGetToolInput
     credentials: Optional[HubspotCredentials] = None

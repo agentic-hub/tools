@@ -10,6 +10,7 @@ class PeekalinkIsavailableToolInput(BaseModel):
 
 class PeekalinkIsavailableTool(BaseTool):
     name: str = "peekalink_isavailable"
+    connector_id: str = "nodes-base.peekalink"
     description: str = "Tool for peekalink isAvailable operation - isAvailable operation"
     args_schema: type[BaseModel] | None = PeekalinkIsavailableToolInput
     credentials: Optional[PeekalinkCredentials] = None

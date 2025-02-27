@@ -19,6 +19,7 @@ class ZulipUpdatefileToolInput(BaseModel):
 
 class ZulipUpdatefileTool(BaseTool):
     name: str = "zulip_updatefile"
+    connector_id: str = "nodes-base.zulip"
     description: str = "Tool for zulip updateFile operation - updateFile operation"
     args_schema: type[BaseModel] | None = ZulipUpdatefileToolInput
     credentials: Optional[ZulipCredentials] = None

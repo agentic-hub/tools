@@ -30,6 +30,7 @@ class AgilecrmCreateToolInput(BaseModel):
 
 class AgilecrmCreateTool(BaseTool):
     name: str = "agilecrm_create"
+    connector_id: str = "nodes-base.agileCrm"
     description: str = "Tool for agileCrm create operation - create operation"
     args_schema: type[BaseModel] | None = AgilecrmCreateToolInput
     credentials: Optional[AgilecrmCredentials] = None

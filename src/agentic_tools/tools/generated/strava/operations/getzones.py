@@ -14,6 +14,7 @@ class StravaGetzonesToolInput(BaseModel):
 
 class StravaGetzonesTool(BaseTool):
     name: str = "strava_getzones"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava getZones operation - getZones operation"
     args_schema: type[BaseModel] | None = StravaGetzonesToolInput
     credentials: Optional[StravaCredentials] = None

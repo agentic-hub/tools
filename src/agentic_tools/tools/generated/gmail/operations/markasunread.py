@@ -23,6 +23,7 @@ class GmailMarkasunreadToolInput(BaseModel):
 
 class GmailMarkasunreadTool(BaseTool):
     name: str = "gmail_markasunread"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail markAsUnread operation - markAsUnread operation"
     args_schema: type[BaseModel] | None = GmailMarkasunreadToolInput
     credentials: Optional[GmailCredentials] = None

@@ -17,6 +17,7 @@ class Wordpress__custom_api_call__ToolInput(BaseModel):
 
 class Wordpress__custom_api_call__Tool(BaseTool):
     name: str = "wordpress___custom_api_call__"
+    connector_id: str = "nodes-base.wordpress"
     description: str = "Tool for wordpress __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Wordpress__custom_api_call__ToolInput
     credentials: Optional[WordpressCredentials] = None

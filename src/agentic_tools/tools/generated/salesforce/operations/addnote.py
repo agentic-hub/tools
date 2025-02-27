@@ -33,6 +33,7 @@ class SalesforceAddnoteToolInput(BaseModel):
 
 class SalesforceAddnoteTool(BaseTool):
     name: str = "salesforce_addnote"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce addNote operation - addNote operation"
     args_schema: type[BaseModel] | None = SalesforceAddnoteToolInput
     credentials: Optional[SalesforceCredentials] = None

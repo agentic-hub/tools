@@ -42,6 +42,7 @@ class ThehiveprojectExecutequeryToolInput(BaseModel):
 
 class ThehiveprojectExecutequeryTool(BaseTool):
     name: str = "thehiveproject_executequery"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = ThehiveprojectExecutequeryToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

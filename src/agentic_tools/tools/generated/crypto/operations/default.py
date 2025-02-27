@@ -18,5 +18,6 @@ class CryptoDefaultToolInput(BaseModel):
 
 class CryptoDefaultTool(BaseTool):
     name: str = "crypto_default"
+    connector_id: str = "nodes-base.crypto"
     description: str = "Tool for crypto default operation - default operation"
     args_schema: type[BaseModel] | None = CryptoDefaultToolInput

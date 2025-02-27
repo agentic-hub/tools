@@ -32,6 +32,7 @@ class OnfleetCreateToolInput(BaseModel):
 
 class OnfleetCreateTool(BaseTool):
     name: str = "onfleet_create"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet create operation - create operation"
     args_schema: type[BaseModel] | None = OnfleetCreateToolInput
     credentials: Optional[OnfleetCredentials] = None

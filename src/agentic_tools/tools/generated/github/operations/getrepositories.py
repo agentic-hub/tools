@@ -22,6 +22,7 @@ class GithubGetrepositoriesToolInput(BaseModel):
 
 class GithubGetrepositoriesTool(BaseTool):
     name: str = "github_getrepositories"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github getRepositories operation - getRepositories operation"
     args_schema: type[BaseModel] | None = GithubGetrepositoriesToolInput
     credentials: Optional[GithubCredentials] = None

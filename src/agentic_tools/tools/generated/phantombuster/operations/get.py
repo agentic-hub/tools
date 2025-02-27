@@ -13,6 +13,7 @@ class PhantombusterGetToolInput(BaseModel):
 
 class PhantombusterGetTool(BaseTool):
     name: str = "phantombuster_get"
+    connector_id: str = "nodes-base.phantombuster"
     description: str = "Tool for phantombuster get operation - get operation"
     args_schema: type[BaseModel] | None = PhantombusterGetToolInput
     credentials: Optional[PhantombusterCredentials] = None

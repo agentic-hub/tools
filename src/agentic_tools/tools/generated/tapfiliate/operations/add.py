@@ -18,6 +18,7 @@ class TapfiliateAddToolInput(BaseModel):
 
 class TapfiliateAddTool(BaseTool):
     name: str = "tapfiliate_add"
+    connector_id: str = "nodes-base.tapfiliate"
     description: str = "Tool for tapfiliate add operation - add operation"
     args_schema: type[BaseModel] | None = TapfiliateAddToolInput
     credentials: Optional[TapfiliateCredentials] = None

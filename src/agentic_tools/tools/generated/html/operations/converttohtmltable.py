@@ -10,5 +10,6 @@ class HtmlConverttohtmltableToolInput(BaseModel):
 
 class HtmlConverttohtmltableTool(BaseTool):
     name: str = "html_converttohtmltable"
+    connector_id: str = "nodes-base.html"
     description: str = "Tool for html convertToHtmlTable operation - convertToHtmlTable operation"
     args_schema: type[BaseModel] | None = HtmlConverttohtmltableToolInput

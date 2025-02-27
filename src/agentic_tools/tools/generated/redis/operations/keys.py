@@ -19,6 +19,7 @@ class RedisKeysToolInput(BaseModel):
 
 class RedisKeysTool(BaseTool):
     name: str = "redis_keys"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis keys operation - keys operation"
     args_schema: type[BaseModel] | None = RedisKeysToolInput
     credentials: Optional[RedisCredentials] = None

@@ -15,6 +15,7 @@ class TodoistCreateToolInput(BaseModel):
 
 class TodoistCreateTool(BaseTool):
     name: str = "todoist_create"
+    connector_id: str = "nodes-base.todoist"
     description: str = "Tool for todoist create operation - create operation"
     args_schema: type[BaseModel] | None = TodoistCreateToolInput
     credentials: Optional[TodoistCredentials] = None

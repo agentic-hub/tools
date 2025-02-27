@@ -15,6 +15,7 @@ class TodoistMoveToolInput(BaseModel):
 
 class TodoistMoveTool(BaseTool):
     name: str = "todoist_move"
+    connector_id: str = "nodes-base.todoist"
     description: str = "Tool for todoist move operation - move operation"
     args_schema: type[BaseModel] | None = TodoistMoveToolInput
     credentials: Optional[TodoistCredentials] = None

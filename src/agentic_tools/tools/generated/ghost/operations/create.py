@@ -17,6 +17,7 @@ class GhostCreateToolInput(BaseModel):
 
 class GhostCreateTool(BaseTool):
     name: str = "ghost_create"
+    connector_id: str = "nodes-base.ghost"
     description: str = "Tool for ghost create operation - create operation"
     args_schema: type[BaseModel] | None = GhostCreateToolInput
     credentials: Optional[GhostCredentials] = None

@@ -17,6 +17,7 @@ class OpenweathermapCurrentweatherToolInput(BaseModel):
 
 class OpenweathermapCurrentweatherTool(BaseTool):
     name: str = "openweathermap_currentweather"
+    connector_id: str = "nodes-base.openWeatherMap"
     description: str = "Tool for openWeatherMap currentWeather operation - currentWeather operation"
     args_schema: type[BaseModel] | None = OpenweathermapCurrentweatherToolInput
     credentials: Optional[OpenweathermapCredentials] = None

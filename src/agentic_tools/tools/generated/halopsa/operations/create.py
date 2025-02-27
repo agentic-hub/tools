@@ -27,6 +27,7 @@ class HalopsaCreateToolInput(BaseModel):
 
 class HalopsaCreateTool(BaseTool):
     name: str = "halopsa_create"
+    connector_id: str = "nodes-base.haloPSA"
     description: str = "Tool for haloPSA create operation - create operation"
     args_schema: type[BaseModel] | None = HalopsaCreateToolInput
     credentials: Optional[HalopsaCredentials] = None

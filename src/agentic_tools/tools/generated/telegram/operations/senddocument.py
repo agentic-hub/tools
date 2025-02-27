@@ -23,6 +23,7 @@ class TelegramSenddocumentToolInput(BaseModel):
 
 class TelegramSenddocumentTool(BaseTool):
     name: str = "telegram_senddocument"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendDocument operation - sendDocument operation"
     args_schema: type[BaseModel] | None = TelegramSenddocumentToolInput
     credentials: Optional[TelegramCredentials] = None

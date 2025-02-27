@@ -22,6 +22,7 @@ class MicrosoftonedriveUploadToolInput(BaseModel):
 
 class MicrosoftonedriveUploadTool(BaseTool):
     name: str = "microsoftonedrive_upload"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive upload operation - upload operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveUploadToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

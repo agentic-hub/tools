@@ -15,6 +15,7 @@ class GooglecalendarGetToolInput(BaseModel):
 
 class GooglecalendarGetTool(BaseTool):
     name: str = "googlecalendar_get"
+    connector_id: str = "nodes-base.googleCalendar"
     description: str = "Tool for googleCalendar get operation - get operation"
     args_schema: type[BaseModel] | None = GooglecalendarGetToolInput
     credentials: Optional[GooglecalendarCredentials] = None

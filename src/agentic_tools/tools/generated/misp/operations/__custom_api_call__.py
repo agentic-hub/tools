@@ -22,6 +22,7 @@ class Misp__custom_api_call__ToolInput(BaseModel):
 
 class Misp__custom_api_call__Tool(BaseTool):
     name: str = "misp___custom_api_call__"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Misp__custom_api_call__ToolInput
     credentials: Optional[MispCredentials] = None

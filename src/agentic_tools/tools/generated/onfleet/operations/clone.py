@@ -24,6 +24,7 @@ class OnfleetCloneToolInput(BaseModel):
 
 class OnfleetCloneTool(BaseTool):
     name: str = "onfleet_clone"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet clone operation - clone operation"
     args_schema: type[BaseModel] | None = OnfleetCloneToolInput
     credentials: Optional[OnfleetCredentials] = None

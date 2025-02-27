@@ -10,5 +10,6 @@ class ExtractfromfileFromicsToolInput(BaseModel):
 
 class ExtractfromfileFromicsTool(BaseTool):
     name: str = "extractfromfile_fromics"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile fromIcs operation - fromIcs operation"
     args_schema: type[BaseModel] | None = ExtractfromfileFromicsToolInput

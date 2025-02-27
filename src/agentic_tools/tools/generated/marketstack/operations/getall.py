@@ -14,6 +14,7 @@ class MarketstackGetallToolInput(BaseModel):
 
 class MarketstackGetallTool(BaseTool):
     name: str = "marketstack_getall"
+    connector_id: str = "nodes-base.marketstack"
     description: str = "Tool for marketstack getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MarketstackGetallToolInput
     credentials: Optional[MarketstackCredentials] = None

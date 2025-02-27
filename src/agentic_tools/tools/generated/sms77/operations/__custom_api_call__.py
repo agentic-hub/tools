@@ -11,6 +11,7 @@ class Sms77__custom_api_call__ToolInput(BaseModel):
 
 class Sms77__custom_api_call__Tool(BaseTool):
     name: str = "sms77___custom_api_call__"
+    connector_id: str = "nodes-base.sms77"
     description: str = "Tool for sms77 __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Sms77__custom_api_call__ToolInput
     credentials: Optional[Sms77Credentials] = None

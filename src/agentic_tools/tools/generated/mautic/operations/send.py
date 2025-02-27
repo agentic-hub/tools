@@ -22,6 +22,7 @@ class MauticSendToolInput(BaseModel):
 
 class MauticSendTool(BaseTool):
     name: str = "mautic_send"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic send operation - send operation"
     args_schema: type[BaseModel] | None = MauticSendToolInput
     credentials: Optional[MauticCredentials] = None

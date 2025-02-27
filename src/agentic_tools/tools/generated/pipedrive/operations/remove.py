@@ -30,6 +30,7 @@ class PipedriveRemoveToolInput(BaseModel):
 
 class PipedriveRemoveTool(BaseTool):
     name: str = "pipedrive_remove"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive remove operation - remove operation"
     args_schema: type[BaseModel] | None = PipedriveRemoveToolInput
     credentials: Optional[PipedriveCredentials] = None

@@ -26,6 +26,7 @@ class SlackGetprofileToolInput(BaseModel):
 
 class SlackGetprofileTool(BaseTool):
     name: str = "slack_getprofile"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack getProfile operation - getProfile operation"
     args_schema: type[BaseModel] | None = SlackGetprofileToolInput
     credentials: Optional[SlackCredentials] = None

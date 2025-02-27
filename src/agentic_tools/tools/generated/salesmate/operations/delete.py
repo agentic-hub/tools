@@ -22,6 +22,7 @@ class SalesmateDeleteToolInput(BaseModel):
 
 class SalesmateDeleteTool(BaseTool):
     name: str = "salesmate_delete"
+    connector_id: str = "nodes-base.salesmate"
     description: str = "Tool for salesmate delete operation - delete operation"
     args_schema: type[BaseModel] | None = SalesmateDeleteToolInput
     credentials: Optional[SalesmateCredentials] = None

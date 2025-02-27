@@ -17,5 +17,6 @@ class EditimageShearToolInput(BaseModel):
 
 class EditimageShearTool(BaseTool):
     name: str = "editimage_shear"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage shear operation - shear operation"
     args_schema: type[BaseModel] | None = EditimageShearToolInput

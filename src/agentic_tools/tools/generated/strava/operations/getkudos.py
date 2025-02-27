@@ -14,6 +14,7 @@ class StravaGetkudosToolInput(BaseModel):
 
 class StravaGetkudosTool(BaseTool):
     name: str = "strava_getkudos"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava getKudos operation - getKudos operation"
     args_schema: type[BaseModel] | None = StravaGetkudosToolInput
     credentials: Optional[StravaCredentials] = None

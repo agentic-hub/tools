@@ -21,6 +21,7 @@ class StripeAddToolInput(BaseModel):
 
 class StripeAddTool(BaseTool):
     name: str = "stripe_add"
+    connector_id: str = "nodes-base.stripe"
     description: str = "Tool for stripe add operation - add operation"
     args_schema: type[BaseModel] | None = StripeAddToolInput
     credentials: Optional[StripeCredentials] = None

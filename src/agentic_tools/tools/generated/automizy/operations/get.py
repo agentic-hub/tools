@@ -17,6 +17,7 @@ class AutomizyGetToolInput(BaseModel):
 
 class AutomizyGetTool(BaseTool):
     name: str = "automizy_get"
+    connector_id: str = "nodes-base.automizy"
     description: str = "Tool for automizy get operation - get operation"
     args_schema: type[BaseModel] | None = AutomizyGetToolInput
     credentials: Optional[AutomizyCredentials] = None

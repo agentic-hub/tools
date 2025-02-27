@@ -15,6 +15,7 @@ class GetresponseGetallToolInput(BaseModel):
 
 class GetresponseGetallTool(BaseTool):
     name: str = "getresponse_getall"
+    connector_id: str = "nodes-base.getResponse"
     description: str = "Tool for getResponse getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GetresponseGetallToolInput
     credentials: Optional[GetresponseCredentials] = None

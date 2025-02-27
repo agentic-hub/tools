@@ -19,6 +19,7 @@ class SplunkUpdateToolInput(BaseModel):
 
 class SplunkUpdateTool(BaseTool):
     name: str = "splunk_update"
+    connector_id: str = "nodes-base.splunk"
     description: str = "Tool for splunk update operation - update operation"
     args_schema: type[BaseModel] | None = SplunkUpdateToolInput
     credentials: Optional[SplunkCredentials] = None

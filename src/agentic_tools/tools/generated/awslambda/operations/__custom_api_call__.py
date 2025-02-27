@@ -9,6 +9,7 @@ class Awslambda__custom_api_call__ToolInput(BaseModel):
 
 class Awslambda__custom_api_call__Tool(BaseTool):
     name: str = "awslambda___custom_api_call__"
+    connector_id: str = "nodes-base.awsLambda"
     description: str = "Tool for awsLambda __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awslambda__custom_api_call__ToolInput
     credentials: Optional[AwslambdaCredentials] = None

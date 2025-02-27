@@ -22,6 +22,7 @@ class GithubListreferrersToolInput(BaseModel):
 
 class GithubListreferrersTool(BaseTool):
     name: str = "github_listreferrers"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github listReferrers operation - listReferrers operation"
     args_schema: type[BaseModel] | None = GithubListreferrersToolInput
     credentials: Optional[GithubCredentials] = None

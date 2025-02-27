@@ -14,6 +14,7 @@ class Strava__custom_api_call__ToolInput(BaseModel):
 
 class Strava__custom_api_call__Tool(BaseTool):
     name: str = "strava___custom_api_call__"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Strava__custom_api_call__ToolInput
     credentials: Optional[StravaCredentials] = None

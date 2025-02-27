@@ -33,6 +33,7 @@ class ZohocrmGetfieldsToolInput(BaseModel):
 
 class ZohocrmGetfieldsTool(BaseTool):
     name: str = "zohocrm_getfields"
+    connector_id: str = "nodes-base.zohoCrm"
     description: str = "Tool for zohoCrm getFields operation - getFields operation"
     args_schema: type[BaseModel] | None = ZohocrmGetfieldsToolInput
     credentials: Optional[ZohocrmCredentials] = None

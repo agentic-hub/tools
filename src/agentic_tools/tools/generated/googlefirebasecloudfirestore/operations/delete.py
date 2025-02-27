@@ -18,6 +18,7 @@ class GooglefirebasecloudfirestoreDeleteToolInput(BaseModel):
 
 class GooglefirebasecloudfirestoreDeleteTool(BaseTool):
     name: str = "googlefirebasecloudfirestore_delete"
+    connector_id: str = "nodes-base.googleFirebaseCloudFirestore"
     description: str = "Tool for googleFirebaseCloudFirestore delete operation - delete operation"
     args_schema: type[BaseModel] | None = GooglefirebasecloudfirestoreDeleteToolInput
     credentials: Optional[GooglefirebasecloudfirestoreCredentials] = None

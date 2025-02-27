@@ -17,6 +17,7 @@ class TapfiliateDisapproveToolInput(BaseModel):
 
 class TapfiliateDisapproveTool(BaseTool):
     name: str = "tapfiliate_disapprove"
+    connector_id: str = "nodes-base.tapfiliate"
     description: str = "Tool for tapfiliate disapprove operation - disapprove operation"
     args_schema: type[BaseModel] | None = TapfiliateDisapproveToolInput
     credentials: Optional[TapfiliateCredentials] = None

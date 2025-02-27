@@ -13,6 +13,7 @@ class MongodbInsertToolInput(BaseModel):
 
 class MongodbInsertTool(BaseTool):
     name: str = "mongodb_insert"
+    connector_id: str = "nodes-base.mongoDb"
     description: str = "Tool for mongoDb insert operation - insert operation"
     args_schema: type[BaseModel] | None = MongodbInsertToolInput
     credentials: Optional[MongodbCredentials] = None

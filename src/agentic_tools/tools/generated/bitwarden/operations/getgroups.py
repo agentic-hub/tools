@@ -16,6 +16,7 @@ class BitwardenGetgroupsToolInput(BaseModel):
 
 class BitwardenGetgroupsTool(BaseTool):
     name: str = "bitwarden_getgroups"
+    connector_id: str = "nodes-base.bitwarden"
     description: str = "Tool for bitwarden getGroups operation - getGroups operation"
     args_schema: type[BaseModel] | None = BitwardenGetgroupsToolInput
     credentials: Optional[BitwardenCredentials] = None

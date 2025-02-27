@@ -14,6 +14,7 @@ class HumanticaiGetToolInput(BaseModel):
 
 class HumanticaiGetTool(BaseTool):
     name: str = "humanticai_get"
+    connector_id: str = "nodes-base.humanticAi"
     description: str = "Tool for humanticAi get operation - get operation"
     args_schema: type[BaseModel] | None = HumanticaiGetToolInput
     credentials: Optional[HumanticaiCredentials] = None

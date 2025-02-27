@@ -22,6 +22,7 @@ class GitlabLockToolInput(BaseModel):
 
 class GitlabLockTool(BaseTool):
     name: str = "gitlab_lock"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab lock operation - lock operation"
     args_schema: type[BaseModel] | None = GitlabLockToolInput
     credentials: Optional[GitlabCredentials] = None

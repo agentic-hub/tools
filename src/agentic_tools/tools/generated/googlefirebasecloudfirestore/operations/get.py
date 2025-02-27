@@ -18,6 +18,7 @@ class GooglefirebasecloudfirestoreGetToolInput(BaseModel):
 
 class GooglefirebasecloudfirestoreGetTool(BaseTool):
     name: str = "googlefirebasecloudfirestore_get"
+    connector_id: str = "nodes-base.googleFirebaseCloudFirestore"
     description: str = "Tool for googleFirebaseCloudFirestore get operation - get operation"
     args_schema: type[BaseModel] | None = GooglefirebasecloudfirestoreGetToolInput
     credentials: Optional[GooglefirebasecloudfirestoreCredentials] = None

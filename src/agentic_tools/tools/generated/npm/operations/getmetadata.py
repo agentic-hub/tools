@@ -12,6 +12,7 @@ class NpmGetmetadataToolInput(BaseModel):
 
 class NpmGetmetadataTool(BaseTool):
     name: str = "npm_getmetadata"
+    connector_id: str = "nodes-base.npm"
     description: str = "Tool for npm getMetadata operation - getMetadata operation"
     args_schema: type[BaseModel] | None = NpmGetmetadataToolInput
     credentials: Optional[NpmCredentials] = None

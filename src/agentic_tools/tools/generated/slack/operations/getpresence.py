@@ -26,6 +26,7 @@ class SlackGetpresenceToolInput(BaseModel):
 
 class SlackGetpresenceTool(BaseTool):
     name: str = "slack_getpresence"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack getPresence operation - getPresence operation"
     args_schema: type[BaseModel] | None = SlackGetpresenceToolInput
     credentials: Optional[SlackCredentials] = None

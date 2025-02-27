@@ -12,6 +12,7 @@ class JenkinsTriggerToolInput(BaseModel):
 
 class JenkinsTriggerTool(BaseTool):
     name: str = "jenkins_trigger"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins trigger operation - trigger operation"
     args_schema: type[BaseModel] | None = JenkinsTriggerToolInput
     credentials: Optional[JenkinsCredentials] = None

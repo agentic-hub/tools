@@ -26,6 +26,7 @@ class SlackDisableToolInput(BaseModel):
 
 class SlackDisableTool(BaseTool):
     name: str = "slack_disable"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack disable operation - disable operation"
     args_schema: type[BaseModel] | None = SlackDisableToolInput
     credentials: Optional[SlackCredentials] = None

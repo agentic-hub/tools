@@ -16,6 +16,7 @@ class SpotifyGetfollowingartistsToolInput(BaseModel):
 
 class SpotifyGetfollowingartistsTool(BaseTool):
     name: str = "spotify_getfollowingartists"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify getFollowingArtists operation - getFollowingArtists operation"
     args_schema: type[BaseModel] | None = SpotifyGetfollowingartistsToolInput
     credentials: Optional[SpotifyCredentials] = None

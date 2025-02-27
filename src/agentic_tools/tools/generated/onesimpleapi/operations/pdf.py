@@ -14,6 +14,7 @@ class OnesimpleapiPdfToolInput(BaseModel):
 
 class OnesimpleapiPdfTool(BaseTool):
     name: str = "onesimpleapi_pdf"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi pdf operation - pdf operation"
     args_schema: type[BaseModel] | None = OnesimpleapiPdfToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

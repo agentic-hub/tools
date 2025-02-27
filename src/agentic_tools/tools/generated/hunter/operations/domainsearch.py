@@ -14,6 +14,7 @@ class HunterDomainsearchToolInput(BaseModel):
 
 class HunterDomainsearchTool(BaseTool):
     name: str = "hunter_domainsearch"
+    connector_id: str = "nodes-base.hunter"
     description: str = "Tool for hunter domainSearch operation - domainSearch operation"
     args_schema: type[BaseModel] | None = HunterDomainsearchToolInput
     credentials: Optional[HunterCredentials] = None

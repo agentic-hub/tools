@@ -22,6 +22,7 @@ class HighlevelUpdateToolInput(BaseModel):
 
 class HighlevelUpdateTool(BaseTool):
     name: str = "highlevel_update"
+    connector_id: str = "nodes-base.highLevel"
     description: str = "Tool for highLevel update operation - update operation"
     args_schema: type[BaseModel] | None = HighlevelUpdateToolInput
     credentials: Optional[HighlevelCredentials] = None

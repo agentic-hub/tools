@@ -16,6 +16,7 @@ class CockpitCreateToolInput(BaseModel):
 
 class CockpitCreateTool(BaseTool):
     name: str = "cockpit_create"
+    connector_id: str = "nodes-base.cockpit"
     description: str = "Tool for cockpit create operation - create operation"
     args_schema: type[BaseModel] | None = CockpitCreateToolInput
     credentials: Optional[CockpitCredentials] = None

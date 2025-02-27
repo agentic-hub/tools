@@ -41,6 +41,7 @@ class ThehiveprojectDeleteobservableToolInput(BaseModel):
 
 class ThehiveprojectDeleteobservableTool(BaseTool):
     name: str = "thehiveproject_deleteobservable"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject deleteObservable operation - deleteObservable operation"
     args_schema: type[BaseModel] | None = ThehiveprojectDeleteobservableToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

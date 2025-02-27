@@ -11,6 +11,7 @@ class GotifyDeleteToolInput(BaseModel):
 
 class GotifyDeleteTool(BaseTool):
     name: str = "gotify_delete"
+    connector_id: str = "nodes-base.gotify"
     description: str = "Tool for gotify delete operation - delete operation"
     args_schema: type[BaseModel] | None = GotifyDeleteToolInput
     credentials: Optional[GotifyCredentials] = None

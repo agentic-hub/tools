@@ -28,6 +28,7 @@ class GotowebinarCreateToolInput(BaseModel):
 
 class GotowebinarCreateTool(BaseTool):
     name: str = "gotowebinar_create"
+    connector_id: str = "nodes-base.goToWebinar"
     description: str = "Tool for goToWebinar create operation - create operation"
     args_schema: type[BaseModel] | None = GotowebinarCreateToolInput
     credentials: Optional[GotowebinarCredentials] = None

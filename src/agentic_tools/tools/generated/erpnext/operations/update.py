@@ -13,6 +13,7 @@ class ErpnextUpdateToolInput(BaseModel):
 
 class ErpnextUpdateTool(BaseTool):
     name: str = "erpnext_update"
+    connector_id: str = "nodes-base.erpNext"
     description: str = "Tool for erpNext update operation - update operation"
     args_schema: type[BaseModel] | None = ErpnextUpdateToolInput
     credentials: Optional[ErpnextCredentials] = None

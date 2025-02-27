@@ -16,6 +16,7 @@ class GetresponseCreateToolInput(BaseModel):
 
 class GetresponseCreateTool(BaseTool):
     name: str = "getresponse_create"
+    connector_id: str = "nodes-base.getResponse"
     description: str = "Tool for getResponse create operation - create operation"
     args_schema: type[BaseModel] | None = GetresponseCreateToolInput
     credentials: Optional[GetresponseCredentials] = None

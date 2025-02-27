@@ -13,6 +13,7 @@ class ErpnextDeleteToolInput(BaseModel):
 
 class ErpnextDeleteTool(BaseTool):
     name: str = "erpnext_delete"
+    connector_id: str = "nodes-base.erpNext"
     description: str = "Tool for erpNext delete operation - delete operation"
     args_schema: type[BaseModel] | None = ErpnextDeleteToolInput
     credentials: Optional[ErpnextCredentials] = None

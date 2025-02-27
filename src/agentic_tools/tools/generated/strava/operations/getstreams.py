@@ -14,6 +14,7 @@ class StravaGetstreamsToolInput(BaseModel):
 
 class StravaGetstreamsTool(BaseTool):
     name: str = "strava_getstreams"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava getStreams operation - getStreams operation"
     args_schema: type[BaseModel] | None = StravaGetstreamsToolInput
     credentials: Optional[StravaCredentials] = None

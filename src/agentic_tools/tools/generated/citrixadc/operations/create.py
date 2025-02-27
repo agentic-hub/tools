@@ -24,6 +24,7 @@ class CitrixadcCreateToolInput(BaseModel):
 
 class CitrixadcCreateTool(BaseTool):
     name: str = "citrixadc_create"
+    connector_id: str = "nodes-base.citrixAdc"
     description: str = "Tool for citrixAdc create operation - create operation"
     args_schema: type[BaseModel] | None = CitrixadcCreateToolInput
     credentials: Optional[CitrixadcCredentials] = None

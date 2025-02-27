@@ -15,6 +15,7 @@ class LemlistCreateToolInput(BaseModel):
 
 class LemlistCreateTool(BaseTool):
     name: str = "lemlist_create"
+    connector_id: str = "nodes-base.lemlist"
     description: str = "Tool for lemlist create operation - create operation"
     args_schema: type[BaseModel] | None = LemlistCreateToolInput
     credentials: Optional[LemlistCredentials] = None

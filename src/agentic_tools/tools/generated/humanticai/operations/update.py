@@ -14,6 +14,7 @@ class HumanticaiUpdateToolInput(BaseModel):
 
 class HumanticaiUpdateTool(BaseTool):
     name: str = "humanticai_update"
+    connector_id: str = "nodes-base.humanticAi"
     description: str = "Tool for humanticAi update operation - update operation"
     args_schema: type[BaseModel] | None = HumanticaiUpdateToolInput
     credentials: Optional[HumanticaiCredentials] = None

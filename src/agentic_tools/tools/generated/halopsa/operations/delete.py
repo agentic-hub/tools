@@ -20,6 +20,7 @@ class HalopsaDeleteToolInput(BaseModel):
 
 class HalopsaDeleteTool(BaseTool):
     name: str = "halopsa_delete"
+    connector_id: str = "nodes-base.haloPSA"
     description: str = "Tool for haloPSA delete operation - delete operation"
     args_schema: type[BaseModel] | None = HalopsaDeleteToolInput
     credentials: Optional[HalopsaCredentials] = None

@@ -13,6 +13,7 @@ class FtpDownloadToolInput(BaseModel):
 
 class FtpDownloadTool(BaseTool):
     name: str = "ftp_download"
+    connector_id: str = "nodes-base.ftp"
     description: str = "Tool for ftp download operation - download operation"
     args_schema: type[BaseModel] | None = FtpDownloadToolInput
     credentials: Optional[FtpCredentials] = None

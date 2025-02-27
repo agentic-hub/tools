@@ -20,6 +20,7 @@ class MattermostStatisticsToolInput(BaseModel):
 
 class MattermostStatisticsTool(BaseTool):
     name: str = "mattermost_statistics"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost statistics operation - statistics operation"
     args_schema: type[BaseModel] | None = MattermostStatisticsToolInput
     credentials: Optional[MattermostCredentials] = None

@@ -14,6 +14,7 @@ class PhantombusterLaunchToolInput(BaseModel):
 
 class PhantombusterLaunchTool(BaseTool):
     name: str = "phantombuster_launch"
+    connector_id: str = "nodes-base.phantombuster"
     description: str = "Tool for phantombuster launch operation - launch operation"
     args_schema: type[BaseModel] | None = PhantombusterLaunchToolInput
     credentials: Optional[PhantombusterCredentials] = None

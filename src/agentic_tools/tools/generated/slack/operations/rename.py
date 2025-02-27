@@ -26,6 +26,7 @@ class SlackRenameToolInput(BaseModel):
 
 class SlackRenameTool(BaseTool):
     name: str = "slack_rename"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack rename operation - rename operation"
     args_schema: type[BaseModel] | None = SlackRenameToolInput
     credentials: Optional[SlackCredentials] = None

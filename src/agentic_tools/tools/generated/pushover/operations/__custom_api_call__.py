@@ -10,6 +10,7 @@ class Pushover__custom_api_call__ToolInput(BaseModel):
 
 class Pushover__custom_api_call__Tool(BaseTool):
     name: str = "pushover___custom_api_call__"
+    connector_id: str = "nodes-base.pushover"
     description: str = "Tool for pushover __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Pushover__custom_api_call__ToolInput
     credentials: Optional[PushoverCredentials] = None

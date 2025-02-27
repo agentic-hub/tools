@@ -11,6 +11,7 @@ class GitListconfigToolInput(BaseModel):
 
 class GitListconfigTool(BaseTool):
     name: str = "git_listconfig"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git listConfig operation - listConfig operation"
     args_schema: type[BaseModel] | None = GitListconfigToolInput
     credentials: Optional[GitCredentials] = None

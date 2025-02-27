@@ -20,6 +20,7 @@ class IntercomGetToolInput(BaseModel):
 
 class IntercomGetTool(BaseTool):
     name: str = "intercom_get"
+    connector_id: str = "nodes-base.intercom"
     description: str = "Tool for intercom get operation - get operation"
     args_schema: type[BaseModel] | None = IntercomGetToolInput
     credentials: Optional[IntercomCredentials] = None

@@ -20,6 +20,7 @@ class StripeUpdateToolInput(BaseModel):
 
 class StripeUpdateTool(BaseTool):
     name: str = "stripe_update"
+    connector_id: str = "nodes-base.stripe"
     description: str = "Tool for stripe update operation - update operation"
     args_schema: type[BaseModel] | None = StripeUpdateToolInput
     credentials: Optional[StripeCredentials] = None

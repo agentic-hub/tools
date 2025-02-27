@@ -24,6 +24,7 @@ class GithubInviteToolInput(BaseModel):
 
 class GithubInviteTool(BaseTool):
     name: str = "github_invite"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github invite operation - invite operation"
     args_schema: type[BaseModel] | None = GithubInviteToolInput
     credentials: Optional[GithubCredentials] = None

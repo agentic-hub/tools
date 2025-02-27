@@ -14,6 +14,7 @@ class AdaloCreateToolInput(BaseModel):
 
 class AdaloCreateTool(BaseTool):
     name: str = "adalo_create"
+    connector_id: str = "nodes-base.adalo"
     description: str = "Tool for adalo create operation - create operation"
     args_schema: type[BaseModel] | None = AdaloCreateToolInput
     credentials: Optional[AdaloCredentials] = None

@@ -25,6 +25,7 @@ class UptimerobotCreateToolInput(BaseModel):
 
 class UptimerobotCreateTool(BaseTool):
     name: str = "uptimerobot_create"
+    connector_id: str = "nodes-base.uptimeRobot"
     description: str = "Tool for uptimeRobot create operation - create operation"
     args_schema: type[BaseModel] | None = UptimerobotCreateToolInput
     credentials: Optional[UptimerobotCredentials] = None

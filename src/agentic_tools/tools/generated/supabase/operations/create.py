@@ -19,6 +19,7 @@ class SupabaseCreateToolInput(BaseModel):
 
 class SupabaseCreateTool(BaseTool):
     name: str = "supabase_create"
+    connector_id: str = "nodes-base.supabase"
     description: str = "Tool for supabase create operation - create operation"
     args_schema: type[BaseModel] | None = SupabaseCreateToolInput
     credentials: Optional[SupabaseCredentials] = None

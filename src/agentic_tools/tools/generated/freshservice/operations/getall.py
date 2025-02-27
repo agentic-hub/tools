@@ -37,6 +37,7 @@ class FreshserviceGetallToolInput(BaseModel):
 
 class FreshserviceGetallTool(BaseTool):
     name: str = "freshservice_getall"
+    connector_id: str = "nodes-base.freshservice"
     description: str = "Tool for freshservice getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = FreshserviceGetallToolInput
     credentials: Optional[FreshserviceCredentials] = None

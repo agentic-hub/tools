@@ -17,6 +17,7 @@ class AwsdynamodbDeleteToolInput(BaseModel):
 
 class AwsdynamodbDeleteTool(BaseTool):
     name: str = "awsdynamodb_delete"
+    connector_id: str = "nodes-base.awsDynamoDb"
     description: str = "Tool for awsDynamoDb delete operation - delete operation"
     args_schema: type[BaseModel] | None = AwsdynamodbDeleteToolInput
     credentials: Optional[AwsdynamodbCredentials] = None

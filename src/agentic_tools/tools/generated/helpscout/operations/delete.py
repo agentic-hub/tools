@@ -19,6 +19,7 @@ class HelpscoutDeleteToolInput(BaseModel):
 
 class HelpscoutDeleteTool(BaseTool):
     name: str = "helpscout_delete"
+    connector_id: str = "nodes-base.helpScout"
     description: str = "Tool for helpScout delete operation - delete operation"
     args_schema: type[BaseModel] | None = HelpscoutDeleteToolInput
     credentials: Optional[HelpscoutCredentials] = None

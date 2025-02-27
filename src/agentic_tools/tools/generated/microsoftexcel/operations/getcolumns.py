@@ -27,6 +27,7 @@ class MicrosoftexcelGetcolumnsToolInput(BaseModel):
 
 class MicrosoftexcelGetcolumnsTool(BaseTool):
     name: str = "microsoftexcel_getcolumns"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel getColumns operation - getColumns operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelGetcolumnsToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

@@ -21,6 +21,7 @@ class MailchimpUpdateToolInput(BaseModel):
 
 class MailchimpUpdateTool(BaseTool):
     name: str = "mailchimp_update"
+    connector_id: str = "nodes-base.mailchimp"
     description: str = "Tool for mailchimp update operation - update operation"
     args_schema: type[BaseModel] | None = MailchimpUpdateToolInput
     credentials: Optional[MailchimpCredentials] = None

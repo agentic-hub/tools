@@ -20,6 +20,7 @@ class MattermostAdduserToolInput(BaseModel):
 
 class MattermostAdduserTool(BaseTool):
     name: str = "mattermost_adduser"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost addUser operation - addUser operation"
     args_schema: type[BaseModel] | None = MattermostAdduserToolInput
     credentials: Optional[MattermostCredentials] = None

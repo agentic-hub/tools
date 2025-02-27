@@ -23,6 +23,7 @@ class AsanaSearchToolInput(BaseModel):
 
 class AsanaSearchTool(BaseTool):
     name: str = "asana_search"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana search operation - search operation"
     args_schema: type[BaseModel] | None = AsanaSearchToolInput
     credentials: Optional[AsanaCredentials] = None

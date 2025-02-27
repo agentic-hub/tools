@@ -11,6 +11,7 @@ class AwscertificatemanagerRenewToolInput(BaseModel):
 
 class AwscertificatemanagerRenewTool(BaseTool):
     name: str = "awscertificatemanager_renew"
+    connector_id: str = "nodes-base.awsCertificateManager"
     description: str = "Tool for awsCertificateManager renew operation - renew operation"
     args_schema: type[BaseModel] | None = AwscertificatemanagerRenewToolInput
     credentials: Optional[AwscertificatemanagerCredentials] = None

@@ -34,6 +34,7 @@ class ZohocrmCreateToolInput(BaseModel):
 
 class ZohocrmCreateTool(BaseTool):
     name: str = "zohocrm_create"
+    connector_id: str = "nodes-base.zohoCrm"
     description: str = "Tool for zohoCrm create operation - create operation"
     args_schema: type[BaseModel] | None = ZohocrmCreateToolInput
     credentials: Optional[ZohocrmCredentials] = None

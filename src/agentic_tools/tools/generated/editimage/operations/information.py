@@ -15,5 +15,6 @@ class EditimageInformationToolInput(BaseModel):
 
 class EditimageInformationTool(BaseTool):
     name: str = "editimage_information"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage information operation - information operation"
     args_schema: type[BaseModel] | None = EditimageInformationToolInput

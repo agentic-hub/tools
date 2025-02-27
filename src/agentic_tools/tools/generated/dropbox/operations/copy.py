@@ -17,6 +17,7 @@ class DropboxCopyToolInput(BaseModel):
 
 class DropboxCopyTool(BaseTool):
     name: str = "dropbox_copy"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox copy operation - copy operation"
     args_schema: type[BaseModel] | None = DropboxCopyToolInput
     credentials: Optional[DropboxCredentials] = None

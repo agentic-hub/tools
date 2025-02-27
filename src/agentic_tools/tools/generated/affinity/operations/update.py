@@ -20,6 +20,7 @@ class AffinityUpdateToolInput(BaseModel):
 
 class AffinityUpdateTool(BaseTool):
     name: str = "affinity_update"
+    connector_id: str = "nodes-base.affinity"
     description: str = "Tool for affinity update operation - update operation"
     args_schema: type[BaseModel] | None = AffinityUpdateToolInput
     credentials: Optional[AffinityCredentials] = None

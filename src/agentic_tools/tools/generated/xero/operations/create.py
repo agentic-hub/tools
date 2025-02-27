@@ -21,6 +21,7 @@ class XeroCreateToolInput(BaseModel):
 
 class XeroCreateTool(BaseTool):
     name: str = "xero_create"
+    connector_id: str = "nodes-base.xero"
     description: str = "Tool for xero create operation - create operation"
     args_schema: type[BaseModel] | None = XeroCreateToolInput
     credentials: Optional[XeroCredentials] = None

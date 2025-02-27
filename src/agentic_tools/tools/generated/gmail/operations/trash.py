@@ -23,6 +23,7 @@ class GmailTrashToolInput(BaseModel):
 
 class GmailTrashTool(BaseTool):
     name: str = "gmail_trash"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail trash operation - trash operation"
     args_schema: type[BaseModel] | None = GmailTrashToolInput
     credentials: Optional[GmailCredentials] = None

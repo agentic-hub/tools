@@ -21,6 +21,7 @@ class TelegramUnpinchatmessageToolInput(BaseModel):
 
 class TelegramUnpinchatmessageTool(BaseTool):
     name: str = "telegram_unpinchatmessage"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram unpinChatMessage operation - unpinChatMessage operation"
     args_schema: type[BaseModel] | None = TelegramUnpinchatmessageToolInput
     credentials: Optional[TelegramCredentials] = None

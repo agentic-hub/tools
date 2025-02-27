@@ -29,6 +29,7 @@ class SlackUploadToolInput(BaseModel):
 
 class SlackUploadTool(BaseTool):
     name: str = "slack_upload"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack upload operation - upload operation"
     args_schema: type[BaseModel] | None = SlackUploadToolInput
     credentials: Optional[SlackCredentials] = None

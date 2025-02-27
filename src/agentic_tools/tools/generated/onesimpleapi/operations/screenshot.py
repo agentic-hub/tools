@@ -14,6 +14,7 @@ class OnesimpleapiScreenshotToolInput(BaseModel):
 
 class OnesimpleapiScreenshotTool(BaseTool):
     name: str = "onesimpleapi_screenshot"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi screenshot operation - screenshot operation"
     args_schema: type[BaseModel] | None = OnesimpleapiScreenshotToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

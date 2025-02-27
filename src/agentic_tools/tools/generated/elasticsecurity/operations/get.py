@@ -19,6 +19,7 @@ class ElasticsecurityGetToolInput(BaseModel):
 
 class ElasticsecurityGetTool(BaseTool):
     name: str = "elasticsecurity_get"
+    connector_id: str = "nodes-base.elasticSecurity"
     description: str = "Tool for elasticSecurity get operation - get operation"
     args_schema: type[BaseModel] | None = ElasticsecurityGetToolInput
     credentials: Optional[ElasticsecurityCredentials] = None

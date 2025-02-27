@@ -22,6 +22,7 @@ class DiscourseGetToolInput(BaseModel):
 
 class DiscourseGetTool(BaseTool):
     name: str = "discourse_get"
+    connector_id: str = "nodes-base.discourse"
     description: str = "Tool for discourse get operation - get operation"
     args_schema: type[BaseModel] | None = DiscourseGetToolInput
     credentials: Optional[DiscourseCredentials] = None

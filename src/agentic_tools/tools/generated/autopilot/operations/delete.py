@@ -13,6 +13,7 @@ class AutopilotDeleteToolInput(BaseModel):
 
 class AutopilotDeleteTool(BaseTool):
     name: str = "autopilot_delete"
+    connector_id: str = "nodes-base.autopilot"
     description: str = "Tool for autopilot delete operation - delete operation"
     args_schema: type[BaseModel] | None = AutopilotDeleteToolInput
     credentials: Optional[AutopilotCredentials] = None

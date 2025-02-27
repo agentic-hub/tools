@@ -16,6 +16,7 @@ class SpotifyGettoptracksToolInput(BaseModel):
 
 class SpotifyGettoptracksTool(BaseTool):
     name: str = "spotify_gettoptracks"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify getTopTracks operation - getTopTracks operation"
     args_schema: type[BaseModel] | None = SpotifyGettoptracksToolInput
     credentials: Optional[SpotifyCredentials] = None

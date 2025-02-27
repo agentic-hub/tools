@@ -43,6 +43,7 @@ class ThehiveCreateToolInput(BaseModel):
 
 class ThehiveCreateTool(BaseTool):
     name: str = "thehive_create"
+    connector_id: str = "nodes-base.theHive"
     description: str = "Tool for theHive create operation - create operation"
     args_schema: type[BaseModel] | None = ThehiveCreateToolInput
     credentials: Optional[ThehiveCredentials] = None

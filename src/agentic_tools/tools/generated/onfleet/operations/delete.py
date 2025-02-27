@@ -23,6 +23,7 @@ class OnfleetDeleteToolInput(BaseModel):
 
 class OnfleetDeleteTool(BaseTool):
     name: str = "onfleet_delete"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet delete operation - delete operation"
     args_schema: type[BaseModel] | None = OnfleetDeleteToolInput
     credentials: Optional[OnfleetCredentials] = None

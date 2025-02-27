@@ -16,6 +16,7 @@ class EmeliaStartToolInput(BaseModel):
 
 class EmeliaStartTool(BaseTool):
     name: str = "emelia_start"
+    connector_id: str = "nodes-base.emelia"
     description: str = "Tool for emelia start operation - start operation"
     args_schema: type[BaseModel] | None = EmeliaStartToolInput
     credentials: Optional[EmeliaCredentials] = None

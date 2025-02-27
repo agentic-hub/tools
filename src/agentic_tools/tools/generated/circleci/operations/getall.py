@@ -15,6 +15,7 @@ class CircleciGetallToolInput(BaseModel):
 
 class CircleciGetallTool(BaseTool):
     name: str = "circleci_getall"
+    connector_id: str = "nodes-base.circleCi"
     description: str = "Tool for circleCi getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = CircleciGetallToolInput
     credentials: Optional[CircleciCredentials] = None

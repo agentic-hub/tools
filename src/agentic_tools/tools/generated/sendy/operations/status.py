@@ -13,6 +13,7 @@ class SendyStatusToolInput(BaseModel):
 
 class SendyStatusTool(BaseTool):
     name: str = "sendy_status"
+    connector_id: str = "nodes-base.sendy"
     description: str = "Tool for sendy status operation - status operation"
     args_schema: type[BaseModel] | None = SendyStatusToolInput
     credentials: Optional[SendyCredentials] = None

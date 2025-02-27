@@ -24,6 +24,7 @@ class YoutubeUpdateToolInput(BaseModel):
 
 class YoutubeUpdateTool(BaseTool):
     name: str = "youtube_update"
+    connector_id: str = "nodes-base.youTube"
     description: str = "Tool for youTube update operation - update operation"
     args_schema: type[BaseModel] | None = YoutubeUpdateToolInput
     credentials: Optional[YoutubeCredentials] = None

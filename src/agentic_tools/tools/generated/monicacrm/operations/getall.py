@@ -33,6 +33,7 @@ class MonicacrmGetallToolInput(BaseModel):
 
 class MonicacrmGetallTool(BaseTool):
     name: str = "monicacrm_getall"
+    connector_id: str = "nodes-base.monicaCrm"
     description: str = "Tool for monicaCrm getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MonicacrmGetallToolInput
     credentials: Optional[MonicacrmCredentials] = None

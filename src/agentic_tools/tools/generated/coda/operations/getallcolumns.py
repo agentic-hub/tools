@@ -18,6 +18,7 @@ class CodaGetallcolumnsToolInput(BaseModel):
 
 class CodaGetallcolumnsTool(BaseTool):
     name: str = "coda_getallcolumns"
+    connector_id: str = "nodes-base.coda"
     description: str = "Tool for coda getAllColumns operation - getAllColumns operation"
     args_schema: type[BaseModel] | None = CodaGetallcolumnsToolInput
     credentials: Optional[CodaCredentials] = None

@@ -12,6 +12,7 @@ class AwscomprehendDetectdominantlanguageToolInput(BaseModel):
 
 class AwscomprehendDetectdominantlanguageTool(BaseTool):
     name: str = "awscomprehend_detectdominantlanguage"
+    connector_id: str = "nodes-base.awsComprehend"
     description: str = "Tool for awsComprehend detectDominantLanguage operation - detectDominantLanguage operation"
     args_schema: type[BaseModel] | None = AwscomprehendDetectdominantlanguageToolInput
     credentials: Optional[AwscomprehendCredentials] = None

@@ -16,6 +16,7 @@ class VeroAliasToolInput(BaseModel):
 
 class VeroAliasTool(BaseTool):
     name: str = "vero_alias"
+    connector_id: str = "nodes-base.vero"
     description: str = "Tool for vero alias operation - alias operation"
     args_schema: type[BaseModel] | None = VeroAliasToolInput
     credentials: Optional[VeroCredentials] = None

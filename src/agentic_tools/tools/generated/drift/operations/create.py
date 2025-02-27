@@ -14,6 +14,7 @@ class DriftCreateToolInput(BaseModel):
 
 class DriftCreateTool(BaseTool):
     name: str = "drift_create"
+    connector_id: str = "nodes-base.drift"
     description: str = "Tool for drift create operation - create operation"
     args_schema: type[BaseModel] | None = DriftCreateToolInput
     credentials: Optional[DriftCredentials] = None

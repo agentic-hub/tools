@@ -19,6 +19,7 @@ class SecurityscorecardDownloadToolInput(BaseModel):
 
 class SecurityscorecardDownloadTool(BaseTool):
     name: str = "securityscorecard_download"
+    connector_id: str = "nodes-base.securityScorecard"
     description: str = "Tool for securityScorecard download operation - download operation"
     args_schema: type[BaseModel] | None = SecurityscorecardDownloadToolInput
     credentials: Optional[SecurityscorecardCredentials] = None

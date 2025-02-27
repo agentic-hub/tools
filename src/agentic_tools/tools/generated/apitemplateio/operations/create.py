@@ -20,6 +20,7 @@ class ApitemplateioCreateToolInput(BaseModel):
 
 class ApitemplateioCreateTool(BaseTool):
     name: str = "apitemplateio_create"
+    connector_id: str = "nodes-base.apiTemplateIo"
     description: str = "Tool for apiTemplateIo create operation - create operation"
     args_schema: type[BaseModel] | None = ApitemplateioCreateToolInput
     credentials: Optional[ApitemplateioCredentials] = None

@@ -19,6 +19,7 @@ class ElasticsecurityAddToolInput(BaseModel):
 
 class ElasticsecurityAddTool(BaseTool):
     name: str = "elasticsecurity_add"
+    connector_id: str = "nodes-base.elasticSecurity"
     description: str = "Tool for elasticSecurity add operation - add operation"
     args_schema: type[BaseModel] | None = ElasticsecurityAddToolInput
     credentials: Optional[ElasticsecurityCredentials] = None

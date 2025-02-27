@@ -13,6 +13,7 @@ class TwakeSendToolInput(BaseModel):
 
 class TwakeSendTool(BaseTool):
     name: str = "twake_send"
+    connector_id: str = "nodes-base.twake"
     description: str = "Tool for twake send operation - send operation"
     args_schema: type[BaseModel] | None = TwakeSendToolInput
     credentials: Optional[TwakeCredentials] = None

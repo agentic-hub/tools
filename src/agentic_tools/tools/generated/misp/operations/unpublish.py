@@ -22,6 +22,7 @@ class MispUnpublishToolInput(BaseModel):
 
 class MispUnpublishTool(BaseTool):
     name: str = "misp_unpublish"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp unpublish operation - unpublish operation"
     args_schema: type[BaseModel] | None = MispUnpublishToolInput
     credentials: Optional[MispCredentials] = None

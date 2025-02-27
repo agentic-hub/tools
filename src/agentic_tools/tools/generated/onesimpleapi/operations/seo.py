@@ -14,6 +14,7 @@ class OnesimpleapiSeoToolInput(BaseModel):
 
 class OnesimpleapiSeoTool(BaseTool):
     name: str = "onesimpleapi_seo"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi seo operation - seo operation"
     args_schema: type[BaseModel] | None = OnesimpleapiSeoToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

@@ -24,6 +24,7 @@ class YoutubeUploadToolInput(BaseModel):
 
 class YoutubeUploadTool(BaseTool):
     name: str = "youtube_upload"
+    connector_id: str = "nodes-base.youTube"
     description: str = "Tool for youTube upload operation - upload operation"
     args_schema: type[BaseModel] | None = YoutubeUploadToolInput
     credentials: Optional[YoutubeCredentials] = None

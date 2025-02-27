@@ -26,6 +26,7 @@ class SlackUnarchiveToolInput(BaseModel):
 
 class SlackUnarchiveTool(BaseTool):
     name: str = "slack_unarchive"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack unarchive operation - unarchive operation"
     args_schema: type[BaseModel] | None = SlackUnarchiveToolInput
     credentials: Optional[SlackCredentials] = None

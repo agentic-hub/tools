@@ -15,6 +15,7 @@ class MoceanSendToolInput(BaseModel):
 
 class MoceanSendTool(BaseTool):
     name: str = "mocean_send"
+    connector_id: str = "nodes-base.mocean"
     description: str = "Tool for mocean send operation - send operation"
     args_schema: type[BaseModel] | None = MoceanSendToolInput
     credentials: Optional[MoceanCredentials] = None

@@ -14,6 +14,7 @@ class TravisciGetallToolInput(BaseModel):
 
 class TravisciGetallTool(BaseTool):
     name: str = "travisci_getall"
+    connector_id: str = "nodes-base.travisCi"
     description: str = "Tool for travisCi getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = TravisciGetallToolInput
     credentials: Optional[TravisciCredentials] = None

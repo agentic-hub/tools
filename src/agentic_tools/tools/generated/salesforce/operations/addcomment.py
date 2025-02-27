@@ -33,6 +33,7 @@ class SalesforceAddcommentToolInput(BaseModel):
 
 class SalesforceAddcommentTool(BaseTool):
     name: str = "salesforce_addcomment"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce addComment operation - addComment operation"
     args_schema: type[BaseModel] | None = SalesforceAddcommentToolInput
     credentials: Optional[SalesforceCredentials] = None

@@ -32,6 +32,7 @@ class FilemakerDefaultToolInput(BaseModel):
 
 class FilemakerDefaultTool(BaseTool):
     name: str = "filemaker_default"
+    connector_id: str = "nodes-base.filemaker"
     description: str = "Tool for filemaker default operation - default operation"
     args_schema: type[BaseModel] | None = FilemakerDefaultToolInput
     credentials: Optional[FilemakerCredentials] = None

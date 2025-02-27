@@ -24,6 +24,7 @@ class HarvestGetToolInput(BaseModel):
 
 class HarvestGetTool(BaseTool):
     name: str = "harvest_get"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest get operation - get operation"
     args_schema: type[BaseModel] | None = HarvestGetToolInput
     credentials: Optional[HarvestCredentials] = None

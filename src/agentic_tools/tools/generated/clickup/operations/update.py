@@ -38,6 +38,7 @@ class ClickupUpdateToolInput(BaseModel):
 
 class ClickupUpdateTool(BaseTool):
     name: str = "clickup_update"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp update operation - update operation"
     args_schema: type[BaseModel] | None = ClickupUpdateToolInput
     credentials: Optional[ClickupCredentials] = None

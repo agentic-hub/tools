@@ -22,6 +22,7 @@ class GoogledriveListToolInput(BaseModel):
 
 class GoogledriveListTool(BaseTool):
     name: str = "googledrive_list"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive list operation - list operation"
     args_schema: type[BaseModel] | None = GoogledriveListToolInput
     credentials: Optional[GoogledriveCredentials] = None

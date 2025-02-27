@@ -18,6 +18,7 @@ class Airtable__custom_api_call__ToolInput(BaseModel):
 
 class Airtable__custom_api_call__Tool(BaseTool):
     name: str = "airtable___custom_api_call__"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Airtable__custom_api_call__ToolInput
     credentials: Optional[AirtableCredentials] = None

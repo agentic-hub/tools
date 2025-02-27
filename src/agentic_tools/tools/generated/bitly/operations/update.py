@@ -14,6 +14,7 @@ class BitlyUpdateToolInput(BaseModel):
 
 class BitlyUpdateTool(BaseTool):
     name: str = "bitly_update"
+    connector_id: str = "nodes-base.bitly"
     description: str = "Tool for bitly update operation - update operation"
     args_schema: type[BaseModel] | None = BitlyUpdateToolInput
     credentials: Optional[BitlyCredentials] = None

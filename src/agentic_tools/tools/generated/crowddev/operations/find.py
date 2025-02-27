@@ -17,6 +17,7 @@ class CrowddevFindToolInput(BaseModel):
 
 class CrowddevFindTool(BaseTool):
     name: str = "crowddev_find"
+    connector_id: str = "nodes-base.crowdDev"
     description: str = "Tool for crowdDev find operation - find operation"
     args_schema: type[BaseModel] | None = CrowddevFindToolInput
     credentials: Optional[CrowddevCredentials] = None

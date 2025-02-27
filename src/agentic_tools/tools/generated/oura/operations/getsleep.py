@@ -13,6 +13,7 @@ class OuraGetsleepToolInput(BaseModel):
 
 class OuraGetsleepTool(BaseTool):
     name: str = "oura_getsleep"
+    connector_id: str = "nodes-base.oura"
     description: str = "Tool for oura getSleep operation - getSleep operation"
     args_schema: type[BaseModel] | None = OuraGetsleepToolInput
     credentials: Optional[OuraCredentials] = None

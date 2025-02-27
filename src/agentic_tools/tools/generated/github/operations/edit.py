@@ -26,6 +26,7 @@ class GithubEditToolInput(BaseModel):
 
 class GithubEditTool(BaseTool):
     name: str = "github_edit"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github edit operation - edit operation"
     args_schema: type[BaseModel] | None = GithubEditToolInput
     credentials: Optional[GithubCredentials] = None

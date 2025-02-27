@@ -14,6 +14,7 @@ class StackbyListToolInput(BaseModel):
 
 class StackbyListTool(BaseTool):
     name: str = "stackby_list"
+    connector_id: str = "nodes-base.stackby"
     description: str = "Tool for stackby list operation - list operation"
     args_schema: type[BaseModel] | None = StackbyListToolInput
     credentials: Optional[StackbyCredentials] = None

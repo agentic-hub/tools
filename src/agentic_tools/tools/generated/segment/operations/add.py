@@ -16,6 +16,7 @@ class SegmentAddToolInput(BaseModel):
 
 class SegmentAddTool(BaseTool):
     name: str = "segment_add"
+    connector_id: str = "nodes-base.segment"
     description: str = "Tool for segment add operation - add operation"
     args_schema: type[BaseModel] | None = SegmentAddToolInput
     credentials: Optional[SegmentCredentials] = None

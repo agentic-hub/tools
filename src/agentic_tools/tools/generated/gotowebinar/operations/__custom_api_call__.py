@@ -21,6 +21,7 @@ class Gotowebinar__custom_api_call__ToolInput(BaseModel):
 
 class Gotowebinar__custom_api_call__Tool(BaseTool):
     name: str = "gotowebinar___custom_api_call__"
+    connector_id: str = "nodes-base.goToWebinar"
     description: str = "Tool for goToWebinar __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Gotowebinar__custom_api_call__ToolInput
     credentials: Optional[GotowebinarCredentials] = None

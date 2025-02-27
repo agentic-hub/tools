@@ -33,6 +33,7 @@ class SalesforceUploadToolInput(BaseModel):
 
 class SalesforceUploadTool(BaseTool):
     name: str = "salesforce_upload"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce upload operation - upload operation"
     args_schema: type[BaseModel] | None = SalesforceUploadToolInput
     credentials: Optional[SalesforceCredentials] = None

@@ -10,5 +10,6 @@ class ExtractfromfileBinarytoproperyToolInput(BaseModel):
 
 class ExtractfromfileBinarytoproperyTool(BaseTool):
     name: str = "extractfromfile_binarytopropery"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile binaryToPropery operation - binaryToPropery operation"
     args_schema: type[BaseModel] | None = ExtractfromfileBinarytoproperyToolInput

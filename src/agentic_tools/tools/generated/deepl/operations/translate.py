@@ -13,6 +13,7 @@ class DeeplTranslateToolInput(BaseModel):
 
 class DeeplTranslateTool(BaseTool):
     name: str = "deepl_translate"
+    connector_id: str = "nodes-base.deepL"
     description: str = "Tool for deepL translate operation - translate operation"
     args_schema: type[BaseModel] | None = DeeplTranslateToolInput
     credentials: Optional[DeeplCredentials] = None

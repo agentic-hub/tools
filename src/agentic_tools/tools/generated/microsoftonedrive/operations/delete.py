@@ -18,6 +18,7 @@ class MicrosoftonedriveDeleteToolInput(BaseModel):
 
 class MicrosoftonedriveDeleteTool(BaseTool):
     name: str = "microsoftonedrive_delete"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive delete operation - delete operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveDeleteToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

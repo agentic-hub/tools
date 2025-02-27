@@ -19,6 +19,7 @@ class ZendeskCountToolInput(BaseModel):
 
 class ZendeskCountTool(BaseTool):
     name: str = "zendesk_count"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk count operation - count operation"
     args_schema: type[BaseModel] | None = ZendeskCountToolInput
     credentials: Optional[ZendeskCredentials] = None

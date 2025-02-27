@@ -21,6 +21,7 @@ class PagerdutyCreateToolInput(BaseModel):
 
 class PagerdutyCreateTool(BaseTool):
     name: str = "pagerduty_create"
+    connector_id: str = "nodes-base.pagerDuty"
     description: str = "Tool for pagerDuty create operation - create operation"
     args_schema: type[BaseModel] | None = PagerdutyCreateToolInput
     credentials: Optional[PagerdutyCredentials] = None

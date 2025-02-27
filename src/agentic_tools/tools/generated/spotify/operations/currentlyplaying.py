@@ -15,6 +15,7 @@ class SpotifyCurrentlyplayingToolInput(BaseModel):
 
 class SpotifyCurrentlyplayingTool(BaseTool):
     name: str = "spotify_currentlyplaying"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify currentlyPlaying operation - currentlyPlaying operation"
     args_schema: type[BaseModel] | None = SpotifyCurrentlyplayingToolInput
     credentials: Optional[SpotifyCredentials] = None

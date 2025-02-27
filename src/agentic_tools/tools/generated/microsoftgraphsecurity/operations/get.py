@@ -15,6 +15,7 @@ class MicrosoftgraphsecurityGetToolInput(BaseModel):
 
 class MicrosoftgraphsecurityGetTool(BaseTool):
     name: str = "microsoftgraphsecurity_get"
+    connector_id: str = "nodes-base.microsoftGraphSecurity"
     description: str = "Tool for microsoftGraphSecurity get operation - get operation"
     args_schema: type[BaseModel] | None = MicrosoftgraphsecurityGetToolInput
     credentials: Optional[MicrosoftgraphsecurityCredentials] = None

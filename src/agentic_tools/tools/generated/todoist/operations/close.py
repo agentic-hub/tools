@@ -13,6 +13,7 @@ class TodoistCloseToolInput(BaseModel):
 
 class TodoistCloseTool(BaseTool):
     name: str = "todoist_close"
+    connector_id: str = "nodes-base.todoist"
     description: str = "Tool for todoist close operation - close operation"
     args_schema: type[BaseModel] | None = TodoistCloseToolInput
     credentials: Optional[TodoistCredentials] = None

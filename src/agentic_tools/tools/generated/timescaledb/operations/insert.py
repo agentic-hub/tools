@@ -14,6 +14,7 @@ class TimescaledbInsertToolInput(BaseModel):
 
 class TimescaledbInsertTool(BaseTool):
     name: str = "timescaledb_insert"
+    connector_id: str = "nodes-base.timescaleDb"
     description: str = "Tool for timescaleDb insert operation - insert operation"
     args_schema: type[BaseModel] | None = TimescaledbInsertToolInput
     credentials: Optional[TimescaledbCredentials] = None

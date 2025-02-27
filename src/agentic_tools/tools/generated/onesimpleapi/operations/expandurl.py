@@ -14,6 +14,7 @@ class OnesimpleapiExpandurlToolInput(BaseModel):
 
 class OnesimpleapiExpandurlTool(BaseTool):
     name: str = "onesimpleapi_expandurl"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi expandURL operation - expandURL operation"
     args_schema: type[BaseModel] | None = OnesimpleapiExpandurlToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

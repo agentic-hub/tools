@@ -15,6 +15,7 @@ class GristGetallToolInput(BaseModel):
 
 class GristGetallTool(BaseTool):
     name: str = "grist_getall"
+    connector_id: str = "nodes-base.grist"
     description: str = "Tool for grist getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GristGetallToolInput
     credentials: Optional[GristCredentials] = None

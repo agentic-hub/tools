@@ -16,6 +16,7 @@ class MailgunDefaultToolInput(BaseModel):
 
 class MailgunDefaultTool(BaseTool):
     name: str = "mailgun_default"
+    connector_id: str = "nodes-base.mailgun"
     description: str = "Tool for mailgun default operation - default operation"
     args_schema: type[BaseModel] | None = MailgunDefaultToolInput
     credentials: Optional[MailgunCredentials] = None

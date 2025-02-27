@@ -17,6 +17,7 @@ class DropboxMoveToolInput(BaseModel):
 
 class DropboxMoveTool(BaseTool):
     name: str = "dropbox_move"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox move operation - move operation"
     args_schema: type[BaseModel] | None = DropboxMoveToolInput
     credentials: Optional[DropboxCredentials] = None

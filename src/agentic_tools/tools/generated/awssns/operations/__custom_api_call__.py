@@ -9,6 +9,7 @@ class Awssns__custom_api_call__ToolInput(BaseModel):
 
 class Awssns__custom_api_call__Tool(BaseTool):
     name: str = "awssns___custom_api_call__"
+    connector_id: str = "nodes-base.awsSns"
     description: str = "Tool for awsSns __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awssns__custom_api_call__ToolInput
     credentials: Optional[AwssnsCredentials] = None

@@ -39,6 +39,7 @@ class SalesforceCreateToolInput(BaseModel):
 
 class SalesforceCreateTool(BaseTool):
     name: str = "salesforce_create"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce create operation - create operation"
     args_schema: type[BaseModel] | None = SalesforceCreateToolInput
     credentials: Optional[SalesforceCredentials] = None

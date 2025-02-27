@@ -10,6 +10,7 @@ class Twake__custom_api_call__ToolInput(BaseModel):
 
 class Twake__custom_api_call__Tool(BaseTool):
     name: str = "twake___custom_api_call__"
+    connector_id: str = "nodes-base.twake"
     description: str = "Tool for twake __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Twake__custom_api_call__ToolInput
     credentials: Optional[TwakeCredentials] = None

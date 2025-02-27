@@ -23,6 +23,7 @@ class GitlabDeleteToolInput(BaseModel):
 
 class GitlabDeleteTool(BaseTool):
     name: str = "gitlab_delete"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab delete operation - delete operation"
     args_schema: type[BaseModel] | None = GitlabDeleteToolInput
     credentials: Optional[GitlabCredentials] = None

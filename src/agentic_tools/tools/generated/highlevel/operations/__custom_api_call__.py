@@ -21,6 +21,7 @@ class Highlevel__custom_api_call__ToolInput(BaseModel):
 
 class Highlevel__custom_api_call__Tool(BaseTool):
     name: str = "highlevel___custom_api_call__"
+    connector_id: str = "nodes-base.highLevel"
     description: str = "Tool for highLevel __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Highlevel__custom_api_call__ToolInput
     credentials: Optional[HighlevelCredentials] = None

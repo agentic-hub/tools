@@ -15,6 +15,7 @@ class TodoistGetallToolInput(BaseModel):
 
 class TodoistGetallTool(BaseTool):
     name: str = "todoist_getall"
+    connector_id: str = "nodes-base.todoist"
     description: str = "Tool for todoist getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = TodoistGetallToolInput
     credentials: Optional[TodoistCredentials] = None

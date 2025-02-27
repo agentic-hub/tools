@@ -20,6 +20,7 @@ class Awss3CreateToolInput(BaseModel):
 
 class Awss3CreateTool(BaseTool):
     name: str = "awss3_create"
+    connector_id: str = "nodes-base.awsS3"
     description: str = "Tool for awsS3 create operation - create operation"
     args_schema: type[BaseModel] | None = Awss3CreateToolInput
     credentials: Optional[Awss3Credentials] = None

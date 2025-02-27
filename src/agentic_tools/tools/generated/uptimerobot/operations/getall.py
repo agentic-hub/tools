@@ -18,6 +18,7 @@ class UptimerobotGetallToolInput(BaseModel):
 
 class UptimerobotGetallTool(BaseTool):
     name: str = "uptimerobot_getall"
+    connector_id: str = "nodes-base.uptimeRobot"
     description: str = "Tool for uptimeRobot getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = UptimerobotGetallToolInput
     credentials: Optional[UptimerobotCredentials] = None

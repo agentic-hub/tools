@@ -29,6 +29,7 @@ class MauticCreateToolInput(BaseModel):
 
 class MauticCreateTool(BaseTool):
     name: str = "mautic_create"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic create operation - create operation"
     args_schema: type[BaseModel] | None = MauticCreateToolInput
     credentials: Optional[MauticCredentials] = None

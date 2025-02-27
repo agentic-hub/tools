@@ -14,6 +14,7 @@ class GoogletasksUpdateToolInput(BaseModel):
 
 class GoogletasksUpdateTool(BaseTool):
     name: str = "googletasks_update"
+    connector_id: str = "nodes-base.googleTasks"
     description: str = "Tool for googleTasks update operation - update operation"
     args_schema: type[BaseModel] | None = GoogletasksUpdateToolInput
     credentials: Optional[GoogletasksCredentials] = None

@@ -18,6 +18,7 @@ class AirtableGetschemaToolInput(BaseModel):
 
 class AirtableGetschemaTool(BaseTool):
     name: str = "airtable_getschema"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable getSchema operation - getSchema operation"
     args_schema: type[BaseModel] | None = AirtableGetschemaToolInput
     credentials: Optional[AirtableCredentials] = None

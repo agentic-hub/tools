@@ -22,6 +22,7 @@ class MysqlExecutequeryToolInput(BaseModel):
 
 class MysqlExecutequeryTool(BaseTool):
     name: str = "mysql_executequery"
+    connector_id: str = "nodes-base.mySql"
     description: str = "Tool for mySql executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = MysqlExecutequeryToolInput
     credentials: Optional[MysqlCredentials] = None

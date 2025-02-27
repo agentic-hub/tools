@@ -14,6 +14,7 @@ class QuestdbInsertToolInput(BaseModel):
 
 class QuestdbInsertTool(BaseTool):
     name: str = "questdb_insert"
+    connector_id: str = "nodes-base.questDb"
     description: str = "Tool for questDb insert operation - insert operation"
     args_schema: type[BaseModel] | None = QuestdbInsertToolInput
     credentials: Optional[QuestdbCredentials] = None

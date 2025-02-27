@@ -26,6 +26,7 @@ class SlackRepliesToolInput(BaseModel):
 
 class SlackRepliesTool(BaseTool):
     name: str = "slack_replies"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack replies operation - replies operation"
     args_schema: type[BaseModel] | None = SlackRepliesToolInput
     credentials: Optional[SlackCredentials] = None

@@ -18,6 +18,7 @@ class SecurityscorecardRemoveToolInput(BaseModel):
 
 class SecurityscorecardRemoveTool(BaseTool):
     name: str = "securityscorecard_remove"
+    connector_id: str = "nodes-base.securityScorecard"
     description: str = "Tool for securityScorecard remove operation - remove operation"
     args_schema: type[BaseModel] | None = SecurityscorecardRemoveToolInput
     credentials: Optional[SecurityscorecardCredentials] = None

@@ -40,6 +40,7 @@ class BamboohrCreateToolInput(BaseModel):
 
 class BamboohrCreateTool(BaseTool):
     name: str = "bamboohr_create"
+    connector_id: str = "nodes-base.bambooHr"
     description: str = "Tool for bambooHr create operation - create operation"
     args_schema: type[BaseModel] | None = BamboohrCreateToolInput
     credentials: Optional[BamboohrCredentials] = None

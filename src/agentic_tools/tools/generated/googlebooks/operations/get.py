@@ -15,6 +15,7 @@ class GooglebooksGetToolInput(BaseModel):
 
 class GooglebooksGetTool(BaseTool):
     name: str = "googlebooks_get"
+    connector_id: str = "nodes-base.googleBooks"
     description: str = "Tool for googleBooks get operation - get operation"
     args_schema: type[BaseModel] | None = GooglebooksGetToolInput
     credentials: Optional[GooglebooksCredentials] = None

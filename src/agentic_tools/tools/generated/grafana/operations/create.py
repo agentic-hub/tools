@@ -20,6 +20,7 @@ class GrafanaCreateToolInput(BaseModel):
 
 class GrafanaCreateTool(BaseTool):
     name: str = "grafana_create"
+    connector_id: str = "nodes-base.grafana"
     description: str = "Tool for grafana create operation - create operation"
     args_schema: type[BaseModel] | None = GrafanaCreateToolInput
     credentials: Optional[GrafanaCredentials] = None

@@ -17,6 +17,7 @@ class MicrosofttodoGetallToolInput(BaseModel):
 
 class MicrosofttodoGetallTool(BaseTool):
     name: str = "microsofttodo_getall"
+    connector_id: str = "nodes-base.microsoftToDo"
     description: str = "Tool for microsoftToDo getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MicrosofttodoGetallToolInput
     credentials: Optional[MicrosofttodoCredentials] = None

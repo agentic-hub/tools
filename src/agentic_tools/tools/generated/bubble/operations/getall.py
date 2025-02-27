@@ -17,6 +17,7 @@ class BubbleGetallToolInput(BaseModel):
 
 class BubbleGetallTool(BaseTool):
     name: str = "bubble_getall"
+    connector_id: str = "nodes-base.bubble"
     description: str = "Tool for bubble getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = BubbleGetallToolInput
     credentials: Optional[BubbleCredentials] = None

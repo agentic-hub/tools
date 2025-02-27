@@ -29,6 +29,7 @@ class QuickbooksDeleteToolInput(BaseModel):
 
 class QuickbooksDeleteTool(BaseTool):
     name: str = "quickbooks_delete"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks delete operation - delete operation"
     args_schema: type[BaseModel] | None = QuickbooksDeleteToolInput
     credentials: Optional[QuickbooksCredentials] = None

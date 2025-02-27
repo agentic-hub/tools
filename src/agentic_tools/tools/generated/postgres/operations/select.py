@@ -26,6 +26,7 @@ class PostgresSelectToolInput(BaseModel):
 
 class PostgresSelectTool(BaseTool):
     name: str = "postgres_select"
+    connector_id: str = "nodes-base.postgres"
     description: str = "Tool for postgres select operation - select operation"
     args_schema: type[BaseModel] | None = PostgresSelectToolInput
     credentials: Optional[PostgresCredentials] = None

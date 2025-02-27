@@ -13,6 +13,7 @@ class MongodbDeleteToolInput(BaseModel):
 
 class MongodbDeleteTool(BaseTool):
     name: str = "mongodb_delete"
+    connector_id: str = "nodes-base.mongoDb"
     description: str = "Tool for mongoDb delete operation - delete operation"
     args_schema: type[BaseModel] | None = MongodbDeleteToolInput
     credentials: Optional[MongodbCredentials] = None

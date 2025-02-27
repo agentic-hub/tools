@@ -27,6 +27,7 @@ class Magento2UpdateToolInput(BaseModel):
 
 class Magento2UpdateTool(BaseTool):
     name: str = "magento2_update"
+    connector_id: str = "nodes-base.magento2"
     description: str = "Tool for magento2 update operation - update operation"
     args_schema: type[BaseModel] | None = Magento2UpdateToolInput
     credentials: Optional[Magento2Credentials] = None

@@ -18,6 +18,7 @@ class SplunkDeleteToolInput(BaseModel):
 
 class SplunkDeleteTool(BaseTool):
     name: str = "splunk_delete"
+    connector_id: str = "nodes-base.splunk"
     description: str = "Tool for splunk delete operation - delete operation"
     args_schema: type[BaseModel] | None = SplunkDeleteToolInput
     credentials: Optional[SplunkCredentials] = None

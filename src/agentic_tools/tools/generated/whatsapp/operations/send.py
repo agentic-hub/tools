@@ -24,6 +24,7 @@ class WhatsappSendToolInput(BaseModel):
 
 class WhatsappSendTool(BaseTool):
     name: str = "whatsapp_send"
+    connector_id: str = "nodes-base.whatsApp"
     description: str = "Tool for whatsApp send operation - send operation"
     args_schema: type[BaseModel] | None = WhatsappSendToolInput
     credentials: Optional[WhatsappCredentials] = None

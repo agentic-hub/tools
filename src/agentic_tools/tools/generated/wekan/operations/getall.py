@@ -25,6 +25,7 @@ class WekanGetallToolInput(BaseModel):
 
 class WekanGetallTool(BaseTool):
     name: str = "wekan_getall"
+    connector_id: str = "nodes-base.wekan"
     description: str = "Tool for wekan getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = WekanGetallToolInput
     credentials: Optional[WekanCredentials] = None

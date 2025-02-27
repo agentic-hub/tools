@@ -11,6 +11,7 @@ class BannerbearGetallToolInput(BaseModel):
 
 class BannerbearGetallTool(BaseTool):
     name: str = "bannerbear_getall"
+    connector_id: str = "nodes-base.bannerbear"
     description: str = "Tool for bannerbear getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = BannerbearGetallToolInput
     credentials: Optional[BannerbearCredentials] = None

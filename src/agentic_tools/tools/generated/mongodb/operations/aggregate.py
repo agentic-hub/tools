@@ -13,6 +13,7 @@ class MongodbAggregateToolInput(BaseModel):
 
 class MongodbAggregateTool(BaseTool):
     name: str = "mongodb_aggregate"
+    connector_id: str = "nodes-base.mongoDb"
     description: str = "Tool for mongoDb aggregate operation - aggregate operation"
     args_schema: type[BaseModel] | None = MongodbAggregateToolInput
     credentials: Optional[MongodbCredentials] = None

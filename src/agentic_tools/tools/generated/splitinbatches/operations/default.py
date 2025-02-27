@@ -9,5 +9,6 @@ class SplitinbatchesDefaultToolInput(BaseModel):
 
 class SplitinbatchesDefaultTool(BaseTool):
     name: str = "splitinbatches_default"
+    connector_id: str = "nodes-base.splitInBatches"
     description: str = "Tool for splitInBatches default operation - default operation"
     args_schema: type[BaseModel] | None = SplitinbatchesDefaultToolInput

@@ -19,6 +19,7 @@ class ZendeskRecoverToolInput(BaseModel):
 
 class ZendeskRecoverTool(BaseTool):
     name: str = "zendesk_recover"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk recover operation - recover operation"
     args_schema: type[BaseModel] | None = ZendeskRecoverToolInput
     credentials: Optional[ZendeskCredentials] = None

@@ -18,6 +18,7 @@ class AirtableCreateToolInput(BaseModel):
 
 class AirtableCreateTool(BaseTool):
     name: str = "airtable_create"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable create operation - create operation"
     args_schema: type[BaseModel] | None = AirtableCreateToolInput
     credentials: Optional[AirtableCredentials] = None

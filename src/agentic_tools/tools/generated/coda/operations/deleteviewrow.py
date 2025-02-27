@@ -18,6 +18,7 @@ class CodaDeleteviewrowToolInput(BaseModel):
 
 class CodaDeleteviewrowTool(BaseTool):
     name: str = "coda_deleteviewrow"
+    connector_id: str = "nodes-base.coda"
     description: str = "Tool for coda deleteViewRow operation - deleteViewRow operation"
     args_schema: type[BaseModel] | None = CodaDeleteviewrowToolInput
     credentials: Optional[CodaCredentials] = None

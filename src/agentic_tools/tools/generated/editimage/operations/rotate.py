@@ -16,5 +16,6 @@ class EditimageRotateToolInput(BaseModel):
 
 class EditimageRotateTool(BaseTool):
     name: str = "editimage_rotate"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage rotate operation - rotate operation"
     args_schema: type[BaseModel] | None = EditimageRotateToolInput

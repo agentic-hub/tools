@@ -25,6 +25,7 @@ class DiscourseCreateToolInput(BaseModel):
 
 class DiscourseCreateTool(BaseTool):
     name: str = "discourse_create"
+    connector_id: str = "nodes-base.discourse"
     description: str = "Tool for discourse create operation - create operation"
     args_schema: type[BaseModel] | None = DiscourseCreateToolInput
     credentials: Optional[DiscourseCredentials] = None

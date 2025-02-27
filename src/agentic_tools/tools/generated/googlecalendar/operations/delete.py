@@ -15,6 +15,7 @@ class GooglecalendarDeleteToolInput(BaseModel):
 
 class GooglecalendarDeleteTool(BaseTool):
     name: str = "googlecalendar_delete"
+    connector_id: str = "nodes-base.googleCalendar"
     description: str = "Tool for googleCalendar delete operation - delete operation"
     args_schema: type[BaseModel] | None = GooglecalendarDeleteToolInput
     credentials: Optional[GooglecalendarCredentials] = None

@@ -32,6 +32,7 @@ class ActivecampaignUpdatenoteToolInput(BaseModel):
 
 class ActivecampaignUpdatenoteTool(BaseTool):
     name: str = "activecampaign_updatenote"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign updateNote operation - updateNote operation"
     args_schema: type[BaseModel] | None = ActivecampaignUpdatenoteToolInput
     credentials: Optional[ActivecampaignCredentials] = None

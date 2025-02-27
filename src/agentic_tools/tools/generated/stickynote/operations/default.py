@@ -10,5 +10,6 @@ class StickynoteDefaultToolInput(BaseModel):
 
 class StickynoteDefaultTool(BaseTool):
     name: str = "stickynote_default"
+    connector_id: str = "nodes-base.stickyNote"
     description: str = "Tool for stickyNote default operation - default operation"
     args_schema: type[BaseModel] | None = StickynoteDefaultToolInput

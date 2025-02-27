@@ -18,6 +18,7 @@ class CodaCreaterowToolInput(BaseModel):
 
 class CodaCreaterowTool(BaseTool):
     name: str = "coda_createrow"
+    connector_id: str = "nodes-base.coda"
     description: str = "Tool for coda createRow operation - createRow operation"
     args_schema: type[BaseModel] | None = CodaCreaterowToolInput
     credentials: Optional[CodaCredentials] = None

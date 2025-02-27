@@ -23,6 +23,7 @@ class MondaycomCreateToolInput(BaseModel):
 
 class MondaycomCreateTool(BaseTool):
     name: str = "mondaycom_create"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom create operation - create operation"
     args_schema: type[BaseModel] | None = MondaycomCreateToolInput
     credentials: Optional[MondaycomCredentials] = None

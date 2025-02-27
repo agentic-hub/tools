@@ -12,6 +12,7 @@ class GooglefirebaserealtimedatabasePushToolInput(BaseModel):
 
 class GooglefirebaserealtimedatabasePushTool(BaseTool):
     name: str = "googlefirebaserealtimedatabase_push"
+    connector_id: str = "nodes-base.googleFirebaseRealtimeDatabase"
     description: str = "Tool for googleFirebaseRealtimeDatabase push operation - push operation"
     args_schema: type[BaseModel] | None = GooglefirebaserealtimedatabasePushToolInput
     credentials: Optional[GooglefirebaserealtimedatabaseCredentials] = None

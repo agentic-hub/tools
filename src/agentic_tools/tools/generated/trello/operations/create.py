@@ -27,6 +27,7 @@ class TrelloCreateToolInput(BaseModel):
 
 class TrelloCreateTool(BaseTool):
     name: str = "trello_create"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello create operation - create operation"
     args_schema: type[BaseModel] | None = TrelloCreateToolInput
     credentials: Optional[TrelloCredentials] = None

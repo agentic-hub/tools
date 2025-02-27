@@ -12,6 +12,7 @@ class LinearDeleteToolInput(BaseModel):
 
 class LinearDeleteTool(BaseTool):
     name: str = "linear_delete"
+    connector_id: str = "nodes-base.linear"
     description: str = "Tool for linear delete operation - delete operation"
     args_schema: type[BaseModel] | None = LinearDeleteToolInput
     credentials: Optional[LinearCredentials] = None

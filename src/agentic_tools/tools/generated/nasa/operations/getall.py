@@ -15,6 +15,7 @@ class NasaGetallToolInput(BaseModel):
 
 class NasaGetallTool(BaseTool):
     name: str = "nasa_getall"
+    connector_id: str = "nodes-base.nasa"
     description: str = "Tool for nasa getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = NasaGetallToolInput
     credentials: Optional[NasaCredentials] = None

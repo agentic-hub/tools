@@ -31,6 +31,7 @@ class PipedriveUpdateToolInput(BaseModel):
 
 class PipedriveUpdateTool(BaseTool):
     name: str = "pipedrive_update"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive update operation - update operation"
     args_schema: type[BaseModel] | None = PipedriveUpdateToolInput
     credentials: Optional[PipedriveCredentials] = None

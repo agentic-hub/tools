@@ -9,5 +9,6 @@ class PostbinDeleteToolInput(BaseModel):
 
 class PostbinDeleteTool(BaseTool):
     name: str = "postbin_delete"
+    connector_id: str = "nodes-base.postBin"
     description: str = "Tool for postBin delete operation - delete operation"
     args_schema: type[BaseModel] | None = PostbinDeleteToolInput

@@ -17,6 +17,7 @@ class AwssesGetallToolInput(BaseModel):
 
 class AwssesGetallTool(BaseTool):
     name: str = "awsses_getall"
+    connector_id: str = "nodes-base.awsSes"
     description: str = "Tool for awsSes getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = AwssesGetallToolInput
     credentials: Optional[AwssesCredentials] = None

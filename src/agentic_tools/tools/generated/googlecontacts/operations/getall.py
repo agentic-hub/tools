@@ -18,6 +18,7 @@ class GooglecontactsGetallToolInput(BaseModel):
 
 class GooglecontactsGetallTool(BaseTool):
     name: str = "googlecontacts_getall"
+    connector_id: str = "nodes-base.googleContacts"
     description: str = "Tool for googleContacts getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GooglecontactsGetallToolInput
     credentials: Optional[GooglecontactsCredentials] = None

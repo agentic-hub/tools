@@ -21,6 +21,7 @@ class StripeGetallToolInput(BaseModel):
 
 class StripeGetallTool(BaseTool):
     name: str = "stripe_getall"
+    connector_id: str = "nodes-base.stripe"
     description: str = "Tool for stripe getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = StripeGetallToolInput
     credentials: Optional[StripeCredentials] = None

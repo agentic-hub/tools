@@ -23,6 +23,7 @@ class GooglesheetsReadToolInput(BaseModel):
 
 class GooglesheetsReadTool(BaseTool):
     name: str = "googlesheets_read"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets read operation - read operation"
     args_schema: type[BaseModel] | None = GooglesheetsReadToolInput
     credentials: Optional[GooglesheetsCredentials] = None

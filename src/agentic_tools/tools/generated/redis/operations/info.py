@@ -17,6 +17,7 @@ class RedisInfoToolInput(BaseModel):
 
 class RedisInfoTool(BaseTool):
     name: str = "redis_info"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis info operation - info operation"
     args_schema: type[BaseModel] | None = RedisInfoToolInput
     credentials: Optional[RedisCredentials] = None

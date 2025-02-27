@@ -26,6 +26,7 @@ class SlackGetToolInput(BaseModel):
 
 class SlackGetTool(BaseTool):
     name: str = "slack_get"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack get operation - get operation"
     args_schema: type[BaseModel] | None = SlackGetToolInput
     credentials: Optional[SlackCredentials] = None

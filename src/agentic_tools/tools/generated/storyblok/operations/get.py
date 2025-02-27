@@ -17,6 +17,7 @@ class StoryblokGetToolInput(BaseModel):
 
 class StoryblokGetTool(BaseTool):
     name: str = "storyblok_get"
+    connector_id: str = "nodes-base.storyblok"
     description: str = "Tool for storyblok get operation - get operation"
     args_schema: type[BaseModel] | None = StoryblokGetToolInput
     credentials: Optional[StoryblokCredentials] = None

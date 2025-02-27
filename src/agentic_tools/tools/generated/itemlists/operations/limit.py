@@ -15,5 +15,6 @@ class ItemlistsLimitToolInput(BaseModel):
 
 class ItemlistsLimitTool(BaseTool):
     name: str = "itemlists_limit"
+    connector_id: str = "nodes-base.itemLists"
     description: str = "Tool for itemLists limit operation - limit operation"
     args_schema: type[BaseModel] | None = ItemlistsLimitToolInput

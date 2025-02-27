@@ -22,6 +22,7 @@ class TelegramSendchatactionToolInput(BaseModel):
 
 class TelegramSendchatactionTool(BaseTool):
     name: str = "telegram_sendchataction"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendChatAction operation - sendChatAction operation"
     args_schema: type[BaseModel] | None = TelegramSendchatactionToolInput
     credentials: Optional[TelegramCredentials] = None

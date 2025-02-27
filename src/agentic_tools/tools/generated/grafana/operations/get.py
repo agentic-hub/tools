@@ -18,6 +18,7 @@ class GrafanaGetToolInput(BaseModel):
 
 class GrafanaGetTool(BaseTool):
     name: str = "grafana_get"
+    connector_id: str = "nodes-base.grafana"
     description: str = "Tool for grafana get operation - get operation"
     args_schema: type[BaseModel] | None = GrafanaGetToolInput
     credentials: Optional[GrafanaCredentials] = None

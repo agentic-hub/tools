@@ -21,6 +21,7 @@ class TelegramLeaveToolInput(BaseModel):
 
 class TelegramLeaveTool(BaseTool):
     name: str = "telegram_leave"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram leave operation - leave operation"
     args_schema: type[BaseModel] | None = TelegramLeaveToolInput
     credentials: Optional[TelegramCredentials] = None

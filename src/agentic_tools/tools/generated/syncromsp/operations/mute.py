@@ -21,6 +21,7 @@ class SyncromspMuteToolInput(BaseModel):
 
 class SyncromspMuteTool(BaseTool):
     name: str = "syncromsp_mute"
+    connector_id: str = "nodes-base.syncroMsp"
     description: str = "Tool for syncroMsp mute operation - mute operation"
     args_schema: type[BaseModel] | None = SyncromspMuteToolInput
     credentials: Optional[SyncromspCredentials] = None

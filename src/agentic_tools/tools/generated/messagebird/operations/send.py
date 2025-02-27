@@ -14,6 +14,7 @@ class MessagebirdSendToolInput(BaseModel):
 
 class MessagebirdSendTool(BaseTool):
     name: str = "messagebird_send"
+    connector_id: str = "nodes-base.messageBird"
     description: str = "Tool for messageBird send operation - send operation"
     args_schema: type[BaseModel] | None = MessagebirdSendToolInput
     credentials: Optional[MessagebirdCredentials] = None

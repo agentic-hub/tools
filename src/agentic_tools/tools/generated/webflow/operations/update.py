@@ -16,6 +16,7 @@ class WebflowUpdateToolInput(BaseModel):
 
 class WebflowUpdateTool(BaseTool):
     name: str = "webflow_update"
+    connector_id: str = "nodes-base.webflow"
     description: str = "Tool for webflow update operation - update operation"
     args_schema: type[BaseModel] | None = WebflowUpdateToolInput
     credentials: Optional[WebflowCredentials] = None

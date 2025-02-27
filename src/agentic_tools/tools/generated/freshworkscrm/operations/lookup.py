@@ -34,6 +34,7 @@ class FreshworkscrmLookupToolInput(BaseModel):
 
 class FreshworkscrmLookupTool(BaseTool):
     name: str = "freshworkscrm_lookup"
+    connector_id: str = "nodes-base.freshworksCrm"
     description: str = "Tool for freshworksCrm lookup operation - lookup operation"
     args_schema: type[BaseModel] | None = FreshworkscrmLookupToolInput
     credentials: Optional[FreshworkscrmCredentials] = None

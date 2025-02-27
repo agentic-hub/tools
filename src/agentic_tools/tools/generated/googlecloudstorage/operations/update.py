@@ -21,6 +21,7 @@ class GooglecloudstorageUpdateToolInput(BaseModel):
 
 class GooglecloudstorageUpdateTool(BaseTool):
     name: str = "googlecloudstorage_update"
+    connector_id: str = "nodes-base.googleCloudStorage"
     description: str = "Tool for googleCloudStorage update operation - update operation"
     args_schema: type[BaseModel] | None = GooglecloudstorageUpdateToolInput
     credentials: Optional[GooglecloudstorageCredentials] = None

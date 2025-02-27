@@ -12,6 +12,7 @@ class CloudflareDeleteToolInput(BaseModel):
 
 class CloudflareDeleteTool(BaseTool):
     name: str = "cloudflare_delete"
+    connector_id: str = "nodes-base.cloudflare"
     description: str = "Tool for cloudflare delete operation - delete operation"
     args_schema: type[BaseModel] | None = CloudflareDeleteToolInput
     credentials: Optional[CloudflareCredentials] = None

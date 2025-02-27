@@ -18,6 +18,7 @@ class ContentfulGetToolInput(BaseModel):
 
 class ContentfulGetTool(BaseTool):
     name: str = "contentful_get"
+    connector_id: str = "nodes-base.contentful"
     description: str = "Tool for contentful get operation - get operation"
     args_schema: type[BaseModel] | None = ContentfulGetToolInput
     credentials: Optional[ContentfulCredentials] = None

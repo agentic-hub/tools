@@ -17,6 +17,7 @@ class TapfiliateRemoveToolInput(BaseModel):
 
 class TapfiliateRemoveTool(BaseTool):
     name: str = "tapfiliate_remove"
+    connector_id: str = "nodes-base.tapfiliate"
     description: str = "Tool for tapfiliate remove operation - remove operation"
     args_schema: type[BaseModel] | None = TapfiliateRemoveToolInput
     credentials: Optional[TapfiliateCredentials] = None

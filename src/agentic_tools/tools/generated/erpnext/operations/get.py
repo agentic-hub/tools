@@ -13,6 +13,7 @@ class ErpnextGetToolInput(BaseModel):
 
 class ErpnextGetTool(BaseTool):
     name: str = "erpnext_get"
+    connector_id: str = "nodes-base.erpNext"
     description: str = "Tool for erpNext get operation - get operation"
     args_schema: type[BaseModel] | None = ErpnextGetToolInput
     credentials: Optional[ErpnextCredentials] = None

@@ -19,6 +19,7 @@ class MatrixCreateToolInput(BaseModel):
 
 class MatrixCreateTool(BaseTool):
     name: str = "matrix_create"
+    connector_id: str = "nodes-base.matrix"
     description: str = "Tool for matrix create operation - create operation"
     args_schema: type[BaseModel] | None = MatrixCreateToolInput
     credentials: Optional[MatrixCredentials] = None

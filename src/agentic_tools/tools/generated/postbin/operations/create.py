@@ -9,5 +9,6 @@ class PostbinCreateToolInput(BaseModel):
 
 class PostbinCreateTool(BaseTool):
     name: str = "postbin_create"
+    connector_id: str = "nodes-base.postBin"
     description: str = "Tool for postBin create operation - create operation"
     args_schema: type[BaseModel] | None = PostbinCreateToolInput

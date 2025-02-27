@@ -22,6 +22,7 @@ class Invoiceninja__custom_api_call__ToolInput(BaseModel):
 
 class Invoiceninja__custom_api_call__Tool(BaseTool):
     name: str = "invoiceninja___custom_api_call__"
+    connector_id: str = "nodes-base.invoiceNinja"
     description: str = "Tool for invoiceNinja __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Invoiceninja__custom_api_call__ToolInput
     credentials: Optional[InvoiceninjaCredentials] = None

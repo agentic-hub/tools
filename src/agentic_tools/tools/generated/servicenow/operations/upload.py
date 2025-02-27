@@ -24,6 +24,7 @@ class ServicenowUploadToolInput(BaseModel):
 
 class ServicenowUploadTool(BaseTool):
     name: str = "servicenow_upload"
+    connector_id: str = "nodes-base.serviceNow"
     description: str = "Tool for serviceNow upload operation - upload operation"
     args_schema: type[BaseModel] | None = ServicenowUploadToolInput
     credentials: Optional[ServicenowCredentials] = None

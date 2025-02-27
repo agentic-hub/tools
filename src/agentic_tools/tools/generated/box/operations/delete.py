@@ -26,6 +26,7 @@ class BoxDeleteToolInput(BaseModel):
 
 class BoxDeleteTool(BaseTool):
     name: str = "box_delete"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box delete operation - delete operation"
     args_schema: type[BaseModel] | None = BoxDeleteToolInput
     credentials: Optional[BoxCredentials] = None

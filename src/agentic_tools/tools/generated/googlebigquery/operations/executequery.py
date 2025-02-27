@@ -14,6 +14,7 @@ class GooglebigqueryExecutequeryToolInput(BaseModel):
 
 class GooglebigqueryExecutequeryTool(BaseTool):
     name: str = "googlebigquery_executequery"
+    connector_id: str = "nodes-base.googleBigQuery"
     description: str = "Tool for googleBigQuery executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = GooglebigqueryExecutequeryToolInput
     credentials: Optional[GooglebigqueryCredentials] = None

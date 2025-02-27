@@ -22,6 +22,7 @@ class TwistUnarchiveToolInput(BaseModel):
 
 class TwistUnarchiveTool(BaseTool):
     name: str = "twist_unarchive"
+    connector_id: str = "nodes-base.twist"
     description: str = "Tool for twist unarchive operation - unarchive operation"
     args_schema: type[BaseModel] | None = TwistUnarchiveToolInput
     credentials: Optional[TwistCredentials] = None

@@ -13,6 +13,7 @@ class GoogledocsGetToolInput(BaseModel):
 
 class GoogledocsGetTool(BaseTool):
     name: str = "googledocs_get"
+    connector_id: str = "nodes-base.googleDocs"
     description: str = "Tool for googleDocs get operation - get operation"
     args_schema: type[BaseModel] | None = GoogledocsGetToolInput
     credentials: Optional[GoogledocsCredentials] = None

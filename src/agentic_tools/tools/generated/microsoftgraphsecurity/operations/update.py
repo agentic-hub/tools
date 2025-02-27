@@ -17,6 +17,7 @@ class MicrosoftgraphsecurityUpdateToolInput(BaseModel):
 
 class MicrosoftgraphsecurityUpdateTool(BaseTool):
     name: str = "microsoftgraphsecurity_update"
+    connector_id: str = "nodes-base.microsoftGraphSecurity"
     description: str = "Tool for microsoftGraphSecurity update operation - update operation"
     args_schema: type[BaseModel] | None = MicrosoftgraphsecurityUpdateToolInput
     credentials: Optional[MicrosoftgraphsecurityCredentials] = None

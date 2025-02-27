@@ -10,5 +10,6 @@ class PostbinSendToolInput(BaseModel):
 
 class PostbinSendTool(BaseTool):
     name: str = "postbin_send"
+    connector_id: str = "nodes-base.postBin"
     description: str = "Tool for postBin send operation - send operation"
     args_schema: type[BaseModel] | None = PostbinSendToolInput

@@ -24,6 +24,7 @@ class Jira__custom_api_call__ToolInput(BaseModel):
 
 class Jira__custom_api_call__Tool(BaseTool):
     name: str = "jira___custom_api_call__"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Jira__custom_api_call__ToolInput
     credentials: Optional[JiraCredentials] = None

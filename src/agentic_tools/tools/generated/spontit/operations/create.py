@@ -12,6 +12,7 @@ class SpontitCreateToolInput(BaseModel):
 
 class SpontitCreateTool(BaseTool):
     name: str = "spontit_create"
+    connector_id: str = "nodes-base.spontit"
     description: str = "Tool for spontit create operation - create operation"
     args_schema: type[BaseModel] | None = SpontitCreateToolInput
     credentials: Optional[SpontitCredentials] = None

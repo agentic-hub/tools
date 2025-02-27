@@ -22,6 +22,7 @@ class TrelloGetcardsToolInput(BaseModel):
 
 class TrelloGetcardsTool(BaseTool):
     name: str = "trello_getcards"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello getCards operation - getCards operation"
     args_schema: type[BaseModel] | None = TrelloGetcardsToolInput
     credentials: Optional[TrelloCredentials] = None

@@ -21,6 +21,7 @@ class TelegramDeletemessageToolInput(BaseModel):
 
 class TelegramDeletemessageTool(BaseTool):
     name: str = "telegram_deletemessage"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram deleteMessage operation - deleteMessage operation"
     args_schema: type[BaseModel] | None = TelegramDeletemessageToolInput
     credentials: Optional[TelegramCredentials] = None

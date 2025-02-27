@@ -16,6 +16,7 @@ class Webflow__custom_api_call__ToolInput(BaseModel):
 
 class Webflow__custom_api_call__Tool(BaseTool):
     name: str = "webflow___custom_api_call__"
+    connector_id: str = "nodes-base.webflow"
     description: str = "Tool for webflow __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Webflow__custom_api_call__ToolInput
     credentials: Optional[WebflowCredentials] = None

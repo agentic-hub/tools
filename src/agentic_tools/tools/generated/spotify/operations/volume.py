@@ -16,6 +16,7 @@ class SpotifyVolumeToolInput(BaseModel):
 
 class SpotifyVolumeTool(BaseTool):
     name: str = "spotify_volume"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify volume operation - volume operation"
     args_schema: type[BaseModel] | None = SpotifyVolumeToolInput
     credentials: Optional[SpotifyCredentials] = None

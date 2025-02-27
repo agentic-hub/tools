@@ -27,6 +27,7 @@ class MicrosoftexcelDeleteworksheetToolInput(BaseModel):
 
 class MicrosoftexcelDeleteworksheetTool(BaseTool):
     name: str = "microsoftexcel_deleteworksheet"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel deleteWorksheet operation - deleteWorksheet operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelDeleteworksheetToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

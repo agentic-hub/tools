@@ -17,6 +17,7 @@ class WebhookDefaultToolInput(BaseModel):
 
 class WebhookDefaultTool(BaseTool):
     name: str = "webhook_default"
+    connector_id: str = "nodes-base.webhook"
     description: str = "Tool for webhook default operation - default operation"
     args_schema: type[BaseModel] | None = WebhookDefaultToolInput
     credentials: Optional[WebhookCredentials] = None

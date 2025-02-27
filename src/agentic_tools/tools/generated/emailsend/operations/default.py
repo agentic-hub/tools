@@ -11,6 +11,7 @@ class EmailsendDefaultToolInput(BaseModel):
 
 class EmailsendDefaultTool(BaseTool):
     name: str = "emailsend_default"
+    connector_id: str = "nodes-base.emailSend"
     description: str = "Tool for emailSend default operation - default operation"
     args_schema: type[BaseModel] | None = EmailsendDefaultToolInput
     credentials: Optional[EmailsendCredentials] = None

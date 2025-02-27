@@ -41,6 +41,7 @@ class ThehiveprojectPromoteToolInput(BaseModel):
 
 class ThehiveprojectPromoteTool(BaseTool):
     name: str = "thehiveproject_promote"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject promote operation - promote operation"
     args_schema: type[BaseModel] | None = ThehiveprojectPromoteToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

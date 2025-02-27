@@ -11,6 +11,7 @@ class GitUsersetupToolInput(BaseModel):
 
 class GitUsersetupTool(BaseTool):
     name: str = "git_usersetup"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git userSetup operation - userSetup operation"
     args_schema: type[BaseModel] | None = GitUsersetupToolInput
     credentials: Optional[GitCredentials] = None

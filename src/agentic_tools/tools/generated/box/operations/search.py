@@ -25,6 +25,7 @@ class BoxSearchToolInput(BaseModel):
 
 class BoxSearchTool(BaseTool):
     name: str = "box_search"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box search operation - search operation"
     args_schema: type[BaseModel] | None = BoxSearchToolInput
     credentials: Optional[BoxCredentials] = None

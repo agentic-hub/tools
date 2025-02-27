@@ -15,6 +15,7 @@ class GristUpdateToolInput(BaseModel):
 
 class GristUpdateTool(BaseTool):
     name: str = "grist_update"
+    connector_id: str = "nodes-base.grist"
     description: str = "Tool for grist update operation - update operation"
     args_schema: type[BaseModel] | None = GristUpdateToolInput
     credentials: Optional[GristCredentials] = None

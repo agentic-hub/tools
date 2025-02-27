@@ -16,6 +16,7 @@ class VeroCreateToolInput(BaseModel):
 
 class VeroCreateTool(BaseTool):
     name: str = "vero_create"
+    connector_id: str = "nodes-base.vero"
     description: str = "Tool for vero create operation - create operation"
     args_schema: type[BaseModel] | None = VeroCreateToolInput
     credentials: Optional[VeroCredentials] = None

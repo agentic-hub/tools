@@ -23,6 +23,7 @@ class Sentryio__custom_api_call__ToolInput(BaseModel):
 
 class Sentryio__custom_api_call__Tool(BaseTool):
     name: str = "sentryio___custom_api_call__"
+    connector_id: str = "nodes-base.sentryIo"
     description: str = "Tool for sentryIo __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Sentryio__custom_api_call__ToolInput
     credentials: Optional[SentryioCredentials] = None

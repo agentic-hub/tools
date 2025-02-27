@@ -23,6 +23,7 @@ class TrelloGetallToolInput(BaseModel):
 
 class TrelloGetallTool(BaseTool):
     name: str = "trello_getall"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = TrelloGetallToolInput
     credentials: Optional[TrelloCredentials] = None

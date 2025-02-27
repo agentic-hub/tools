@@ -33,6 +33,7 @@ class SalesforceGetallToolInput(BaseModel):
 
 class SalesforceGetallTool(BaseTool):
     name: str = "salesforce_getall"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = SalesforceGetallToolInput
     credentials: Optional[SalesforceCredentials] = None

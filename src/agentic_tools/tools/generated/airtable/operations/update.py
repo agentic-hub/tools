@@ -18,6 +18,7 @@ class AirtableUpdateToolInput(BaseModel):
 
 class AirtableUpdateTool(BaseTool):
     name: str = "airtable_update"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable update operation - update operation"
     args_schema: type[BaseModel] | None = AirtableUpdateToolInput
     credentials: Optional[AirtableCredentials] = None

@@ -24,6 +24,7 @@ class JiraGetallToolInput(BaseModel):
 
 class JiraGetallTool(BaseTool):
     name: str = "jira_getall"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = JiraGetallToolInput
     credentials: Optional[JiraCredentials] = None

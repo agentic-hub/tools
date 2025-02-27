@@ -8,5 +8,6 @@ class ExecutecommandDefaultToolInput(BaseModel):
 
 class ExecutecommandDefaultTool(BaseTool):
     name: str = "executecommand_default"
+    connector_id: str = "nodes-base.executeCommand"
     description: str = "Tool for executeCommand default operation - default operation"
     args_schema: type[BaseModel] | None = ExecutecommandDefaultToolInput

@@ -13,6 +13,7 @@ class TodoistReopenToolInput(BaseModel):
 
 class TodoistReopenTool(BaseTool):
     name: str = "todoist_reopen"
+    connector_id: str = "nodes-base.todoist"
     description: str = "Tool for todoist reopen operation - reopen operation"
     args_schema: type[BaseModel] | None = TodoistReopenToolInput
     credentials: Optional[TodoistCredentials] = None

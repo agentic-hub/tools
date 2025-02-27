@@ -34,6 +34,7 @@ class Clickup__custom_api_call__ToolInput(BaseModel):
 
 class Clickup__custom_api_call__Tool(BaseTool):
     name: str = "clickup___custom_api_call__"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Clickup__custom_api_call__ToolInput
     credentials: Optional[ClickupCredentials] = None

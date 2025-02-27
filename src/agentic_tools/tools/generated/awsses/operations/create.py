@@ -24,6 +24,7 @@ class AwssesCreateToolInput(BaseModel):
 
 class AwssesCreateTool(BaseTool):
     name: str = "awsses_create"
+    connector_id: str = "nodes-base.awsSes"
     description: str = "Tool for awsSes create operation - create operation"
     args_schema: type[BaseModel] | None = AwssesCreateToolInput
     credentials: Optional[AwssesCredentials] = None

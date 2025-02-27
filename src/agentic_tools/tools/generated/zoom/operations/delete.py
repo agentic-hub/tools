@@ -13,6 +13,7 @@ class ZoomDeleteToolInput(BaseModel):
 
 class ZoomDeleteTool(BaseTool):
     name: str = "zoom_delete"
+    connector_id: str = "nodes-base.zoom"
     description: str = "Tool for zoom delete operation - delete operation"
     args_schema: type[BaseModel] | None = ZoomDeleteToolInput
     credentials: Optional[ZoomCredentials] = None

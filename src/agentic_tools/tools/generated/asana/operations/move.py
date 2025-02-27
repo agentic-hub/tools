@@ -24,6 +24,7 @@ class AsanaMoveToolInput(BaseModel):
 
 class AsanaMoveTool(BaseTool):
     name: str = "asana_move"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana move operation - move operation"
     args_schema: type[BaseModel] | None = AsanaMoveToolInput
     credentials: Optional[AsanaCredentials] = None

@@ -28,6 +28,7 @@ class BoxUploadToolInput(BaseModel):
 
 class BoxUploadTool(BaseTool):
     name: str = "box_upload"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box upload operation - upload operation"
     args_schema: type[BaseModel] | None = BoxUploadToolInput
     credentials: Optional[BoxCredentials] = None

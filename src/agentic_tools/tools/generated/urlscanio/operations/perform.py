@@ -12,6 +12,7 @@ class UrlscanioPerformToolInput(BaseModel):
 
 class UrlscanioPerformTool(BaseTool):
     name: str = "urlscanio_perform"
+    connector_id: str = "nodes-base.urlScanIo"
     description: str = "Tool for urlScanIo perform operation - perform operation"
     args_schema: type[BaseModel] | None = UrlscanioPerformToolInput
     credentials: Optional[UrlscanioCredentials] = None

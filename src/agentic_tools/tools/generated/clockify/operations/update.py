@@ -21,6 +21,7 @@ class ClockifyUpdateToolInput(BaseModel):
 
 class ClockifyUpdateTool(BaseTool):
     name: str = "clockify_update"
+    connector_id: str = "nodes-base.clockify"
     description: str = "Tool for clockify update operation - update operation"
     args_schema: type[BaseModel] | None = ClockifyUpdateToolInput
     credentials: Optional[ClockifyCredentials] = None

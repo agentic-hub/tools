@@ -18,6 +18,7 @@ class ShopifyGetallToolInput(BaseModel):
 
 class ShopifyGetallTool(BaseTool):
     name: str = "shopify_getall"
+    connector_id: str = "nodes-base.shopify"
     description: str = "Tool for shopify getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ShopifyGetallToolInput
     credentials: Optional[ShopifyCredentials] = None

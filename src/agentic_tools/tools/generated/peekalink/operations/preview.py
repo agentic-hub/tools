@@ -10,6 +10,7 @@ class PeekalinkPreviewToolInput(BaseModel):
 
 class PeekalinkPreviewTool(BaseTool):
     name: str = "peekalink_preview"
+    connector_id: str = "nodes-base.peekalink"
     description: str = "Tool for peekalink preview operation - preview operation"
     args_schema: type[BaseModel] | None = PeekalinkPreviewToolInput
     credentials: Optional[PeekalinkCredentials] = None

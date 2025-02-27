@@ -19,6 +19,7 @@ class HelpscoutPropertiesToolInput(BaseModel):
 
 class HelpscoutPropertiesTool(BaseTool):
     name: str = "helpscout_properties"
+    connector_id: str = "nodes-base.helpScout"
     description: str = "Tool for helpScout properties operation - properties operation"
     args_schema: type[BaseModel] | None = HelpscoutPropertiesToolInput
     credentials: Optional[HelpscoutCredentials] = None

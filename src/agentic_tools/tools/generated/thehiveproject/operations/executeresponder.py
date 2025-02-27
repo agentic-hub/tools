@@ -41,6 +41,7 @@ class ThehiveprojectExecuteresponderToolInput(BaseModel):
 
 class ThehiveprojectExecuteresponderTool(BaseTool):
     name: str = "thehiveproject_executeresponder"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject executeResponder operation - executeResponder operation"
     args_schema: type[BaseModel] | None = ThehiveprojectExecuteresponderToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

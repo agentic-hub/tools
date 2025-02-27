@@ -11,6 +11,7 @@ class PhilipshueGetToolInput(BaseModel):
 
 class PhilipshueGetTool(BaseTool):
     name: str = "philipshue_get"
+    connector_id: str = "nodes-base.philipsHue"
     description: str = "Tool for philipsHue get operation - get operation"
     args_schema: type[BaseModel] | None = PhilipshueGetToolInput
     credentials: Optional[PhilipshueCredentials] = None

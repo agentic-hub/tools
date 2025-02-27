@@ -10,6 +10,7 @@ class Apitemplateio__custom_api_call__ToolInput(BaseModel):
 
 class Apitemplateio__custom_api_call__Tool(BaseTool):
     name: str = "apitemplateio___custom_api_call__"
+    connector_id: str = "nodes-base.apiTemplateIo"
     description: str = "Tool for apiTemplateIo __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Apitemplateio__custom_api_call__ToolInput
     credentials: Optional[ApitemplateioCredentials] = None

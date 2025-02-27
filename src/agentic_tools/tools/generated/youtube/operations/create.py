@@ -24,6 +24,7 @@ class YoutubeCreateToolInput(BaseModel):
 
 class YoutubeCreateTool(BaseTool):
     name: str = "youtube_create"
+    connector_id: str = "nodes-base.youTube"
     description: str = "Tool for youTube create operation - create operation"
     args_schema: type[BaseModel] | None = YoutubeCreateToolInput
     credentials: Optional[YoutubeCredentials] = None

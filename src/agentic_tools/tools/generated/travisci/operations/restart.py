@@ -12,6 +12,7 @@ class TravisciRestartToolInput(BaseModel):
 
 class TravisciRestartTool(BaseTool):
     name: str = "travisci_restart"
+    connector_id: str = "nodes-base.travisCi"
     description: str = "Tool for travisCi restart operation - restart operation"
     args_schema: type[BaseModel] | None = TravisciRestartToolInput
     credentials: Optional[TravisciCredentials] = None

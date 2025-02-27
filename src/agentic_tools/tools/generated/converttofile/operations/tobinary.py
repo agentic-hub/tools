@@ -10,5 +10,6 @@ class ConverttofileTobinaryToolInput(BaseModel):
 
 class ConverttofileTobinaryTool(BaseTool):
     name: str = "converttofile_tobinary"
+    connector_id: str = "nodes-base.convertToFile"
     description: str = "Tool for convertToFile toBinary operation - toBinary operation"
     args_schema: type[BaseModel] | None = ConverttofileTobinaryToolInput

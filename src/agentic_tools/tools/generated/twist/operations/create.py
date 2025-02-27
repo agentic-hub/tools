@@ -24,6 +24,7 @@ class TwistCreateToolInput(BaseModel):
 
 class TwistCreateTool(BaseTool):
     name: str = "twist_create"
+    connector_id: str = "nodes-base.twist"
     description: str = "Tool for twist create operation - create operation"
     args_schema: type[BaseModel] | None = TwistCreateToolInput
     credentials: Optional[TwistCredentials] = None

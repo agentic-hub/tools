@@ -18,6 +18,7 @@ class OrbitGetToolInput(BaseModel):
 
 class OrbitGetTool(BaseTool):
     name: str = "orbit_get"
+    connector_id: str = "nodes-base.orbit"
     description: str = "Tool for orbit get operation - get operation"
     args_schema: type[BaseModel] | None = OrbitGetToolInput
     credentials: Optional[OrbitCredentials] = None

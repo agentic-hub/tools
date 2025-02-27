@@ -17,6 +17,7 @@ class AwselbGetmanyToolInput(BaseModel):
 
 class AwselbGetmanyTool(BaseTool):
     name: str = "awselb_getmany"
+    connector_id: str = "nodes-base.awsElb"
     description: str = "Tool for awsElb getMany operation - getMany operation"
     args_schema: type[BaseModel] | None = AwselbGetmanyToolInput
     credentials: Optional[AwselbCredentials] = None

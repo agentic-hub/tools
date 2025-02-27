@@ -24,6 +24,7 @@ class YoutubeDeleteToolInput(BaseModel):
 
 class YoutubeDeleteTool(BaseTool):
     name: str = "youtube_delete"
+    connector_id: str = "nodes-base.youTube"
     description: str = "Tool for youTube delete operation - delete operation"
     args_schema: type[BaseModel] | None = YoutubeDeleteToolInput
     credentials: Optional[YoutubeCredentials] = None

@@ -15,5 +15,6 @@ class DatetimeSubtractfromdateToolInput(BaseModel):
 
 class DatetimeSubtractfromdateTool(BaseTool):
     name: str = "datetime_subtractfromdate"
+    connector_id: str = "nodes-base.dateTime"
     description: str = "Tool for dateTime subtractFromDate operation - subtractFromDate operation"
     args_schema: type[BaseModel] | None = DatetimeSubtractfromdateToolInput

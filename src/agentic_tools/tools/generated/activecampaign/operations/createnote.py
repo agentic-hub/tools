@@ -31,6 +31,7 @@ class ActivecampaignCreatenoteToolInput(BaseModel):
 
 class ActivecampaignCreatenoteTool(BaseTool):
     name: str = "activecampaign_createnote"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign createNote operation - createNote operation"
     args_schema: type[BaseModel] | None = ActivecampaignCreatenoteToolInput
     credentials: Optional[ActivecampaignCredentials] = None

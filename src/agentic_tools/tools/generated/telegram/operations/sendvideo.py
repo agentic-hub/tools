@@ -23,6 +23,7 @@ class TelegramSendvideoToolInput(BaseModel):
 
 class TelegramSendvideoTool(BaseTool):
     name: str = "telegram_sendvideo"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendVideo operation - sendVideo operation"
     args_schema: type[BaseModel] | None = TelegramSendvideoToolInput
     credentials: Optional[TelegramCredentials] = None

@@ -16,6 +16,7 @@ class CustomerioDeleteToolInput(BaseModel):
 
 class CustomerioDeleteTool(BaseTool):
     name: str = "customerio_delete"
+    connector_id: str = "nodes-base.customerIo"
     description: str = "Tool for customerIo delete operation - delete operation"
     args_schema: type[BaseModel] | None = CustomerioDeleteToolInput
     credentials: Optional[CustomerioCredentials] = None

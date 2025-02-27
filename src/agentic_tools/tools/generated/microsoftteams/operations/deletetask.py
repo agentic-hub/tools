@@ -22,6 +22,7 @@ class MicrosoftteamsDeletetaskToolInput(BaseModel):
 
 class MicrosoftteamsDeletetaskTool(BaseTool):
     name: str = "microsoftteams_deletetask"
+    connector_id: str = "nodes-base.microsoftTeams"
     description: str = "Tool for microsoftTeams deleteTask operation - deleteTask operation"
     args_schema: type[BaseModel] | None = MicrosoftteamsDeletetaskToolInput
     credentials: Optional[MicrosoftteamsCredentials] = None

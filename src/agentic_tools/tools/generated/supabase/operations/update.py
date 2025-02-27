@@ -19,6 +19,7 @@ class SupabaseUpdateToolInput(BaseModel):
 
 class SupabaseUpdateTool(BaseTool):
     name: str = "supabase_update"
+    connector_id: str = "nodes-base.supabase"
     description: str = "Tool for supabase update operation - update operation"
     args_schema: type[BaseModel] | None = SupabaseUpdateToolInput
     credentials: Optional[SupabaseCredentials] = None

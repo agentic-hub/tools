@@ -16,6 +16,7 @@ class WebflowDeleteToolInput(BaseModel):
 
 class WebflowDeleteTool(BaseTool):
     name: str = "webflow_delete"
+    connector_id: str = "nodes-base.webflow"
     description: str = "Tool for webflow delete operation - delete operation"
     args_schema: type[BaseModel] | None = WebflowDeleteToolInput
     credentials: Optional[WebflowCredentials] = None

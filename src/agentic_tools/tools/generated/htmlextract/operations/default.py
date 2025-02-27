@@ -10,5 +10,6 @@ class HtmlextractDefaultToolInput(BaseModel):
 
 class HtmlextractDefaultTool(BaseTool):
     name: str = "htmlextract_default"
+    connector_id: str = "nodes-base.htmlExtract"
     description: str = "Tool for htmlExtract default operation - default operation"
     args_schema: type[BaseModel] | None = HtmlextractDefaultToolInput

@@ -10,5 +10,6 @@ class RemoveduplicatesDefaultToolInput(BaseModel):
 
 class RemoveduplicatesDefaultTool(BaseTool):
     name: str = "removeduplicates_default"
+    connector_id: str = "nodes-base.removeDuplicates"
     description: str = "Tool for removeDuplicates default operation - default operation"
     args_schema: type[BaseModel] | None = RemoveduplicatesDefaultToolInput

@@ -10,6 +10,7 @@ class AwssnsDeleteToolInput(BaseModel):
 
 class AwssnsDeleteTool(BaseTool):
     name: str = "awssns_delete"
+    connector_id: str = "nodes-base.awsSns"
     description: str = "Tool for awsSns delete operation - delete operation"
     args_schema: type[BaseModel] | None = AwssnsDeleteToolInput
     credentials: Optional[AwssnsCredentials] = None

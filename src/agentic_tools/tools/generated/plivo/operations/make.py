@@ -15,6 +15,7 @@ class PlivoMakeToolInput(BaseModel):
 
 class PlivoMakeTool(BaseTool):
     name: str = "plivo_make"
+    connector_id: str = "nodes-base.plivo"
     description: str = "Tool for plivo make operation - make operation"
     args_schema: type[BaseModel] | None = PlivoMakeToolInput
     credentials: Optional[PlivoCredentials] = None

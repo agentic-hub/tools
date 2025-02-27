@@ -19,6 +19,7 @@ class RedditGetToolInput(BaseModel):
 
 class RedditGetTool(BaseTool):
     name: str = "reddit_get"
+    connector_id: str = "nodes-base.reddit"
     description: str = "Tool for reddit get operation - get operation"
     args_schema: type[BaseModel] | None = RedditGetToolInput
     credentials: Optional[RedditCredentials] = None

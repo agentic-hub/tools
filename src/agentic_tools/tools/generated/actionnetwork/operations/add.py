@@ -22,6 +22,7 @@ class ActionnetworkAddToolInput(BaseModel):
 
 class ActionnetworkAddTool(BaseTool):
     name: str = "actionnetwork_add"
+    connector_id: str = "nodes-base.actionNetwork"
     description: str = "Tool for actionNetwork add operation - add operation"
     args_schema: type[BaseModel] | None = ActionnetworkAddToolInput
     credentials: Optional[ActionnetworkCredentials] = None

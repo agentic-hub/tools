@@ -24,6 +24,7 @@ class HarvestCreatebydurationToolInput(BaseModel):
 
 class HarvestCreatebydurationTool(BaseTool):
     name: str = "harvest_createbyduration"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest createByDuration operation - createByDuration operation"
     args_schema: type[BaseModel] | None = HarvestCreatebydurationToolInput
     credentials: Optional[HarvestCredentials] = None

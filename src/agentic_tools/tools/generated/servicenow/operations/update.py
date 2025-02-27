@@ -23,6 +23,7 @@ class ServicenowUpdateToolInput(BaseModel):
 
 class ServicenowUpdateTool(BaseTool):
     name: str = "servicenow_update"
+    connector_id: str = "nodes-base.serviceNow"
     description: str = "Tool for serviceNow update operation - update operation"
     args_schema: type[BaseModel] | None = ServicenowUpdateToolInput
     credentials: Optional[ServicenowCredentials] = None

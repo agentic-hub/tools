@@ -13,6 +13,7 @@ class PosthogScreenToolInput(BaseModel):
 
 class PosthogScreenTool(BaseTool):
     name: str = "posthog_screen"
+    connector_id: str = "nodes-base.postHog"
     description: str = "Tool for postHog screen operation - screen operation"
     args_schema: type[BaseModel] | None = PosthogScreenToolInput
     credentials: Optional[PosthogCredentials] = None

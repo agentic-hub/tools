@@ -9,5 +9,6 @@ class ExtractfromfileCsvToolInput(BaseModel):
 
 class ExtractfromfileCsvTool(BaseTool):
     name: str = "extractfromfile_csv"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile csv operation - csv operation"
     args_schema: type[BaseModel] | None = ExtractfromfileCsvToolInput

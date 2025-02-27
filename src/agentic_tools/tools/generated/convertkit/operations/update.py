@@ -16,6 +16,7 @@ class ConvertkitUpdateToolInput(BaseModel):
 
 class ConvertkitUpdateTool(BaseTool):
     name: str = "convertkit_update"
+    connector_id: str = "nodes-base.convertKit"
     description: str = "Tool for convertKit update operation - update operation"
     args_schema: type[BaseModel] | None = ConvertkitUpdateToolInput
     credentials: Optional[ConvertkitCredentials] = None

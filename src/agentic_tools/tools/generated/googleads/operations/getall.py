@@ -14,6 +14,7 @@ class GoogleadsGetallToolInput(BaseModel):
 
 class GoogleadsGetallTool(BaseTool):
     name: str = "googleads_getall"
+    connector_id: str = "nodes-base.googleAds"
     description: str = "Tool for googleAds getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GoogleadsGetallToolInput
     credentials: Optional[GoogleadsCredentials] = None

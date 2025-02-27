@@ -33,6 +33,7 @@ class ZohocrmGetallToolInput(BaseModel):
 
 class ZohocrmGetallTool(BaseTool):
     name: str = "zohocrm_getall"
+    connector_id: str = "nodes-base.zohoCrm"
     description: str = "Tool for zohoCrm getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ZohocrmGetallToolInput
     credentials: Optional[ZohocrmCredentials] = None

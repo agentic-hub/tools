@@ -23,6 +23,7 @@ class MauticAddToolInput(BaseModel):
 
 class MauticAddTool(BaseTool):
     name: str = "mautic_add"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic add operation - add operation"
     args_schema: type[BaseModel] | None = MauticAddToolInput
     credentials: Optional[MauticCredentials] = None

@@ -22,6 +22,7 @@ class TelegramMemberToolInput(BaseModel):
 
 class TelegramMemberTool(BaseTool):
     name: str = "telegram_member"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram member operation - member operation"
     args_schema: type[BaseModel] | None = TelegramMemberToolInput
     credentials: Optional[TelegramCredentials] = None

@@ -13,6 +13,7 @@ class GoogleslidesGetToolInput(BaseModel):
 
 class GoogleslidesGetTool(BaseTool):
     name: str = "googleslides_get"
+    connector_id: str = "nodes-base.googleSlides"
     description: str = "Tool for googleSlides get operation - get operation"
     args_schema: type[BaseModel] | None = GoogleslidesGetToolInput
     credentials: Optional[GoogleslidesCredentials] = None

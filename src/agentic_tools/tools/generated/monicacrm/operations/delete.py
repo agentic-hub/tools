@@ -32,6 +32,7 @@ class MonicacrmDeleteToolInput(BaseModel):
 
 class MonicacrmDeleteTool(BaseTool):
     name: str = "monicacrm_delete"
+    connector_id: str = "nodes-base.monicaCrm"
     description: str = "Tool for monicaCrm delete operation - delete operation"
     args_schema: type[BaseModel] | None = MonicacrmDeleteToolInput
     credentials: Optional[MonicacrmCredentials] = None

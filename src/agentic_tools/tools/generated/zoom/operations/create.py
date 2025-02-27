@@ -14,6 +14,7 @@ class ZoomCreateToolInput(BaseModel):
 
 class ZoomCreateTool(BaseTool):
     name: str = "zoom_create"
+    connector_id: str = "nodes-base.zoom"
     description: str = "Tool for zoom create operation - create operation"
     args_schema: type[BaseModel] | None = ZoomCreateToolInput
     credentials: Optional[ZoomCredentials] = None

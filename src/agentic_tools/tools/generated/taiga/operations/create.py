@@ -21,6 +21,7 @@ class TaigaCreateToolInput(BaseModel):
 
 class TaigaCreateTool(BaseTool):
     name: str = "taiga_create"
+    connector_id: str = "nodes-base.taiga"
     description: str = "Tool for taiga create operation - create operation"
     args_schema: type[BaseModel] | None = TaigaCreateToolInput
     credentials: Optional[TaigaCredentials] = None

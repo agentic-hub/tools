@@ -25,6 +25,7 @@ class PostgresDeletetableToolInput(BaseModel):
 
 class PostgresDeletetableTool(BaseTool):
     name: str = "postgres_deletetable"
+    connector_id: str = "nodes-base.postgres"
     description: str = "Tool for postgres deleteTable operation - deleteTable operation"
     args_schema: type[BaseModel] | None = PostgresDeletetableToolInput
     credentials: Optional[PostgresCredentials] = None

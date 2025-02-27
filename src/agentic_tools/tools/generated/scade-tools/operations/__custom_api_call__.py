@@ -19,6 +19,7 @@ class Scade-tools__custom_api_call__ToolInput(BaseModel):
 
 class Scade-tools__custom_api_call__Tool(BaseTool):
     name: str = "scade-tools___custom_api_call__"
+    connector_id: str = "nodes-base.scade-tools"
     description: str = "Tool for scade-tools __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Scade-tools__custom_api_call__ToolInput
     credentials: Optional[Scade-toolsCredentials] = None

@@ -39,6 +39,7 @@ class ElasticsecurityCreateToolInput(BaseModel):
 
 class ElasticsecurityCreateTool(BaseTool):
     name: str = "elasticsecurity_create"
+    connector_id: str = "nodes-base.elasticSecurity"
     description: str = "Tool for elasticSecurity create operation - create operation"
     args_schema: type[BaseModel] | None = ElasticsecurityCreateToolInput
     credentials: Optional[ElasticsecurityCredentials] = None

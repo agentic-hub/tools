@@ -15,6 +15,7 @@ class UpleadEnrichToolInput(BaseModel):
 
 class UpleadEnrichTool(BaseTool):
     name: str = "uplead_enrich"
+    connector_id: str = "nodes-base.uplead"
     description: str = "Tool for uplead enrich operation - enrich operation"
     args_schema: type[BaseModel] | None = UpleadEnrichToolInput
     credentials: Optional[UpleadCredentials] = None

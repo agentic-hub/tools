@@ -13,6 +13,7 @@ class GitAddconfigToolInput(BaseModel):
 
 class GitAddconfigTool(BaseTool):
     name: str = "git_addconfig"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git addConfig operation - addConfig operation"
     args_schema: type[BaseModel] | None = GitAddconfigToolInput
     credentials: Optional[GitCredentials] = None

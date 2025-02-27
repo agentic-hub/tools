@@ -22,6 +22,7 @@ class SalesmateGetallToolInput(BaseModel):
 
 class SalesmateGetallTool(BaseTool):
     name: str = "salesmate_getall"
+    connector_id: str = "nodes-base.salesmate"
     description: str = "Tool for salesmate getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = SalesmateGetallToolInput
     credentials: Optional[SalesmateCredentials] = None

@@ -24,6 +24,7 @@ class Harvest__custom_api_call__ToolInput(BaseModel):
 
 class Harvest__custom_api_call__Tool(BaseTool):
     name: str = "harvest___custom_api_call__"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Harvest__custom_api_call__ToolInput
     credentials: Optional[HarvestCredentials] = None

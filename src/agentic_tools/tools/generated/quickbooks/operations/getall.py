@@ -29,6 +29,7 @@ class QuickbooksGetallToolInput(BaseModel):
 
 class QuickbooksGetallTool(BaseTool):
     name: str = "quickbooks_getall"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = QuickbooksGetallToolInput
     credentials: Optional[QuickbooksCredentials] = None

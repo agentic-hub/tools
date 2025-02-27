@@ -17,6 +17,7 @@ class SendgridGetallToolInput(BaseModel):
 
 class SendgridGetallTool(BaseTool):
     name: str = "sendgrid_getall"
+    connector_id: str = "nodes-base.sendGrid"
     description: str = "Tool for sendGrid getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = SendgridGetallToolInput
     credentials: Optional[SendgridCredentials] = None

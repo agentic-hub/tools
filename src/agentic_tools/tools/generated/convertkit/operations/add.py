@@ -16,6 +16,7 @@ class ConvertkitAddToolInput(BaseModel):
 
 class ConvertkitAddTool(BaseTool):
     name: str = "convertkit_add"
+    connector_id: str = "nodes-base.convertKit"
     description: str = "Tool for convertKit add operation - add operation"
     args_schema: type[BaseModel] | None = ConvertkitAddToolInput
     credentials: Optional[ConvertkitCredentials] = None

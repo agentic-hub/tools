@@ -16,6 +16,7 @@ class AwselbGetToolInput(BaseModel):
 
 class AwselbGetTool(BaseTool):
     name: str = "awselb_get"
+    connector_id: str = "nodes-base.awsElb"
     description: str = "Tool for awsElb get operation - get operation"
     args_schema: type[BaseModel] | None = AwselbGetToolInput
     credentials: Optional[AwselbCredentials] = None

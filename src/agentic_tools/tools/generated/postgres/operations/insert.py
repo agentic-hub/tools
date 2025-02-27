@@ -23,6 +23,7 @@ class PostgresInsertToolInput(BaseModel):
 
 class PostgresInsertTool(BaseTool):
     name: str = "postgres_insert"
+    connector_id: str = "nodes-base.postgres"
     description: str = "Tool for postgres insert operation - insert operation"
     args_schema: type[BaseModel] | None = PostgresInsertToolInput
     credentials: Optional[PostgresCredentials] = None

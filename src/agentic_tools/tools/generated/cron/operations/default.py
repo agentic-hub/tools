@@ -8,5 +8,6 @@ class CronDefaultToolInput(BaseModel):
 
 class CronDefaultTool(BaseTool):
     name: str = "cron_default"
+    connector_id: str = "nodes-base.cron"
     description: str = "Tool for cron default operation - default operation"
     args_schema: type[BaseModel] | None = CronDefaultToolInput

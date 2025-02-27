@@ -30,6 +30,7 @@ class JiraCreateToolInput(BaseModel):
 
 class JiraCreateTool(BaseTool):
     name: str = "jira_create"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira create operation - create operation"
     args_schema: type[BaseModel] | None = JiraCreateToolInput
     credentials: Optional[JiraCredentials] = None

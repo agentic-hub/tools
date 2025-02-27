@@ -16,5 +16,6 @@ class CoingeckoHistoryToolInput(BaseModel):
 
 class CoingeckoHistoryTool(BaseTool):
     name: str = "coingecko_history"
+    connector_id: str = "nodes-base.coinGecko"
     description: str = "Tool for coinGecko history operation - history operation"
     args_schema: type[BaseModel] | None = CoingeckoHistoryToolInput

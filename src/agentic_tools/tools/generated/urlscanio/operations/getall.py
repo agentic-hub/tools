@@ -13,6 +13,7 @@ class UrlscanioGetallToolInput(BaseModel):
 
 class UrlscanioGetallTool(BaseTool):
     name: str = "urlscanio_getall"
+    connector_id: str = "nodes-base.urlScanIo"
     description: str = "Tool for urlScanIo getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = UrlscanioGetallToolInput
     credentials: Optional[UrlscanioCredentials] = None

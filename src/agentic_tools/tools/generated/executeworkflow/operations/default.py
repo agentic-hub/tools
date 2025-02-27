@@ -15,5 +15,6 @@ class ExecuteworkflowDefaultToolInput(BaseModel):
 
 class ExecuteworkflowDefaultTool(BaseTool):
     name: str = "executeworkflow_default"
+    connector_id: str = "nodes-base.executeWorkflow"
     description: str = "Tool for executeWorkflow default operation - default operation"
     args_schema: type[BaseModel] | None = ExecuteworkflowDefaultToolInput

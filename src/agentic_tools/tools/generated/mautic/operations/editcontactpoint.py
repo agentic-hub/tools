@@ -22,6 +22,7 @@ class MauticEditcontactpointToolInput(BaseModel):
 
 class MauticEditcontactpointTool(BaseTool):
     name: str = "mautic_editcontactpoint"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic editContactPoint operation - editContactPoint operation"
     args_schema: type[BaseModel] | None = MauticEditcontactpointToolInput
     credentials: Optional[MauticCredentials] = None

@@ -33,6 +33,7 @@ class SalesforceDeleteToolInput(BaseModel):
 
 class SalesforceDeleteTool(BaseTool):
     name: str = "salesforce_delete"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce delete operation - delete operation"
     args_schema: type[BaseModel] | None = SalesforceDeleteToolInput
     credentials: Optional[SalesforceCredentials] = None

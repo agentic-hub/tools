@@ -17,6 +17,7 @@ class CustomerioGetmetricsToolInput(BaseModel):
 
 class CustomerioGetmetricsTool(BaseTool):
     name: str = "customerio_getmetrics"
+    connector_id: str = "nodes-base.customerIo"
     description: str = "Tool for customerIo getMetrics operation - getMetrics operation"
     args_schema: type[BaseModel] | None = CustomerioGetmetricsToolInput
     credentials: Optional[CustomerioCredentials] = None

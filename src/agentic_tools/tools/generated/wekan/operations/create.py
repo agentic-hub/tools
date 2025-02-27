@@ -26,6 +26,7 @@ class WekanCreateToolInput(BaseModel):
 
 class WekanCreateTool(BaseTool):
     name: str = "wekan_create"
+    connector_id: str = "nodes-base.wekan"
     description: str = "Tool for wekan create operation - create operation"
     args_schema: type[BaseModel] | None = WekanCreateToolInput
     credentials: Optional[WekanCredentials] = None

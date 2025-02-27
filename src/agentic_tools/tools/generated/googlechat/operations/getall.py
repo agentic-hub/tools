@@ -16,6 +16,7 @@ class GooglechatGetallToolInput(BaseModel):
 
 class GooglechatGetallTool(BaseTool):
     name: str = "googlechat_getall"
+    connector_id: str = "nodes-base.googleChat"
     description: str = "Tool for googleChat getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GooglechatGetallToolInput
     credentials: Optional[GooglechatCredentials] = None

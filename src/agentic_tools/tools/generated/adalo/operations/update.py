@@ -15,6 +15,7 @@ class AdaloUpdateToolInput(BaseModel):
 
 class AdaloUpdateTool(BaseTool):
     name: str = "adalo_update"
+    connector_id: str = "nodes-base.adalo"
     description: str = "Tool for adalo update operation - update operation"
     args_schema: type[BaseModel] | None = AdaloUpdateToolInput
     credentials: Optional[AdaloCredentials] = None

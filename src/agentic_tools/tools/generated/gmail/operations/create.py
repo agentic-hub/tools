@@ -24,6 +24,7 @@ class GmailCreateToolInput(BaseModel):
 
 class GmailCreateTool(BaseTool):
     name: str = "gmail_create"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail create operation - create operation"
     args_schema: type[BaseModel] | None = GmailCreateToolInput
     credentials: Optional[GmailCredentials] = None

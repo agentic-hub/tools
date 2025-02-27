@@ -10,6 +10,7 @@ class Metabase__custom_api_call__ToolInput(BaseModel):
 
 class Metabase__custom_api_call__Tool(BaseTool):
     name: str = "metabase___custom_api_call__"
+    connector_id: str = "nodes-base.metabase"
     description: str = "Tool for metabase __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Metabase__custom_api_call__ToolInput
     credentials: Optional[MetabaseCredentials] = None

@@ -12,6 +12,7 @@ class ChargebeePdfurlToolInput(BaseModel):
 
 class ChargebeePdfurlTool(BaseTool):
     name: str = "chargebee_pdfurl"
+    connector_id: str = "nodes-base.chargebee"
     description: str = "Tool for chargebee pdfUrl operation - pdfUrl operation"
     args_schema: type[BaseModel] | None = ChargebeePdfurlToolInput
     credentials: Optional[ChargebeeCredentials] = None

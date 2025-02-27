@@ -17,6 +17,7 @@ class TwitterAddToolInput(BaseModel):
 
 class TwitterAddTool(BaseTool):
     name: str = "twitter_add"
+    connector_id: str = "nodes-base.twitter"
     description: str = "Tool for twitter add operation - add operation"
     args_schema: type[BaseModel] | None = TwitterAddToolInput
     credentials: Optional[TwitterCredentials] = None

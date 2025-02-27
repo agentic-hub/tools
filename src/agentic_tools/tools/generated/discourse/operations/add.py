@@ -20,6 +20,7 @@ class DiscourseAddToolInput(BaseModel):
 
 class DiscourseAddTool(BaseTool):
     name: str = "discourse_add"
+    connector_id: str = "nodes-base.discourse"
     description: str = "Tool for discourse add operation - add operation"
     args_schema: type[BaseModel] | None = DiscourseAddToolInput
     credentials: Optional[DiscourseCredentials] = None

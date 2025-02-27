@@ -18,6 +18,7 @@ class RedisSetToolInput(BaseModel):
 
 class RedisSetTool(BaseTool):
     name: str = "redis_set"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis set operation - set operation"
     args_schema: type[BaseModel] | None = RedisSetToolInput
     credentials: Optional[RedisCredentials] = None

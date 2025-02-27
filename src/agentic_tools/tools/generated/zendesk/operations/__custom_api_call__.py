@@ -19,6 +19,7 @@ class Zendesk__custom_api_call__ToolInput(BaseModel):
 
 class Zendesk__custom_api_call__Tool(BaseTool):
     name: str = "zendesk___custom_api_call__"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Zendesk__custom_api_call__ToolInput
     credentials: Optional[ZendeskCredentials] = None

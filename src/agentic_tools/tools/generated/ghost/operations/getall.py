@@ -17,6 +17,7 @@ class GhostGetallToolInput(BaseModel):
 
 class GhostGetallTool(BaseTool):
     name: str = "ghost_getall"
+    connector_id: str = "nodes-base.ghost"
     description: str = "Tool for ghost getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GhostGetallToolInput
     credentials: Optional[GhostCredentials] = None

@@ -21,6 +21,7 @@ class AwselbCreateToolInput(BaseModel):
 
 class AwselbCreateTool(BaseTool):
     name: str = "awselb_create"
+    connector_id: str = "nodes-base.awsElb"
     description: str = "Tool for awsElb create operation - create operation"
     args_schema: type[BaseModel] | None = AwselbCreateToolInput
     credentials: Optional[AwselbCredentials] = None

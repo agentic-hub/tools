@@ -20,6 +20,7 @@ class SecurityscorecardGenerateToolInput(BaseModel):
 
 class SecurityscorecardGenerateTool(BaseTool):
     name: str = "securityscorecard_generate"
+    connector_id: str = "nodes-base.securityScorecard"
     description: str = "Tool for securityScorecard generate operation - generate operation"
     args_schema: type[BaseModel] | None = SecurityscorecardGenerateToolInput
     credentials: Optional[SecurityscorecardCredentials] = None

@@ -13,6 +13,7 @@ class VenafitlsprotectdatacenterGetToolInput(BaseModel):
 
 class VenafitlsprotectdatacenterGetTool(BaseTool):
     name: str = "venafitlsprotectdatacenter_get"
+    connector_id: str = "nodes-base.venafiTlsProtectDatacenter"
     description: str = "Tool for venafiTlsProtectDatacenter get operation - get operation"
     args_schema: type[BaseModel] | None = VenafitlsprotectdatacenterGetToolInput
     credentials: Optional[VenafitlsprotectdatacenterCredentials] = None

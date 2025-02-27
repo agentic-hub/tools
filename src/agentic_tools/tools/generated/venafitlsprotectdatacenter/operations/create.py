@@ -13,6 +13,7 @@ class VenafitlsprotectdatacenterCreateToolInput(BaseModel):
 
 class VenafitlsprotectdatacenterCreateTool(BaseTool):
     name: str = "venafitlsprotectdatacenter_create"
+    connector_id: str = "nodes-base.venafiTlsProtectDatacenter"
     description: str = "Tool for venafiTlsProtectDatacenter create operation - create operation"
     args_schema: type[BaseModel] | None = VenafitlsprotectdatacenterCreateToolInput
     credentials: Optional[VenafitlsprotectdatacenterCredentials] = None

@@ -15,6 +15,7 @@ class BitlyCreateToolInput(BaseModel):
 
 class BitlyCreateTool(BaseTool):
     name: str = "bitly_create"
+    connector_id: str = "nodes-base.bitly"
     description: str = "Tool for bitly create operation - create operation"
     args_schema: type[BaseModel] | None = BitlyCreateToolInput
     credentials: Optional[BitlyCredentials] = None

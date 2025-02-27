@@ -18,6 +18,7 @@ class GooglecalendarCreateToolInput(BaseModel):
 
 class GooglecalendarCreateTool(BaseTool):
     name: str = "googlecalendar_create"
+    connector_id: str = "nodes-base.googleCalendar"
     description: str = "Tool for googleCalendar create operation - create operation"
     args_schema: type[BaseModel] | None = GooglecalendarCreateToolInput
     credentials: Optional[GooglecalendarCredentials] = None

@@ -22,6 +22,7 @@ class TwistUpdateToolInput(BaseModel):
 
 class TwistUpdateTool(BaseTool):
     name: str = "twist_update"
+    connector_id: str = "nodes-base.twist"
     description: str = "Tool for twist update operation - update operation"
     args_schema: type[BaseModel] | None = TwistUpdateToolInput
     credentials: Optional[TwistCredentials] = None

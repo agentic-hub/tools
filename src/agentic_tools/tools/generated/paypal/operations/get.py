@@ -14,6 +14,7 @@ class PaypalGetToolInput(BaseModel):
 
 class PaypalGetTool(BaseTool):
     name: str = "paypal_get"
+    connector_id: str = "nodes-base.payPal"
     description: str = "Tool for payPal get operation - get operation"
     args_schema: type[BaseModel] | None = PaypalGetToolInput
     credentials: Optional[PaypalCredentials] = None

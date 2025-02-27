@@ -9,5 +9,6 @@ class ExtractfromfileXlsxToolInput(BaseModel):
 
 class ExtractfromfileXlsxTool(BaseTool):
     name: str = "extractfromfile_xlsx"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile xlsx operation - xlsx operation"
     args_schema: type[BaseModel] | None = ExtractfromfileXlsxToolInput

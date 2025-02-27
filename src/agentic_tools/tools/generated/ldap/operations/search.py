@@ -20,6 +20,7 @@ class LdapSearchToolInput(BaseModel):
 
 class LdapSearchTool(BaseTool):
     name: str = "ldap_search"
+    connector_id: str = "nodes-base.ldap"
     description: str = "Tool for ldap search operation - search operation"
     args_schema: type[BaseModel] | None = LdapSearchToolInput
     credentials: Optional[LdapCredentials] = None

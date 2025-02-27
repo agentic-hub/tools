@@ -17,6 +17,7 @@ class OnesimpleapiExchangerateToolInput(BaseModel):
 
 class OnesimpleapiExchangerateTool(BaseTool):
     name: str = "onesimpleapi_exchangerate"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi exchangeRate operation - exchangeRate operation"
     args_schema: type[BaseModel] | None = OnesimpleapiExchangerateToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

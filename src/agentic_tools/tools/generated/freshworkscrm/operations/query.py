@@ -30,6 +30,7 @@ class FreshworkscrmQueryToolInput(BaseModel):
 
 class FreshworkscrmQueryTool(BaseTool):
     name: str = "freshworkscrm_query"
+    connector_id: str = "nodes-base.freshworksCrm"
     description: str = "Tool for freshworksCrm query operation - query operation"
     args_schema: type[BaseModel] | None = FreshworkscrmQueryToolInput
     credentials: Optional[FreshworkscrmCredentials] = None

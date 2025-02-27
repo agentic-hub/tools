@@ -11,6 +11,7 @@ class GooglefirebaserealtimedatabaseDeleteToolInput(BaseModel):
 
 class GooglefirebaserealtimedatabaseDeleteTool(BaseTool):
     name: str = "googlefirebaserealtimedatabase_delete"
+    connector_id: str = "nodes-base.googleFirebaseRealtimeDatabase"
     description: str = "Tool for googleFirebaseRealtimeDatabase delete operation - delete operation"
     args_schema: type[BaseModel] | None = GooglefirebaserealtimedatabaseDeleteToolInput
     credentials: Optional[GooglefirebaserealtimedatabaseCredentials] = None

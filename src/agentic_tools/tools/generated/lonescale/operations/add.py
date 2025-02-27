@@ -17,6 +17,7 @@ class LonescaleAddToolInput(BaseModel):
 
 class LonescaleAddTool(BaseTool):
     name: str = "lonescale_add"
+    connector_id: str = "nodes-base.loneScale"
     description: str = "Tool for loneScale add operation - add operation"
     args_schema: type[BaseModel] | None = LonescaleAddToolInput
     credentials: Optional[LonescaleCredentials] = None

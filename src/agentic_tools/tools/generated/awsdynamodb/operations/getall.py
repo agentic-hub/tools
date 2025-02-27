@@ -22,6 +22,7 @@ class AwsdynamodbGetallToolInput(BaseModel):
 
 class AwsdynamodbGetallTool(BaseTool):
     name: str = "awsdynamodb_getall"
+    connector_id: str = "nodes-base.awsDynamoDb"
     description: str = "Tool for awsDynamoDb getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = AwsdynamodbGetallToolInput
     credentials: Optional[AwsdynamodbCredentials] = None

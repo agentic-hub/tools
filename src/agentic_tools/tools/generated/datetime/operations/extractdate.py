@@ -16,5 +16,6 @@ class DatetimeExtractdateToolInput(BaseModel):
 
 class DatetimeExtractdateTool(BaseTool):
     name: str = "datetime_extractdate"
+    connector_id: str = "nodes-base.dateTime"
     description: str = "Tool for dateTime extractDate operation - extractDate operation"
     args_schema: type[BaseModel] | None = DatetimeExtractdateToolInput

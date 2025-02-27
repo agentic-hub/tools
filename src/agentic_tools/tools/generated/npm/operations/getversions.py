@@ -12,6 +12,7 @@ class NpmGetversionsToolInput(BaseModel):
 
 class NpmGetversionsTool(BaseTool):
     name: str = "npm_getversions"
+    connector_id: str = "nodes-base.npm"
     description: str = "Tool for npm getVersions operation - getVersions operation"
     args_schema: type[BaseModel] | None = NpmGetversionsToolInput
     credentials: Optional[NpmCredentials] = None

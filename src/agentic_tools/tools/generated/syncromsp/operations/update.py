@@ -20,6 +20,7 @@ class SyncromspUpdateToolInput(BaseModel):
 
 class SyncromspUpdateTool(BaseTool):
     name: str = "syncromsp_update"
+    connector_id: str = "nodes-base.syncroMsp"
     description: str = "Tool for syncroMsp update operation - update operation"
     args_schema: type[BaseModel] | None = SyncromspUpdateToolInput
     credentials: Optional[SyncromspCredentials] = None

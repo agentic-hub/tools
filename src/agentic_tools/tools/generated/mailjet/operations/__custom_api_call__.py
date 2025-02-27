@@ -18,6 +18,7 @@ class Mailjet__custom_api_call__ToolInput(BaseModel):
 
 class Mailjet__custom_api_call__Tool(BaseTool):
     name: str = "mailjet___custom_api_call__"
+    connector_id: str = "nodes-base.mailjet"
     description: str = "Tool for mailjet __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Mailjet__custom_api_call__ToolInput
     credentials: Optional[MailjetCredentials] = None

@@ -13,6 +13,7 @@ class GoogletasksGetToolInput(BaseModel):
 
 class GoogletasksGetTool(BaseTool):
     name: str = "googletasks_get"
+    connector_id: str = "nodes-base.googleTasks"
     description: str = "Tool for googleTasks get operation - get operation"
     args_schema: type[BaseModel] | None = GoogletasksGetToolInput
     credentials: Optional[GoogletasksCredentials] = None

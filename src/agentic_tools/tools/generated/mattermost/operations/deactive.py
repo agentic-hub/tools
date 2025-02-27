@@ -20,6 +20,7 @@ class MattermostDeactiveToolInput(BaseModel):
 
 class MattermostDeactiveTool(BaseTool):
     name: str = "mattermost_deactive"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost deactive operation - deactive operation"
     args_schema: type[BaseModel] | None = MattermostDeactiveToolInput
     credentials: Optional[MattermostCredentials] = None

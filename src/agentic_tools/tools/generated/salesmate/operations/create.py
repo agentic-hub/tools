@@ -29,6 +29,7 @@ class SalesmateCreateToolInput(BaseModel):
 
 class SalesmateCreateTool(BaseTool):
     name: str = "salesmate_create"
+    connector_id: str = "nodes-base.salesmate"
     description: str = "Tool for salesmate create operation - create operation"
     args_schema: type[BaseModel] | None = SalesmateCreateToolInput
     credentials: Optional[SalesmateCredentials] = None

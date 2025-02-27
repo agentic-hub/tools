@@ -14,6 +14,7 @@ class HomeassistantGeterrologsToolInput(BaseModel):
 
 class HomeassistantGeterrologsTool(BaseTool):
     name: str = "homeassistant_geterrologs"
+    connector_id: str = "nodes-base.homeAssistant"
     description: str = "Tool for homeAssistant getErroLogs operation - getErroLogs operation"
     args_schema: type[BaseModel] | None = HomeassistantGeterrologsToolInput
     credentials: Optional[HomeassistantCredentials] = None

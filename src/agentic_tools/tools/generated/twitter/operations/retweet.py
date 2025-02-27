@@ -16,6 +16,7 @@ class TwitterRetweetToolInput(BaseModel):
 
 class TwitterRetweetTool(BaseTool):
     name: str = "twitter_retweet"
+    connector_id: str = "nodes-base.twitter"
     description: str = "Tool for twitter retweet operation - retweet operation"
     args_schema: type[BaseModel] | None = TwitterRetweetToolInput
     credentials: Optional[TwitterCredentials] = None

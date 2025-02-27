@@ -17,6 +17,7 @@ class OpenaiEditToolInput(BaseModel):
 
 class OpenaiEditTool(BaseTool):
     name: str = "openai_edit"
+    connector_id: str = "nodes-base.openAi"
     description: str = "Tool for openAi edit operation - edit operation"
     args_schema: type[BaseModel] | None = OpenaiEditToolInput
     credentials: Optional[OpenaiCredentials] = None

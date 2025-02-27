@@ -8,5 +8,6 @@ class Scade-toolstrainingcustomermessengerDefaultToolInput(BaseModel):
 
 class Scade-toolstrainingcustomermessengerDefaultTool(BaseTool):
     name: str = "scade-toolstrainingcustomermessenger_default"
+    connector_id: str = "nodes-base.scade-toolsTrainingCustomerMessenger"
     description: str = "Tool for scade-toolsTrainingCustomerMessenger default operation - default operation"
     args_schema: type[BaseModel] | None = Scade-toolstrainingcustomermessengerDefaultToolInput

@@ -14,6 +14,7 @@ class CratedbInsertToolInput(BaseModel):
 
 class CratedbInsertTool(BaseTool):
     name: str = "cratedb_insert"
+    connector_id: str = "nodes-base.crateDb"
     description: str = "Tool for crateDb insert operation - insert operation"
     args_schema: type[BaseModel] | None = CratedbInsertToolInput
     credentials: Optional[CratedbCredentials] = None

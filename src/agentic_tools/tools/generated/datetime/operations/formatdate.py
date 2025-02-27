@@ -17,5 +17,6 @@ class DatetimeFormatdateToolInput(BaseModel):
 
 class DatetimeFormatdateTool(BaseTool):
     name: str = "datetime_formatdate"
+    connector_id: str = "nodes-base.dateTime"
     description: str = "Tool for dateTime formatDate operation - formatDate operation"
     args_schema: type[BaseModel] | None = DatetimeFormatdateToolInput

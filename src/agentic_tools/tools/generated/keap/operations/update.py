@@ -24,6 +24,7 @@ class KeapUpdateToolInput(BaseModel):
 
 class KeapUpdateTool(BaseTool):
     name: str = "keap_update"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap update operation - update operation"
     args_schema: type[BaseModel] | None = KeapUpdateToolInput
     credentials: Optional[KeapCredentials] = None

@@ -17,5 +17,6 @@ class EditimageBlurToolInput(BaseModel):
 
 class EditimageBlurTool(BaseTool):
     name: str = "editimage_blur"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage blur operation - blur operation"
     args_schema: type[BaseModel] | None = EditimageBlurToolInput

@@ -21,6 +21,7 @@ class ZendeskCreateToolInput(BaseModel):
 
 class ZendeskCreateTool(BaseTool):
     name: str = "zendesk_create"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk create operation - create operation"
     args_schema: type[BaseModel] | None = ZendeskCreateToolInput
     credentials: Optional[ZendeskCredentials] = None

@@ -22,6 +22,7 @@ class GoogledriveShareToolInput(BaseModel):
 
 class GoogledriveShareTool(BaseTool):
     name: str = "googledrive_share"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive share operation - share operation"
     args_schema: type[BaseModel] | None = GoogledriveShareToolInput
     credentials: Optional[GoogledriveCredentials] = None

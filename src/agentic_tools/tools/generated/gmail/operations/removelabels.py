@@ -23,6 +23,7 @@ class GmailRemovelabelsToolInput(BaseModel):
 
 class GmailRemovelabelsTool(BaseTool):
     name: str = "gmail_removelabels"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail removeLabels operation - removeLabels operation"
     args_schema: type[BaseModel] | None = GmailRemovelabelsToolInput
     credentials: Optional[GmailCredentials] = None

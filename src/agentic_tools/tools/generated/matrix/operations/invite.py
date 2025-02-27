@@ -12,6 +12,7 @@ class MatrixInviteToolInput(BaseModel):
 
 class MatrixInviteTool(BaseTool):
     name: str = "matrix_invite"
+    connector_id: str = "nodes-base.matrix"
     description: str = "Tool for matrix invite operation - invite operation"
     args_schema: type[BaseModel] | None = MatrixInviteToolInput
     credentials: Optional[MatrixCredentials] = None

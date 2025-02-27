@@ -15,5 +15,6 @@ class EditimageCreateToolInput(BaseModel):
 
 class EditimageCreateTool(BaseTool):
     name: str = "editimage_create"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage create operation - create operation"
     args_schema: type[BaseModel] | None = EditimageCreateToolInput

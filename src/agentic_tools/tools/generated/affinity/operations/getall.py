@@ -20,6 +20,7 @@ class AffinityGetallToolInput(BaseModel):
 
 class AffinityGetallTool(BaseTool):
     name: str = "affinity_getall"
+    connector_id: str = "nodes-base.affinity"
     description: str = "Tool for affinity getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = AffinityGetallToolInput
     credentials: Optional[AffinityCredentials] = None

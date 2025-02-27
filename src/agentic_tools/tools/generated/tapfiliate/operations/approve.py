@@ -17,6 +17,7 @@ class TapfiliateApproveToolInput(BaseModel):
 
 class TapfiliateApproveTool(BaseTool):
     name: str = "tapfiliate_approve"
+    connector_id: str = "nodes-base.tapfiliate"
     description: str = "Tool for tapfiliate approve operation - approve operation"
     args_schema: type[BaseModel] | None = TapfiliateApproveToolInput
     credentials: Optional[TapfiliateCredentials] = None

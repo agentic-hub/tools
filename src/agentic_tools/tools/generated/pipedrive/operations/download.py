@@ -30,6 +30,7 @@ class PipedriveDownloadToolInput(BaseModel):
 
 class PipedriveDownloadTool(BaseTool):
     name: str = "pipedrive_download"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive download operation - download operation"
     args_schema: type[BaseModel] | None = PipedriveDownloadToolInput
     credentials: Optional[PipedriveCredentials] = None

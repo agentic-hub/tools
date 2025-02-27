@@ -8,5 +8,6 @@ class RenamekeysDefaultToolInput(BaseModel):
 
 class RenamekeysDefaultTool(BaseTool):
     name: str = "renamekeys_default"
+    connector_id: str = "nodes-base.renameKeys"
     description: str = "Tool for renameKeys default operation - default operation"
     args_schema: type[BaseModel] | None = RenamekeysDefaultToolInput

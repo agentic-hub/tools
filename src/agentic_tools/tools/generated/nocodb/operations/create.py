@@ -24,6 +24,7 @@ class NocodbCreateToolInput(BaseModel):
 
 class NocodbCreateTool(BaseTool):
     name: str = "nocodb_create"
+    connector_id: str = "nodes-base.nocoDb"
     description: str = "Tool for nocoDb create operation - create operation"
     args_schema: type[BaseModel] | None = NocodbCreateToolInput
     credentials: Optional[NocodbCredentials] = None

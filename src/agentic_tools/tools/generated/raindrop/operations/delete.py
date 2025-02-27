@@ -17,6 +17,7 @@ class RaindropDeleteToolInput(BaseModel):
 
 class RaindropDeleteTool(BaseTool):
     name: str = "raindrop_delete"
+    connector_id: str = "nodes-base.raindrop"
     description: str = "Tool for raindrop delete operation - delete operation"
     args_schema: type[BaseModel] | None = RaindropDeleteToolInput
     credentials: Optional[RaindropCredentials] = None

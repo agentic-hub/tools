@@ -33,6 +33,7 @@ class SalesforceAddtocampaignToolInput(BaseModel):
 
 class SalesforceAddtocampaignTool(BaseTool):
     name: str = "salesforce_addtocampaign"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce addToCampaign operation - addToCampaign operation"
     args_schema: type[BaseModel] | None = SalesforceAddtocampaignToolInput
     credentials: Optional[SalesforceCredentials] = None

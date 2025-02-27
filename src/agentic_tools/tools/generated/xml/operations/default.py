@@ -10,5 +10,6 @@ class XmlDefaultToolInput(BaseModel):
 
 class XmlDefaultTool(BaseTool):
     name: str = "xml_default"
+    connector_id: str = "nodes-base.xml"
     description: str = "Tool for xml default operation - default operation"
     args_schema: type[BaseModel] | None = XmlDefaultToolInput

@@ -19,6 +19,7 @@ class MicrosofttodoGetToolInput(BaseModel):
 
 class MicrosofttodoGetTool(BaseTool):
     name: str = "microsofttodo_get"
+    connector_id: str = "nodes-base.microsoftToDo"
     description: str = "Tool for microsoftToDo get operation - get operation"
     args_schema: type[BaseModel] | None = MicrosofttodoGetToolInput
     credentials: Optional[MicrosofttodoCredentials] = None

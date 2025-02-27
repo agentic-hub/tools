@@ -21,6 +21,7 @@ class MailchimpGetallToolInput(BaseModel):
 
 class MailchimpGetallTool(BaseTool):
     name: str = "mailchimp_getall"
+    connector_id: str = "nodes-base.mailchimp"
     description: str = "Tool for mailchimp getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MailchimpGetallToolInput
     credentials: Optional[MailchimpCredentials] = None

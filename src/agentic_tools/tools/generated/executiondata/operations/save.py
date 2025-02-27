@@ -9,5 +9,6 @@ class ExecutiondataSaveToolInput(BaseModel):
 
 class ExecutiondataSaveTool(BaseTool):
     name: str = "executiondata_save"
+    connector_id: str = "nodes-base.executionData"
     description: str = "Tool for executionData save operation - save operation"
     args_schema: type[BaseModel] | None = ExecutiondataSaveToolInput

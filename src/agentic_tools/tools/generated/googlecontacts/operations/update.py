@@ -14,6 +14,7 @@ class GooglecontactsUpdateToolInput(BaseModel):
 
 class GooglecontactsUpdateTool(BaseTool):
     name: str = "googlecontacts_update"
+    connector_id: str = "nodes-base.googleContacts"
     description: str = "Tool for googleContacts update operation - update operation"
     args_schema: type[BaseModel] | None = GooglecontactsUpdateToolInput
     credentials: Optional[GooglecontactsCredentials] = None

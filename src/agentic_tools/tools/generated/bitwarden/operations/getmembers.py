@@ -16,6 +16,7 @@ class BitwardenGetmembersToolInput(BaseModel):
 
 class BitwardenGetmembersTool(BaseTool):
     name: str = "bitwarden_getmembers"
+    connector_id: str = "nodes-base.bitwarden"
     description: str = "Tool for bitwarden getMembers operation - getMembers operation"
     args_schema: type[BaseModel] | None = BitwardenGetmembersToolInput
     credentials: Optional[BitwardenCredentials] = None

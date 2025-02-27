@@ -22,6 +22,7 @@ class MispDisableToolInput(BaseModel):
 
 class MispDisableTool(BaseTool):
     name: str = "misp_disable"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp disable operation - disable operation"
     args_schema: type[BaseModel] | None = MispDisableToolInput
     credentials: Optional[MispCredentials] = None

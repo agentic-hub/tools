@@ -22,6 +22,7 @@ class GithubGetlicenseToolInput(BaseModel):
 
 class GithubGetlicenseTool(BaseTool):
     name: str = "github_getlicense"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github getLicense operation - getLicense operation"
     args_schema: type[BaseModel] | None = GithubGetlicenseToolInput
     credentials: Optional[GithubCredentials] = None

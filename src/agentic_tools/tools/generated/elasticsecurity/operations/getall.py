@@ -21,6 +21,7 @@ class ElasticsecurityGetallToolInput(BaseModel):
 
 class ElasticsecurityGetallTool(BaseTool):
     name: str = "elasticsecurity_getall"
+    connector_id: str = "nodes-base.elasticSecurity"
     description: str = "Tool for elasticSecurity getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ElasticsecurityGetallToolInput
     credentials: Optional[ElasticsecurityCredentials] = None

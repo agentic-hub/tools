@@ -44,6 +44,7 @@ class ThehiveprojectSearchToolInput(BaseModel):
 
 class ThehiveprojectSearchTool(BaseTool):
     name: str = "thehiveproject_search"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject search operation - search operation"
     args_schema: type[BaseModel] | None = ThehiveprojectSearchToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

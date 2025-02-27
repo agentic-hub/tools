@@ -19,6 +19,7 @@ class CodaUpdateviewrowToolInput(BaseModel):
 
 class CodaUpdateviewrowTool(BaseTool):
     name: str = "coda_updateviewrow"
+    connector_id: str = "nodes-base.coda"
     description: str = "Tool for coda updateViewRow operation - updateViewRow operation"
     args_schema: type[BaseModel] | None = CodaUpdateviewrowToolInput
     credentials: Optional[CodaCredentials] = None

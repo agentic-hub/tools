@@ -18,6 +18,7 @@ class RedisPublishToolInput(BaseModel):
 
 class RedisPublishTool(BaseTool):
     name: str = "redis_publish"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis publish operation - publish operation"
     args_schema: type[BaseModel] | None = RedisPublishToolInput
     credentials: Optional[RedisCredentials] = None

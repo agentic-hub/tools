@@ -24,6 +24,7 @@ class ActionnetworkCreateToolInput(BaseModel):
 
 class ActionnetworkCreateTool(BaseTool):
     name: str = "actionnetwork_create"
+    connector_id: str = "nodes-base.actionNetwork"
     description: str = "Tool for actionNetwork create operation - create operation"
     args_schema: type[BaseModel] | None = ActionnetworkCreateToolInput
     credentials: Optional[ActionnetworkCredentials] = None

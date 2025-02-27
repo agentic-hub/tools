@@ -22,6 +22,7 @@ class CiscowebexUpdateToolInput(BaseModel):
 
 class CiscowebexUpdateTool(BaseTool):
     name: str = "ciscowebex_update"
+    connector_id: str = "nodes-base.ciscoWebex"
     description: str = "Tool for ciscoWebex update operation - update operation"
     args_schema: type[BaseModel] | None = CiscowebexUpdateToolInput
     credentials: Optional[CiscowebexCredentials] = None

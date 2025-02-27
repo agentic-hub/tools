@@ -13,6 +13,7 @@ class PhilipshueGetallToolInput(BaseModel):
 
 class PhilipshueGetallTool(BaseTool):
     name: str = "philipshue_getall"
+    connector_id: str = "nodes-base.philipsHue"
     description: str = "Tool for philipsHue getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = PhilipshueGetallToolInput
     credentials: Optional[PhilipshueCredentials] = None

@@ -14,6 +14,7 @@ class BeeminderGetallToolInput(BaseModel):
 
 class BeeminderGetallTool(BaseTool):
     name: str = "beeminder_getall"
+    connector_id: str = "nodes-base.beeminder"
     description: str = "Tool for beeminder getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = BeeminderGetallToolInput
     credentials: Optional[BeeminderCredentials] = None

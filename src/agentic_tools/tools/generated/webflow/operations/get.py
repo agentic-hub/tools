@@ -16,6 +16,7 @@ class WebflowGetToolInput(BaseModel):
 
 class WebflowGetTool(BaseTool):
     name: str = "webflow_get"
+    connector_id: str = "nodes-base.webflow"
     description: str = "Tool for webflow get operation - get operation"
     args_schema: type[BaseModel] | None = WebflowGetToolInput
     credentials: Optional[WebflowCredentials] = None

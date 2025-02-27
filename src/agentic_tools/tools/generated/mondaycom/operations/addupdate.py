@@ -20,6 +20,7 @@ class MondaycomAddupdateToolInput(BaseModel):
 
 class MondaycomAddupdateTool(BaseTool):
     name: str = "mondaycom_addupdate"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom addUpdate operation - addUpdate operation"
     args_schema: type[BaseModel] | None = MondaycomAddupdateToolInput
     credentials: Optional[MondaycomCredentials] = None

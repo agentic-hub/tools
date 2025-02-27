@@ -15,5 +15,6 @@ class EditimageCropToolInput(BaseModel):
 
 class EditimageCropTool(BaseTool):
     name: str = "editimage_crop"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage crop operation - crop operation"
     args_schema: type[BaseModel] | None = EditimageCropToolInput

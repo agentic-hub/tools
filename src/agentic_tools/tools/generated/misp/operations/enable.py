@@ -22,6 +22,7 @@ class MispEnableToolInput(BaseModel):
 
 class MispEnableTool(BaseTool):
     name: str = "misp_enable"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp enable operation - enable operation"
     args_schema: type[BaseModel] | None = MispEnableToolInput
     credentials: Optional[MispCredentials] = None

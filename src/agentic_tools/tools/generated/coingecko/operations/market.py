@@ -15,5 +15,6 @@ class CoingeckoMarketToolInput(BaseModel):
 
 class CoingeckoMarketTool(BaseTool):
     name: str = "coingecko_market"
+    connector_id: str = "nodes-base.coinGecko"
     description: str = "Tool for coinGecko market operation - market operation"
     args_schema: type[BaseModel] | None = CoingeckoMarketToolInput

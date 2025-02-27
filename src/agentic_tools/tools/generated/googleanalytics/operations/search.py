@@ -19,6 +19,7 @@ class GoogleanalyticsSearchToolInput(BaseModel):
 
 class GoogleanalyticsSearchTool(BaseTool):
     name: str = "googleanalytics_search"
+    connector_id: str = "nodes-base.googleAnalytics"
     description: str = "Tool for googleAnalytics search operation - search operation"
     args_schema: type[BaseModel] | None = GoogleanalyticsSearchToolInput
     credentials: Optional[GoogleanalyticsCredentials] = None

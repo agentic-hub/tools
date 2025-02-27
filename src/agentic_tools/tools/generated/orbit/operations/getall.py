@@ -20,6 +20,7 @@ class OrbitGetallToolInput(BaseModel):
 
 class OrbitGetallTool(BaseTool):
     name: str = "orbit_getall"
+    connector_id: str = "nodes-base.orbit"
     description: str = "Tool for orbit getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = OrbitGetallToolInput
     credentials: Optional[OrbitCredentials] = None

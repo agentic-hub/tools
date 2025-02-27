@@ -22,6 +22,7 @@ class WiseGetToolInput(BaseModel):
 
 class WiseGetTool(BaseTool):
     name: str = "wise_get"
+    connector_id: str = "nodes-base.wise"
     description: str = "Tool for wise get operation - get operation"
     args_schema: type[BaseModel] | None = WiseGetToolInput
     credentials: Optional[WiseCredentials] = None

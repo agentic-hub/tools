@@ -16,6 +16,7 @@ class SpotifyGetlikedtracksToolInput(BaseModel):
 
 class SpotifyGetlikedtracksTool(BaseTool):
     name: str = "spotify_getlikedtracks"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify getLikedTracks operation - getLikedTracks operation"
     args_schema: type[BaseModel] | None = SpotifyGetlikedtracksToolInput
     credentials: Optional[SpotifyCredentials] = None

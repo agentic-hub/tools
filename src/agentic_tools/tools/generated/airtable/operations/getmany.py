@@ -18,6 +18,7 @@ class AirtableGetmanyToolInput(BaseModel):
 
 class AirtableGetmanyTool(BaseTool):
     name: str = "airtable_getmany"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable getMany operation - getMany operation"
     args_schema: type[BaseModel] | None = AirtableGetmanyToolInput
     credentials: Optional[AirtableCredentials] = None

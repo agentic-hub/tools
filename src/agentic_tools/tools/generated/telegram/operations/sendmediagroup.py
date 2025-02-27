@@ -22,6 +22,7 @@ class TelegramSendmediagroupToolInput(BaseModel):
 
 class TelegramSendmediagroupTool(BaseTool):
     name: str = "telegram_sendmediagroup"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendMediaGroup operation - sendMediaGroup operation"
     args_schema: type[BaseModel] | None = TelegramSendmediagroupToolInput
     credentials: Optional[TelegramCredentials] = None

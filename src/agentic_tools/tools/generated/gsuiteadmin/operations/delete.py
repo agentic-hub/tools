@@ -18,6 +18,7 @@ class GsuiteadminDeleteToolInput(BaseModel):
 
 class GsuiteadminDeleteTool(BaseTool):
     name: str = "gsuiteadmin_delete"
+    connector_id: str = "nodes-base.gSuiteAdmin"
     description: str = "Tool for gSuiteAdmin delete operation - delete operation"
     args_schema: type[BaseModel] | None = GsuiteadminDeleteToolInput
     credentials: Optional[GsuiteadminCredentials] = None

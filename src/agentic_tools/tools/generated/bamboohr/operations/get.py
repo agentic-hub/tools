@@ -40,6 +40,7 @@ class BamboohrGetToolInput(BaseModel):
 
 class BamboohrGetTool(BaseTool):
     name: str = "bamboohr_get"
+    connector_id: str = "nodes-base.bambooHr"
     description: str = "Tool for bambooHr get operation - get operation"
     args_schema: type[BaseModel] | None = BamboohrGetToolInput
     credentials: Optional[BamboohrCredentials] = None

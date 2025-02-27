@@ -18,6 +18,7 @@ class CustomerioAddToolInput(BaseModel):
 
 class CustomerioAddTool(BaseTool):
     name: str = "customerio_add"
+    connector_id: str = "nodes-base.customerIo"
     description: str = "Tool for customerIo add operation - add operation"
     args_schema: type[BaseModel] | None = CustomerioAddToolInput
     credentials: Optional[CustomerioCredentials] = None

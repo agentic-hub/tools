@@ -16,6 +16,7 @@ class EmeliaGetToolInput(BaseModel):
 
 class EmeliaGetTool(BaseTool):
     name: str = "emelia_get"
+    connector_id: str = "nodes-base.emelia"
     description: str = "Tool for emelia get operation - get operation"
     args_schema: type[BaseModel] | None = EmeliaGetToolInput
     credentials: Optional[EmeliaCredentials] = None

@@ -13,6 +13,7 @@ class BubbleUpdateToolInput(BaseModel):
 
 class BubbleUpdateTool(BaseTool):
     name: str = "bubble_update"
+    connector_id: str = "nodes-base.bubble"
     description: str = "Tool for bubble update operation - update operation"
     args_schema: type[BaseModel] | None = BubbleUpdateToolInput
     credentials: Optional[BubbleCredentials] = None

@@ -19,6 +19,7 @@ class MicrosofttodoUpdateToolInput(BaseModel):
 
 class MicrosofttodoUpdateTool(BaseTool):
     name: str = "microsofttodo_update"
+    connector_id: str = "nodes-base.microsoftToDo"
     description: str = "Tool for microsoftToDo update operation - update operation"
     args_schema: type[BaseModel] | None = MicrosofttodoUpdateToolInput
     credentials: Optional[MicrosofttodoCredentials] = None

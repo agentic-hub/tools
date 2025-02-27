@@ -10,6 +10,7 @@ class Rocketchat__custom_api_call__ToolInput(BaseModel):
 
 class Rocketchat__custom_api_call__Tool(BaseTool):
     name: str = "rocketchat___custom_api_call__"
+    connector_id: str = "nodes-base.rocketchat"
     description: str = "Tool for rocketchat __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Rocketchat__custom_api_call__ToolInput
     credentials: Optional[RocketchatCredentials] = None

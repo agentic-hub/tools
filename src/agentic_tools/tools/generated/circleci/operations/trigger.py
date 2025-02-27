@@ -13,6 +13,7 @@ class CircleciTriggerToolInput(BaseModel):
 
 class CircleciTriggerTool(BaseTool):
     name: str = "circleci_trigger"
+    connector_id: str = "nodes-base.circleCi"
     description: str = "Tool for circleCi trigger operation - trigger operation"
     args_schema: type[BaseModel] | None = CircleciTriggerToolInput
     credentials: Optional[CircleciCredentials] = None

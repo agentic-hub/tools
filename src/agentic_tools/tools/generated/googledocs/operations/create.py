@@ -16,6 +16,7 @@ class GoogledocsCreateToolInput(BaseModel):
 
 class GoogledocsCreateTool(BaseTool):
     name: str = "googledocs_create"
+    connector_id: str = "nodes-base.googleDocs"
     description: str = "Tool for googleDocs create operation - create operation"
     args_schema: type[BaseModel] | None = GoogledocsCreateToolInput
     credentials: Optional[GoogledocsCredentials] = None

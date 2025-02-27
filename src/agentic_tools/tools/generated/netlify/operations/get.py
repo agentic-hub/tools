@@ -14,6 +14,7 @@ class NetlifyGetToolInput(BaseModel):
 
 class NetlifyGetTool(BaseTool):
     name: str = "netlify_get"
+    connector_id: str = "nodes-base.netlify"
     description: str = "Tool for netlify get operation - get operation"
     args_schema: type[BaseModel] | None = NetlifyGetToolInput
     credentials: Optional[NetlifyCredentials] = None

@@ -10,5 +10,6 @@ class ExtractfromfileFromjsonToolInput(BaseModel):
 
 class ExtractfromfileFromjsonTool(BaseTool):
     name: str = "extractfromfile_fromjson"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile fromJson operation - fromJson operation"
     args_schema: type[BaseModel] | None = ExtractfromfileFromjsonToolInput

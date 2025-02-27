@@ -26,6 +26,7 @@ class SlackRemoveToolInput(BaseModel):
 
 class SlackRemoveTool(BaseTool):
     name: str = "slack_remove"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack remove operation - remove operation"
     args_schema: type[BaseModel] | None = SlackRemoveToolInput
     credentials: Optional[SlackCredentials] = None

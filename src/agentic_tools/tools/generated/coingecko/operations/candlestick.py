@@ -17,5 +17,6 @@ class CoingeckoCandlestickToolInput(BaseModel):
 
 class CoingeckoCandlestickTool(BaseTool):
     name: str = "coingecko_candlestick"
+    connector_id: str = "nodes-base.coinGecko"
     description: str = "Tool for coinGecko candlestick operation - candlestick operation"
     args_schema: type[BaseModel] | None = CoingeckoCandlestickToolInput

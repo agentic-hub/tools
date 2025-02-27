@@ -22,6 +22,7 @@ class GoogledriveGetToolInput(BaseModel):
 
 class GoogledriveGetTool(BaseTool):
     name: str = "googledrive_get"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive get operation - get operation"
     args_schema: type[BaseModel] | None = GoogledriveGetToolInput
     credentials: Optional[GoogledriveCredentials] = None

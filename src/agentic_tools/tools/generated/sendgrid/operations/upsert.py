@@ -16,6 +16,7 @@ class SendgridUpsertToolInput(BaseModel):
 
 class SendgridUpsertTool(BaseTool):
     name: str = "sendgrid_upsert"
+    connector_id: str = "nodes-base.sendGrid"
     description: str = "Tool for sendGrid upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = SendgridUpsertToolInput
     credentials: Optional[SendgridCredentials] = None

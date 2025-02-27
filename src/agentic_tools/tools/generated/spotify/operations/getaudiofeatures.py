@@ -15,6 +15,7 @@ class SpotifyGetaudiofeaturesToolInput(BaseModel):
 
 class SpotifyGetaudiofeaturesTool(BaseTool):
     name: str = "spotify_getaudiofeatures"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify getAudioFeatures operation - getAudioFeatures operation"
     args_schema: type[BaseModel] | None = SpotifyGetaudiofeaturesToolInput
     credentials: Optional[SpotifyCredentials] = None

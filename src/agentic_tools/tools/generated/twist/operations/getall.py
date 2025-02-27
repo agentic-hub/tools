@@ -22,6 +22,7 @@ class TwistGetallToolInput(BaseModel):
 
 class TwistGetallTool(BaseTool):
     name: str = "twist_getall"
+    connector_id: str = "nodes-base.twist"
     description: str = "Tool for twist getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = TwistGetallToolInput
     credentials: Optional[TwistCredentials] = None

@@ -16,6 +16,7 @@ class SupabaseDeleteToolInput(BaseModel):
 
 class SupabaseDeleteTool(BaseTool):
     name: str = "supabase_delete"
+    connector_id: str = "nodes-base.supabase"
     description: str = "Tool for supabase delete operation - delete operation"
     args_schema: type[BaseModel] | None = SupabaseDeleteToolInput
     credentials: Optional[SupabaseCredentials] = None

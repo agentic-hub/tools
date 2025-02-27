@@ -11,6 +11,7 @@ class AwscertificatemanagerGetmetadataToolInput(BaseModel):
 
 class AwscertificatemanagerGetmetadataTool(BaseTool):
     name: str = "awscertificatemanager_getmetadata"
+    connector_id: str = "nodes-base.awsCertificateManager"
     description: str = "Tool for awsCertificateManager getMetadata operation - getMetadata operation"
     args_schema: type[BaseModel] | None = AwscertificatemanagerGetmetadataToolInput
     credentials: Optional[AwscertificatemanagerCredentials] = None

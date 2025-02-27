@@ -14,6 +14,7 @@ class DropcontactEnrichToolInput(BaseModel):
 
 class DropcontactEnrichTool(BaseTool):
     name: str = "dropcontact_enrich"
+    connector_id: str = "nodes-base.dropcontact"
     description: str = "Tool for dropcontact enrich operation - enrich operation"
     args_schema: type[BaseModel] | None = DropcontactEnrichToolInput
     credentials: Optional[DropcontactCredentials] = None

@@ -19,6 +19,7 @@ class Scade-toolsGenerateToolInput(BaseModel):
 
 class Scade-toolsGenerateTool(BaseTool):
     name: str = "scade-tools_generate"
+    connector_id: str = "nodes-base.scade-tools"
     description: str = "Tool for scade-tools generate operation - generate operation"
     args_schema: type[BaseModel] | None = Scade-toolsGenerateToolInput
     credentials: Optional[Scade-toolsCredentials] = None

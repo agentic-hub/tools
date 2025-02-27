@@ -20,6 +20,7 @@ class PaddleUpdateToolInput(BaseModel):
 
 class PaddleUpdateTool(BaseTool):
     name: str = "paddle_update"
+    connector_id: str = "nodes-base.paddle"
     description: str = "Tool for paddle update operation - update operation"
     args_schema: type[BaseModel] | None = PaddleUpdateToolInput
     credentials: Optional[PaddleCredentials] = None

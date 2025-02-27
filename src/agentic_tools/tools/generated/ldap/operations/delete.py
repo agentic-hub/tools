@@ -12,6 +12,7 @@ class LdapDeleteToolInput(BaseModel):
 
 class LdapDeleteTool(BaseTool):
     name: str = "ldap_delete"
+    connector_id: str = "nodes-base.ldap"
     description: str = "Tool for ldap delete operation - delete operation"
     args_schema: type[BaseModel] | None = LdapDeleteToolInput
     credentials: Optional[LdapCredentials] = None

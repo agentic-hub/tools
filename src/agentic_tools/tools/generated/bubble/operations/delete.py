@@ -13,6 +13,7 @@ class BubbleDeleteToolInput(BaseModel):
 
 class BubbleDeleteTool(BaseTool):
     name: str = "bubble_delete"
+    connector_id: str = "nodes-base.bubble"
     description: str = "Tool for bubble delete operation - delete operation"
     args_schema: type[BaseModel] | None = BubbleDeleteToolInput
     credentials: Optional[BubbleCredentials] = None

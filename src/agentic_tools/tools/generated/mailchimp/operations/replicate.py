@@ -21,6 +21,7 @@ class MailchimpReplicateToolInput(BaseModel):
 
 class MailchimpReplicateTool(BaseTool):
     name: str = "mailchimp_replicate"
+    connector_id: str = "nodes-base.mailchimp"
     description: str = "Tool for mailchimp replicate operation - replicate operation"
     args_schema: type[BaseModel] | None = MailchimpReplicateToolInput
     credentials: Optional[MailchimpCredentials] = None

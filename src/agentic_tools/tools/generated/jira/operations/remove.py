@@ -24,6 +24,7 @@ class JiraRemoveToolInput(BaseModel):
 
 class JiraRemoveTool(BaseTool):
     name: str = "jira_remove"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira remove operation - remove operation"
     args_schema: type[BaseModel] | None = JiraRemoveToolInput
     credentials: Optional[JiraCredentials] = None

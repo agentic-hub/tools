@@ -23,6 +23,7 @@ class ZammadCreateToolInput(BaseModel):
 
 class ZammadCreateTool(BaseTool):
     name: str = "zammad_create"
+    connector_id: str = "nodes-base.zammad"
     description: str = "Tool for zammad create operation - create operation"
     args_schema: type[BaseModel] | None = ZammadCreateToolInput
     credentials: Optional[ZammadCredentials] = None

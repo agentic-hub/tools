@@ -20,6 +20,7 @@ class MattermostDeleteToolInput(BaseModel):
 
 class MattermostDeleteTool(BaseTool):
     name: str = "mattermost_delete"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost delete operation - delete operation"
     args_schema: type[BaseModel] | None = MattermostDeleteToolInput
     credentials: Optional[MattermostCredentials] = None

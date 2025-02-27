@@ -19,6 +19,7 @@ class StravaCreateToolInput(BaseModel):
 
 class StravaCreateTool(BaseTool):
     name: str = "strava_create"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava create operation - create operation"
     args_schema: type[BaseModel] | None = StravaCreateToolInput
     credentials: Optional[StravaCredentials] = None

@@ -21,6 +21,7 @@ class NocodbGetToolInput(BaseModel):
 
 class NocodbGetTool(BaseTool):
     name: str = "nocodb_get"
+    connector_id: str = "nodes-base.nocoDb"
     description: str = "Tool for nocoDb get operation - get operation"
     args_schema: type[BaseModel] | None = NocodbGetToolInput
     credentials: Optional[NocodbCredentials] = None

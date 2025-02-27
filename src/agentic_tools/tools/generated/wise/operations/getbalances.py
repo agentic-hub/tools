@@ -19,6 +19,7 @@ class WiseGetbalancesToolInput(BaseModel):
 
 class WiseGetbalancesTool(BaseTool):
     name: str = "wise_getbalances"
+    connector_id: str = "nodes-base.wise"
     description: str = "Tool for wise getBalances operation - getBalances operation"
     args_schema: type[BaseModel] | None = WiseGetbalancesToolInput
     credentials: Optional[WiseCredentials] = None

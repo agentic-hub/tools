@@ -27,6 +27,7 @@ class KeapUpsertToolInput(BaseModel):
 
 class KeapUpsertTool(BaseTool):
     name: str = "keap_upsert"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = KeapUpsertToolInput
     credentials: Optional[KeapCredentials] = None

@@ -12,6 +12,7 @@ class GitAddToolInput(BaseModel):
 
 class GitAddTool(BaseTool):
     name: str = "git_add"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git add operation - add operation"
     args_schema: type[BaseModel] | None = GitAddToolInput
     credentials: Optional[GitCredentials] = None

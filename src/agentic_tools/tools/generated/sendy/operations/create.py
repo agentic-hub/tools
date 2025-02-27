@@ -21,6 +21,7 @@ class SendyCreateToolInput(BaseModel):
 
 class SendyCreateTool(BaseTool):
     name: str = "sendy_create"
+    connector_id: str = "nodes-base.sendy"
     description: str = "Tool for sendy create operation - create operation"
     args_schema: type[BaseModel] | None = SendyCreateToolInput
     credentials: Optional[SendyCredentials] = None

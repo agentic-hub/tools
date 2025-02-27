@@ -19,6 +19,7 @@ class GooglefirebasecloudfirestoreUpsertToolInput(BaseModel):
 
 class GooglefirebasecloudfirestoreUpsertTool(BaseTool):
     name: str = "googlefirebasecloudfirestore_upsert"
+    connector_id: str = "nodes-base.googleFirebaseCloudFirestore"
     description: str = "Tool for googleFirebaseCloudFirestore upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = GooglefirebasecloudfirestoreUpsertToolInput
     credentials: Optional[GooglefirebasecloudfirestoreCredentials] = None

@@ -36,6 +36,7 @@ class MicrosoftoutlookCreateToolInput(BaseModel):
 
 class MicrosoftoutlookCreateTool(BaseTool):
     name: str = "microsoftoutlook_create"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook create operation - create operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookCreateToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

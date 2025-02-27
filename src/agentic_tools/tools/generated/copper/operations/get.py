@@ -22,6 +22,7 @@ class CopperGetToolInput(BaseModel):
 
 class CopperGetTool(BaseTool):
     name: str = "copper_get"
+    connector_id: str = "nodes-base.copper"
     description: str = "Tool for copper get operation - get operation"
     args_schema: type[BaseModel] | None = CopperGetToolInput
     credentials: Optional[CopperCredentials] = None

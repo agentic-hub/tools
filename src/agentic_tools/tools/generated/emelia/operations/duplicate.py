@@ -17,6 +17,7 @@ class EmeliaDuplicateToolInput(BaseModel):
 
 class EmeliaDuplicateTool(BaseTool):
     name: str = "emelia_duplicate"
+    connector_id: str = "nodes-base.emelia"
     description: str = "Tool for emelia duplicate operation - duplicate operation"
     args_schema: type[BaseModel] | None = EmeliaDuplicateToolInput
     credentials: Optional[EmeliaCredentials] = None

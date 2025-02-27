@@ -25,6 +25,7 @@ class ServicenowGetallToolInput(BaseModel):
 
 class ServicenowGetallTool(BaseTool):
     name: str = "servicenow_getall"
+    connector_id: str = "nodes-base.serviceNow"
     description: str = "Tool for serviceNow getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ServicenowGetallToolInput
     credentials: Optional[ServicenowCredentials] = None

@@ -12,6 +12,7 @@ class Awssqs__custom_api_call__ToolInput(BaseModel):
 
 class Awssqs__custom_api_call__Tool(BaseTool):
     name: str = "awssqs___custom_api_call__"
+    connector_id: str = "nodes-base.awsSqs"
     description: str = "Tool for awsSqs __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awssqs__custom_api_call__ToolInput
     credentials: Optional[AwssqsCredentials] = None

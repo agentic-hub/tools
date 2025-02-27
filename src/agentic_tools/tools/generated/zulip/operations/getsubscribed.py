@@ -18,6 +18,7 @@ class ZulipGetsubscribedToolInput(BaseModel):
 
 class ZulipGetsubscribedTool(BaseTool):
     name: str = "zulip_getsubscribed"
+    connector_id: str = "nodes-base.zulip"
     description: str = "Tool for zulip getSubscribed operation - getSubscribed operation"
     args_schema: type[BaseModel] | None = ZulipGetsubscribedToolInput
     credentials: Optional[ZulipCredentials] = None

@@ -17,6 +17,7 @@ class WhatsappMediaurlgetToolInput(BaseModel):
 
 class WhatsappMediaurlgetTool(BaseTool):
     name: str = "whatsapp_mediaurlget"
+    connector_id: str = "nodes-base.whatsApp"
     description: str = "Tool for whatsApp mediaUrlGet operation - mediaUrlGet operation"
     args_schema: type[BaseModel] | None = WhatsappMediaurlgetToolInput
     credentials: Optional[WhatsappCredentials] = None

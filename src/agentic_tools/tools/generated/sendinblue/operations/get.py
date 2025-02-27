@@ -16,6 +16,7 @@ class SendinblueGetToolInput(BaseModel):
 
 class SendinblueGetTool(BaseTool):
     name: str = "sendinblue_get"
+    connector_id: str = "nodes-base.sendInBlue"
     description: str = "Tool for sendInBlue get operation - get operation"
     args_schema: type[BaseModel] | None = SendinblueGetToolInput
     credentials: Optional[SendinblueCredentials] = None

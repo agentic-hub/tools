@@ -26,6 +26,7 @@ class SlackCloseToolInput(BaseModel):
 
 class SlackCloseTool(BaseTool):
     name: str = "slack_close"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack close operation - close operation"
     args_schema: type[BaseModel] | None = SlackCloseToolInput
     credentials: Optional[SlackCredentials] = None

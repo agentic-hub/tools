@@ -12,6 +12,7 @@ class GoogleslidesCreateToolInput(BaseModel):
 
 class GoogleslidesCreateTool(BaseTool):
     name: str = "googleslides_create"
+    connector_id: str = "nodes-base.googleSlides"
     description: str = "Tool for googleSlides create operation - create operation"
     args_schema: type[BaseModel] | None = GoogleslidesCreateToolInput
     credentials: Optional[GoogleslidesCredentials] = None

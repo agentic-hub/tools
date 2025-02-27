@@ -21,6 +21,7 @@ class ClockifyDeleteToolInput(BaseModel):
 
 class ClockifyDeleteTool(BaseTool):
     name: str = "clockify_delete"
+    connector_id: str = "nodes-base.clockify"
     description: str = "Tool for clockify delete operation - delete operation"
     args_schema: type[BaseModel] | None = ClockifyDeleteToolInput
     credentials: Optional[ClockifyCredentials] = None

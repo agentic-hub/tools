@@ -23,6 +23,7 @@ class OnfleetGetdelegateeToolInput(BaseModel):
 
 class OnfleetGetdelegateeTool(BaseTool):
     name: str = "onfleet_getdelegatee"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet getDelegatee operation - getDelegatee operation"
     args_schema: type[BaseModel] | None = OnfleetGetdelegateeToolInput
     credentials: Optional[OnfleetCredentials] = None

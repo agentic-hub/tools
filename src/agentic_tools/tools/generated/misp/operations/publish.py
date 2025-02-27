@@ -22,6 +22,7 @@ class MispPublishToolInput(BaseModel):
 
 class MispPublishTool(BaseTool):
     name: str = "misp_publish"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp publish operation - publish operation"
     args_schema: type[BaseModel] | None = MispPublishToolInput
     credentials: Optional[MispCredentials] = None

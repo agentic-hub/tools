@@ -14,6 +14,7 @@ class Strapi__custom_api_call__ToolInput(BaseModel):
 
 class Strapi__custom_api_call__Tool(BaseTool):
     name: str = "strapi___custom_api_call__"
+    connector_id: str = "nodes-base.strapi"
     description: str = "Tool for strapi __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Strapi__custom_api_call__ToolInput
     credentials: Optional[StrapiCredentials] = None

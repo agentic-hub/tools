@@ -17,6 +17,7 @@ class RedisGetToolInput(BaseModel):
 
 class RedisGetTool(BaseTool):
     name: str = "redis_get"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis get operation - get operation"
     args_schema: type[BaseModel] | None = RedisGetToolInput
     credentials: Optional[RedisCredentials] = None

@@ -15,6 +15,7 @@ class SegmentCreateToolInput(BaseModel):
 
 class SegmentCreateTool(BaseTool):
     name: str = "segment_create"
+    connector_id: str = "nodes-base.segment"
     description: str = "Tool for segment create operation - create operation"
     args_schema: type[BaseModel] | None = SegmentCreateToolInput
     credentials: Optional[SegmentCredentials] = None

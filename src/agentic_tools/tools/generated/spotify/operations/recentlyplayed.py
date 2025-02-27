@@ -16,6 +16,7 @@ class SpotifyRecentlyplayedToolInput(BaseModel):
 
 class SpotifyRecentlyplayedTool(BaseTool):
     name: str = "spotify_recentlyplayed"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify recentlyPlayed operation - recentlyPlayed operation"
     args_schema: type[BaseModel] | None = SpotifyRecentlyplayedToolInput
     credentials: Optional[SpotifyCredentials] = None

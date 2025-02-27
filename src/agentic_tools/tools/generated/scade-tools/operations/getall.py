@@ -19,6 +19,7 @@ class Scade-toolsGetallToolInput(BaseModel):
 
 class Scade-toolsGetallTool(BaseTool):
     name: str = "scade-tools_getall"
+    connector_id: str = "nodes-base.scade-tools"
     description: str = "Tool for scade-tools getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = Scade-toolsGetallToolInput
     credentials: Optional[Scade-toolsCredentials] = None

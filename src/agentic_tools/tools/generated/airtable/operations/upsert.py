@@ -18,6 +18,7 @@ class AirtableUpsertToolInput(BaseModel):
 
 class AirtableUpsertTool(BaseTool):
     name: str = "airtable_upsert"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = AirtableUpsertToolInput
     credentials: Optional[AirtableCredentials] = None

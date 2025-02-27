@@ -15,6 +15,7 @@ class Kobotoolbox__custom_api_call__ToolInput(BaseModel):
 
 class Kobotoolbox__custom_api_call__Tool(BaseTool):
     name: str = "kobotoolbox___custom_api_call__"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Kobotoolbox__custom_api_call__ToolInput
     credentials: Optional[KobotoolboxCredentials] = None

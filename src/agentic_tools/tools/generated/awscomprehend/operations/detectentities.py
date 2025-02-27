@@ -13,6 +13,7 @@ class AwscomprehendDetectentitiesToolInput(BaseModel):
 
 class AwscomprehendDetectentitiesTool(BaseTool):
     name: str = "awscomprehend_detectentities"
+    connector_id: str = "nodes-base.awsComprehend"
     description: str = "Tool for awsComprehend detectEntities operation - detectEntities operation"
     args_schema: type[BaseModel] | None = AwscomprehendDetectentitiesToolInput
     credentials: Optional[AwscomprehendCredentials] = None

@@ -41,6 +41,7 @@ class ThehiveprojectUpdateToolInput(BaseModel):
 
 class ThehiveprojectUpdateTool(BaseTool):
     name: str = "thehiveproject_update"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject update operation - update operation"
     args_schema: type[BaseModel] | None = ThehiveprojectUpdateToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

@@ -17,6 +17,7 @@ class GooglecloudstorageGetallToolInput(BaseModel):
 
 class GooglecloudstorageGetallTool(BaseTool):
     name: str = "googlecloudstorage_getall"
+    connector_id: str = "nodes-base.googleCloudStorage"
     description: str = "Tool for googleCloudStorage getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GooglecloudstorageGetallToolInput
     credentials: Optional[GooglecloudstorageCredentials] = None

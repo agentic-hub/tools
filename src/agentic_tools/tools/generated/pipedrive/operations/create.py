@@ -36,6 +36,7 @@ class PipedriveCreateToolInput(BaseModel):
 
 class PipedriveCreateTool(BaseTool):
     name: str = "pipedrive_create"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive create operation - create operation"
     args_schema: type[BaseModel] | None = PipedriveCreateToolInput
     credentials: Optional[PipedriveCredentials] = None

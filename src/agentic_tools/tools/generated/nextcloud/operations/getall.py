@@ -19,6 +19,7 @@ class NextcloudGetallToolInput(BaseModel):
 
 class NextcloudGetallTool(BaseTool):
     name: str = "nextcloud_getall"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = NextcloudGetallToolInput
     credentials: Optional[NextcloudCredentials] = None

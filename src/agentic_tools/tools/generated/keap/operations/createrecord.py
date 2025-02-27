@@ -26,6 +26,7 @@ class KeapCreaterecordToolInput(BaseModel):
 
 class KeapCreaterecordTool(BaseTool):
     name: str = "keap_createrecord"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap createRecord operation - createRecord operation"
     args_schema: type[BaseModel] | None = KeapCreaterecordToolInput
     credentials: Optional[KeapCredentials] = None

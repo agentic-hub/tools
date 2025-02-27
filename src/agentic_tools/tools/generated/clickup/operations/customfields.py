@@ -34,6 +34,7 @@ class ClickupCustomfieldsToolInput(BaseModel):
 
 class ClickupCustomfieldsTool(BaseTool):
     name: str = "clickup_customfields"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp customFields operation - customFields operation"
     args_schema: type[BaseModel] | None = ClickupCustomfieldsToolInput
     credentials: Optional[ClickupCredentials] = None

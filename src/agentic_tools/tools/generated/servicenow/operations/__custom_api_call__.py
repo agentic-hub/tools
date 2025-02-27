@@ -23,6 +23,7 @@ class Servicenow__custom_api_call__ToolInput(BaseModel):
 
 class Servicenow__custom_api_call__Tool(BaseTool):
     name: str = "servicenow___custom_api_call__"
+    connector_id: str = "nodes-base.serviceNow"
     description: str = "Tool for serviceNow __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Servicenow__custom_api_call__ToolInput
     credentials: Optional[ServicenowCredentials] = None

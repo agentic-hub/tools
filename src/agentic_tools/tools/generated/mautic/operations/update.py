@@ -21,6 +21,7 @@ class MauticUpdateToolInput(BaseModel):
 
 class MauticUpdateTool(BaseTool):
     name: str = "mautic_update"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic update operation - update operation"
     args_schema: type[BaseModel] | None = MauticUpdateToolInput
     credentials: Optional[MauticCredentials] = None

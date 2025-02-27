@@ -22,6 +22,7 @@ class TelegramSendmessageToolInput(BaseModel):
 
 class TelegramSendmessageTool(BaseTool):
     name: str = "telegram_sendmessage"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendMessage operation - sendMessage operation"
     args_schema: type[BaseModel] | None = TelegramSendmessageToolInput
     credentials: Optional[TelegramCredentials] = None

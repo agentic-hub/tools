@@ -22,6 +22,7 @@ class NotionAppendToolInput(BaseModel):
 
 class NotionAppendTool(BaseTool):
     name: str = "notion_append"
+    connector_id: str = "nodes-base.notion"
     description: str = "Tool for notion append operation - append operation"
     args_schema: type[BaseModel] | None = NotionAppendToolInput
     credentials: Optional[NotionCredentials] = None

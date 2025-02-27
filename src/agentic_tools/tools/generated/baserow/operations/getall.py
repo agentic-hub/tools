@@ -16,6 +16,7 @@ class BaserowGetallToolInput(BaseModel):
 
 class BaserowGetallTool(BaseTool):
     name: str = "baserow_getall"
+    connector_id: str = "nodes-base.baserow"
     description: str = "Tool for baserow getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = BaserowGetallToolInput
     credentials: Optional[BaserowCredentials] = None

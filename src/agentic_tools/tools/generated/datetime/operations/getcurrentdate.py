@@ -16,5 +16,6 @@ class DatetimeGetcurrentdateToolInput(BaseModel):
 
 class DatetimeGetcurrentdateTool(BaseTool):
     name: str = "datetime_getcurrentdate"
+    connector_id: str = "nodes-base.dateTime"
     description: str = "Tool for dateTime getCurrentDate operation - getCurrentDate operation"
     args_schema: type[BaseModel] | None = DatetimeGetcurrentdateToolInput

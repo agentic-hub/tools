@@ -18,6 +18,7 @@ class ZulipGetToolInput(BaseModel):
 
 class ZulipGetTool(BaseTool):
     name: str = "zulip_get"
+    connector_id: str = "nodes-base.zulip"
     description: str = "Tool for zulip get operation - get operation"
     args_schema: type[BaseModel] | None = ZulipGetToolInput
     credentials: Optional[ZulipCredentials] = None

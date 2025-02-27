@@ -24,6 +24,7 @@ class PostgresExecutequeryToolInput(BaseModel):
 
 class PostgresExecutequeryTool(BaseTool):
     name: str = "postgres_executequery"
+    connector_id: str = "nodes-base.postgres"
     description: str = "Tool for postgres executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = PostgresExecutequeryToolInput
     credentials: Optional[PostgresCredentials] = None

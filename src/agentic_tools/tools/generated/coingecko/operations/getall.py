@@ -15,5 +15,6 @@ class CoingeckoGetallToolInput(BaseModel):
 
 class CoingeckoGetallTool(BaseTool):
     name: str = "coingecko_getall"
+    connector_id: str = "nodes-base.coinGecko"
     description: str = "Tool for coinGecko getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = CoingeckoGetallToolInput

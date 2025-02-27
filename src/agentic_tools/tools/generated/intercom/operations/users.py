@@ -21,6 +21,7 @@ class IntercomUsersToolInput(BaseModel):
 
 class IntercomUsersTool(BaseTool):
     name: str = "intercom_users"
+    connector_id: str = "nodes-base.intercom"
     description: str = "Tool for intercom users operation - users operation"
     args_schema: type[BaseModel] | None = IntercomUsersToolInput
     credentials: Optional[IntercomCredentials] = None

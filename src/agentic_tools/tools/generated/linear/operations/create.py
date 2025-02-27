@@ -15,6 +15,7 @@ class LinearCreateToolInput(BaseModel):
 
 class LinearCreateTool(BaseTool):
     name: str = "linear_create"
+    connector_id: str = "nodes-base.linear"
     description: str = "Tool for linear create operation - create operation"
     args_schema: type[BaseModel] | None = LinearCreateToolInput
     credentials: Optional[LinearCredentials] = None

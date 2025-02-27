@@ -14,6 +14,7 @@ class TimescaledbExecutequeryToolInput(BaseModel):
 
 class TimescaledbExecutequeryTool(BaseTool):
     name: str = "timescaledb_executequery"
+    connector_id: str = "nodes-base.timescaleDb"
     description: str = "Tool for timescaleDb executeQuery operation - executeQuery operation"
     args_schema: type[BaseModel] | None = TimescaledbExecutequeryToolInput
     credentials: Optional[TimescaledbCredentials] = None

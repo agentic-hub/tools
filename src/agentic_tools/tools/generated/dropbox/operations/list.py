@@ -17,6 +17,7 @@ class DropboxListToolInput(BaseModel):
 
 class DropboxListTool(BaseTool):
     name: str = "dropbox_list"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox list operation - list operation"
     args_schema: type[BaseModel] | None = DropboxListToolInput
     credentials: Optional[DropboxCredentials] = None

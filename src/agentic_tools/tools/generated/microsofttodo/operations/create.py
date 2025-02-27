@@ -19,6 +19,7 @@ class MicrosofttodoCreateToolInput(BaseModel):
 
 class MicrosofttodoCreateTool(BaseTool):
     name: str = "microsofttodo_create"
+    connector_id: str = "nodes-base.microsoftToDo"
     description: str = "Tool for microsoftToDo create operation - create operation"
     args_schema: type[BaseModel] | None = MicrosofttodoCreateToolInput
     credentials: Optional[MicrosofttodoCredentials] = None

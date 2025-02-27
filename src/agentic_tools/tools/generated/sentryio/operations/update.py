@@ -24,6 +24,7 @@ class SentryioUpdateToolInput(BaseModel):
 
 class SentryioUpdateTool(BaseTool):
     name: str = "sentryio_update"
+    connector_id: str = "nodes-base.sentryIo"
     description: str = "Tool for sentryIo update operation - update operation"
     args_schema: type[BaseModel] | None = SentryioUpdateToolInput
     credentials: Optional[SentryioCredentials] = None

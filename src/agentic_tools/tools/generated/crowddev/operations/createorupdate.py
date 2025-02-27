@@ -17,6 +17,7 @@ class CrowddevCreateorupdateToolInput(BaseModel):
 
 class CrowddevCreateorupdateTool(BaseTool):
     name: str = "crowddev_createorupdate"
+    connector_id: str = "nodes-base.crowdDev"
     description: str = "Tool for crowdDev createOrUpdate operation - createOrUpdate operation"
     args_schema: type[BaseModel] | None = CrowddevCreateorupdateToolInput
     credentials: Optional[CrowddevCredentials] = None

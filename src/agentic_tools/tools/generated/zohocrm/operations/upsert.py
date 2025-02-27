@@ -34,6 +34,7 @@ class ZohocrmUpsertToolInput(BaseModel):
 
 class ZohocrmUpsertTool(BaseTool):
     name: str = "zohocrm_upsert"
+    connector_id: str = "nodes-base.zohoCrm"
     description: str = "Tool for zohoCrm upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = ZohocrmUpsertToolInput
     credentials: Optional[ZohocrmCredentials] = None

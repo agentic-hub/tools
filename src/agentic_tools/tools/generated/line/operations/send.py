@@ -12,6 +12,7 @@ class LineSendToolInput(BaseModel):
 
 class LineSendTool(BaseTool):
     name: str = "line_send"
+    connector_id: str = "nodes-base.line"
     description: str = "Tool for line send operation - send operation"
     args_schema: type[BaseModel] | None = LineSendToolInput
     credentials: Optional[LineCredentials] = None

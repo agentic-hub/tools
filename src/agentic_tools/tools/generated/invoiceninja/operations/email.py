@@ -22,6 +22,7 @@ class InvoiceninjaEmailToolInput(BaseModel):
 
 class InvoiceninjaEmailTool(BaseTool):
     name: str = "invoiceninja_email"
+    connector_id: str = "nodes-base.invoiceNinja"
     description: str = "Tool for invoiceNinja email operation - email operation"
     args_schema: type[BaseModel] | None = InvoiceninjaEmailToolInput
     credentials: Optional[InvoiceninjaCredentials] = None

@@ -14,6 +14,7 @@ class NetlifyCancelToolInput(BaseModel):
 
 class NetlifyCancelTool(BaseTool):
     name: str = "netlify_cancel"
+    connector_id: str = "nodes-base.netlify"
     description: str = "Tool for netlify cancel operation - cancel operation"
     args_schema: type[BaseModel] | None = NetlifyCancelToolInput
     credentials: Optional[NetlifyCredentials] = None

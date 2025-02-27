@@ -18,6 +18,7 @@ class OpenaiCreateToolInput(BaseModel):
 
 class OpenaiCreateTool(BaseTool):
     name: str = "openai_create"
+    connector_id: str = "nodes-base.openAi"
     description: str = "Tool for openAi create operation - create operation"
     args_schema: type[BaseModel] | None = OpenaiCreateToolInput
     credentials: Optional[OpenaiCredentials] = None

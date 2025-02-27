@@ -17,6 +17,7 @@ class AutomizyDeleteToolInput(BaseModel):
 
 class AutomizyDeleteTool(BaseTool):
     name: str = "automizy_delete"
+    connector_id: str = "nodes-base.automizy"
     description: str = "Tool for automizy delete operation - delete operation"
     args_schema: type[BaseModel] | None = AutomizyDeleteToolInput
     credentials: Optional[AutomizyCredentials] = None

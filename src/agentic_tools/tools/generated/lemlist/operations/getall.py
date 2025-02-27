@@ -15,6 +15,7 @@ class LemlistGetallToolInput(BaseModel):
 
 class LemlistGetallTool(BaseTool):
     name: str = "lemlist_getall"
+    connector_id: str = "nodes-base.lemlist"
     description: str = "Tool for lemlist getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = LemlistGetallToolInput
     credentials: Optional[LemlistCredentials] = None

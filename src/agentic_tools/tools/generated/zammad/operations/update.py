@@ -17,6 +17,7 @@ class ZammadUpdateToolInput(BaseModel):
 
 class ZammadUpdateTool(BaseTool):
     name: str = "zammad_update"
+    connector_id: str = "nodes-base.zammad"
     description: str = "Tool for zammad update operation - update operation"
     args_schema: type[BaseModel] | None = ZammadUpdateToolInput
     credentials: Optional[ZammadCredentials] = None

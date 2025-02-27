@@ -13,6 +13,7 @@ class BubbleCreateToolInput(BaseModel):
 
 class BubbleCreateTool(BaseTool):
     name: str = "bubble_create"
+    connector_id: str = "nodes-base.bubble"
     description: str = "Tool for bubble create operation - create operation"
     args_schema: type[BaseModel] | None = BubbleCreateToolInput
     credentials: Optional[BubbleCredentials] = None

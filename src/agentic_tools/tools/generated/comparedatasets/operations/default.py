@@ -13,5 +13,6 @@ class ComparedatasetsDefaultToolInput(BaseModel):
 
 class ComparedatasetsDefaultTool(BaseTool):
     name: str = "comparedatasets_default"
+    connector_id: str = "nodes-base.compareDatasets"
     description: str = "Tool for compareDatasets default operation - default operation"
     args_schema: type[BaseModel] | None = ComparedatasetsDefaultToolInput

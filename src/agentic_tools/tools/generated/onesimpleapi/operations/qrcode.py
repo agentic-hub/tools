@@ -15,6 +15,7 @@ class OnesimpleapiQrcodeToolInput(BaseModel):
 
 class OnesimpleapiQrcodeTool(BaseTool):
     name: str = "onesimpleapi_qrcode"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi qrCode operation - qrCode operation"
     args_schema: type[BaseModel] | None = OnesimpleapiQrcodeToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

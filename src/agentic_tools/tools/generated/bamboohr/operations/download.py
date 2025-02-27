@@ -38,6 +38,7 @@ class BamboohrDownloadToolInput(BaseModel):
 
 class BamboohrDownloadTool(BaseTool):
     name: str = "bamboohr_download"
+    connector_id: str = "nodes-base.bambooHr"
     description: str = "Tool for bambooHr download operation - download operation"
     args_schema: type[BaseModel] | None = BamboohrDownloadToolInput
     credentials: Optional[BamboohrCredentials] = None

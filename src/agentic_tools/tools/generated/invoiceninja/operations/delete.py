@@ -22,6 +22,7 @@ class InvoiceninjaDeleteToolInput(BaseModel):
 
 class InvoiceninjaDeleteTool(BaseTool):
     name: str = "invoiceninja_delete"
+    connector_id: str = "nodes-base.invoiceNinja"
     description: str = "Tool for invoiceNinja delete operation - delete operation"
     args_schema: type[BaseModel] | None = InvoiceninjaDeleteToolInput
     credentials: Optional[InvoiceninjaCredentials] = None

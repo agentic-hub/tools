@@ -24,6 +24,7 @@ class HarvestDeleteexternalToolInput(BaseModel):
 
 class HarvestDeleteexternalTool(BaseTool):
     name: str = "harvest_deleteexternal"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest deleteExternal operation - deleteExternal operation"
     args_schema: type[BaseModel] | None = HarvestDeleteexternalToolInput
     credentials: Optional[HarvestCredentials] = None

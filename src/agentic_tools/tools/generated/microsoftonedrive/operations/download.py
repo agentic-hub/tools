@@ -18,6 +18,7 @@ class MicrosoftonedriveDownloadToolInput(BaseModel):
 
 class MicrosoftonedriveDownloadTool(BaseTool):
     name: str = "microsoftonedrive_download"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive download operation - download operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveDownloadToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

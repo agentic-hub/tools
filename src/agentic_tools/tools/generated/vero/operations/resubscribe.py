@@ -15,6 +15,7 @@ class VeroResubscribeToolInput(BaseModel):
 
 class VeroResubscribeTool(BaseTool):
     name: str = "vero_resubscribe"
+    connector_id: str = "nodes-base.vero"
     description: str = "Tool for vero resubscribe operation - resubscribe operation"
     args_schema: type[BaseModel] | None = VeroResubscribeToolInput
     credentials: Optional[VeroCredentials] = None

@@ -14,6 +14,7 @@ class HomeassistantCheckToolInput(BaseModel):
 
 class HomeassistantCheckTool(BaseTool):
     name: str = "homeassistant_check"
+    connector_id: str = "nodes-base.homeAssistant"
     description: str = "Tool for homeAssistant check operation - check operation"
     args_schema: type[BaseModel] | None = HomeassistantCheckToolInput
     credentials: Optional[HomeassistantCredentials] = None

@@ -16,6 +16,7 @@ class CitrixadcDeleteToolInput(BaseModel):
 
 class CitrixadcDeleteTool(BaseTool):
     name: str = "citrixadc_delete"
+    connector_id: str = "nodes-base.citrixAdc"
     description: str = "Tool for citrixAdc delete operation - delete operation"
     args_schema: type[BaseModel] | None = CitrixadcDeleteToolInput
     credentials: Optional[CitrixadcCredentials] = None

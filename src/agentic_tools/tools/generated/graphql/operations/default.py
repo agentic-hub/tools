@@ -19,6 +19,7 @@ class GraphqlDefaultToolInput(BaseModel):
 
 class GraphqlDefaultTool(BaseTool):
     name: str = "graphql_default"
+    connector_id: str = "nodes-base.graphql"
     description: str = "Tool for graphql default operation - default operation"
     args_schema: type[BaseModel] | None = GraphqlDefaultToolInput
     credentials: Optional[GraphqlCredentials] = None

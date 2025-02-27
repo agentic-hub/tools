@@ -24,6 +24,7 @@ class GoogleanalyticsGetToolInput(BaseModel):
 
 class GoogleanalyticsGetTool(BaseTool):
     name: str = "googleanalytics_get"
+    connector_id: str = "nodes-base.googleAnalytics"
     description: str = "Tool for googleAnalytics get operation - get operation"
     args_schema: type[BaseModel] | None = GoogleanalyticsGetToolInput
     credentials: Optional[GoogleanalyticsCredentials] = None

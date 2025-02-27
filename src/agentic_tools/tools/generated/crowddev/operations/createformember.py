@@ -18,6 +18,7 @@ class CrowddevCreateformemberToolInput(BaseModel):
 
 class CrowddevCreateformemberTool(BaseTool):
     name: str = "crowddev_createformember"
+    connector_id: str = "nodes-base.crowdDev"
     description: str = "Tool for crowdDev createForMember operation - createForMember operation"
     args_schema: type[BaseModel] | None = CrowddevCreateformemberToolInput
     credentials: Optional[CrowddevCredentials] = None

@@ -24,6 +24,7 @@ class KeapGetToolInput(BaseModel):
 
 class KeapGetTool(BaseTool):
     name: str = "keap_get"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap get operation - get operation"
     args_schema: type[BaseModel] | None = KeapGetToolInput
     credentials: Optional[KeapCredentials] = None

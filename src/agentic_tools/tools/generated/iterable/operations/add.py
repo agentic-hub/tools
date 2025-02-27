@@ -17,6 +17,7 @@ class IterableAddToolInput(BaseModel):
 
 class IterableAddTool(BaseTool):
     name: str = "iterable_add"
+    connector_id: str = "nodes-base.iterable"
     description: str = "Tool for iterable add operation - add operation"
     args_schema: type[BaseModel] | None = IterableAddToolInput
     credentials: Optional[IterableCredentials] = None

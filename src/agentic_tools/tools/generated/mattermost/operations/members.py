@@ -21,6 +21,7 @@ class MattermostMembersToolInput(BaseModel):
 
 class MattermostMembersTool(BaseTool):
     name: str = "mattermost_members"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost members operation - members operation"
     args_schema: type[BaseModel] | None = MattermostMembersToolInput
     credentials: Optional[MattermostCredentials] = None

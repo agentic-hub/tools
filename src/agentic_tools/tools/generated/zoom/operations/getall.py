@@ -16,6 +16,7 @@ class ZoomGetallToolInput(BaseModel):
 
 class ZoomGetallTool(BaseTool):
     name: str = "zoom_getall"
+    connector_id: str = "nodes-base.zoom"
     description: str = "Tool for zoom getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ZoomGetallToolInput
     credentials: Optional[ZoomCredentials] = None

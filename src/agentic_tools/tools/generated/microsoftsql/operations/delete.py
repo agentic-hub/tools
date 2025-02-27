@@ -12,6 +12,7 @@ class MicrosoftsqlDeleteToolInput(BaseModel):
 
 class MicrosoftsqlDeleteTool(BaseTool):
     name: str = "microsoftsql_delete"
+    connector_id: str = "nodes-base.microsoftSql"
     description: str = "Tool for microsoftSql delete operation - delete operation"
     args_schema: type[BaseModel] | None = MicrosoftsqlDeleteToolInput
     credentials: Optional[MicrosoftsqlCredentials] = None

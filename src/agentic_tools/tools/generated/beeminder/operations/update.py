@@ -13,6 +13,7 @@ class BeeminderUpdateToolInput(BaseModel):
 
 class BeeminderUpdateTool(BaseTool):
     name: str = "beeminder_update"
+    connector_id: str = "nodes-base.beeminder"
     description: str = "Tool for beeminder update operation - update operation"
     args_schema: type[BaseModel] | None = BeeminderUpdateToolInput
     credentials: Optional[BeeminderCredentials] = None

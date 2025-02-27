@@ -10,5 +10,6 @@ class PostbinGetToolInput(BaseModel):
 
 class PostbinGetTool(BaseTool):
     name: str = "postbin_get"
+    connector_id: str = "nodes-base.postBin"
     description: str = "Tool for postBin get operation - get operation"
     args_schema: type[BaseModel] | None = PostbinGetToolInput

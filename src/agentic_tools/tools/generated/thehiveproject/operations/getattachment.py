@@ -41,6 +41,7 @@ class ThehiveprojectGetattachmentToolInput(BaseModel):
 
 class ThehiveprojectGetattachmentTool(BaseTool):
     name: str = "thehiveproject_getattachment"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject getAttachment operation - getAttachment operation"
     args_schema: type[BaseModel] | None = ThehiveprojectGetattachmentToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

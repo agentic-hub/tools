@@ -22,6 +22,7 @@ class OdooDeleteToolInput(BaseModel):
 
 class OdooDeleteTool(BaseTool):
     name: str = "odoo_delete"
+    connector_id: str = "nodes-base.odoo"
     description: str = "Tool for odoo delete operation - delete operation"
     args_schema: type[BaseModel] | None = OdooDeleteToolInput
     credentials: Optional[OdooCredentials] = None

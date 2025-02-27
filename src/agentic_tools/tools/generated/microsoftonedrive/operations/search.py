@@ -18,6 +18,7 @@ class MicrosoftonedriveSearchToolInput(BaseModel):
 
 class MicrosoftonedriveSearchTool(BaseTool):
     name: str = "microsoftonedrive_search"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive search operation - search operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveSearchToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

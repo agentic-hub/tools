@@ -14,6 +14,7 @@ class ZoomUpdateToolInput(BaseModel):
 
 class ZoomUpdateTool(BaseTool):
     name: str = "zoom_update"
+    connector_id: str = "nodes-base.zoom"
     description: str = "Tool for zoom update operation - update operation"
     args_schema: type[BaseModel] | None = ZoomUpdateToolInput
     credentials: Optional[ZoomCredentials] = None

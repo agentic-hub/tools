@@ -12,6 +12,7 @@ class Twilio__custom_api_call__ToolInput(BaseModel):
 
 class Twilio__custom_api_call__Tool(BaseTool):
     name: str = "twilio___custom_api_call__"
+    connector_id: str = "nodes-base.twilio"
     description: str = "Tool for twilio __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Twilio__custom_api_call__ToolInput
     credentials: Optional[TwilioCredentials] = None

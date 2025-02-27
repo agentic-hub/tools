@@ -21,6 +21,7 @@ class Awss3CopyToolInput(BaseModel):
 
 class Awss3CopyTool(BaseTool):
     name: str = "awss3_copy"
+    connector_id: str = "nodes-base.awsS3"
     description: str = "Tool for awsS3 copy operation - copy operation"
     args_schema: type[BaseModel] | None = Awss3CopyToolInput
     credentials: Optional[Awss3Credentials] = None

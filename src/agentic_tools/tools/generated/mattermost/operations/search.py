@@ -21,6 +21,7 @@ class MattermostSearchToolInput(BaseModel):
 
 class MattermostSearchTool(BaseTool):
     name: str = "mattermost_search"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost search operation - search operation"
     args_schema: type[BaseModel] | None = MattermostSearchToolInput
     credentials: Optional[MattermostCredentials] = None

@@ -16,6 +16,7 @@ class HomeassistantGetscreenshotToolInput(BaseModel):
 
 class HomeassistantGetscreenshotTool(BaseTool):
     name: str = "homeassistant_getscreenshot"
+    connector_id: str = "nodes-base.homeAssistant"
     description: str = "Tool for homeAssistant getScreenshot operation - getScreenshot operation"
     args_schema: type[BaseModel] | None = HomeassistantGetscreenshotToolInput
     credentials: Optional[HomeassistantCredentials] = None

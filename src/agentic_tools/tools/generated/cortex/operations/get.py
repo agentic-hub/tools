@@ -16,6 +16,7 @@ class CortexGetToolInput(BaseModel):
 
 class CortexGetTool(BaseTool):
     name: str = "cortex_get"
+    connector_id: str = "nodes-base.cortex"
     description: str = "Tool for cortex get operation - get operation"
     args_schema: type[BaseModel] | None = CortexGetToolInput
     credentials: Optional[CortexCredentials] = None

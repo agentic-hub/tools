@@ -14,6 +14,7 @@ class CloudflareGetmanyToolInput(BaseModel):
 
 class CloudflareGetmanyTool(BaseTool):
     name: str = "cloudflare_getmany"
+    connector_id: str = "nodes-base.cloudflare"
     description: str = "Tool for cloudflare getMany operation - getMany operation"
     args_schema: type[BaseModel] | None = CloudflareGetmanyToolInput
     credentials: Optional[CloudflareCredentials] = None

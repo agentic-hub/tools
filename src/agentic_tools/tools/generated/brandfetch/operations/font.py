@@ -12,6 +12,7 @@ class BrandfetchFontToolInput(BaseModel):
 
 class BrandfetchFontTool(BaseTool):
     name: str = "brandfetch_font"
+    connector_id: str = "nodes-base.Brandfetch"
     description: str = "Tool for Brandfetch font operation - font operation"
     args_schema: type[BaseModel] | None = BrandfetchFontToolInput
     credentials: Optional[BrandfetchCredentials] = None

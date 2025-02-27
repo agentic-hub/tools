@@ -17,6 +17,7 @@ class IterableDeleteToolInput(BaseModel):
 
 class IterableDeleteTool(BaseTool):
     name: str = "iterable_delete"
+    connector_id: str = "nodes-base.iterable"
     description: str = "Tool for iterable delete operation - delete operation"
     args_schema: type[BaseModel] | None = IterableDeleteToolInput
     credentials: Optional[IterableCredentials] = None

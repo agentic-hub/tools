@@ -16,6 +16,7 @@ class RabbitmqDeletemessageToolInput(BaseModel):
 
 class RabbitmqDeletemessageTool(BaseTool):
     name: str = "rabbitmq_deletemessage"
+    connector_id: str = "nodes-base.rabbitmq"
     description: str = "Tool for rabbitmq deleteMessage operation - deleteMessage operation"
     args_schema: type[BaseModel] | None = RabbitmqDeletemessageToolInput
     credentials: Optional[RabbitmqCredentials] = None

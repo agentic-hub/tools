@@ -24,6 +24,7 @@ class SentryioGetToolInput(BaseModel):
 
 class SentryioGetTool(BaseTool):
     name: str = "sentryio_get"
+    connector_id: str = "nodes-base.sentryIo"
     description: str = "Tool for sentryIo get operation - get operation"
     args_schema: type[BaseModel] | None = SentryioGetToolInput
     credentials: Optional[SentryioCredentials] = None

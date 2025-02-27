@@ -13,6 +13,7 @@ class MailerliteCreateToolInput(BaseModel):
 
 class MailerliteCreateTool(BaseTool):
     name: str = "mailerlite_create"
+    connector_id: str = "nodes-base.mailerLite"
     description: str = "Tool for mailerLite create operation - create operation"
     args_schema: type[BaseModel] | None = MailerliteCreateToolInput
     credentials: Optional[MailerliteCredentials] = None

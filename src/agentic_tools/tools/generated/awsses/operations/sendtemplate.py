@@ -18,6 +18,7 @@ class AwssesSendtemplateToolInput(BaseModel):
 
 class AwssesSendtemplateTool(BaseTool):
     name: str = "awsses_sendtemplate"
+    connector_id: str = "nodes-base.awsSes"
     description: str = "Tool for awsSes sendTemplate operation - sendTemplate operation"
     args_schema: type[BaseModel] | None = AwssesSendtemplateToolInput
     credentials: Optional[AwssesCredentials] = None

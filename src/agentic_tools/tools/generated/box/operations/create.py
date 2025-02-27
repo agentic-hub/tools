@@ -26,6 +26,7 @@ class BoxCreateToolInput(BaseModel):
 
 class BoxCreateTool(BaseTool):
     name: str = "box_create"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box create operation - create operation"
     args_schema: type[BaseModel] | None = BoxCreateToolInput
     credentials: Optional[BoxCredentials] = None

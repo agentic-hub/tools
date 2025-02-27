@@ -21,6 +21,7 @@ class MauticDeleteToolInput(BaseModel):
 
 class MauticDeleteTool(BaseTool):
     name: str = "mautic_delete"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic delete operation - delete operation"
     args_schema: type[BaseModel] | None = MauticDeleteToolInput
     credentials: Optional[MauticCredentials] = None

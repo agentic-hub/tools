@@ -14,6 +14,7 @@ class NetlifyCreateToolInput(BaseModel):
 
 class NetlifyCreateTool(BaseTool):
     name: str = "netlify_create"
+    connector_id: str = "nodes-base.netlify"
     description: str = "Tool for netlify create operation - create operation"
     args_schema: type[BaseModel] | None = NetlifyCreateToolInput
     credentials: Optional[NetlifyCredentials] = None

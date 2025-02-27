@@ -24,6 +24,7 @@ class GithubUpdateToolInput(BaseModel):
 
 class GithubUpdateTool(BaseTool):
     name: str = "github_update"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github update operation - update operation"
     args_schema: type[BaseModel] | None = GithubUpdateToolInput
     credentials: Optional[GithubCredentials] = None

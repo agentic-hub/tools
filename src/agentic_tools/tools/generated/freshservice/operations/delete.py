@@ -37,6 +37,7 @@ class FreshserviceDeleteToolInput(BaseModel):
 
 class FreshserviceDeleteTool(BaseTool):
     name: str = "freshservice_delete"
+    connector_id: str = "nodes-base.freshservice"
     description: str = "Tool for freshservice delete operation - delete operation"
     args_schema: type[BaseModel] | None = FreshserviceDeleteToolInput
     credentials: Optional[FreshserviceCredentials] = None

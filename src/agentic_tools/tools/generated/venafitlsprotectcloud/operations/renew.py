@@ -18,6 +18,7 @@ class VenafitlsprotectcloudRenewToolInput(BaseModel):
 
 class VenafitlsprotectcloudRenewTool(BaseTool):
     name: str = "venafitlsprotectcloud_renew"
+    connector_id: str = "nodes-base.venafiTlsProtectCloud"
     description: str = "Tool for venafiTlsProtectCloud renew operation - renew operation"
     args_schema: type[BaseModel] | None = VenafitlsprotectcloudRenewToolInput
     credentials: Optional[VenafitlsprotectcloudCredentials] = None

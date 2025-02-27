@@ -18,6 +18,7 @@ class GrafanaUpdateToolInput(BaseModel):
 
 class GrafanaUpdateTool(BaseTool):
     name: str = "grafana_update"
+    connector_id: str = "nodes-base.grafana"
     description: str = "Tool for grafana update operation - update operation"
     args_schema: type[BaseModel] | None = GrafanaUpdateToolInput
     credentials: Optional[GrafanaCredentials] = None

@@ -21,6 +21,7 @@ class GooglesheetsDeletespreadsheetToolInput(BaseModel):
 
 class GooglesheetsDeletespreadsheetTool(BaseTool):
     name: str = "googlesheets_deletespreadsheet"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets deleteSpreadsheet operation - deleteSpreadsheet operation"
     args_schema: type[BaseModel] | None = GooglesheetsDeletespreadsheetToolInput
     credentials: Optional[GooglesheetsCredentials] = None

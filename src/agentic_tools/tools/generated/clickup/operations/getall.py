@@ -35,6 +35,7 @@ class ClickupGetallToolInput(BaseModel):
 
 class ClickupGetallTool(BaseTool):
     name: str = "clickup_getall"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ClickupGetallToolInput
     credentials: Optional[ClickupCredentials] = None

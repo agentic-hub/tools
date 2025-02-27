@@ -26,6 +26,7 @@ class BoxUpdateToolInput(BaseModel):
 
 class BoxUpdateTool(BaseTool):
     name: str = "box_update"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box update operation - update operation"
     args_schema: type[BaseModel] | None = BoxUpdateToolInput
     credentials: Optional[BoxCredentials] = None

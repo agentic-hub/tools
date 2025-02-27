@@ -17,5 +17,6 @@ class EditimageCompositeToolInput(BaseModel):
 
 class EditimageCompositeTool(BaseTool):
     name: str = "editimage_composite"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage composite operation - composite operation"
     args_schema: type[BaseModel] | None = EditimageCompositeToolInput

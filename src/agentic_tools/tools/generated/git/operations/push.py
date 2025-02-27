@@ -12,6 +12,7 @@ class GitPushToolInput(BaseModel):
 
 class GitPushTool(BaseTool):
     name: str = "git_push"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git push operation - push operation"
     args_schema: type[BaseModel] | None = GitPushToolInput
     credentials: Optional[GitCredentials] = None

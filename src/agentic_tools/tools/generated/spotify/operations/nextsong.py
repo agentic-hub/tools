@@ -15,6 +15,7 @@ class SpotifyNextsongToolInput(BaseModel):
 
 class SpotifyNextsongTool(BaseTool):
     name: str = "spotify_nextsong"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify nextSong operation - nextSong operation"
     args_schema: type[BaseModel] | None = SpotifyNextsongToolInput
     credentials: Optional[SpotifyCredentials] = None

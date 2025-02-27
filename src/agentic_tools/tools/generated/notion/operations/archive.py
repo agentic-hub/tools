@@ -22,6 +22,7 @@ class NotionArchiveToolInput(BaseModel):
 
 class NotionArchiveTool(BaseTool):
     name: str = "notion_archive"
+    connector_id: str = "nodes-base.notion"
     description: str = "Tool for notion archive operation - archive operation"
     args_schema: type[BaseModel] | None = NotionArchiveToolInput
     credentials: Optional[NotionCredentials] = None

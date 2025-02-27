@@ -24,6 +24,7 @@ class MispGetToolInput(BaseModel):
 
 class MispGetTool(BaseTool):
     name: str = "misp_get"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp get operation - get operation"
     args_schema: type[BaseModel] | None = MispGetToolInput
     credentials: Optional[MispCredentials] = None

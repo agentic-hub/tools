@@ -13,6 +13,7 @@ class RundeckExecuteToolInput(BaseModel):
 
 class RundeckExecuteTool(BaseTool):
     name: str = "rundeck_execute"
+    connector_id: str = "nodes-base.rundeck"
     description: str = "Tool for rundeck execute operation - execute operation"
     args_schema: type[BaseModel] | None = RundeckExecuteToolInput
     credentials: Optional[RundeckCredentials] = None

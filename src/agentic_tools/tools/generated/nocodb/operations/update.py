@@ -24,6 +24,7 @@ class NocodbUpdateToolInput(BaseModel):
 
 class NocodbUpdateTool(BaseTool):
     name: str = "nocodb_update"
+    connector_id: str = "nodes-base.nocoDb"
     description: str = "Tool for nocoDb update operation - update operation"
     args_schema: type[BaseModel] | None = NocodbUpdateToolInput
     credentials: Optional[NocodbCredentials] = None

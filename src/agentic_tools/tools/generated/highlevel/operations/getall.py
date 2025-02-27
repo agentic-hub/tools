@@ -23,6 +23,7 @@ class HighlevelGetallToolInput(BaseModel):
 
 class HighlevelGetallTool(BaseTool):
     name: str = "highlevel_getall"
+    connector_id: str = "nodes-base.highLevel"
     description: str = "Tool for highLevel getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = HighlevelGetallToolInput
     credentials: Optional[HighlevelCredentials] = None

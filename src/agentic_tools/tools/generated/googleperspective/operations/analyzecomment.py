@@ -12,6 +12,7 @@ class GoogleperspectiveAnalyzecommentToolInput(BaseModel):
 
 class GoogleperspectiveAnalyzecommentTool(BaseTool):
     name: str = "googleperspective_analyzecomment"
+    connector_id: str = "nodes-base.googlePerspective"
     description: str = "Tool for googlePerspective analyzeComment operation - analyzeComment operation"
     args_schema: type[BaseModel] | None = GoogleperspectiveAnalyzecommentToolInput
     credentials: Optional[GoogleperspectiveCredentials] = None

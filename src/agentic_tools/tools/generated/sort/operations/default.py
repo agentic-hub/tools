@@ -10,5 +10,6 @@ class SortDefaultToolInput(BaseModel):
 
 class SortDefaultTool(BaseTool):
     name: str = "sort_default"
+    connector_id: str = "nodes-base.sort"
     description: str = "Tool for sort default operation - default operation"
     args_schema: type[BaseModel] | None = SortDefaultToolInput

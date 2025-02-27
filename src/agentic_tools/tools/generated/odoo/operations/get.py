@@ -22,6 +22,7 @@ class OdooGetToolInput(BaseModel):
 
 class OdooGetTool(BaseTool):
     name: str = "odoo_get"
+    connector_id: str = "nodes-base.odoo"
     description: str = "Tool for odoo get operation - get operation"
     args_schema: type[BaseModel] | None = OdooGetToolInput
     credentials: Optional[OdooCredentials] = None

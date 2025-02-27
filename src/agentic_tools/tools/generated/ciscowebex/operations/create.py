@@ -26,6 +26,7 @@ class CiscowebexCreateToolInput(BaseModel):
 
 class CiscowebexCreateTool(BaseTool):
     name: str = "ciscowebex_create"
+    connector_id: str = "nodes-base.ciscoWebex"
     description: str = "Tool for ciscoWebex create operation - create operation"
     args_schema: type[BaseModel] | None = CiscowebexCreateToolInput
     credentials: Optional[CiscowebexCredentials] = None

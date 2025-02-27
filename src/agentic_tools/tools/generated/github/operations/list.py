@@ -22,6 +22,7 @@ class GithubListToolInput(BaseModel):
 
 class GithubListTool(BaseTool):
     name: str = "github_list"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github list operation - list operation"
     args_schema: type[BaseModel] | None = GithubListToolInput
     credentials: Optional[GithubCredentials] = None

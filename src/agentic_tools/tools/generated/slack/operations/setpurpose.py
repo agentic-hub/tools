@@ -27,6 +27,7 @@ class SlackSetpurposeToolInput(BaseModel):
 
 class SlackSetpurposeTool(BaseTool):
     name: str = "slack_setpurpose"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack setPurpose operation - setPurpose operation"
     args_schema: type[BaseModel] | None = SlackSetpurposeToolInput
     credentials: Optional[SlackCredentials] = None

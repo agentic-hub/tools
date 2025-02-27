@@ -17,6 +17,7 @@ class WhatsappMediadeleteToolInput(BaseModel):
 
 class WhatsappMediadeleteTool(BaseTool):
     name: str = "whatsapp_mediadelete"
+    connector_id: str = "nodes-base.whatsApp"
     description: str = "Tool for whatsApp mediaDelete operation - mediaDelete operation"
     args_schema: type[BaseModel] | None = WhatsappMediadeleteToolInput
     credentials: Optional[WhatsappCredentials] = None

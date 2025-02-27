@@ -23,6 +23,7 @@ class MicrosoftteamsUpdateToolInput(BaseModel):
 
 class MicrosoftteamsUpdateTool(BaseTool):
     name: str = "microsoftteams_update"
+    connector_id: str = "nodes-base.microsoftTeams"
     description: str = "Tool for microsoftTeams update operation - update operation"
     args_schema: type[BaseModel] | None = MicrosoftteamsUpdateToolInput
     credentials: Optional[MicrosoftteamsCredentials] = None

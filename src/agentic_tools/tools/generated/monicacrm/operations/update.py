@@ -33,6 +33,7 @@ class MonicacrmUpdateToolInput(BaseModel):
 
 class MonicacrmUpdateTool(BaseTool):
     name: str = "monicacrm_update"
+    connector_id: str = "nodes-base.monicaCrm"
     description: str = "Tool for monicaCrm update operation - update operation"
     args_schema: type[BaseModel] | None = MonicacrmUpdateToolInput
     credentials: Optional[MonicacrmCredentials] = None

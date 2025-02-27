@@ -15,6 +15,7 @@ class StravaUpdateToolInput(BaseModel):
 
 class StravaUpdateTool(BaseTool):
     name: str = "strava_update"
+    connector_id: str = "nodes-base.strava"
     description: str = "Tool for strava update operation - update operation"
     args_schema: type[BaseModel] | None = StravaUpdateToolInput
     credentials: Optional[StravaCredentials] = None

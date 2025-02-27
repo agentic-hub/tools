@@ -13,6 +13,7 @@ class HumanticaiCreateToolInput(BaseModel):
 
 class HumanticaiCreateTool(BaseTool):
     name: str = "humanticai_create"
+    connector_id: str = "nodes-base.humanticAi"
     description: str = "Tool for humanticAi create operation - create operation"
     args_schema: type[BaseModel] | None = HumanticaiCreateToolInput
     credentials: Optional[HumanticaiCredentials] = None

@@ -18,6 +18,7 @@ class LinkedinCreateToolInput(BaseModel):
 
 class LinkedinCreateTool(BaseTool):
     name: str = "linkedin_create"
+    connector_id: str = "nodes-base.linkedIn"
     description: str = "Tool for linkedIn create operation - create operation"
     args_schema: type[BaseModel] | None = LinkedinCreateToolInput
     credentials: Optional[LinkedinCredentials] = None

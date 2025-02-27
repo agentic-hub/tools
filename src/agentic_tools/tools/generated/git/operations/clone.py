@@ -13,6 +13,7 @@ class GitCloneToolInput(BaseModel):
 
 class GitCloneTool(BaseTool):
     name: str = "git_clone"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git clone operation - clone operation"
     args_schema: type[BaseModel] | None = GitCloneToolInput
     credentials: Optional[GitCredentials] = None

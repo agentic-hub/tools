@@ -18,6 +18,7 @@ class UptimerobotResetToolInput(BaseModel):
 
 class UptimerobotResetTool(BaseTool):
     name: str = "uptimerobot_reset"
+    connector_id: str = "nodes-base.uptimeRobot"
     description: str = "Tool for uptimeRobot reset operation - reset operation"
     args_schema: type[BaseModel] | None = UptimerobotResetToolInput
     credentials: Optional[UptimerobotCredentials] = None

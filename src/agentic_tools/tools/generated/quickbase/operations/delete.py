@@ -22,6 +22,7 @@ class QuickbaseDeleteToolInput(BaseModel):
 
 class QuickbaseDeleteTool(BaseTool):
     name: str = "quickbase_delete"
+    connector_id: str = "nodes-base.quickbase"
     description: str = "Tool for quickbase delete operation - delete operation"
     args_schema: type[BaseModel] | None = QuickbaseDeleteToolInput
     credentials: Optional[QuickbaseCredentials] = None

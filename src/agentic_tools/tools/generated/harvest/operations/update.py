@@ -24,6 +24,7 @@ class HarvestUpdateToolInput(BaseModel):
 
 class HarvestUpdateTool(BaseTool):
     name: str = "harvest_update"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest update operation - update operation"
     args_schema: type[BaseModel] | None = HarvestUpdateToolInput
     credentials: Optional[HarvestCredentials] = None

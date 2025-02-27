@@ -12,6 +12,7 @@ class StackbyReadToolInput(BaseModel):
 
 class StackbyReadTool(BaseTool):
     name: str = "stackby_read"
+    connector_id: str = "nodes-base.stackby"
     description: str = "Tool for stackby read operation - read operation"
     args_schema: type[BaseModel] | None = StackbyReadToolInput
     credentials: Optional[StackbyCredentials] = None

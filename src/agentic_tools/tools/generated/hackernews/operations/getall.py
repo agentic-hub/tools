@@ -11,5 +11,6 @@ class HackernewsGetallToolInput(BaseModel):
 
 class HackernewsGetallTool(BaseTool):
     name: str = "hackernews_getall"
+    connector_id: str = "nodes-base.hackerNews"
     description: str = "Tool for hackerNews getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = HackernewsGetallToolInput

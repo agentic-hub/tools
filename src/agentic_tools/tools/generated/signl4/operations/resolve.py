@@ -11,6 +11,7 @@ class Signl4ResolveToolInput(BaseModel):
 
 class Signl4ResolveTool(BaseTool):
     name: str = "signl4_resolve"
+    connector_id: str = "nodes-base.signl4"
     description: str = "Tool for signl4 resolve operation - resolve operation"
     args_schema: type[BaseModel] | None = Signl4ResolveToolInput
     credentials: Optional[Signl4Credentials] = None

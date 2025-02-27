@@ -23,6 +23,7 @@ class TelegramSendanimationToolInput(BaseModel):
 
 class TelegramSendanimationTool(BaseTool):
     name: str = "telegram_sendanimation"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendAnimation operation - sendAnimation operation"
     args_schema: type[BaseModel] | None = TelegramSendanimationToolInput
     credentials: Optional[TelegramCredentials] = None

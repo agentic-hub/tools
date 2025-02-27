@@ -13,6 +13,7 @@ class CloudflareUploadToolInput(BaseModel):
 
 class CloudflareUploadTool(BaseTool):
     name: str = "cloudflare_upload"
+    connector_id: str = "nodes-base.cloudflare"
     description: str = "Tool for cloudflare upload operation - upload operation"
     args_schema: type[BaseModel] | None = CloudflareUploadToolInput
     credentials: Optional[CloudflareCredentials] = None

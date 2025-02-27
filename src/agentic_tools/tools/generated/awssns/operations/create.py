@@ -11,6 +11,7 @@ class AwssnsCreateToolInput(BaseModel):
 
 class AwssnsCreateTool(BaseTool):
     name: str = "awssns_create"
+    connector_id: str = "nodes-base.awsSns"
     description: str = "Tool for awsSns create operation - create operation"
     args_schema: type[BaseModel] | None = AwssnsCreateToolInput
     credentials: Optional[AwssnsCredentials] = None

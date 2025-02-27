@@ -22,6 +22,7 @@ class NotionCreateToolInput(BaseModel):
 
 class NotionCreateTool(BaseTool):
     name: str = "notion_create"
+    connector_id: str = "nodes-base.notion"
     description: str = "Tool for notion create operation - create operation"
     args_schema: type[BaseModel] | None = NotionCreateToolInput
     credentials: Optional[NotionCredentials] = None

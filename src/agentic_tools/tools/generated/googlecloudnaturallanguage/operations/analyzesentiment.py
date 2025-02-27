@@ -14,6 +14,7 @@ class GooglecloudnaturallanguageAnalyzesentimentToolInput(BaseModel):
 
 class GooglecloudnaturallanguageAnalyzesentimentTool(BaseTool):
     name: str = "googlecloudnaturallanguage_analyzesentiment"
+    connector_id: str = "nodes-base.googleCloudNaturalLanguage"
     description: str = "Tool for googleCloudNaturalLanguage analyzeSentiment operation - analyzeSentiment operation"
     args_schema: type[BaseModel] | None = GooglecloudnaturallanguageAnalyzesentimentToolInput
     credentials: Optional[GooglecloudnaturallanguageCredentials] = None

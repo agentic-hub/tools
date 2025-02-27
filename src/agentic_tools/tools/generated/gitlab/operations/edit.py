@@ -26,6 +26,7 @@ class GitlabEditToolInput(BaseModel):
 
 class GitlabEditTool(BaseTool):
     name: str = "gitlab_edit"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab edit operation - edit operation"
     args_schema: type[BaseModel] | None = GitlabEditToolInput
     credentials: Optional[GitlabCredentials] = None

@@ -24,6 +24,7 @@ class Magento2GetallToolInput(BaseModel):
 
 class Magento2GetallTool(BaseTool):
     name: str = "magento2_getall"
+    connector_id: str = "nodes-base.magento2"
     description: str = "Tool for magento2 getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = Magento2GetallToolInput
     credentials: Optional[Magento2Credentials] = None

@@ -27,6 +27,7 @@ class KeapSendToolInput(BaseModel):
 
 class KeapSendTool(BaseTool):
     name: str = "keap_send"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap send operation - send operation"
     args_schema: type[BaseModel] | None = KeapSendToolInput
     credentials: Optional[KeapCredentials] = None

@@ -16,6 +16,7 @@ class SpotifySearchToolInput(BaseModel):
 
 class SpotifySearchTool(BaseTool):
     name: str = "spotify_search"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify search operation - search operation"
     args_schema: type[BaseModel] | None = SpotifySearchToolInput
     credentials: Optional[SpotifyCredentials] = None

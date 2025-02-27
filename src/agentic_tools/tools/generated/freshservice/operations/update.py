@@ -37,6 +37,7 @@ class FreshserviceUpdateToolInput(BaseModel):
 
 class FreshserviceUpdateTool(BaseTool):
     name: str = "freshservice_update"
+    connector_id: str = "nodes-base.freshservice"
     description: str = "Tool for freshservice update operation - update operation"
     args_schema: type[BaseModel] | None = FreshserviceUpdateToolInput
     credentials: Optional[FreshserviceCredentials] = None

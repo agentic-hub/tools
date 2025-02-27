@@ -14,6 +14,7 @@ class AutopilotGetallToolInput(BaseModel):
 
 class AutopilotGetallTool(BaseTool):
     name: str = "autopilot_getall"
+    connector_id: str = "nodes-base.autopilot"
     description: str = "Tool for autopilot getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = AutopilotGetallToolInput
     credentials: Optional[AutopilotCredentials] = None

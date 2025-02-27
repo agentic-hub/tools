@@ -28,6 +28,7 @@ class InvoiceninjaCreateToolInput(BaseModel):
 
 class InvoiceninjaCreateTool(BaseTool):
     name: str = "invoiceninja_create"
+    connector_id: str = "nodes-base.invoiceNinja"
     description: str = "Tool for invoiceNinja create operation - create operation"
     args_schema: type[BaseModel] | None = InvoiceninjaCreateToolInput
     credentials: Optional[InvoiceninjaCredentials] = None

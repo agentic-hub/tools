@@ -24,6 +24,7 @@ class JiraChangelogToolInput(BaseModel):
 
 class JiraChangelogTool(BaseTool):
     name: str = "jira_changelog"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira changelog operation - changelog operation"
     args_schema: type[BaseModel] | None = JiraChangelogToolInput
     credentials: Optional[JiraCredentials] = None

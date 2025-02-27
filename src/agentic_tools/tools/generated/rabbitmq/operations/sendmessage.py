@@ -17,6 +17,7 @@ class RabbitmqSendmessageToolInput(BaseModel):
 
 class RabbitmqSendmessageTool(BaseTool):
     name: str = "rabbitmq_sendmessage"
+    connector_id: str = "nodes-base.rabbitmq"
     description: str = "Tool for rabbitmq sendMessage operation - sendMessage operation"
     args_schema: type[BaseModel] | None = RabbitmqSendmessageToolInput
     credentials: Optional[RabbitmqCredentials] = None

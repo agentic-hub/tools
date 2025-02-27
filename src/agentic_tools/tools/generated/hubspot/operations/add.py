@@ -28,6 +28,7 @@ class HubspotAddToolInput(BaseModel):
 
 class HubspotAddTool(BaseTool):
     name: str = "hubspot_add"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot add operation - add operation"
     args_schema: type[BaseModel] | None = HubspotAddToolInput
     credentials: Optional[HubspotCredentials] = None

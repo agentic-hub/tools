@@ -24,6 +24,7 @@ class GitlabListToolInput(BaseModel):
 
 class GitlabListTool(BaseTool):
     name: str = "gitlab_list"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab list operation - list operation"
     args_schema: type[BaseModel] | None = GitlabListToolInput
     credentials: Optional[GitlabCredentials] = None

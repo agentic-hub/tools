@@ -26,6 +26,7 @@ class SlackArchiveToolInput(BaseModel):
 
 class SlackArchiveTool(BaseTool):
     name: str = "slack_archive"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack archive operation - archive operation"
     args_schema: type[BaseModel] | None = SlackArchiveToolInput
     credentials: Optional[SlackCredentials] = None

@@ -33,6 +33,7 @@ class QuickbooksCreateToolInput(BaseModel):
 
 class QuickbooksCreateTool(BaseTool):
     name: str = "quickbooks_create"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks create operation - create operation"
     args_schema: type[BaseModel] | None = QuickbooksCreateToolInput
     credentials: Optional[QuickbooksCredentials] = None

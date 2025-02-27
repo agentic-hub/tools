@@ -12,6 +12,7 @@ class JenkinsSafeexitToolInput(BaseModel):
 
 class JenkinsSafeexitTool(BaseTool):
     name: str = "jenkins_safeexit"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins safeExit operation - safeExit operation"
     args_schema: type[BaseModel] | None = JenkinsSafeexitToolInput
     credentials: Optional[JenkinsCredentials] = None

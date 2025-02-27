@@ -15,6 +15,7 @@ class StrapiUpdateToolInput(BaseModel):
 
 class StrapiUpdateTool(BaseTool):
     name: str = "strapi_update"
+    connector_id: str = "nodes-base.strapi"
     description: str = "Tool for strapi update operation - update operation"
     args_schema: type[BaseModel] | None = StrapiUpdateToolInput
     credentials: Optional[StrapiCredentials] = None

@@ -9,6 +9,7 @@ class Googleperspective__custom_api_call__ToolInput(BaseModel):
 
 class Googleperspective__custom_api_call__Tool(BaseTool):
     name: str = "googleperspective___custom_api_call__"
+    connector_id: str = "nodes-base.googlePerspective"
     description: str = "Tool for googlePerspective __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Googleperspective__custom_api_call__ToolInput
     credentials: Optional[GoogleperspectiveCredentials] = None

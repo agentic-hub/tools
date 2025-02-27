@@ -32,6 +32,7 @@ class MicrosoftoutlookGetallToolInput(BaseModel):
 
 class MicrosoftoutlookGetallTool(BaseTool):
     name: str = "microsoftoutlook_getall"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookGetallToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

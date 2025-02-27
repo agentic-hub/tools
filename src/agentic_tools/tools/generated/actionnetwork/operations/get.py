@@ -23,6 +23,7 @@ class ActionnetworkGetToolInput(BaseModel):
 
 class ActionnetworkGetTool(BaseTool):
     name: str = "actionnetwork_get"
+    connector_id: str = "nodes-base.actionNetwork"
     description: str = "Tool for actionNetwork get operation - get operation"
     args_schema: type[BaseModel] | None = ActionnetworkGetToolInput
     credentials: Optional[ActionnetworkCredentials] = None

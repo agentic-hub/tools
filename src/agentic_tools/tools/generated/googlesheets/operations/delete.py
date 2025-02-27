@@ -23,6 +23,7 @@ class GooglesheetsDeleteToolInput(BaseModel):
 
 class GooglesheetsDeleteTool(BaseTool):
     name: str = "googlesheets_delete"
+    connector_id: str = "nodes-base.googleSheets"
     description: str = "Tool for googleSheets delete operation - delete operation"
     args_schema: type[BaseModel] | None = GooglesheetsDeleteToolInput
     credentials: Optional[GooglesheetsCredentials] = None

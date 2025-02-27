@@ -37,6 +37,7 @@ class ClickupAddToolInput(BaseModel):
 
 class ClickupAddTool(BaseTool):
     name: str = "clickup_add"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp add operation - add operation"
     args_schema: type[BaseModel] | None = ClickupAddToolInput
     credentials: Optional[ClickupCredentials] = None

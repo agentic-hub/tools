@@ -13,6 +13,7 @@ class SendyCountToolInput(BaseModel):
 
 class SendyCountTool(BaseTool):
     name: str = "sendy_count"
+    connector_id: str = "nodes-base.sendy"
     description: str = "Tool for sendy count operation - count operation"
     args_schema: type[BaseModel] | None = SendyCountToolInput
     credentials: Optional[SendyCredentials] = None

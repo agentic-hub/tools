@@ -25,6 +25,7 @@ class AffinityCreateToolInput(BaseModel):
 
 class AffinityCreateTool(BaseTool):
     name: str = "affinity_create"
+    connector_id: str = "nodes-base.affinity"
     description: str = "Tool for affinity create operation - create operation"
     args_schema: type[BaseModel] | None = AffinityCreateToolInput
     credentials: Optional[AffinityCredentials] = None

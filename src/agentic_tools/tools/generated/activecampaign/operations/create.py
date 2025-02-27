@@ -49,6 +49,7 @@ class ActivecampaignCreateToolInput(BaseModel):
 
 class ActivecampaignCreateTool(BaseTool):
     name: str = "activecampaign_create"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign create operation - create operation"
     args_schema: type[BaseModel] | None = ActivecampaignCreateToolInput
     credentials: Optional[ActivecampaignCredentials] = None

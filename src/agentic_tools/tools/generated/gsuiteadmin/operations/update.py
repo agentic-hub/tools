@@ -18,6 +18,7 @@ class GsuiteadminUpdateToolInput(BaseModel):
 
 class GsuiteadminUpdateTool(BaseTool):
     name: str = "gsuiteadmin_update"
+    connector_id: str = "nodes-base.gSuiteAdmin"
     description: str = "Tool for gSuiteAdmin update operation - update operation"
     args_schema: type[BaseModel] | None = GsuiteadminUpdateToolInput
     credentials: Optional[GsuiteadminCredentials] = None

@@ -15,6 +15,7 @@ class SpotifyGetrelatedartistsToolInput(BaseModel):
 
 class SpotifyGetrelatedartistsTool(BaseTool):
     name: str = "spotify_getrelatedartists"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify getRelatedArtists operation - getRelatedArtists operation"
     args_schema: type[BaseModel] | None = SpotifyGetrelatedartistsToolInput
     credentials: Optional[SpotifyCredentials] = None

@@ -18,6 +18,7 @@ class NextcloudUpdateToolInput(BaseModel):
 
 class NextcloudUpdateTool(BaseTool):
     name: str = "nextcloud_update"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud update operation - update operation"
     args_schema: type[BaseModel] | None = NextcloudUpdateToolInput
     credentials: Optional[NextcloudCredentials] = None

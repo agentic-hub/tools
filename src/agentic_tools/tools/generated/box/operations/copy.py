@@ -25,6 +25,7 @@ class BoxCopyToolInput(BaseModel):
 
 class BoxCopyTool(BaseTool):
     name: str = "box_copy"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box copy operation - copy operation"
     args_schema: type[BaseModel] | None = BoxCopyToolInput
     credentials: Optional[BoxCredentials] = None

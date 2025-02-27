@@ -41,6 +41,7 @@ class FreshworkscrmCreateToolInput(BaseModel):
 
 class FreshworkscrmCreateTool(BaseTool):
     name: str = "freshworkscrm_create"
+    connector_id: str = "nodes-base.freshworksCrm"
     description: str = "Tool for freshworksCrm create operation - create operation"
     args_schema: type[BaseModel] | None = FreshworkscrmCreateToolInput
     credentials: Optional[FreshworkscrmCredentials] = None

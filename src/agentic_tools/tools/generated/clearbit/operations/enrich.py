@@ -13,6 +13,7 @@ class ClearbitEnrichToolInput(BaseModel):
 
 class ClearbitEnrichTool(BaseTool):
     name: str = "clearbit_enrich"
+    connector_id: str = "nodes-base.clearbit"
     description: str = "Tool for clearbit enrich operation - enrich operation"
     args_schema: type[BaseModel] | None = ClearbitEnrichToolInput
     credentials: Optional[ClearbitCredentials] = None

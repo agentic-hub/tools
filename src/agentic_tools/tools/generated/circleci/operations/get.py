@@ -13,6 +13,7 @@ class CircleciGetToolInput(BaseModel):
 
 class CircleciGetTool(BaseTool):
     name: str = "circleci_get"
+    connector_id: str = "nodes-base.circleCi"
     description: str = "Tool for circleCi get operation - get operation"
     args_schema: type[BaseModel] | None = CircleciGetToolInput
     credentials: Optional[CircleciCredentials] = None

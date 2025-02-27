@@ -26,6 +26,7 @@ class OnfleetGetallToolInput(BaseModel):
 
 class OnfleetGetallTool(BaseTool):
     name: str = "onfleet_getall"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = OnfleetGetallToolInput
     credentials: Optional[OnfleetCredentials] = None

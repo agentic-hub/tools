@@ -15,6 +15,7 @@ class DemioGetallToolInput(BaseModel):
 
 class DemioGetallTool(BaseTool):
     name: str = "demio_getall"
+    connector_id: str = "nodes-base.demio"
     description: str = "Tool for demio getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = DemioGetallToolInput
     credentials: Optional[DemioCredentials] = None

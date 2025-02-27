@@ -13,6 +13,7 @@ class GooglebooksRemoveToolInput(BaseModel):
 
 class GooglebooksRemoveTool(BaseTool):
     name: str = "googlebooks_remove"
+    connector_id: str = "nodes-base.googleBooks"
     description: str = "Tool for googleBooks remove operation - remove operation"
     args_schema: type[BaseModel] | None = GooglebooksRemoveToolInput
     credentials: Optional[GooglebooksCredentials] = None

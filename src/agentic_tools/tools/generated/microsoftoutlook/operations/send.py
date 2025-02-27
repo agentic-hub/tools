@@ -33,6 +33,7 @@ class MicrosoftoutlookSendToolInput(BaseModel):
 
 class MicrosoftoutlookSendTool(BaseTool):
     name: str = "microsoftoutlook_send"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook send operation - send operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookSendToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

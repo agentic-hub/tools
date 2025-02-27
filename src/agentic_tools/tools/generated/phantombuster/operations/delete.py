@@ -13,6 +13,7 @@ class PhantombusterDeleteToolInput(BaseModel):
 
 class PhantombusterDeleteTool(BaseTool):
     name: str = "phantombuster_delete"
+    connector_id: str = "nodes-base.phantombuster"
     description: str = "Tool for phantombuster delete operation - delete operation"
     args_schema: type[BaseModel] | None = PhantombusterDeleteToolInput
     credentials: Optional[PhantombusterCredentials] = None

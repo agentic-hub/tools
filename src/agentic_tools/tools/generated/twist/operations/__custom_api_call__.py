@@ -22,6 +22,7 @@ class Twist__custom_api_call__ToolInput(BaseModel):
 
 class Twist__custom_api_call__Tool(BaseTool):
     name: str = "twist___custom_api_call__"
+    connector_id: str = "nodes-base.twist"
     description: str = "Tool for twist __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Twist__custom_api_call__ToolInput
     credentials: Optional[TwistCredentials] = None

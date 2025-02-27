@@ -18,6 +18,7 @@ class UptimerobotUpdateToolInput(BaseModel):
 
 class UptimerobotUpdateTool(BaseTool):
     name: str = "uptimerobot_update"
+    connector_id: str = "nodes-base.uptimeRobot"
     description: str = "Tool for uptimeRobot update operation - update operation"
     args_schema: type[BaseModel] | None = UptimerobotUpdateToolInput
     credentials: Optional[UptimerobotCredentials] = None

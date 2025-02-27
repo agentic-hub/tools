@@ -11,5 +11,6 @@ class CodeDefaultToolInput(BaseModel):
 
 class CodeDefaultTool(BaseTool):
     name: str = "code_default"
+    connector_id: str = "nodes-base.code"
     description: str = "Tool for code default operation - default operation"
     args_schema: type[BaseModel] | None = CodeDefaultToolInput

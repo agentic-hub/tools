@@ -13,6 +13,7 @@ class AdaloGetallToolInput(BaseModel):
 
 class AdaloGetallTool(BaseTool):
     name: str = "adalo_getall"
+    connector_id: str = "nodes-base.adalo"
     description: str = "Tool for adalo getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = AdaloGetallToolInput
     credentials: Optional[AdaloCredentials] = None

@@ -14,6 +14,7 @@ class AutopilotCreateToolInput(BaseModel):
 
 class AutopilotCreateTool(BaseTool):
     name: str = "autopilot_create"
+    connector_id: str = "nodes-base.autopilot"
     description: str = "Tool for autopilot create operation - create operation"
     args_schema: type[BaseModel] | None = AutopilotCreateToolInput
     credentials: Optional[AutopilotCredentials] = None

@@ -13,6 +13,7 @@ class Googlebigquery__custom_api_call__ToolInput(BaseModel):
 
 class Googlebigquery__custom_api_call__Tool(BaseTool):
     name: str = "googlebigquery___custom_api_call__"
+    connector_id: str = "nodes-base.googleBigQuery"
     description: str = "Tool for googleBigQuery __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Googlebigquery__custom_api_call__ToolInput
     credentials: Optional[GooglebigqueryCredentials] = None

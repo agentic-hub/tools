@@ -17,6 +17,7 @@ class RedisDeleteToolInput(BaseModel):
 
 class RedisDeleteTool(BaseTool):
     name: str = "redis_delete"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis delete operation - delete operation"
     args_schema: type[BaseModel] | None = RedisDeleteToolInput
     credentials: Optional[RedisCredentials] = None

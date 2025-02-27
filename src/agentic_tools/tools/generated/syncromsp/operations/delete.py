@@ -20,6 +20,7 @@ class SyncromspDeleteToolInput(BaseModel):
 
 class SyncromspDeleteTool(BaseTool):
     name: str = "syncromsp_delete"
+    connector_id: str = "nodes-base.syncroMsp"
     description: str = "Tool for syncroMsp delete operation - delete operation"
     args_schema: type[BaseModel] | None = SyncromspDeleteToolInput
     credentials: Optional[SyncromspCredentials] = None

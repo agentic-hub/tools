@@ -12,6 +12,7 @@ class GooglefirebaserealtimedatabaseCreateToolInput(BaseModel):
 
 class GooglefirebaserealtimedatabaseCreateTool(BaseTool):
     name: str = "googlefirebaserealtimedatabase_create"
+    connector_id: str = "nodes-base.googleFirebaseRealtimeDatabase"
     description: str = "Tool for googleFirebaseRealtimeDatabase create operation - create operation"
     args_schema: type[BaseModel] | None = GooglefirebaserealtimedatabaseCreateToolInput
     credentials: Optional[GooglefirebaserealtimedatabaseCredentials] = None

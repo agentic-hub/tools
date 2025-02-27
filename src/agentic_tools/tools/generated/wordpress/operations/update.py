@@ -17,6 +17,7 @@ class WordpressUpdateToolInput(BaseModel):
 
 class WordpressUpdateTool(BaseTool):
     name: str = "wordpress_update"
+    connector_id: str = "nodes-base.wordpress"
     description: str = "Tool for wordpress update operation - update operation"
     args_schema: type[BaseModel] | None = WordpressUpdateToolInput
     credentials: Optional[WordpressCredentials] = None

@@ -12,6 +12,7 @@ class MetabaseResultdataToolInput(BaseModel):
 
 class MetabaseResultdataTool(BaseTool):
     name: str = "metabase_resultdata"
+    connector_id: str = "nodes-base.metabase"
     description: str = "Tool for metabase resultData operation - resultData operation"
     args_schema: type[BaseModel] | None = MetabaseResultdataToolInput
     credentials: Optional[MetabaseCredentials] = None

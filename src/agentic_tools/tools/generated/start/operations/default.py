@@ -7,5 +7,6 @@ class StartDefaultToolInput(BaseModel):
 
 class StartDefaultTool(BaseTool):
     name: str = "start_default"
+    connector_id: str = "nodes-base.start"
     description: str = "Tool for start default operation - default operation"
     args_schema: type[BaseModel] | None = StartDefaultToolInput

@@ -23,6 +23,7 @@ class TelegramSendstickerToolInput(BaseModel):
 
 class TelegramSendstickerTool(BaseTool):
     name: str = "telegram_sendsticker"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendSticker operation - sendSticker operation"
     args_schema: type[BaseModel] | None = TelegramSendstickerToolInput
     credentials: Optional[TelegramCredentials] = None

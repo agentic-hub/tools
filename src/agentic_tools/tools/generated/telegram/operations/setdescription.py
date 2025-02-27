@@ -22,6 +22,7 @@ class TelegramSetdescriptionToolInput(BaseModel):
 
 class TelegramSetdescriptionTool(BaseTool):
     name: str = "telegram_setdescription"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram setDescription operation - setDescription operation"
     args_schema: type[BaseModel] | None = TelegramSetdescriptionToolInput
     credentials: Optional[TelegramCredentials] = None

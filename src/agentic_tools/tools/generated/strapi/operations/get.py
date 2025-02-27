@@ -14,6 +14,7 @@ class StrapiGetToolInput(BaseModel):
 
 class StrapiGetTool(BaseTool):
     name: str = "strapi_get"
+    connector_id: str = "nodes-base.strapi"
     description: str = "Tool for strapi get operation - get operation"
     args_schema: type[BaseModel] | None = StrapiGetToolInput
     credentials: Optional[StrapiCredentials] = None

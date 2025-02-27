@@ -14,6 +14,7 @@ class FtpListToolInput(BaseModel):
 
 class FtpListTool(BaseTool):
     name: str = "ftp_list"
+    connector_id: str = "nodes-base.ftp"
     description: str = "Tool for ftp list operation - list operation"
     args_schema: type[BaseModel] | None = FtpListToolInput
     credentials: Optional[FtpCredentials] = None

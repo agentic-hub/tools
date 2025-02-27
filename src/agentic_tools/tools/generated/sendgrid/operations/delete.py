@@ -19,6 +19,7 @@ class SendgridDeleteToolInput(BaseModel):
 
 class SendgridDeleteTool(BaseTool):
     name: str = "sendgrid_delete"
+    connector_id: str = "nodes-base.sendGrid"
     description: str = "Tool for sendGrid delete operation - delete operation"
     args_schema: type[BaseModel] | None = SendgridDeleteToolInput
     credentials: Optional[SendgridCredentials] = None

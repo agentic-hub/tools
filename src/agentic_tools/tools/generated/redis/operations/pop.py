@@ -19,6 +19,7 @@ class RedisPopToolInput(BaseModel):
 
 class RedisPopTool(BaseTool):
     name: str = "redis_pop"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis pop operation - pop operation"
     args_schema: type[BaseModel] | None = RedisPopToolInput
     credentials: Optional[RedisCredentials] = None

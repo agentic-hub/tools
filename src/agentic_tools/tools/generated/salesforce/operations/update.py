@@ -33,6 +33,7 @@ class SalesforceUpdateToolInput(BaseModel):
 
 class SalesforceUpdateTool(BaseTool):
     name: str = "salesforce_update"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce update operation - update operation"
     args_schema: type[BaseModel] | None = SalesforceUpdateToolInput
     credentials: Optional[SalesforceCredentials] = None

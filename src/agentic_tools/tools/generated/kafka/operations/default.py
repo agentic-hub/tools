@@ -20,6 +20,7 @@ class KafkaDefaultToolInput(BaseModel):
 
 class KafkaDefaultTool(BaseTool):
     name: str = "kafka_default"
+    connector_id: str = "nodes-base.kafka"
     description: str = "Tool for kafka default operation - default operation"
     args_schema: type[BaseModel] | None = KafkaDefaultToolInput
     credentials: Optional[KafkaCredentials] = None

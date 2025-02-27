@@ -21,6 +21,7 @@ class CortexExecuteToolInput(BaseModel):
 
 class CortexExecuteTool(BaseTool):
     name: str = "cortex_execute"
+    connector_id: str = "nodes-base.cortex"
     description: str = "Tool for cortex execute operation - execute operation"
     args_schema: type[BaseModel] | None = CortexExecuteToolInput
     credentials: Optional[CortexCredentials] = None

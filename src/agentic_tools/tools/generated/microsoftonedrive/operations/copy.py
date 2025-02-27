@@ -20,6 +20,7 @@ class MicrosoftonedriveCopyToolInput(BaseModel):
 
 class MicrosoftonedriveCopyTool(BaseTool):
     name: str = "microsoftonedrive_copy"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive copy operation - copy operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveCopyToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

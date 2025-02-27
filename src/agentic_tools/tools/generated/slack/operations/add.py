@@ -27,6 +27,7 @@ class SlackAddToolInput(BaseModel):
 
 class SlackAddTool(BaseTool):
     name: str = "slack_add"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack add operation - add operation"
     args_schema: type[BaseModel] | None = SlackAddToolInput
     credentials: Optional[SlackCredentials] = None

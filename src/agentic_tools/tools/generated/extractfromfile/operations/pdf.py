@@ -9,5 +9,6 @@ class ExtractfromfilePdfToolInput(BaseModel):
 
 class ExtractfromfilePdfTool(BaseTool):
     name: str = "extractfromfile_pdf"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile pdf operation - pdf operation"
     args_schema: type[BaseModel] | None = ExtractfromfilePdfToolInput

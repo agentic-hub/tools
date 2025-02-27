@@ -19,6 +19,7 @@ class VeroTrackToolInput(BaseModel):
 
 class VeroTrackTool(BaseTool):
     name: str = "vero_track"
+    connector_id: str = "nodes-base.vero"
     description: str = "Tool for vero track operation - track operation"
     args_schema: type[BaseModel] | None = VeroTrackToolInput
     credentials: Optional[VeroCredentials] = None

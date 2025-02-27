@@ -31,6 +31,7 @@ class MicrosoftoutlookUpdateToolInput(BaseModel):
 
 class MicrosoftoutlookUpdateTool(BaseTool):
     name: str = "microsoftoutlook_update"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook update operation - update operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookUpdateToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

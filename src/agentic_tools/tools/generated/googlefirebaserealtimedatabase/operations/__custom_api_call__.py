@@ -11,6 +11,7 @@ class Googlefirebaserealtimedatabase__custom_api_call__ToolInput(BaseModel):
 
 class Googlefirebaserealtimedatabase__custom_api_call__Tool(BaseTool):
     name: str = "googlefirebaserealtimedatabase___custom_api_call__"
+    connector_id: str = "nodes-base.googleFirebaseRealtimeDatabase"
     description: str = "Tool for googleFirebaseRealtimeDatabase __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Googlefirebaserealtimedatabase__custom_api_call__ToolInput
     credentials: Optional[GooglefirebaserealtimedatabaseCredentials] = None

@@ -13,6 +13,7 @@ class TodoistDeleteToolInput(BaseModel):
 
 class TodoistDeleteTool(BaseTool):
     name: str = "todoist_delete"
+    connector_id: str = "nodes-base.todoist"
     description: str = "Tool for todoist delete operation - delete operation"
     args_schema: type[BaseModel] | None = TodoistDeleteToolInput
     credentials: Optional[TodoistCredentials] = None

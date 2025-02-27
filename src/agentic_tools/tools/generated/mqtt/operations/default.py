@@ -12,6 +12,7 @@ class MqttDefaultToolInput(BaseModel):
 
 class MqttDefaultTool(BaseTool):
     name: str = "mqtt_default"
+    connector_id: str = "nodes-base.mqtt"
     description: str = "Tool for mqtt default operation - default operation"
     args_schema: type[BaseModel] | None = MqttDefaultToolInput
     credentials: Optional[MqttCredentials] = None

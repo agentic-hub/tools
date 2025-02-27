@@ -24,6 +24,7 @@ class GmailDeleteToolInput(BaseModel):
 
 class GmailDeleteTool(BaseTool):
     name: str = "gmail_delete"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail delete operation - delete operation"
     args_schema: type[BaseModel] | None = GmailDeleteToolInput
     credentials: Optional[GmailCredentials] = None

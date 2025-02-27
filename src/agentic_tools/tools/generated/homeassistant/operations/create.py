@@ -17,6 +17,7 @@ class HomeassistantCreateToolInput(BaseModel):
 
 class HomeassistantCreateTool(BaseTool):
     name: str = "homeassistant_create"
+    connector_id: str = "nodes-base.homeAssistant"
     description: str = "Tool for homeAssistant create operation - create operation"
     args_schema: type[BaseModel] | None = HomeassistantCreateToolInput
     credentials: Optional[HomeassistantCredentials] = None

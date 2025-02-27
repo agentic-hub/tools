@@ -23,6 +23,7 @@ class DiscordDeletemessageToolInput(BaseModel):
 
 class DiscordDeletemessageTool(BaseTool):
     name: str = "discord_deletemessage"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord deleteMessage operation - deleteMessage operation"
     args_schema: type[BaseModel] | None = DiscordDeletemessageToolInput
     credentials: Optional[DiscordCredentials] = None

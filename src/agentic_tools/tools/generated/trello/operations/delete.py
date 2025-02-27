@@ -22,6 +22,7 @@ class TrelloDeleteToolInput(BaseModel):
 
 class TrelloDeleteTool(BaseTool):
     name: str = "trello_delete"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello delete operation - delete operation"
     args_schema: type[BaseModel] | None = TrelloDeleteToolInput
     credentials: Optional[TrelloCredentials] = None

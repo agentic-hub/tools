@@ -13,6 +13,7 @@ class PushbulletUpdateToolInput(BaseModel):
 
 class PushbulletUpdateTool(BaseTool):
     name: str = "pushbullet_update"
+    connector_id: str = "nodes-base.pushbullet"
     description: str = "Tool for pushbullet update operation - update operation"
     args_schema: type[BaseModel] | None = PushbulletUpdateToolInput
     credentials: Optional[PushbulletCredentials] = None

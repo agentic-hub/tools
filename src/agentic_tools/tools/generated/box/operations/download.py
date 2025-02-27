@@ -25,6 +25,7 @@ class BoxDownloadToolInput(BaseModel):
 
 class BoxDownloadTool(BaseTool):
     name: str = "box_download"
+    connector_id: str = "nodes-base.box"
     description: str = "Tool for box download operation - download operation"
     args_schema: type[BaseModel] | None = BoxDownloadToolInput
     credentials: Optional[BoxCredentials] = None

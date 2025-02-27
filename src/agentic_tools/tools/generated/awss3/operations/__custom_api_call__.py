@@ -19,6 +19,7 @@ class Awss3__custom_api_call__ToolInput(BaseModel):
 
 class Awss3__custom_api_call__Tool(BaseTool):
     name: str = "awss3___custom_api_call__"
+    connector_id: str = "nodes-base.awsS3"
     description: str = "Tool for awsS3 __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awss3__custom_api_call__ToolInput
     credentials: Optional[Awss3Credentials] = None

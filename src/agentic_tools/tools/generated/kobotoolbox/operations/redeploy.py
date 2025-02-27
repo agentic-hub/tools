@@ -15,6 +15,7 @@ class KobotoolboxRedeployToolInput(BaseModel):
 
 class KobotoolboxRedeployTool(BaseTool):
     name: str = "kobotoolbox_redeploy"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox redeploy operation - redeploy operation"
     args_schema: type[BaseModel] | None = KobotoolboxRedeployToolInput
     credentials: Optional[KobotoolboxCredentials] = None

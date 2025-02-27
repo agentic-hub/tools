@@ -41,6 +41,7 @@ class ThehiveprojectAddattachmentToolInput(BaseModel):
 
 class ThehiveprojectAddattachmentTool(BaseTool):
     name: str = "thehiveproject_addattachment"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject addAttachment operation - addAttachment operation"
     args_schema: type[BaseModel] | None = ThehiveprojectAddattachmentToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

@@ -23,6 +23,7 @@ class OnfleetGetscheduleToolInput(BaseModel):
 
 class OnfleetGetscheduleTool(BaseTool):
     name: str = "onfleet_getschedule"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet getSchedule operation - getSchedule operation"
     args_schema: type[BaseModel] | None = OnfleetGetscheduleToolInput
     credentials: Optional[OnfleetCredentials] = None

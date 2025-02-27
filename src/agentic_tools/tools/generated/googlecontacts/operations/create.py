@@ -16,6 +16,7 @@ class GooglecontactsCreateToolInput(BaseModel):
 
 class GooglecontactsCreateTool(BaseTool):
     name: str = "googlecontacts_create"
+    connector_id: str = "nodes-base.googleContacts"
     description: str = "Tool for googleContacts create operation - create operation"
     args_schema: type[BaseModel] | None = GooglecontactsCreateToolInput
     credentials: Optional[GooglecontactsCredentials] = None

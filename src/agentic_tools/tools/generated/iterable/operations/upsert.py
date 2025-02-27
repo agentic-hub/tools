@@ -18,6 +18,7 @@ class IterableUpsertToolInput(BaseModel):
 
 class IterableUpsertTool(BaseTool):
     name: str = "iterable_upsert"
+    connector_id: str = "nodes-base.iterable"
     description: str = "Tool for iterable upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = IterableUpsertToolInput
     credentials: Optional[IterableCredentials] = None

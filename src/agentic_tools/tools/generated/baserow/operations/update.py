@@ -16,6 +16,7 @@ class BaserowUpdateToolInput(BaseModel):
 
 class BaserowUpdateTool(BaseTool):
     name: str = "baserow_update"
+    connector_id: str = "nodes-base.baserow"
     description: str = "Tool for baserow update operation - update operation"
     args_schema: type[BaseModel] | None = BaserowUpdateToolInput
     credentials: Optional[BaserowCredentials] = None

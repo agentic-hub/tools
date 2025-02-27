@@ -12,6 +12,7 @@ class TravisciCancelToolInput(BaseModel):
 
 class TravisciCancelTool(BaseTool):
     name: str = "travisci_cancel"
+    connector_id: str = "nodes-base.travisCi"
     description: str = "Tool for travisCi cancel operation - cancel operation"
     args_schema: type[BaseModel] | None = TravisciCancelToolInput
     credentials: Optional[TravisciCredentials] = None

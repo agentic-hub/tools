@@ -17,6 +17,7 @@ class AwssesDeleteToolInput(BaseModel):
 
 class AwssesDeleteTool(BaseTool):
     name: str = "awsses_delete"
+    connector_id: str = "nodes-base.awsSes"
     description: str = "Tool for awsSes delete operation - delete operation"
     args_schema: type[BaseModel] | None = AwssesDeleteToolInput
     credentials: Optional[AwssesCredentials] = None

@@ -30,6 +30,7 @@ class Pipedrive__custom_api_call__ToolInput(BaseModel):
 
 class Pipedrive__custom_api_call__Tool(BaseTool):
     name: str = "pipedrive___custom_api_call__"
+    connector_id: str = "nodes-base.pipedrive"
     description: str = "Tool for pipedrive __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Pipedrive__custom_api_call__ToolInput
     credentials: Optional[PipedriveCredentials] = None

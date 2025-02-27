@@ -20,6 +20,7 @@ class OrbitUpdateToolInput(BaseModel):
 
 class OrbitUpdateTool(BaseTool):
     name: str = "orbit_update"
+    connector_id: str = "nodes-base.orbit"
     description: str = "Tool for orbit update operation - update operation"
     args_schema: type[BaseModel] | None = OrbitUpdateToolInput
     credentials: Optional[OrbitCredentials] = None

@@ -10,5 +10,6 @@ class ReadwritefileReadToolInput(BaseModel):
 
 class ReadwritefileReadTool(BaseTool):
     name: str = "readwritefile_read"
+    connector_id: str = "nodes-base.readWriteFile"
     description: str = "Tool for readWriteFile read operation - read operation"
     args_schema: type[BaseModel] | None = ReadwritefileReadToolInput

@@ -31,6 +31,7 @@ class SlackPostToolInput(BaseModel):
 
 class SlackPostTool(BaseTool):
     name: str = "slack_post"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack post operation - post operation"
     args_schema: type[BaseModel] | None = SlackPostToolInput
     credentials: Optional[SlackCredentials] = None

@@ -33,6 +33,7 @@ class ZohocrmUpdateToolInput(BaseModel):
 
 class ZohocrmUpdateTool(BaseTool):
     name: str = "zohocrm_update"
+    connector_id: str = "nodes-base.zohoCrm"
     description: str = "Tool for zohoCrm update operation - update operation"
     args_schema: type[BaseModel] | None = ZohocrmUpdateToolInput
     credentials: Optional[ZohocrmCredentials] = None

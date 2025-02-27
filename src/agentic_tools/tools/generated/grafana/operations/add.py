@@ -18,6 +18,7 @@ class GrafanaAddToolInput(BaseModel):
 
 class GrafanaAddTool(BaseTool):
     name: str = "grafana_add"
+    connector_id: str = "nodes-base.grafana"
     description: str = "Tool for grafana add operation - add operation"
     args_schema: type[BaseModel] | None = GrafanaAddToolInput
     credentials: Optional[GrafanaCredentials] = None

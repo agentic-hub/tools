@@ -17,6 +17,7 @@ class TwitterSearchuserToolInput(BaseModel):
 
 class TwitterSearchuserTool(BaseTool):
     name: str = "twitter_searchuser"
+    connector_id: str = "nodes-base.twitter"
     description: str = "Tool for twitter searchUser operation - searchUser operation"
     args_schema: type[BaseModel] | None = TwitterSearchuserToolInput
     credentials: Optional[TwitterCredentials] = None

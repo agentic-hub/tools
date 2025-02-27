@@ -22,6 +22,7 @@ class TrelloRemovelabelToolInput(BaseModel):
 
 class TrelloRemovelabelTool(BaseTool):
     name: str = "trello_removelabel"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello removeLabel operation - removeLabel operation"
     args_schema: type[BaseModel] | None = TrelloRemovelabelToolInput
     credentials: Optional[TrelloCredentials] = None

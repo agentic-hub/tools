@@ -30,6 +30,7 @@ class HelpscoutCreateToolInput(BaseModel):
 
 class HelpscoutCreateTool(BaseTool):
     name: str = "helpscout_create"
+    connector_id: str = "nodes-base.helpScout"
     description: str = "Tool for helpScout create operation - create operation"
     args_schema: type[BaseModel] | None = HelpscoutCreateToolInput
     credentials: Optional[HelpscoutCredentials] = None

@@ -17,6 +17,7 @@ class OpenaiCompleteToolInput(BaseModel):
 
 class OpenaiCompleteTool(BaseTool):
     name: str = "openai_complete"
+    connector_id: str = "nodes-base.openAi"
     description: str = "Tool for openAi complete operation - complete operation"
     args_schema: type[BaseModel] | None = OpenaiCompleteToolInput
     credentials: Optional[OpenaiCredentials] = None

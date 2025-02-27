@@ -21,6 +21,7 @@ class MailchimpResendToolInput(BaseModel):
 
 class MailchimpResendTool(BaseTool):
     name: str = "mailchimp_resend"
+    connector_id: str = "nodes-base.mailchimp"
     description: str = "Tool for mailchimp resend operation - resend operation"
     args_schema: type[BaseModel] | None = MailchimpResendToolInput
     credentials: Optional[MailchimpCredentials] = None

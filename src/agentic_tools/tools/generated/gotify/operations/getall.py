@@ -12,6 +12,7 @@ class GotifyGetallToolInput(BaseModel):
 
 class GotifyGetallTool(BaseTool):
     name: str = "gotify_getall"
+    connector_id: str = "nodes-base.gotify"
     description: str = "Tool for gotify getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = GotifyGetallToolInput
     credentials: Optional[GotifyCredentials] = None

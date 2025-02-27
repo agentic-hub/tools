@@ -14,6 +14,7 @@ class PosthogCreateToolInput(BaseModel):
 
 class PosthogCreateTool(BaseTool):
     name: str = "posthog_create"
+    connector_id: str = "nodes-base.postHog"
     description: str = "Tool for postHog create operation - create operation"
     args_schema: type[BaseModel] | None = PosthogCreateToolInput
     credentials: Optional[PosthogCredentials] = None

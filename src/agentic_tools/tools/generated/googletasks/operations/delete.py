@@ -13,6 +13,7 @@ class GoogletasksDeleteToolInput(BaseModel):
 
 class GoogletasksDeleteTool(BaseTool):
     name: str = "googletasks_delete"
+    connector_id: str = "nodes-base.googleTasks"
     description: str = "Tool for googleTasks delete operation - delete operation"
     args_schema: type[BaseModel] | None = GoogletasksDeleteToolInput
     credentials: Optional[GoogletasksCredentials] = None

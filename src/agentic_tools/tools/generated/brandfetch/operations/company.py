@@ -12,6 +12,7 @@ class BrandfetchCompanyToolInput(BaseModel):
 
 class BrandfetchCompanyTool(BaseTool):
     name: str = "brandfetch_company"
+    connector_id: str = "nodes-base.Brandfetch"
     description: str = "Tool for Brandfetch company operation - company operation"
     args_schema: type[BaseModel] | None = BrandfetchCompanyToolInput
     credentials: Optional[BrandfetchCredentials] = None

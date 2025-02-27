@@ -33,6 +33,7 @@ class SalesforceGetsummaryToolInput(BaseModel):
 
 class SalesforceGetsummaryTool(BaseTool):
     name: str = "salesforce_getsummary"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce getSummary operation - getSummary operation"
     args_schema: type[BaseModel] | None = SalesforceGetsummaryToolInput
     credentials: Optional[SalesforceCredentials] = None

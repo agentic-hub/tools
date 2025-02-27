@@ -10,5 +10,6 @@ class ConverttofileTojsonToolInput(BaseModel):
 
 class ConverttofileTojsonTool(BaseTool):
     name: str = "converttofile_tojson"
+    connector_id: str = "nodes-base.convertToFile"
     description: str = "Tool for convertToFile toJson operation - toJson operation"
     args_schema: type[BaseModel] | None = ConverttofileTojsonToolInput

@@ -16,6 +16,7 @@ class AwselbRemoveToolInput(BaseModel):
 
 class AwselbRemoveTool(BaseTool):
     name: str = "awselb_remove"
+    connector_id: str = "nodes-base.awsElb"
     description: str = "Tool for awsElb remove operation - remove operation"
     args_schema: type[BaseModel] | None = AwselbRemoveToolInput
     credentials: Optional[AwselbCredentials] = None

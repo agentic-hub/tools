@@ -11,5 +11,6 @@ class SwitchDefaultToolInput(BaseModel):
 
 class SwitchDefaultTool(BaseTool):
     name: str = "switch_default"
+    connector_id: str = "nodes-base.switch"
     description: str = "Tool for switch default operation - default operation"
     args_schema: type[BaseModel] | None = SwitchDefaultToolInput

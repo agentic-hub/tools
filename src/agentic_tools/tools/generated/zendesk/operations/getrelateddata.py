@@ -19,6 +19,7 @@ class ZendeskGetrelateddataToolInput(BaseModel):
 
 class ZendeskGetrelateddataTool(BaseTool):
     name: str = "zendesk_getrelateddata"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk getRelatedData operation - getRelatedData operation"
     args_schema: type[BaseModel] | None = ZendeskGetrelateddataToolInput
     credentials: Optional[ZendeskCredentials] = None

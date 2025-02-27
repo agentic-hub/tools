@@ -31,6 +31,7 @@ class ThehiveGetallToolInput(BaseModel):
 
 class ThehiveGetallTool(BaseTool):
     name: str = "thehive_getall"
+    connector_id: str = "nodes-base.theHive"
     description: str = "Tool for theHive getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ThehiveGetallToolInput
     credentials: Optional[ThehiveCredentials] = None

@@ -23,6 +23,7 @@ class ServicenowDeleteToolInput(BaseModel):
 
 class ServicenowDeleteTool(BaseTool):
     name: str = "servicenow_delete"
+    connector_id: str = "nodes-base.serviceNow"
     description: str = "Tool for serviceNow delete operation - delete operation"
     args_schema: type[BaseModel] | None = ServicenowDeleteToolInput
     credentials: Optional[ServicenowCredentials] = None

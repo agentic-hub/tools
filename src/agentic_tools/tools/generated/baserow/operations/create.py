@@ -16,6 +16,7 @@ class BaserowCreateToolInput(BaseModel):
 
 class BaserowCreateTool(BaseTool):
     name: str = "baserow_create"
+    connector_id: str = "nodes-base.baserow"
     description: str = "Tool for baserow create operation - create operation"
     args_schema: type[BaseModel] | None = BaserowCreateToolInput
     credentials: Optional[BaserowCredentials] = None

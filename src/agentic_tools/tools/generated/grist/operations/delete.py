@@ -12,6 +12,7 @@ class GristDeleteToolInput(BaseModel):
 
 class GristDeleteTool(BaseTool):
     name: str = "grist_delete"
+    connector_id: str = "nodes-base.grist"
     description: str = "Tool for grist delete operation - delete operation"
     args_schema: type[BaseModel] | None = GristDeleteToolInput
     credentials: Optional[GristCredentials] = None

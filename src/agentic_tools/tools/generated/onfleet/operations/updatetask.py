@@ -25,6 +25,7 @@ class OnfleetUpdatetaskToolInput(BaseModel):
 
 class OnfleetUpdatetaskTool(BaseTool):
     name: str = "onfleet_updatetask"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet updateTask operation - updateTask operation"
     args_schema: type[BaseModel] | None = OnfleetUpdatetaskToolInput
     credentials: Optional[OnfleetCredentials] = None

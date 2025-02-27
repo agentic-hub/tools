@@ -17,6 +17,7 @@ class TapfiliateGetallToolInput(BaseModel):
 
 class TapfiliateGetallTool(BaseTool):
     name: str = "tapfiliate_getall"
+    connector_id: str = "nodes-base.tapfiliate"
     description: str = "Tool for tapfiliate getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = TapfiliateGetallToolInput
     credentials: Optional[TapfiliateCredentials] = None

@@ -12,6 +12,7 @@ class MailerliteUpdateToolInput(BaseModel):
 
 class MailerliteUpdateTool(BaseTool):
     name: str = "mailerlite_update"
+    connector_id: str = "nodes-base.mailerLite"
     description: str = "Tool for mailerLite update operation - update operation"
     args_schema: type[BaseModel] | None = MailerliteUpdateToolInput
     credentials: Optional[MailerliteCredentials] = None

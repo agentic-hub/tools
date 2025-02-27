@@ -24,6 +24,7 @@ class OnfleetCompleteToolInput(BaseModel):
 
 class OnfleetCompleteTool(BaseTool):
     name: str = "onfleet_complete"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet complete operation - complete operation"
     args_schema: type[BaseModel] | None = OnfleetCompleteToolInput
     credentials: Optional[OnfleetCredentials] = None

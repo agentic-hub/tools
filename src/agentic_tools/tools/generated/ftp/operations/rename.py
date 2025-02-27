@@ -15,6 +15,7 @@ class FtpRenameToolInput(BaseModel):
 
 class FtpRenameTool(BaseTool):
     name: str = "ftp_rename"
+    connector_id: str = "nodes-base.ftp"
     description: str = "Tool for ftp rename operation - rename operation"
     args_schema: type[BaseModel] | None = FtpRenameToolInput
     credentials: Optional[FtpCredentials] = None

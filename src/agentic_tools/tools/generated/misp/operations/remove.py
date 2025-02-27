@@ -22,6 +22,7 @@ class MispRemoveToolInput(BaseModel):
 
 class MispRemoveTool(BaseTool):
     name: str = "misp_remove"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp remove operation - remove operation"
     args_schema: type[BaseModel] | None = MispRemoveToolInput
     credentials: Optional[MispCredentials] = None

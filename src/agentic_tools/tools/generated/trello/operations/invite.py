@@ -23,6 +23,7 @@ class TrelloInviteToolInput(BaseModel):
 
 class TrelloInviteTool(BaseTool):
     name: str = "trello_invite"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello invite operation - invite operation"
     args_schema: type[BaseModel] | None = TrelloInviteToolInput
     credentials: Optional[TrelloCredentials] = None

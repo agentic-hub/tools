@@ -12,6 +12,7 @@ class GitTagToolInput(BaseModel):
 
 class GitTagTool(BaseTool):
     name: str = "git_tag"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git tag operation - tag operation"
     args_schema: type[BaseModel] | None = GitTagToolInput
     credentials: Optional[GitCredentials] = None

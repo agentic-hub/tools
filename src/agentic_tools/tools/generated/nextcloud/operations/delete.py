@@ -17,6 +17,7 @@ class NextcloudDeleteToolInput(BaseModel):
 
 class NextcloudDeleteTool(BaseTool):
     name: str = "nextcloud_delete"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud delete operation - delete operation"
     args_schema: type[BaseModel] | None = NextcloudDeleteToolInput
     credentials: Optional[NextcloudCredentials] = None

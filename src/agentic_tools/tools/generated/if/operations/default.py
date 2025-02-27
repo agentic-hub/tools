@@ -8,5 +8,6 @@ class IfDefaultToolInput(BaseModel):
 
 class IfDefaultTool(BaseTool):
     name: str = "if_default"
+    connector_id: str = "nodes-base.if"
     description: str = "Tool for if default operation - default operation"
     args_schema: type[BaseModel] | None = IfDefaultToolInput

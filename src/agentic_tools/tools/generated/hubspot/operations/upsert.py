@@ -27,6 +27,7 @@ class HubspotUpsertToolInput(BaseModel):
 
 class HubspotUpsertTool(BaseTool):
     name: str = "hubspot_upsert"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = HubspotUpsertToolInput
     credentials: Optional[HubspotCredentials] = None

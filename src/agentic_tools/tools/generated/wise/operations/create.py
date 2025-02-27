@@ -23,6 +23,7 @@ class WiseCreateToolInput(BaseModel):
 
 class WiseCreateTool(BaseTool):
     name: str = "wise_create"
+    connector_id: str = "nodes-base.wise"
     description: str = "Tool for wise create operation - create operation"
     args_schema: type[BaseModel] | None = WiseCreateToolInput
     credentials: Optional[WiseCredentials] = None

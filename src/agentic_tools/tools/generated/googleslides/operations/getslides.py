@@ -14,6 +14,7 @@ class GoogleslidesGetslidesToolInput(BaseModel):
 
 class GoogleslidesGetslidesTool(BaseTool):
     name: str = "googleslides_getslides"
+    connector_id: str = "nodes-base.googleSlides"
     description: str = "Tool for googleSlides getSlides operation - getSlides operation"
     args_schema: type[BaseModel] | None = GoogleslidesGetslidesToolInput
     credentials: Optional[GoogleslidesCredentials] = None

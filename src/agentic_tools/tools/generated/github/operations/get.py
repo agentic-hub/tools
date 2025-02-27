@@ -25,6 +25,7 @@ class GithubGetToolInput(BaseModel):
 
 class GithubGetTool(BaseTool):
     name: str = "github_get"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github get operation - get operation"
     args_schema: type[BaseModel] | None = GithubGetToolInput
     credentials: Optional[GithubCredentials] = None

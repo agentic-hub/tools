@@ -29,6 +29,7 @@ class StripeCreateToolInput(BaseModel):
 
 class StripeCreateTool(BaseTool):
     name: str = "stripe_create"
+    connector_id: str = "nodes-base.stripe"
     description: str = "Tool for stripe create operation - create operation"
     args_schema: type[BaseModel] | None = StripeCreateToolInput
     credentials: Optional[StripeCredentials] = None

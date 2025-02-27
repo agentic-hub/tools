@@ -13,6 +13,7 @@ class GetresponseGetToolInput(BaseModel):
 
 class GetresponseGetTool(BaseTool):
     name: str = "getresponse_get"
+    connector_id: str = "nodes-base.getResponse"
     description: str = "Tool for getResponse get operation - get operation"
     args_schema: type[BaseModel] | None = GetresponseGetToolInput
     credentials: Optional[GetresponseCredentials] = None

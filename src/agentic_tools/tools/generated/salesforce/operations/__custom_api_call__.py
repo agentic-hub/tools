@@ -33,6 +33,7 @@ class Salesforce__custom_api_call__ToolInput(BaseModel):
 
 class Salesforce__custom_api_call__Tool(BaseTool):
     name: str = "salesforce___custom_api_call__"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Salesforce__custom_api_call__ToolInput
     credentials: Optional[SalesforceCredentials] = None

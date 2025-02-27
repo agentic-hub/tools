@@ -9,5 +9,6 @@ class IntervalDefaultToolInput(BaseModel):
 
 class IntervalDefaultTool(BaseTool):
     name: str = "interval_default"
+    connector_id: str = "nodes-base.interval"
     description: str = "Tool for interval default operation - default operation"
     args_schema: type[BaseModel] | None = IntervalDefaultToolInput

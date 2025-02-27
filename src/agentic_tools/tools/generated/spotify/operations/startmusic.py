@@ -15,6 +15,7 @@ class SpotifyStartmusicToolInput(BaseModel):
 
 class SpotifyStartmusicTool(BaseTool):
     name: str = "spotify_startmusic"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify startMusic operation - startMusic operation"
     args_schema: type[BaseModel] | None = SpotifyStartmusicToolInput
     credentials: Optional[SpotifyCredentials] = None

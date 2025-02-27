@@ -16,6 +16,7 @@ class PushoverPushToolInput(BaseModel):
 
 class PushoverPushTool(BaseTool):
     name: str = "pushover_push"
+    connector_id: str = "nodes-base.pushover"
     description: str = "Tool for pushover push operation - push operation"
     args_schema: type[BaseModel] | None = PushoverPushToolInput
     credentials: Optional[PushoverCredentials] = None

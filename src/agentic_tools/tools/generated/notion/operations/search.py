@@ -22,6 +22,7 @@ class NotionSearchToolInput(BaseModel):
 
 class NotionSearchTool(BaseTool):
     name: str = "notion_search"
+    connector_id: str = "nodes-base.notion"
     description: str = "Tool for notion search operation - search operation"
     args_schema: type[BaseModel] | None = NotionSearchToolInput
     credentials: Optional[NotionCredentials] = None

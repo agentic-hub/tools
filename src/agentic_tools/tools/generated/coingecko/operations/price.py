@@ -18,5 +18,6 @@ class CoingeckoPriceToolInput(BaseModel):
 
 class CoingeckoPriceTool(BaseTool):
     name: str = "coingecko_price"
+    connector_id: str = "nodes-base.coinGecko"
     description: str = "Tool for coinGecko price operation - price operation"
     args_schema: type[BaseModel] | None = CoingeckoPriceToolInput

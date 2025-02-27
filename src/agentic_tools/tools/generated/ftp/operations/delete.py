@@ -13,6 +13,7 @@ class FtpDeleteToolInput(BaseModel):
 
 class FtpDeleteTool(BaseTool):
     name: str = "ftp_delete"
+    connector_id: str = "nodes-base.ftp"
     description: str = "Tool for ftp delete operation - delete operation"
     args_schema: type[BaseModel] | None = FtpDeleteToolInput
     credentials: Optional[FtpCredentials] = None

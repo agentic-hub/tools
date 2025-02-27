@@ -31,6 +31,7 @@ class KeapCreateToolInput(BaseModel):
 
 class KeapCreateTool(BaseTool):
     name: str = "keap_create"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap create operation - create operation"
     args_schema: type[BaseModel] | None = KeapCreateToolInput
     credentials: Optional[KeapCredentials] = None

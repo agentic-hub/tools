@@ -13,6 +13,7 @@ class NetlifyGetallToolInput(BaseModel):
 
 class NetlifyGetallTool(BaseTool):
     name: str = "netlify_getall"
+    connector_id: str = "nodes-base.netlify"
     description: str = "Tool for netlify getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = NetlifyGetallToolInput
     credentials: Optional[NetlifyCredentials] = None

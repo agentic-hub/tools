@@ -18,6 +18,7 @@ class BitwardenCreateToolInput(BaseModel):
 
 class BitwardenCreateTool(BaseTool):
     name: str = "bitwarden_create"
+    connector_id: str = "nodes-base.bitwarden"
     description: str = "Tool for bitwarden create operation - create operation"
     args_schema: type[BaseModel] | None = BitwardenCreateToolInput
     credentials: Optional[BitwardenCredentials] = None

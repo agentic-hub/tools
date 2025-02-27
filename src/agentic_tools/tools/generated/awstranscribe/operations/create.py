@@ -15,6 +15,7 @@ class AwstranscribeCreateToolInput(BaseModel):
 
 class AwstranscribeCreateTool(BaseTool):
     name: str = "awstranscribe_create"
+    connector_id: str = "nodes-base.awsTranscribe"
     description: str = "Tool for awsTranscribe create operation - create operation"
     args_schema: type[BaseModel] | None = AwstranscribeCreateToolInput
     credentials: Optional[AwstranscribeCredentials] = None

@@ -20,6 +20,7 @@ class HalopsaGetToolInput(BaseModel):
 
 class HalopsaGetTool(BaseTool):
     name: str = "halopsa_get"
+    connector_id: str = "nodes-base.haloPSA"
     description: str = "Tool for haloPSA get operation - get operation"
     args_schema: type[BaseModel] | None = HalopsaGetToolInput
     credentials: Optional[HalopsaCredentials] = None

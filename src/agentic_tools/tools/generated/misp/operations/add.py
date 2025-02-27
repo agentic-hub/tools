@@ -22,6 +22,7 @@ class MispAddToolInput(BaseModel):
 
 class MispAddTool(BaseTool):
     name: str = "misp_add"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp add operation - add operation"
     args_schema: type[BaseModel] | None = MispAddToolInput
     credentials: Optional[MispCredentials] = None

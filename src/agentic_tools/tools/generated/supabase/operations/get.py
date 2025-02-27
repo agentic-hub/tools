@@ -16,6 +16,7 @@ class SupabaseGetToolInput(BaseModel):
 
 class SupabaseGetTool(BaseTool):
     name: str = "supabase_get"
+    connector_id: str = "nodes-base.supabase"
     description: str = "Tool for supabase get operation - get operation"
     args_schema: type[BaseModel] | None = SupabaseGetToolInput
     credentials: Optional[SupabaseCredentials] = None

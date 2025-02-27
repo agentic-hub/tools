@@ -10,6 +10,7 @@ class Awscertificatemanager__custom_api_call__ToolInput(BaseModel):
 
 class Awscertificatemanager__custom_api_call__Tool(BaseTool):
     name: str = "awscertificatemanager___custom_api_call__"
+    connector_id: str = "nodes-base.awsCertificateManager"
     description: str = "Tool for awsCertificateManager __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Awscertificatemanager__custom_api_call__ToolInput
     credentials: Optional[AwscertificatemanagerCredentials] = None

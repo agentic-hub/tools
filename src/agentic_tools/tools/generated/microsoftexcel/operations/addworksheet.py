@@ -28,6 +28,7 @@ class MicrosoftexcelAddworksheetToolInput(BaseModel):
 
 class MicrosoftexcelAddworksheetTool(BaseTool):
     name: str = "microsoftexcel_addworksheet"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel addWorksheet operation - addWorksheet operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelAddworksheetToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

@@ -16,6 +16,7 @@ class HomeassistantUpsertToolInput(BaseModel):
 
 class HomeassistantUpsertTool(BaseTool):
     name: str = "homeassistant_upsert"
+    connector_id: str = "nodes-base.homeAssistant"
     description: str = "Tool for homeAssistant upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = HomeassistantUpsertToolInput
     credentials: Optional[HomeassistantCredentials] = None

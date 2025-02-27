@@ -16,6 +16,7 @@ class SegmentEventToolInput(BaseModel):
 
 class SegmentEventTool(BaseTool):
     name: str = "segment_event"
+    connector_id: str = "nodes-base.segment"
     description: str = "Tool for segment event operation - event operation"
     args_schema: type[BaseModel] | None = SegmentEventToolInput
     credentials: Optional[SegmentCredentials] = None

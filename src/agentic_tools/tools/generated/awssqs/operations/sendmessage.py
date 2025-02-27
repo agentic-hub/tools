@@ -15,6 +15,7 @@ class AwssqsSendmessageToolInput(BaseModel):
 
 class AwssqsSendmessageTool(BaseTool):
     name: str = "awssqs_sendmessage"
+    connector_id: str = "nodes-base.awsSqs"
     description: str = "Tool for awsSqs sendMessage operation - sendMessage operation"
     args_schema: type[BaseModel] | None = AwssqsSendmessageToolInput
     credentials: Optional[AwssqsCredentials] = None

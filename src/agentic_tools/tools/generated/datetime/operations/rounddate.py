@@ -18,5 +18,6 @@ class DatetimeRounddateToolInput(BaseModel):
 
 class DatetimeRounddateTool(BaseTool):
     name: str = "datetime_rounddate"
+    connector_id: str = "nodes-base.dateTime"
     description: str = "Tool for dateTime roundDate operation - roundDate operation"
     args_schema: type[BaseModel] | None = DatetimeRounddateToolInput

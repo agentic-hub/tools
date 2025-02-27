@@ -14,6 +14,7 @@ class GooglebooksMoveToolInput(BaseModel):
 
 class GooglebooksMoveTool(BaseTool):
     name: str = "googlebooks_move"
+    connector_id: str = "nodes-base.googleBooks"
     description: str = "Tool for googleBooks move operation - move operation"
     args_schema: type[BaseModel] | None = GooglebooksMoveToolInput
     credentials: Optional[GooglebooksCredentials] = None

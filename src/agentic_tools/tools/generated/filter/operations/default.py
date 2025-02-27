@@ -8,5 +8,6 @@ class FilterDefaultToolInput(BaseModel):
 
 class FilterDefaultTool(BaseTool):
     name: str = "filter_default"
+    connector_id: str = "nodes-base.filter"
     description: str = "Tool for filter default operation - default operation"
     args_schema: type[BaseModel] | None = FilterDefaultToolInput

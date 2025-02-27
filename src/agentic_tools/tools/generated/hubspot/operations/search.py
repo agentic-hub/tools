@@ -27,6 +27,7 @@ class HubspotSearchToolInput(BaseModel):
 
 class HubspotSearchTool(BaseTool):
     name: str = "hubspot_search"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot search operation - search operation"
     args_schema: type[BaseModel] | None = HubspotSearchToolInput
     credentials: Optional[HubspotCredentials] = None

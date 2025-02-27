@@ -14,5 +14,6 @@ class ItemlistsSummarizeToolInput(BaseModel):
 
 class ItemlistsSummarizeTool(BaseTool):
     name: str = "itemlists_summarize"
+    connector_id: str = "nodes-base.itemLists"
     description: str = "Tool for itemLists summarize operation - summarize operation"
     args_schema: type[BaseModel] | None = ItemlistsSummarizeToolInput

@@ -19,6 +19,7 @@ class GooglefirebasecloudfirestoreQueryToolInput(BaseModel):
 
 class GooglefirebasecloudfirestoreQueryTool(BaseTool):
     name: str = "googlefirebasecloudfirestore_query"
+    connector_id: str = "nodes-base.googleFirebaseCloudFirestore"
     description: str = "Tool for googleFirebaseCloudFirestore query operation - query operation"
     args_schema: type[BaseModel] | None = GooglefirebasecloudfirestoreQueryToolInput
     credentials: Optional[GooglefirebasecloudfirestoreCredentials] = None

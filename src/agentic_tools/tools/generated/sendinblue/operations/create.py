@@ -23,6 +23,7 @@ class SendinblueCreateToolInput(BaseModel):
 
 class SendinblueCreateTool(BaseTool):
     name: str = "sendinblue_create"
+    connector_id: str = "nodes-base.sendInBlue"
     description: str = "Tool for sendInBlue create operation - create operation"
     args_schema: type[BaseModel] | None = SendinblueCreateToolInput
     credentials: Optional[SendinblueCredentials] = None

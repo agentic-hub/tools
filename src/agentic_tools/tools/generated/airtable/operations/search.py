@@ -20,6 +20,7 @@ class AirtableSearchToolInput(BaseModel):
 
 class AirtableSearchTool(BaseTool):
     name: str = "airtable_search"
+    connector_id: str = "nodes-base.airtable"
     description: str = "Tool for airtable search operation - search operation"
     args_schema: type[BaseModel] | None = AirtableSearchToolInput
     credentials: Optional[AirtableCredentials] = None

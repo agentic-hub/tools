@@ -16,6 +16,7 @@ class AwselbAddToolInput(BaseModel):
 
 class AwselbAddTool(BaseTool):
     name: str = "awselb_add"
+    connector_id: str = "nodes-base.awsElb"
     description: str = "Tool for awsElb add operation - add operation"
     args_schema: type[BaseModel] | None = AwselbAddToolInput
     credentials: Optional[AwselbCredentials] = None

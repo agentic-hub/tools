@@ -14,6 +14,7 @@ class JenkinsGetallToolInput(BaseModel):
 
 class JenkinsGetallTool(BaseTool):
     name: str = "jenkins_getall"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = JenkinsGetallToolInput
     credentials: Optional[JenkinsCredentials] = None

@@ -27,6 +27,7 @@ class MicrosoftexcelGetrowsToolInput(BaseModel):
 
 class MicrosoftexcelGetrowsTool(BaseTool):
     name: str = "microsoftexcel_getrows"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel getRows operation - getRows operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelGetrowsToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

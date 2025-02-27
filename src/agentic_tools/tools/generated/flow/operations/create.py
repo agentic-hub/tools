@@ -15,6 +15,7 @@ class FlowCreateToolInput(BaseModel):
 
 class FlowCreateTool(BaseTool):
     name: str = "flow_create"
+    connector_id: str = "nodes-base.flow"
     description: str = "Tool for flow create operation - create operation"
     args_schema: type[BaseModel] | None = FlowCreateToolInput
     credentials: Optional[FlowCredentials] = None

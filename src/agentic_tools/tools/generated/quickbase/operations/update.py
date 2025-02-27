@@ -18,6 +18,7 @@ class QuickbaseUpdateToolInput(BaseModel):
 
 class QuickbaseUpdateTool(BaseTool):
     name: str = "quickbase_update"
+    connector_id: str = "nodes-base.quickbase"
     description: str = "Tool for quickbase update operation - update operation"
     args_schema: type[BaseModel] | None = QuickbaseUpdateToolInput
     credentials: Optional[QuickbaseCredentials] = None

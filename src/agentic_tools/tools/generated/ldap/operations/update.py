@@ -12,6 +12,7 @@ class LdapUpdateToolInput(BaseModel):
 
 class LdapUpdateTool(BaseTool):
     name: str = "ldap_update"
+    connector_id: str = "nodes-base.ldap"
     description: str = "Tool for ldap update operation - update operation"
     args_schema: type[BaseModel] | None = LdapUpdateToolInput
     credentials: Optional[LdapCredentials] = None

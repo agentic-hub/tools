@@ -12,6 +12,7 @@ class ClearbitAutocompleteToolInput(BaseModel):
 
 class ClearbitAutocompleteTool(BaseTool):
     name: str = "clearbit_autocomplete"
+    connector_id: str = "nodes-base.clearbit"
     description: str = "Tool for clearbit autocomplete operation - autocomplete operation"
     args_schema: type[BaseModel] | None = ClearbitAutocompleteToolInput
     credentials: Optional[ClearbitCredentials] = None

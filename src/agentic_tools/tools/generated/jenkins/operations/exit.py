@@ -12,6 +12,7 @@ class JenkinsExitToolInput(BaseModel):
 
 class JenkinsExitTool(BaseTool):
     name: str = "jenkins_exit"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins exit operation - exit operation"
     args_schema: type[BaseModel] | None = JenkinsExitToolInput
     credentials: Optional[JenkinsCredentials] = None

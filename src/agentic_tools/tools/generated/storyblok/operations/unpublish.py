@@ -16,6 +16,7 @@ class StoryblokUnpublishToolInput(BaseModel):
 
 class StoryblokUnpublishTool(BaseTool):
     name: str = "storyblok_unpublish"
+    connector_id: str = "nodes-base.storyblok"
     description: str = "Tool for storyblok unpublish operation - unpublish operation"
     args_schema: type[BaseModel] | None = StoryblokUnpublishToolInput
     credentials: Optional[StoryblokCredentials] = None

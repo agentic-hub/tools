@@ -46,6 +46,7 @@ class ThehiveprojectCreateToolInput(BaseModel):
 
 class ThehiveprojectCreateTool(BaseTool):
     name: str = "thehiveproject_create"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject create operation - create operation"
     args_schema: type[BaseModel] | None = ThehiveprojectCreateToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

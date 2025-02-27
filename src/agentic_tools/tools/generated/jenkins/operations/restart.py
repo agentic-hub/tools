@@ -12,6 +12,7 @@ class JenkinsRestartToolInput(BaseModel):
 
 class JenkinsRestartTool(BaseTool):
     name: str = "jenkins_restart"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins restart operation - restart operation"
     args_schema: type[BaseModel] | None = JenkinsRestartToolInput
     credentials: Optional[JenkinsCredentials] = None

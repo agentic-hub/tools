@@ -19,6 +19,7 @@ class WiseDeleteToolInput(BaseModel):
 
 class WiseDeleteTool(BaseTool):
     name: str = "wise_delete"
+    connector_id: str = "nodes-base.wise"
     description: str = "Tool for wise delete operation - delete operation"
     args_schema: type[BaseModel] | None = WiseDeleteToolInput
     credentials: Optional[WiseCredentials] = None

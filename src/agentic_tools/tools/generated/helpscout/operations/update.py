@@ -20,6 +20,7 @@ class HelpscoutUpdateToolInput(BaseModel):
 
 class HelpscoutUpdateTool(BaseTool):
     name: str = "helpscout_update"
+    connector_id: str = "nodes-base.helpScout"
     description: str = "Tool for helpScout update operation - update operation"
     args_schema: type[BaseModel] | None = HelpscoutUpdateToolInput
     credentials: Optional[HelpscoutCredentials] = None

@@ -23,6 +23,7 @@ class OnfleetAutodispatchToolInput(BaseModel):
 
 class OnfleetAutodispatchTool(BaseTool):
     name: str = "onfleet_autodispatch"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet autoDispatch operation - autoDispatch operation"
     args_schema: type[BaseModel] | None = OnfleetAutodispatchToolInput
     credentials: Optional[OnfleetCredentials] = None

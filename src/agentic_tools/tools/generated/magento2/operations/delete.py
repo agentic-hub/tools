@@ -24,6 +24,7 @@ class Magento2DeleteToolInput(BaseModel):
 
 class Magento2DeleteTool(BaseTool):
     name: str = "magento2_delete"
+    connector_id: str = "nodes-base.magento2"
     description: str = "Tool for magento2 delete operation - delete operation"
     args_schema: type[BaseModel] | None = Magento2DeleteToolInput
     credentials: Optional[Magento2Credentials] = None

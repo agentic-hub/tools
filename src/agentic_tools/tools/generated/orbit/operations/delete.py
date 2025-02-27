@@ -19,6 +19,7 @@ class OrbitDeleteToolInput(BaseModel):
 
 class OrbitDeleteTool(BaseTool):
     name: str = "orbit_delete"
+    connector_id: str = "nodes-base.orbit"
     description: str = "Tool for orbit delete operation - delete operation"
     args_schema: type[BaseModel] | None = OrbitDeleteToolInput
     credentials: Optional[OrbitCredentials] = None

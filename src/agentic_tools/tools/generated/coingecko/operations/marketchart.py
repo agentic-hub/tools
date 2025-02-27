@@ -20,5 +20,6 @@ class CoingeckoMarketchartToolInput(BaseModel):
 
 class CoingeckoMarketchartTool(BaseTool):
     name: str = "coingecko_marketchart"
+    connector_id: str = "nodes-base.coinGecko"
     description: str = "Tool for coinGecko marketChart operation - marketChart operation"
     args_schema: type[BaseModel] | None = CoingeckoMarketchartToolInput

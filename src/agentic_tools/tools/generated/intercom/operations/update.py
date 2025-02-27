@@ -21,6 +21,7 @@ class IntercomUpdateToolInput(BaseModel):
 
 class IntercomUpdateTool(BaseTool):
     name: str = "intercom_update"
+    connector_id: str = "nodes-base.intercom"
     description: str = "Tool for intercom update operation - update operation"
     args_schema: type[BaseModel] | None = IntercomUpdateToolInput
     credentials: Optional[IntercomCredentials] = None

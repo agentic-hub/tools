@@ -19,6 +19,7 @@ class Awss3DownloadToolInput(BaseModel):
 
 class Awss3DownloadTool(BaseTool):
     name: str = "awss3_download"
+    connector_id: str = "nodes-base.awsS3"
     description: str = "Tool for awsS3 download operation - download operation"
     args_schema: type[BaseModel] | None = Awss3DownloadToolInput
     credentials: Optional[Awss3Credentials] = None

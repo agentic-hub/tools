@@ -17,6 +17,7 @@ class RedditDeleteToolInput(BaseModel):
 
 class RedditDeleteTool(BaseTool):
     name: str = "reddit_delete"
+    connector_id: str = "nodes-base.reddit"
     description: str = "Tool for reddit delete operation - delete operation"
     args_schema: type[BaseModel] | None = RedditDeleteToolInput
     credentials: Optional[RedditCredentials] = None

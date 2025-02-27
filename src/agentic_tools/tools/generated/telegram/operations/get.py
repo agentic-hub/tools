@@ -23,6 +23,7 @@ class TelegramGetToolInput(BaseModel):
 
 class TelegramGetTool(BaseTool):
     name: str = "telegram_get"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram get operation - get operation"
     args_schema: type[BaseModel] | None = TelegramGetToolInput
     credentials: Optional[TelegramCredentials] = None

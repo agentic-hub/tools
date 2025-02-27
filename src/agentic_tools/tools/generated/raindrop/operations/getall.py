@@ -18,6 +18,7 @@ class RaindropGetallToolInput(BaseModel):
 
 class RaindropGetallTool(BaseTool):
     name: str = "raindrop_getall"
+    connector_id: str = "nodes-base.raindrop"
     description: str = "Tool for raindrop getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = RaindropGetallToolInput
     credentials: Optional[RaindropCredentials] = None

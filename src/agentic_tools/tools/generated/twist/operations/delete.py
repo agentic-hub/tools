@@ -22,6 +22,7 @@ class TwistDeleteToolInput(BaseModel):
 
 class TwistDeleteTool(BaseTool):
     name: str = "twist_delete"
+    connector_id: str = "nodes-base.twist"
     description: str = "Tool for twist delete operation - delete operation"
     args_schema: type[BaseModel] | None = TwistDeleteToolInput
     credentials: Optional[TwistCredentials] = None

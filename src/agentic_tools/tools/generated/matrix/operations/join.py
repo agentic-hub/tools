@@ -13,6 +13,7 @@ class MatrixJoinToolInput(BaseModel):
 
 class MatrixJoinTool(BaseTool):
     name: str = "matrix_join"
+    connector_id: str = "nodes-base.matrix"
     description: str = "Tool for matrix join operation - join operation"
     args_schema: type[BaseModel] | None = MatrixJoinToolInput
     credentials: Optional[MatrixCredentials] = None

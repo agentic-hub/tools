@@ -20,6 +20,7 @@ class ZulipSendstreamToolInput(BaseModel):
 
 class ZulipSendstreamTool(BaseTool):
     name: str = "zulip_sendstream"
+    connector_id: str = "nodes-base.zulip"
     description: str = "Tool for zulip sendStream operation - sendStream operation"
     args_schema: type[BaseModel] | None = ZulipSendstreamToolInput
     credentials: Optional[ZulipCredentials] = None

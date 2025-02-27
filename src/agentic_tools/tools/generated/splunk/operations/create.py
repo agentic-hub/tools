@@ -21,6 +21,7 @@ class SplunkCreateToolInput(BaseModel):
 
 class SplunkCreateTool(BaseTool):
     name: str = "splunk_create"
+    connector_id: str = "nodes-base.splunk"
     description: str = "Tool for splunk create operation - create operation"
     args_schema: type[BaseModel] | None = SplunkCreateToolInput
     credentials: Optional[SplunkCredentials] = None

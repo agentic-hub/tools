@@ -29,6 +29,7 @@ class MicrosoftexcelLookupToolInput(BaseModel):
 
 class MicrosoftexcelLookupTool(BaseTool):
     name: str = "microsoftexcel_lookup"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel lookup operation - lookup operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelLookupToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

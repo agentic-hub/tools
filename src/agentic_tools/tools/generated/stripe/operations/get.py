@@ -20,6 +20,7 @@ class StripeGetToolInput(BaseModel):
 
 class StripeGetTool(BaseTool):
     name: str = "stripe_get"
+    connector_id: str = "nodes-base.stripe"
     description: str = "Tool for stripe get operation - get operation"
     args_schema: type[BaseModel] | None = StripeGetToolInput
     credentials: Optional[StripeCredentials] = None

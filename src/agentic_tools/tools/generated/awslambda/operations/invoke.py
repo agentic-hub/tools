@@ -13,6 +13,7 @@ class AwslambdaInvokeToolInput(BaseModel):
 
 class AwslambdaInvokeTool(BaseTool):
     name: str = "awslambda_invoke"
+    connector_id: str = "nodes-base.awsLambda"
     description: str = "Tool for awsLambda invoke operation - invoke operation"
     args_schema: type[BaseModel] | None = AwslambdaInvokeToolInput
     credentials: Optional[AwslambdaCredentials] = None

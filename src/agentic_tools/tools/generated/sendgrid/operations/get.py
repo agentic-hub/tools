@@ -19,6 +19,7 @@ class SendgridGetToolInput(BaseModel):
 
 class SendgridGetTool(BaseTool):
     name: str = "sendgrid_get"
+    connector_id: str = "nodes-base.sendGrid"
     description: str = "Tool for sendGrid get operation - get operation"
     args_schema: type[BaseModel] | None = SendgridGetToolInput
     credentials: Optional[SendgridCredentials] = None

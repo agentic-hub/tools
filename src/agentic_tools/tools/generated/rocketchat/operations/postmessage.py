@@ -16,6 +16,7 @@ class RocketchatPostmessageToolInput(BaseModel):
 
 class RocketchatPostmessageTool(BaseTool):
     name: str = "rocketchat_postmessage"
+    connector_id: str = "nodes-base.rocketchat"
     description: str = "Tool for rocketchat postMessage operation - postMessage operation"
     args_schema: type[BaseModel] | None = RocketchatPostmessageToolInput
     credentials: Optional[RocketchatCredentials] = None

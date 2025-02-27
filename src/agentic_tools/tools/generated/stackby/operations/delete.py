@@ -12,6 +12,7 @@ class StackbyDeleteToolInput(BaseModel):
 
 class StackbyDeleteTool(BaseTool):
     name: str = "stackby_delete"
+    connector_id: str = "nodes-base.stackby"
     description: str = "Tool for stackby delete operation - delete operation"
     args_schema: type[BaseModel] | None = StackbyDeleteToolInput
     credentials: Optional[StackbyCredentials] = None

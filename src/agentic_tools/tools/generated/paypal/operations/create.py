@@ -16,6 +16,7 @@ class PaypalCreateToolInput(BaseModel):
 
 class PaypalCreateTool(BaseTool):
     name: str = "paypal_create"
+    connector_id: str = "nodes-base.payPal"
     description: str = "Tool for payPal create operation - create operation"
     args_schema: type[BaseModel] | None = PaypalCreateToolInput
     credentials: Optional[PaypalCredentials] = None

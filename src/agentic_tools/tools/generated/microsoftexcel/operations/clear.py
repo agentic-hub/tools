@@ -28,6 +28,7 @@ class MicrosoftexcelClearToolInput(BaseModel):
 
 class MicrosoftexcelClearTool(BaseTool):
     name: str = "microsoftexcel_clear"
+    connector_id: str = "nodes-base.microsoftExcel"
     description: str = "Tool for microsoftExcel clear operation - clear operation"
     args_schema: type[BaseModel] | None = MicrosoftexcelClearToolInput
     credentials: Optional[MicrosoftexcelCredentials] = None

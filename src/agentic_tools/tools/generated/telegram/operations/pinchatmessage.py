@@ -21,6 +21,7 @@ class TelegramPinchatmessageToolInput(BaseModel):
 
 class TelegramPinchatmessageTool(BaseTool):
     name: str = "telegram_pinchatmessage"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram pinChatMessage operation - pinChatMessage operation"
     args_schema: type[BaseModel] | None = TelegramPinchatmessageToolInput
     credentials: Optional[TelegramCredentials] = None

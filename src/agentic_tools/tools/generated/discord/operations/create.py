@@ -24,6 +24,7 @@ class DiscordCreateToolInput(BaseModel):
 
 class DiscordCreateTool(BaseTool):
     name: str = "discord_create"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord create operation - create operation"
     args_schema: type[BaseModel] | None = DiscordCreateToolInput
     credentials: Optional[DiscordCredentials] = None

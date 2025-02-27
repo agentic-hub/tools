@@ -16,6 +16,7 @@ class MatrixGetallToolInput(BaseModel):
 
 class MatrixGetallTool(BaseTool):
     name: str = "matrix_getall"
+    connector_id: str = "nodes-base.matrix"
     description: str = "Tool for matrix getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MatrixGetallToolInput
     credentials: Optional[MatrixCredentials] = None

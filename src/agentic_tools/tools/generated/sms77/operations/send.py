@@ -14,6 +14,7 @@ class Sms77SendToolInput(BaseModel):
 
 class Sms77SendTool(BaseTool):
     name: str = "sms77_send"
+    connector_id: str = "nodes-base.sms77"
     description: str = "Tool for sms77 send operation - send operation"
     args_schema: type[BaseModel] | None = Sms77SendToolInput
     credentials: Optional[Sms77Credentials] = None

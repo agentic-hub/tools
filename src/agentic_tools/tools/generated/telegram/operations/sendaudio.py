@@ -23,6 +23,7 @@ class TelegramSendaudioToolInput(BaseModel):
 
 class TelegramSendaudioTool(BaseTool):
     name: str = "telegram_sendaudio"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendAudio operation - sendAudio operation"
     args_schema: type[BaseModel] | None = TelegramSendaudioToolInput
     credentials: Optional[TelegramCredentials] = None

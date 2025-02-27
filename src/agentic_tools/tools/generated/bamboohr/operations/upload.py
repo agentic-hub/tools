@@ -38,6 +38,7 @@ class BamboohrUploadToolInput(BaseModel):
 
 class BamboohrUploadTool(BaseTool):
     name: str = "bamboohr_upload"
+    connector_id: str = "nodes-base.bambooHr"
     description: str = "Tool for bambooHr upload operation - upload operation"
     args_schema: type[BaseModel] | None = BamboohrUploadToolInput
     credentials: Optional[BamboohrCredentials] = None

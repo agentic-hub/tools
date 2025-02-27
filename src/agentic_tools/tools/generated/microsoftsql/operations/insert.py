@@ -11,6 +11,7 @@ class MicrosoftsqlInsertToolInput(BaseModel):
 
 class MicrosoftsqlInsertTool(BaseTool):
     name: str = "microsoftsql_insert"
+    connector_id: str = "nodes-base.microsoftSql"
     description: str = "Tool for microsoftSql insert operation - insert operation"
     args_schema: type[BaseModel] | None = MicrosoftsqlInsertToolInput
     credentials: Optional[MicrosoftsqlCredentials] = None

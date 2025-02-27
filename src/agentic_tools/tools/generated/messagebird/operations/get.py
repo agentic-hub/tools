@@ -10,6 +10,7 @@ class MessagebirdGetToolInput(BaseModel):
 
 class MessagebirdGetTool(BaseTool):
     name: str = "messagebird_get"
+    connector_id: str = "nodes-base.messageBird"
     description: str = "Tool for messageBird get operation - get operation"
     args_schema: type[BaseModel] | None = MessagebirdGetToolInput
     credentials: Optional[MessagebirdCredentials] = None

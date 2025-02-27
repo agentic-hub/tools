@@ -11,6 +11,7 @@ class MetabaseGetfieldsToolInput(BaseModel):
 
 class MetabaseGetfieldsTool(BaseTool):
     name: str = "metabase_getfields"
+    connector_id: str = "nodes-base.metabase"
     description: str = "Tool for metabase getFields operation - getFields operation"
     args_schema: type[BaseModel] | None = MetabaseGetfieldsToolInput
     credentials: Optional[MetabaseCredentials] = None

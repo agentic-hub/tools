@@ -12,6 +12,7 @@ class GitCommitToolInput(BaseModel):
 
 class GitCommitTool(BaseTool):
     name: str = "git_commit"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git commit operation - commit operation"
     args_schema: type[BaseModel] | None = GitCommitToolInput
     credentials: Optional[GitCredentials] = None

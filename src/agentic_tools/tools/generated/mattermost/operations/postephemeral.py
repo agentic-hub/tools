@@ -20,6 +20,7 @@ class MattermostPostephemeralToolInput(BaseModel):
 
 class MattermostPostephemeralTool(BaseTool):
     name: str = "mattermost_postephemeral"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost postEphemeral operation - postEphemeral operation"
     args_schema: type[BaseModel] | None = MattermostPostephemeralToolInput
     credentials: Optional[MattermostCredentials] = None

@@ -17,6 +17,7 @@ class MediumCreateToolInput(BaseModel):
 
 class MediumCreateTool(BaseTool):
     name: str = "medium_create"
+    connector_id: str = "nodes-base.medium"
     description: str = "Tool for medium create operation - create operation"
     args_schema: type[BaseModel] | None = MediumCreateToolInput
     credentials: Optional[MediumCredentials] = None

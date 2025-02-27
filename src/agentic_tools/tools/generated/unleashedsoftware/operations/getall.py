@@ -13,6 +13,7 @@ class UnleashedsoftwareGetallToolInput(BaseModel):
 
 class UnleashedsoftwareGetallTool(BaseTool):
     name: str = "unleashedsoftware_getall"
+    connector_id: str = "nodes-base.unleashedSoftware"
     description: str = "Tool for unleashedSoftware getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = UnleashedsoftwareGetallToolInput
     credentials: Optional[UnleashedsoftwareCredentials] = None

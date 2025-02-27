@@ -11,6 +11,7 @@ class Rundeck__custom_api_call__ToolInput(BaseModel):
 
 class Rundeck__custom_api_call__Tool(BaseTool):
     name: str = "rundeck___custom_api_call__"
+    connector_id: str = "nodes-base.rundeck"
     description: str = "Tool for rundeck __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Rundeck__custom_api_call__ToolInput
     credentials: Optional[RundeckCredentials] = None

@@ -30,6 +30,7 @@ class GitlabCreateToolInput(BaseModel):
 
 class GitlabCreateTool(BaseTool):
     name: str = "gitlab_create"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab create operation - create operation"
     args_schema: type[BaseModel] | None = GitlabCreateToolInput
     credentials: Optional[GitlabCredentials] = None

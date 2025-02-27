@@ -22,6 +22,7 @@ class AsanaRemoveToolInput(BaseModel):
 
 class AsanaRemoveTool(BaseTool):
     name: str = "asana_remove"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana remove operation - remove operation"
     args_schema: type[BaseModel] | None = AsanaRemoveToolInput
     credentials: Optional[AsanaCredentials] = None

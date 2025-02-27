@@ -16,6 +16,7 @@ class SeatableGetallToolInput(BaseModel):
 
 class SeatableGetallTool(BaseTool):
     name: str = "seatable_getall"
+    connector_id: str = "nodes-base.seaTable"
     description: str = "Tool for seaTable getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = SeatableGetallToolInput
     credentials: Optional[SeatableCredentials] = None

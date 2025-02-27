@@ -23,6 +23,7 @@ class DiscordDeletechannelToolInput(BaseModel):
 
 class DiscordDeletechannelTool(BaseTool):
     name: str = "discord_deletechannel"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord deleteChannel operation - deleteChannel operation"
     args_schema: type[BaseModel] | None = DiscordDeletechannelToolInput
     credentials: Optional[DiscordCredentials] = None

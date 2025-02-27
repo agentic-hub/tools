@@ -23,6 +23,7 @@ class SentryioDeleteToolInput(BaseModel):
 
 class SentryioDeleteTool(BaseTool):
     name: str = "sentryio_delete"
+    connector_id: str = "nodes-base.sentryIo"
     description: str = "Tool for sentryIo delete operation - delete operation"
     args_schema: type[BaseModel] | None = SentryioDeleteToolInput
     credentials: Optional[SentryioCredentials] = None

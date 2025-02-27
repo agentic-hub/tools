@@ -23,6 +23,7 @@ class GmailReplyToolInput(BaseModel):
 
 class GmailReplyTool(BaseTool):
     name: str = "gmail_reply"
+    connector_id: str = "nodes-base.gmail"
     description: str = "Tool for gmail reply operation - reply operation"
     args_schema: type[BaseModel] | None = GmailReplyToolInput
     credentials: Optional[GmailCredentials] = None

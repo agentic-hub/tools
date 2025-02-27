@@ -18,6 +18,7 @@ class ZulipSendprivateToolInput(BaseModel):
 
 class ZulipSendprivateTool(BaseTool):
     name: str = "zulip_sendprivate"
+    connector_id: str = "nodes-base.zulip"
     description: str = "Tool for zulip sendPrivate operation - sendPrivate operation"
     args_schema: type[BaseModel] | None = ZulipSendprivateToolInput
     credentials: Optional[ZulipCredentials] = None

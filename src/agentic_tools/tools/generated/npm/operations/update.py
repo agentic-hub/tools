@@ -13,6 +13,7 @@ class NpmUpdateToolInput(BaseModel):
 
 class NpmUpdateTool(BaseTool):
     name: str = "npm_update"
+    connector_id: str = "nodes-base.npm"
     description: str = "Tool for npm update operation - update operation"
     args_schema: type[BaseModel] | None = NpmUpdateToolInput
     credentials: Optional[NpmCredentials] = None

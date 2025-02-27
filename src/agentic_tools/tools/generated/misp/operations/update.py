@@ -22,6 +22,7 @@ class MispUpdateToolInput(BaseModel):
 
 class MispUpdateTool(BaseTool):
     name: str = "misp_update"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp update operation - update operation"
     args_schema: type[BaseModel] | None = MispUpdateToolInput
     credentials: Optional[MispCredentials] = None

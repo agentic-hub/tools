@@ -27,6 +27,7 @@ class Woocommerce__custom_api_call__ToolInput(BaseModel):
 
 class Woocommerce__custom_api_call__Tool(BaseTool):
     name: str = "woocommerce___custom_api_call__"
+    connector_id: str = "nodes-base.wooCommerce"
     description: str = "Tool for wooCommerce __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Woocommerce__custom_api_call__ToolInput
     credentials: Optional[WoocommerceCredentials] = None

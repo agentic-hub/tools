@@ -13,6 +13,7 @@ class PhantombusterGetoutputToolInput(BaseModel):
 
 class PhantombusterGetoutputTool(BaseTool):
     name: str = "phantombuster_getoutput"
+    connector_id: str = "nodes-base.phantombuster"
     description: str = "Tool for phantombuster getOutput operation - getOutput operation"
     args_schema: type[BaseModel] | None = PhantombusterGetoutputToolInput
     credentials: Optional[PhantombusterCredentials] = None

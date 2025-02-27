@@ -9,5 +9,6 @@ class ConverttofileXlsToolInput(BaseModel):
 
 class ConverttofileXlsTool(BaseTool):
     name: str = "converttofile_xls"
+    connector_id: str = "nodes-base.convertToFile"
     description: str = "Tool for convertToFile xls operation - xls operation"
     args_schema: type[BaseModel] | None = ConverttofileXlsToolInput

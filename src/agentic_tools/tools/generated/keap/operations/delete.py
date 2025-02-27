@@ -25,6 +25,7 @@ class KeapDeleteToolInput(BaseModel):
 
 class KeapDeleteTool(BaseTool):
     name: str = "keap_delete"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap delete operation - delete operation"
     args_schema: type[BaseModel] | None = KeapDeleteToolInput
     credentials: Optional[KeapCredentials] = None

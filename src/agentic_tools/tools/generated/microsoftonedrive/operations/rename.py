@@ -18,6 +18,7 @@ class MicrosoftonedriveRenameToolInput(BaseModel):
 
 class MicrosoftonedriveRenameTool(BaseTool):
     name: str = "microsoftonedrive_rename"
+    connector_id: str = "nodes-base.microsoftOneDrive"
     description: str = "Tool for microsoftOneDrive rename operation - rename operation"
     args_schema: type[BaseModel] | None = MicrosoftonedriveRenameToolInput
     credentials: Optional[MicrosoftonedriveCredentials] = None

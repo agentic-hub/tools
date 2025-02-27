@@ -16,6 +16,7 @@ class ErpnextGetallToolInput(BaseModel):
 
 class ErpnextGetallTool(BaseTool):
     name: str = "erpnext_getall"
+    connector_id: str = "nodes-base.erpNext"
     description: str = "Tool for erpNext getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = ErpnextGetallToolInput
     credentials: Optional[ErpnextCredentials] = None

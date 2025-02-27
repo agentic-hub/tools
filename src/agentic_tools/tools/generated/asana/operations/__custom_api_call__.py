@@ -22,6 +22,7 @@ class Asana__custom_api_call__ToolInput(BaseModel):
 
 class Asana__custom_api_call__Tool(BaseTool):
     name: str = "asana___custom_api_call__"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Asana__custom_api_call__ToolInput
     credentials: Optional[AsanaCredentials] = None

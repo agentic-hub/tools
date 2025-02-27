@@ -14,6 +14,7 @@ class GoogleslidesReplacetextToolInput(BaseModel):
 
 class GoogleslidesReplacetextTool(BaseTool):
     name: str = "googleslides_replacetext"
+    connector_id: str = "nodes-base.googleSlides"
     description: str = "Tool for googleSlides replaceText operation - replaceText operation"
     args_schema: type[BaseModel] | None = GoogleslidesReplacetextToolInput
     credentials: Optional[GoogleslidesCredentials] = None

@@ -11,6 +11,7 @@ class SnowflakeInsertToolInput(BaseModel):
 
 class SnowflakeInsertTool(BaseTool):
     name: str = "snowflake_insert"
+    connector_id: str = "nodes-base.snowflake"
     description: str = "Tool for snowflake insert operation - insert operation"
     args_schema: type[BaseModel] | None = SnowflakeInsertToolInput
     credentials: Optional[SnowflakeCredentials] = None

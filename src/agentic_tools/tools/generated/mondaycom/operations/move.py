@@ -20,6 +20,7 @@ class MondaycomMoveToolInput(BaseModel):
 
 class MondaycomMoveTool(BaseTool):
     name: str = "mondaycom_move"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom move operation - move operation"
     args_schema: type[BaseModel] | None = MondaycomMoveToolInput
     credentials: Optional[MondaycomCredentials] = None

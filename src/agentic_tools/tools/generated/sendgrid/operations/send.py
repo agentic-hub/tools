@@ -25,6 +25,7 @@ class SendgridSendToolInput(BaseModel):
 
 class SendgridSendTool(BaseTool):
     name: str = "sendgrid_send"
+    connector_id: str = "nodes-base.sendGrid"
     description: str = "Tool for sendGrid send operation - send operation"
     args_schema: type[BaseModel] | None = SendgridSendToolInput
     credentials: Optional[SendgridCredentials] = None

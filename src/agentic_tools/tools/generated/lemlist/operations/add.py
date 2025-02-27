@@ -14,6 +14,7 @@ class LemlistAddToolInput(BaseModel):
 
 class LemlistAddTool(BaseTool):
     name: str = "lemlist_add"
+    connector_id: str = "nodes-base.lemlist"
     description: str = "Tool for lemlist add operation - add operation"
     args_schema: type[BaseModel] | None = LemlistAddToolInput
     credentials: Optional[LemlistCredentials] = None

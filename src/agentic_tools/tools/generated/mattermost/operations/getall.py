@@ -20,6 +20,7 @@ class MattermostGetallToolInput(BaseModel):
 
 class MattermostGetallTool(BaseTool):
     name: str = "mattermost_getall"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MattermostGetallToolInput
     credentials: Optional[MattermostCredentials] = None

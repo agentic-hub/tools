@@ -16,6 +16,7 @@ class SpotifyAddToolInput(BaseModel):
 
 class SpotifyAddTool(BaseTool):
     name: str = "spotify_add"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify add operation - add operation"
     args_schema: type[BaseModel] | None = SpotifyAddToolInput
     credentials: Optional[SpotifyCredentials] = None

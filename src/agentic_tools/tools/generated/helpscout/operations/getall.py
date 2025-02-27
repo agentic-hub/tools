@@ -19,6 +19,7 @@ class HelpscoutGetallToolInput(BaseModel):
 
 class HelpscoutGetallTool(BaseTool):
     name: str = "helpscout_getall"
+    connector_id: str = "nodes-base.helpScout"
     description: str = "Tool for helpScout getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = HelpscoutGetallToolInput
     credentials: Optional[HelpscoutCredentials] = None

@@ -21,6 +21,7 @@ class GitlabUpdateToolInput(BaseModel):
 
 class GitlabUpdateTool(BaseTool):
     name: str = "gitlab_update"
+    connector_id: str = "nodes-base.gitlab"
     description: str = "Tool for gitlab update operation - update operation"
     args_schema: type[BaseModel] | None = GitlabUpdateToolInput
     credentials: Optional[GitlabCredentials] = None

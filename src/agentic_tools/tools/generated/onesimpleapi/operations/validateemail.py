@@ -15,6 +15,7 @@ class OnesimpleapiValidateemailToolInput(BaseModel):
 
 class OnesimpleapiValidateemailTool(BaseTool):
     name: str = "onesimpleapi_validateemail"
+    connector_id: str = "nodes-base.oneSimpleApi"
     description: str = "Tool for oneSimpleApi validateEmail operation - validateEmail operation"
     args_schema: type[BaseModel] | None = OnesimpleapiValidateemailToolInput
     credentials: Optional[OnesimpleapiCredentials] = None

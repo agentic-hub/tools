@@ -17,6 +17,7 @@ class RedisIncrToolInput(BaseModel):
 
 class RedisIncrTool(BaseTool):
     name: str = "redis_incr"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis incr operation - incr operation"
     args_schema: type[BaseModel] | None = RedisIncrToolInput
     credentials: Optional[RedisCredentials] = None

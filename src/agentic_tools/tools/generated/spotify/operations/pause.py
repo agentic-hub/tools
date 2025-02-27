@@ -15,6 +15,7 @@ class SpotifyPauseToolInput(BaseModel):
 
 class SpotifyPauseTool(BaseTool):
     name: str = "spotify_pause"
+    connector_id: str = "nodes-base.spotify"
     description: str = "Tool for spotify pause operation - pause operation"
     args_schema: type[BaseModel] | None = SpotifyPauseToolInput
     credentials: Optional[SpotifyCredentials] = None

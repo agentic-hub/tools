@@ -22,6 +22,7 @@ class GoogledriveDownloadToolInput(BaseModel):
 
 class GoogledriveDownloadTool(BaseTool):
     name: str = "googledrive_download"
+    connector_id: str = "nodes-base.googleDrive"
     description: str = "Tool for googleDrive download operation - download operation"
     args_schema: type[BaseModel] | None = GoogledriveDownloadToolInput
     credentials: Optional[GoogledriveCredentials] = None

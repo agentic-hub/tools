@@ -14,6 +14,7 @@ class HomeassistantGetlogbookentriesToolInput(BaseModel):
 
 class HomeassistantGetlogbookentriesTool(BaseTool):
     name: str = "homeassistant_getlogbookentries"
+    connector_id: str = "nodes-base.homeAssistant"
     description: str = "Tool for homeAssistant getLogbookEntries operation - getLogbookEntries operation"
     args_schema: type[BaseModel] | None = HomeassistantGetlogbookentriesToolInput
     credentials: Optional[HomeassistantCredentials] = None

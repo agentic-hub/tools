@@ -12,6 +12,7 @@ class StackbyAppendToolInput(BaseModel):
 
 class StackbyAppendTool(BaseTool):
     name: str = "stackby_append"
+    connector_id: str = "nodes-base.stackby"
     description: str = "Tool for stackby append operation - append operation"
     args_schema: type[BaseModel] | None = StackbyAppendToolInput
     credentials: Optional[StackbyCredentials] = None

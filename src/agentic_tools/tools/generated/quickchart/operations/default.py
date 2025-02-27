@@ -14,5 +14,6 @@ class QuickchartDefaultToolInput(BaseModel):
 
 class QuickchartDefaultTool(BaseTool):
     name: str = "quickchart_default"
+    connector_id: str = "nodes-base.quickChart"
     description: str = "Tool for quickChart default operation - default operation"
     args_schema: type[BaseModel] | None = QuickchartDefaultToolInput

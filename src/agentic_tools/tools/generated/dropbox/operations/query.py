@@ -20,6 +20,7 @@ class DropboxQueryToolInput(BaseModel):
 
 class DropboxQueryTool(BaseTool):
     name: str = "dropbox_query"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox query operation - query operation"
     args_schema: type[BaseModel] | None = DropboxQueryToolInput
     credentials: Optional[DropboxCredentials] = None

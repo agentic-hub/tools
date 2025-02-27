@@ -16,6 +16,7 @@ class CitrixadcUploadToolInput(BaseModel):
 
 class CitrixadcUploadTool(BaseTool):
     name: str = "citrixadc_upload"
+    connector_id: str = "nodes-base.citrixAdc"
     description: str = "Tool for citrixAdc upload operation - upload operation"
     args_schema: type[BaseModel] | None = CitrixadcUploadToolInput
     credentials: Optional[CitrixadcCredentials] = None

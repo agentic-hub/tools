@@ -22,6 +22,7 @@ class MauticSendemailToolInput(BaseModel):
 
 class MauticSendemailTool(BaseTool):
     name: str = "mautic_sendemail"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic sendEmail operation - sendEmail operation"
     args_schema: type[BaseModel] | None = MauticSendemailToolInput
     credentials: Optional[MauticCredentials] = None

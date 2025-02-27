@@ -24,6 +24,7 @@ class JiraTransitionsToolInput(BaseModel):
 
 class JiraTransitionsTool(BaseTool):
     name: str = "jira_transitions"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira transitions operation - transitions operation"
     args_schema: type[BaseModel] | None = JiraTransitionsToolInput
     credentials: Optional[JiraCredentials] = None

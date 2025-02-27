@@ -27,6 +27,7 @@ class SlackMemberToolInput(BaseModel):
 
 class SlackMemberTool(BaseTool):
     name: str = "slack_member"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack member operation - member operation"
     args_schema: type[BaseModel] | None = SlackMemberToolInput
     credentials: Optional[SlackCredentials] = None

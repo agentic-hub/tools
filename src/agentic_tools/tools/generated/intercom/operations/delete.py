@@ -22,6 +22,7 @@ class IntercomDeleteToolInput(BaseModel):
 
 class IntercomDeleteTool(BaseTool):
     name: str = "intercom_delete"
+    connector_id: str = "nodes-base.intercom"
     description: str = "Tool for intercom delete operation - delete operation"
     args_schema: type[BaseModel] | None = IntercomDeleteToolInput
     credentials: Optional[IntercomCredentials] = None

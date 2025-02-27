@@ -19,6 +19,7 @@ class WiseGetcurrenciesToolInput(BaseModel):
 
 class WiseGetcurrenciesTool(BaseTool):
     name: str = "wise_getcurrencies"
+    connector_id: str = "nodes-base.wise"
     description: str = "Tool for wise getCurrencies operation - getCurrencies operation"
     args_schema: type[BaseModel] | None = WiseGetcurrenciesToolInput
     credentials: Optional[WiseCredentials] = None

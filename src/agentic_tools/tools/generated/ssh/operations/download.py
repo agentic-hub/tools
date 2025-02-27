@@ -14,6 +14,7 @@ class SshDownloadToolInput(BaseModel):
 
 class SshDownloadTool(BaseTool):
     name: str = "ssh_download"
+    connector_id: str = "nodes-base.ssh"
     description: str = "Tool for ssh download operation - download operation"
     args_schema: type[BaseModel] | None = SshDownloadToolInput
     credentials: Optional[SshCredentials] = None

@@ -25,6 +25,7 @@ class GsuiteadminCreateToolInput(BaseModel):
 
 class GsuiteadminCreateTool(BaseTool):
     name: str = "gsuiteadmin_create"
+    connector_id: str = "nodes-base.gSuiteAdmin"
     description: str = "Tool for gSuiteAdmin create operation - create operation"
     args_schema: type[BaseModel] | None = GsuiteadminCreateToolInput
     credentials: Optional[GsuiteadminCredentials] = None

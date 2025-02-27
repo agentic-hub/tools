@@ -18,6 +18,7 @@ class SplunkGetreportToolInput(BaseModel):
 
 class SplunkGetreportTool(BaseTool):
     name: str = "splunk_getreport"
+    connector_id: str = "nodes-base.splunk"
     description: str = "Tool for splunk getReport operation - getReport operation"
     args_schema: type[BaseModel] | None = SplunkGetreportToolInput
     credentials: Optional[SplunkCredentials] = None

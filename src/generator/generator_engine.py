@@ -434,7 +434,11 @@ class Generator:
         description = config.get(
             "description", f"Tool for {tool_name} {operation} operation"
         )
-
+        connector_id = (
+            config.get("init_kwargs", {})
+            .get("scade_tools_node_name", "")
+            .replace("scade-tools-", "")
+        )
         # Extract the input schema from the config
         input_schema = config.get("init_kwargs", {}).get("input_desc", {})
 
@@ -512,6 +516,7 @@ from typing import Optional, Dict, Any, List, Union
 
 class {class_name}(BaseTool):
     name: str = "{tool_name.lower()}_{operation.lower()}"
+    connector_id: str = "{connector_id}"
     description: str = "{description} - {operation} operation"
     args_schema: type[BaseModel] | None = {class_name}Input
 """

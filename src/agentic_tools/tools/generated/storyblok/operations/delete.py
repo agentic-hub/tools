@@ -16,6 +16,7 @@ class StoryblokDeleteToolInput(BaseModel):
 
 class StoryblokDeleteTool(BaseTool):
     name: str = "storyblok_delete"
+    connector_id: str = "nodes-base.storyblok"
     description: str = "Tool for storyblok delete operation - delete operation"
     args_schema: type[BaseModel] | None = StoryblokDeleteToolInput
     credentials: Optional[StoryblokCredentials] = None

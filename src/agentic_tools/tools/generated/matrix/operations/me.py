@@ -12,6 +12,7 @@ class MatrixMeToolInput(BaseModel):
 
 class MatrixMeTool(BaseTool):
     name: str = "matrix_me"
+    connector_id: str = "nodes-base.matrix"
     description: str = "Tool for matrix me operation - me operation"
     args_schema: type[BaseModel] | None = MatrixMeToolInput
     credentials: Optional[MatrixCredentials] = None

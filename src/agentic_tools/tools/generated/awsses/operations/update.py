@@ -17,6 +17,7 @@ class AwssesUpdateToolInput(BaseModel):
 
 class AwssesUpdateTool(BaseTool):
     name: str = "awsses_update"
+    connector_id: str = "nodes-base.awsSes"
     description: str = "Tool for awsSes update operation - update operation"
     args_schema: type[BaseModel] | None = AwssesUpdateToolInput
     credentials: Optional[AwssesCredentials] = None

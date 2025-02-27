@@ -14,6 +14,7 @@ class DisqusGetthreadsToolInput(BaseModel):
 
 class DisqusGetthreadsTool(BaseTool):
     name: str = "disqus_getthreads"
+    connector_id: str = "nodes-base.disqus"
     description: str = "Tool for disqus getThreads operation - getThreads operation"
     args_schema: type[BaseModel] | None = DisqusGetthreadsToolInput
     credentials: Optional[DisqusCredentials] = None

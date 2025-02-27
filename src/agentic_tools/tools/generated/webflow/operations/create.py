@@ -16,6 +16,7 @@ class WebflowCreateToolInput(BaseModel):
 
 class WebflowCreateTool(BaseTool):
     name: str = "webflow_create"
+    connector_id: str = "nodes-base.webflow"
     description: str = "Tool for webflow create operation - create operation"
     args_schema: type[BaseModel] | None = WebflowCreateToolInput
     credentials: Optional[WebflowCredentials] = None

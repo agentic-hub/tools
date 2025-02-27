@@ -34,6 +34,7 @@ class ClickupStartToolInput(BaseModel):
 
 class ClickupStartTool(BaseTool):
     name: str = "clickup_start"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp start operation - start operation"
     args_schema: type[BaseModel] | None = ClickupStartToolInput
     credentials: Optional[ClickupCredentials] = None

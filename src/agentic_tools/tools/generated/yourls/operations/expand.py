@@ -11,6 +11,7 @@ class YourlsExpandToolInput(BaseModel):
 
 class YourlsExpandTool(BaseTool):
     name: str = "yourls_expand"
+    connector_id: str = "nodes-base.yourls"
     description: str = "Tool for yourls expand operation - expand operation"
     args_schema: type[BaseModel] | None = YourlsExpandToolInput
     credentials: Optional[YourlsCredentials] = None

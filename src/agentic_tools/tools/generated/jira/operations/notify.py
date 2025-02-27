@@ -28,6 +28,7 @@ class JiraNotifyToolInput(BaseModel):
 
 class JiraNotifyTool(BaseTool):
     name: str = "jira_notify"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira notify operation - notify operation"
     args_schema: type[BaseModel] | None = JiraNotifyToolInput
     credentials: Optional[JiraCredentials] = None

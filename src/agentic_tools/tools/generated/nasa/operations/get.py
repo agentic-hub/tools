@@ -16,6 +16,7 @@ class NasaGetToolInput(BaseModel):
 
 class NasaGetTool(BaseTool):
     name: str = "nasa_get"
+    connector_id: str = "nodes-base.nasa"
     description: str = "Tool for nasa get operation - get operation"
     args_schema: type[BaseModel] | None = NasaGetToolInput
     credentials: Optional[NasaCredentials] = None

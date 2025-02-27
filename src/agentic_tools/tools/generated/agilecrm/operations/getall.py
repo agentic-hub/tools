@@ -25,6 +25,7 @@ class AgilecrmGetallToolInput(BaseModel):
 
 class AgilecrmGetallTool(BaseTool):
     name: str = "agilecrm_getall"
+    connector_id: str = "nodes-base.agileCrm"
     description: str = "Tool for agileCrm getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = AgilecrmGetallToolInput
     credentials: Optional[AgilecrmCredentials] = None

@@ -17,6 +17,7 @@ class SendinblueUpsertToolInput(BaseModel):
 
 class SendinblueUpsertTool(BaseTool):
     name: str = "sendinblue_upsert"
+    connector_id: str = "nodes-base.sendInBlue"
     description: str = "Tool for sendInBlue upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = SendinblueUpsertToolInput
     credentials: Optional[SendinblueCredentials] = None

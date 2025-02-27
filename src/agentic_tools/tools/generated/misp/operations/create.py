@@ -30,6 +30,7 @@ class MispCreateToolInput(BaseModel):
 
 class MispCreateTool(BaseTool):
     name: str = "misp_create"
+    connector_id: str = "nodes-base.misp"
     description: str = "Tool for misp create operation - create operation"
     args_schema: type[BaseModel] | None = MispCreateToolInput
     credentials: Optional[MispCredentials] = None

@@ -22,6 +22,7 @@ class InvoiceninjaGetallToolInput(BaseModel):
 
 class InvoiceninjaGetallTool(BaseTool):
     name: str = "invoiceninja_getall"
+    connector_id: str = "nodes-base.invoiceNinja"
     description: str = "Tool for invoiceNinja getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = InvoiceninjaGetallToolInput
     credentials: Optional[InvoiceninjaCredentials] = None

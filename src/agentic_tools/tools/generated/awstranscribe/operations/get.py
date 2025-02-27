@@ -13,6 +13,7 @@ class AwstranscribeGetToolInput(BaseModel):
 
 class AwstranscribeGetTool(BaseTool):
     name: str = "awstranscribe_get"
+    connector_id: str = "nodes-base.awsTranscribe"
     description: str = "Tool for awsTranscribe get operation - get operation"
     args_schema: type[BaseModel] | None = AwstranscribeGetToolInput
     credentials: Optional[AwstranscribeCredentials] = None

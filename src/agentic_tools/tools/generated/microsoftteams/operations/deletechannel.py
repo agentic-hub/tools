@@ -22,6 +22,7 @@ class MicrosoftteamsDeletechannelToolInput(BaseModel):
 
 class MicrosoftteamsDeletechannelTool(BaseTool):
     name: str = "microsoftteams_deletechannel"
+    connector_id: str = "nodes-base.microsoftTeams"
     description: str = "Tool for microsoftTeams deleteChannel operation - deleteChannel operation"
     args_schema: type[BaseModel] | None = MicrosoftteamsDeletechannelToolInput
     credentials: Optional[MicrosoftteamsCredentials] = None

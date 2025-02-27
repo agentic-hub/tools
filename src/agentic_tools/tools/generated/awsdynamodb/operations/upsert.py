@@ -19,6 +19,7 @@ class AwsdynamodbUpsertToolInput(BaseModel):
 
 class AwsdynamodbUpsertTool(BaseTool):
     name: str = "awsdynamodb_upsert"
+    connector_id: str = "nodes-base.awsDynamoDb"
     description: str = "Tool for awsDynamoDb upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = AwsdynamodbUpsertToolInput
     credentials: Optional[AwsdynamodbCredentials] = None

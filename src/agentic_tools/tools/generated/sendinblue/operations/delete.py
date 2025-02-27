@@ -19,6 +19,7 @@ class SendinblueDeleteToolInput(BaseModel):
 
 class SendinblueDeleteTool(BaseTool):
     name: str = "sendinblue_delete"
+    connector_id: str = "nodes-base.sendInBlue"
     description: str = "Tool for sendInBlue delete operation - delete operation"
     args_schema: type[BaseModel] | None = SendinblueDeleteToolInput
     credentials: Optional[SendinblueCredentials] = None

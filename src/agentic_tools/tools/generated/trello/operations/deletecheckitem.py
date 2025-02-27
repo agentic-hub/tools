@@ -22,6 +22,7 @@ class TrelloDeletecheckitemToolInput(BaseModel):
 
 class TrelloDeletecheckitemTool(BaseTool):
     name: str = "trello_deletecheckitem"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello deleteCheckItem operation - deleteCheckItem operation"
     args_schema: type[BaseModel] | None = TrelloDeletecheckitemToolInput
     credentials: Optional[TrelloCredentials] = None

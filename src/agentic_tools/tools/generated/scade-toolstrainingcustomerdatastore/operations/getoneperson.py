@@ -7,5 +7,6 @@ class Scade-toolstrainingcustomerdatastoreGetonepersonToolInput(BaseModel):
 
 class Scade-toolstrainingcustomerdatastoreGetonepersonTool(BaseTool):
     name: str = "scade-toolstrainingcustomerdatastore_getoneperson"
+    connector_id: str = "nodes-base.scade-toolsTrainingCustomerDatastore"
     description: str = "Tool for scade-toolsTrainingCustomerDatastore getOnePerson operation - getOnePerson operation"
     args_schema: type[BaseModel] | None = Scade-toolstrainingcustomerdatastoreGetonepersonToolInput

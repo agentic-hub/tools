@@ -21,6 +21,7 @@ class NextcloudShareToolInput(BaseModel):
 
 class NextcloudShareTool(BaseTool):
     name: str = "nextcloud_share"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud share operation - share operation"
     args_schema: type[BaseModel] | None = NextcloudShareToolInput
     credentials: Optional[NextcloudCredentials] = None

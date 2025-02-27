@@ -11,6 +11,7 @@ class GitPullToolInput(BaseModel):
 
 class GitPullTool(BaseTool):
     name: str = "git_pull"
+    connector_id: str = "nodes-base.git"
     description: str = "Tool for git pull operation - pull operation"
     args_schema: type[BaseModel] | None = GitPullToolInput
     credentials: Optional[GitCredentials] = None

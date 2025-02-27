@@ -24,6 +24,7 @@ class MysqlSelectToolInput(BaseModel):
 
 class MysqlSelectTool(BaseTool):
     name: str = "mysql_select"
+    connector_id: str = "nodes-base.mySql"
     description: str = "Tool for mySql select operation - select operation"
     args_schema: type[BaseModel] | None = MysqlSelectToolInput
     credentials: Optional[MysqlCredentials] = None

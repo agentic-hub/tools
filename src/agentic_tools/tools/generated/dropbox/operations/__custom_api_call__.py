@@ -17,6 +17,7 @@ class Dropbox__custom_api_call__ToolInput(BaseModel):
 
 class Dropbox__custom_api_call__Tool(BaseTool):
     name: str = "dropbox___custom_api_call__"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Dropbox__custom_api_call__ToolInput
     credentials: Optional[DropboxCredentials] = None

@@ -30,6 +30,7 @@ class KeapUploadToolInput(BaseModel):
 
 class KeapUploadTool(BaseTool):
     name: str = "keap_upload"
+    connector_id: str = "nodes-base.keap"
     description: str = "Tool for keap upload operation - upload operation"
     args_schema: type[BaseModel] | None = KeapUploadToolInput
     credentials: Optional[KeapCredentials] = None

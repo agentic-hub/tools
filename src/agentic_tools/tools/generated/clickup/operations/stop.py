@@ -34,6 +34,7 @@ class ClickupStopToolInput(BaseModel):
 
 class ClickupStopTool(BaseTool):
     name: str = "clickup_stop"
+    connector_id: str = "nodes-base.clickUp"
     description: str = "Tool for clickUp stop operation - stop operation"
     args_schema: type[BaseModel] | None = ClickupStopToolInput
     credentials: Optional[ClickupCredentials] = None

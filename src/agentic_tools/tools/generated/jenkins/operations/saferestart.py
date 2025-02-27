@@ -12,6 +12,7 @@ class JenkinsSaferestartToolInput(BaseModel):
 
 class JenkinsSaferestartTool(BaseTool):
     name: str = "jenkins_saferestart"
+    connector_id: str = "nodes-base.jenkins"
     description: str = "Tool for jenkins safeRestart operation - safeRestart operation"
     args_schema: type[BaseModel] | None = JenkinsSaferestartToolInput
     credentials: Optional[JenkinsCredentials] = None

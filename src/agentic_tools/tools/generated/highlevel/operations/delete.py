@@ -22,6 +22,7 @@ class HighlevelDeleteToolInput(BaseModel):
 
 class HighlevelDeleteTool(BaseTool):
     name: str = "highlevel_delete"
+    connector_id: str = "nodes-base.highLevel"
     description: str = "Tool for highLevel delete operation - delete operation"
     args_schema: type[BaseModel] | None = HighlevelDeleteToolInput
     credentials: Optional[HighlevelCredentials] = None

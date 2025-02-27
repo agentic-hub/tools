@@ -43,6 +43,7 @@ class MonicacrmCreateToolInput(BaseModel):
 
 class MonicacrmCreateTool(BaseTool):
     name: str = "monicacrm_create"
+    connector_id: str = "nodes-base.monicaCrm"
     description: str = "Tool for monicaCrm create operation - create operation"
     args_schema: type[BaseModel] | None = MonicacrmCreateToolInput
     credentials: Optional[MonicacrmCredentials] = None

@@ -16,6 +16,7 @@ class CustomerioUpsertToolInput(BaseModel):
 
 class CustomerioUpsertTool(BaseTool):
     name: str = "customerio_upsert"
+    connector_id: str = "nodes-base.customerIo"
     description: str = "Tool for customerIo upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = CustomerioUpsertToolInput
     credentials: Optional[CustomerioCredentials] = None

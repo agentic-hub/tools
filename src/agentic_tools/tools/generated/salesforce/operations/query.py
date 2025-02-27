@@ -34,6 +34,7 @@ class SalesforceQueryToolInput(BaseModel):
 
 class SalesforceQueryTool(BaseTool):
     name: str = "salesforce_query"
+    connector_id: str = "nodes-base.salesforce"
     description: str = "Tool for salesforce query operation - query operation"
     args_schema: type[BaseModel] | None = SalesforceQueryToolInput
     credentials: Optional[SalesforceCredentials] = None

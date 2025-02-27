@@ -20,6 +20,7 @@ class RedditSearchToolInput(BaseModel):
 
 class RedditSearchTool(BaseTool):
     name: str = "reddit_search"
+    connector_id: str = "nodes-base.reddit"
     description: str = "Tool for reddit search operation - search operation"
     args_schema: type[BaseModel] | None = RedditSearchToolInput
     credentials: Optional[RedditCredentials] = None

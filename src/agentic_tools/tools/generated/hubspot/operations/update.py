@@ -27,6 +27,7 @@ class HubspotUpdateToolInput(BaseModel):
 
 class HubspotUpdateTool(BaseTool):
     name: str = "hubspot_update"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot update operation - update operation"
     args_schema: type[BaseModel] | None = HubspotUpdateToolInput
     credentials: Optional[HubspotCredentials] = None

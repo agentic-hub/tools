@@ -13,6 +13,7 @@ class PosthogPageToolInput(BaseModel):
 
 class PosthogPageTool(BaseTool):
     name: str = "posthog_page"
+    connector_id: str = "nodes-base.postHog"
     description: str = "Tool for postHog page operation - page operation"
     args_schema: type[BaseModel] | None = PosthogPageToolInput
     credentials: Optional[PosthogCredentials] = None

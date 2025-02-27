@@ -20,6 +20,7 @@ class Elasticsearch__custom_api_call__ToolInput(BaseModel):
 
 class Elasticsearch__custom_api_call__Tool(BaseTool):
     name: str = "elasticsearch___custom_api_call__"
+    connector_id: str = "nodes-base.elasticsearch"
     description: str = "Tool for elasticsearch __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Elasticsearch__custom_api_call__ToolInput
     credentials: Optional[ElasticsearchCredentials] = None

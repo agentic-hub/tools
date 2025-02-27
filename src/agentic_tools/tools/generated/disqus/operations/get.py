@@ -14,6 +14,7 @@ class DisqusGetToolInput(BaseModel):
 
 class DisqusGetTool(BaseTool):
     name: str = "disqus_get"
+    connector_id: str = "nodes-base.disqus"
     description: str = "Tool for disqus get operation - get operation"
     args_schema: type[BaseModel] | None = DisqusGetToolInput
     credentials: Optional[DisqusCredentials] = None

@@ -27,6 +27,7 @@ class MattermostCreateToolInput(BaseModel):
 
 class MattermostCreateTool(BaseTool):
     name: str = "mattermost_create"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost create operation - create operation"
     args_schema: type[BaseModel] | None = MattermostCreateToolInput
     credentials: Optional[MattermostCredentials] = None

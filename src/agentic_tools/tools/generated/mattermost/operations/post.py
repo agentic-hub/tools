@@ -22,6 +22,7 @@ class MattermostPostToolInput(BaseModel):
 
 class MattermostPostTool(BaseTool):
     name: str = "mattermost_post"
+    connector_id: str = "nodes-base.mattermost"
     description: str = "Tool for mattermost post operation - post operation"
     args_schema: type[BaseModel] | None = MattermostPostToolInput
     credentials: Optional[MattermostCredentials] = None

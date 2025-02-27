@@ -21,6 +21,7 @@ class MauticGetallToolInput(BaseModel):
 
 class MauticGetallTool(BaseTool):
     name: str = "mautic_getall"
+    connector_id: str = "nodes-base.mautic"
     description: str = "Tool for mautic getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MauticGetallToolInput
     credentials: Optional[MauticCredentials] = None

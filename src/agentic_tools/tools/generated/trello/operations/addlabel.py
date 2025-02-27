@@ -22,6 +22,7 @@ class TrelloAddlabelToolInput(BaseModel):
 
 class TrelloAddlabelTool(BaseTool):
     name: str = "trello_addlabel"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello addLabel operation - addLabel operation"
     args_schema: type[BaseModel] | None = TrelloAddlabelToolInput
     credentials: Optional[TrelloCredentials] = None

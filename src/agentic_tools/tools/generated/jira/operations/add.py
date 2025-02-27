@@ -25,6 +25,7 @@ class JiraAddToolInput(BaseModel):
 
 class JiraAddTool(BaseTool):
     name: str = "jira_add"
+    connector_id: str = "nodes-base.jira"
     description: str = "Tool for jira add operation - add operation"
     args_schema: type[BaseModel] | None = JiraAddToolInput
     credentials: Optional[JiraCredentials] = None

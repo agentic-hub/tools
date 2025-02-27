@@ -29,6 +29,7 @@ class QuickbooksVoidToolInput(BaseModel):
 
 class QuickbooksVoidTool(BaseTool):
     name: str = "quickbooks_void"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks void operation - void operation"
     args_schema: type[BaseModel] | None = QuickbooksVoidToolInput
     credentials: Optional[QuickbooksCredentials] = None

@@ -19,6 +19,7 @@ class RedisPushToolInput(BaseModel):
 
 class RedisPushTool(BaseTool):
     name: str = "redis_push"
+    connector_id: str = "nodes-base.redis"
     description: str = "Tool for redis push operation - push operation"
     args_schema: type[BaseModel] | None = RedisPushToolInput
     credentials: Optional[RedisCredentials] = None

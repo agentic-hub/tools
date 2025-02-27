@@ -16,6 +16,7 @@ class CockpitSubmitToolInput(BaseModel):
 
 class CockpitSubmitTool(BaseTool):
     name: str = "cockpit_submit"
+    connector_id: str = "nodes-base.cockpit"
     description: str = "Tool for cockpit submit operation - submit operation"
     args_schema: type[BaseModel] | None = CockpitSubmitToolInput
     credentials: Optional[CockpitCredentials] = None

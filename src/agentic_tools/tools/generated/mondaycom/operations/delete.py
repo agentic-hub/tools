@@ -20,6 +20,7 @@ class MondaycomDeleteToolInput(BaseModel):
 
 class MondaycomDeleteTool(BaseTool):
     name: str = "mondaycom_delete"
+    connector_id: str = "nodes-base.mondayCom"
     description: str = "Tool for mondayCom delete operation - delete operation"
     args_schema: type[BaseModel] | None = MondaycomDeleteToolInput
     credentials: Optional[MondaycomCredentials] = None

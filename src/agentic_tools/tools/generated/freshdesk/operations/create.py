@@ -21,6 +21,7 @@ class FreshdeskCreateToolInput(BaseModel):
 
 class FreshdeskCreateTool(BaseTool):
     name: str = "freshdesk_create"
+    connector_id: str = "nodes-base.freshdesk"
     description: str = "Tool for freshdesk create operation - create operation"
     args_schema: type[BaseModel] | None = FreshdeskCreateToolInput
     credentials: Optional[FreshdeskCredentials] = None

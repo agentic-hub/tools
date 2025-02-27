@@ -27,6 +27,7 @@ class Hubspot__custom_api_call__ToolInput(BaseModel):
 
 class Hubspot__custom_api_call__Tool(BaseTool):
     name: str = "hubspot___custom_api_call__"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Hubspot__custom_api_call__ToolInput
     credentials: Optional[HubspotCredentials] = None

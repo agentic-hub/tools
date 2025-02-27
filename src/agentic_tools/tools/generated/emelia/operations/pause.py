@@ -16,6 +16,7 @@ class EmeliaPauseToolInput(BaseModel):
 
 class EmeliaPauseTool(BaseTool):
     name: str = "emelia_pause"
+    connector_id: str = "nodes-base.emelia"
     description: str = "Tool for emelia pause operation - pause operation"
     args_schema: type[BaseModel] | None = EmeliaPauseToolInput
     credentials: Optional[EmeliaCredentials] = None

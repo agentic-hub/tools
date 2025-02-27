@@ -19,6 +19,7 @@ class DropboxUploadToolInput(BaseModel):
 
 class DropboxUploadTool(BaseTool):
     name: str = "dropbox_upload"
+    connector_id: str = "nodes-base.dropbox"
     description: str = "Tool for dropbox upload operation - upload operation"
     args_schema: type[BaseModel] | None = DropboxUploadToolInput
     credentials: Optional[DropboxCredentials] = None

@@ -21,6 +21,7 @@ class TaigaUpdateToolInput(BaseModel):
 
 class TaigaUpdateTool(BaseTool):
     name: str = "taiga_update"
+    connector_id: str = "nodes-base.taiga"
     description: str = "Tool for taiga update operation - update operation"
     args_schema: type[BaseModel] | None = TaigaUpdateToolInput
     credentials: Optional[TaigaCredentials] = None

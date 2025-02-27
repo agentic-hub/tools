@@ -16,6 +16,7 @@ class AwsrekognitionAnalyzeToolInput(BaseModel):
 
 class AwsrekognitionAnalyzeTool(BaseTool):
     name: str = "awsrekognition_analyze"
+    connector_id: str = "nodes-base.awsRekognition"
     description: str = "Tool for awsRekognition analyze operation - analyze operation"
     args_schema: type[BaseModel] | None = AwsrekognitionAnalyzeToolInput
     credentials: Optional[AwsrekognitionCredentials] = None

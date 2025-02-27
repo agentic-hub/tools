@@ -10,6 +10,7 @@ class Dropcontact__custom_api_call__ToolInput(BaseModel):
 
 class Dropcontact__custom_api_call__Tool(BaseTool):
     name: str = "dropcontact___custom_api_call__"
+    connector_id: str = "nodes-base.dropcontact"
     description: str = "Tool for dropcontact __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Dropcontact__custom_api_call__ToolInput
     credentials: Optional[DropcontactCredentials] = None

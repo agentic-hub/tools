@@ -27,6 +27,7 @@ class HighlevelCreateToolInput(BaseModel):
 
 class HighlevelCreateTool(BaseTool):
     name: str = "highlevel_create"
+    connector_id: str = "nodes-base.highLevel"
     description: str = "Tool for highLevel create operation - create operation"
     args_schema: type[BaseModel] | None = HighlevelCreateToolInput
     credentials: Optional[HighlevelCredentials] = None

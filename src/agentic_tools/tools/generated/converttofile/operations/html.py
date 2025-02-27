@@ -9,5 +9,6 @@ class ConverttofileHtmlToolInput(BaseModel):
 
 class ConverttofileHtmlTool(BaseTool):
     name: str = "converttofile_html"
+    connector_id: str = "nodes-base.convertToFile"
     description: str = "Tool for convertToFile html operation - html operation"
     args_schema: type[BaseModel] | None = ConverttofileHtmlToolInput

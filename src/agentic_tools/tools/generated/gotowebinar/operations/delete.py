@@ -21,6 +21,7 @@ class GotowebinarDeleteToolInput(BaseModel):
 
 class GotowebinarDeleteTool(BaseTool):
     name: str = "gotowebinar_delete"
+    connector_id: str = "nodes-base.goToWebinar"
     description: str = "Tool for goToWebinar delete operation - delete operation"
     args_schema: type[BaseModel] | None = GotowebinarDeleteToolInput
     credentials: Optional[GotowebinarCredentials] = None

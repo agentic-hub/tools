@@ -24,6 +24,7 @@ class OrbitLookupToolInput(BaseModel):
 
 class OrbitLookupTool(BaseTool):
     name: str = "orbit_lookup"
+    connector_id: str = "nodes-base.orbit"
     description: str = "Tool for orbit lookup operation - lookup operation"
     args_schema: type[BaseModel] | None = OrbitLookupToolInput
     credentials: Optional[OrbitCredentials] = None

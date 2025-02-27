@@ -15,6 +15,7 @@ class MongodbFindoneandupdateToolInput(BaseModel):
 
 class MongodbFindoneandupdateTool(BaseTool):
     name: str = "mongodb_findoneandupdate"
+    connector_id: str = "nodes-base.mongoDb"
     description: str = "Tool for mongoDb findOneAndUpdate operation - findOneAndUpdate operation"
     args_schema: type[BaseModel] | None = MongodbFindoneandupdateToolInput
     credentials: Optional[MongodbCredentials] = None

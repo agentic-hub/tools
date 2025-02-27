@@ -16,5 +16,6 @@ class ItemlistsConcatenateitemsToolInput(BaseModel):
 
 class ItemlistsConcatenateitemsTool(BaseTool):
     name: str = "itemlists_concatenateitems"
+    connector_id: str = "nodes-base.itemLists"
     description: str = "Tool for itemLists concatenateItems operation - concatenateItems operation"
     args_schema: type[BaseModel] | None = ItemlistsConcatenateitemsToolInput

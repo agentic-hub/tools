@@ -18,6 +18,7 @@ class UptimerobotDeleteToolInput(BaseModel):
 
 class UptimerobotDeleteTool(BaseTool):
     name: str = "uptimerobot_delete"
+    connector_id: str = "nodes-base.uptimeRobot"
     description: str = "Tool for uptimeRobot delete operation - delete operation"
     args_schema: type[BaseModel] | None = UptimerobotDeleteToolInput
     credentials: Optional[UptimerobotCredentials] = None

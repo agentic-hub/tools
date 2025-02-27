@@ -28,6 +28,7 @@ class SlackCreateToolInput(BaseModel):
 
 class SlackCreateTool(BaseTool):
     name: str = "slack_create"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack create operation - create operation"
     args_schema: type[BaseModel] | None = SlackCreateToolInput
     credentials: Optional[SlackCredentials] = None

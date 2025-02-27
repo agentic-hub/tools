@@ -23,6 +23,7 @@ class AsanaUpdateToolInput(BaseModel):
 
 class AsanaUpdateTool(BaseTool):
     name: str = "asana_update"
+    connector_id: str = "nodes-base.asana"
     description: str = "Tool for asana update operation - update operation"
     args_schema: type[BaseModel] | None = AsanaUpdateToolInput
     credentials: Optional[AsanaCredentials] = None

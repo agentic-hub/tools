@@ -26,6 +26,7 @@ class SlackInviteToolInput(BaseModel):
 
 class SlackInviteTool(BaseTool):
     name: str = "slack_invite"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack invite operation - invite operation"
     args_schema: type[BaseModel] | None = SlackInviteToolInput
     credentials: Optional[SlackCredentials] = None

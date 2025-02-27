@@ -23,6 +23,7 @@ class NotionGetToolInput(BaseModel):
 
 class NotionGetTool(BaseTool):
     name: str = "notion_get"
+    connector_id: str = "nodes-base.notion"
     description: str = "Tool for notion get operation - get operation"
     args_schema: type[BaseModel] | None = NotionGetToolInput
     credentials: Optional[NotionCredentials] = None

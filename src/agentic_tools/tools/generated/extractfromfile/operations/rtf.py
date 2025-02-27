@@ -9,5 +9,6 @@ class ExtractfromfileRtfToolInput(BaseModel):
 
 class ExtractfromfileRtfTool(BaseTool):
     name: str = "extractfromfile_rtf"
+    connector_id: str = "nodes-base.extractFromFile"
     description: str = "Tool for extractFromFile rtf operation - rtf operation"
     args_schema: type[BaseModel] | None = ExtractfromfileRtfToolInput

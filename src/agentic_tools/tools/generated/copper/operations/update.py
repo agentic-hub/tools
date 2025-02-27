@@ -22,6 +22,7 @@ class CopperUpdateToolInput(BaseModel):
 
 class CopperUpdateTool(BaseTool):
     name: str = "copper_update"
+    connector_id: str = "nodes-base.copper"
     description: str = "Tool for copper update operation - update operation"
     args_schema: type[BaseModel] | None = CopperUpdateToolInput
     credentials: Optional[CopperCredentials] = None

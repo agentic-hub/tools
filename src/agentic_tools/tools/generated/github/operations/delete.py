@@ -24,6 +24,7 @@ class GithubDeleteToolInput(BaseModel):
 
 class GithubDeleteTool(BaseTool):
     name: str = "github_delete"
+    connector_id: str = "nodes-base.github"
     description: str = "Tool for github delete operation - delete operation"
     args_schema: type[BaseModel] | None = GithubDeleteToolInput
     credentials: Optional[GithubCredentials] = None

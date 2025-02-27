@@ -10,6 +10,7 @@ class ProfitwellGetsettingToolInput(BaseModel):
 
 class ProfitwellGetsettingTool(BaseTool):
     name: str = "profitwell_getsetting"
+    connector_id: str = "nodes-base.profitWell"
     description: str = "Tool for profitWell getSetting operation - getSetting operation"
     args_schema: type[BaseModel] | None = ProfitwellGetsettingToolInput
     credentials: Optional[ProfitwellCredentials] = None

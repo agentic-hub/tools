@@ -18,6 +18,7 @@ class TapfiliateUpdateToolInput(BaseModel):
 
 class TapfiliateUpdateTool(BaseTool):
     name: str = "tapfiliate_update"
+    connector_id: str = "nodes-base.tapfiliate"
     description: str = "Tool for tapfiliate update operation - update operation"
     args_schema: type[BaseModel] | None = TapfiliateUpdateToolInput
     credentials: Optional[TapfiliateCredentials] = None

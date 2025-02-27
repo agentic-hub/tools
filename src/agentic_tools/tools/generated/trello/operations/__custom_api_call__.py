@@ -22,6 +22,7 @@ class Trello__custom_api_call__ToolInput(BaseModel):
 
 class Trello__custom_api_call__Tool(BaseTool):
     name: str = "trello___custom_api_call__"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Trello__custom_api_call__ToolInput
     credentials: Optional[TrelloCredentials] = None

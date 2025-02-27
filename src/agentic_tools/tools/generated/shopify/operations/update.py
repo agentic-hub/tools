@@ -18,6 +18,7 @@ class ShopifyUpdateToolInput(BaseModel):
 
 class ShopifyUpdateTool(BaseTool):
     name: str = "shopify_update"
+    connector_id: str = "nodes-base.shopify"
     description: str = "Tool for shopify update operation - update operation"
     args_schema: type[BaseModel] | None = ShopifyUpdateToolInput
     credentials: Optional[ShopifyCredentials] = None

@@ -19,6 +19,7 @@ class ZendeskGetorganizationsToolInput(BaseModel):
 
 class ZendeskGetorganizationsTool(BaseTool):
     name: str = "zendesk_getorganizations"
+    connector_id: str = "nodes-base.zendesk"
     description: str = "Tool for zendesk getOrganizations operation - getOrganizations operation"
     args_schema: type[BaseModel] | None = ZendeskGetorganizationsToolInput
     credentials: Optional[ZendeskCredentials] = None

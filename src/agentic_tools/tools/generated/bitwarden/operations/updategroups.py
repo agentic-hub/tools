@@ -17,6 +17,7 @@ class BitwardenUpdategroupsToolInput(BaseModel):
 
 class BitwardenUpdategroupsTool(BaseTool):
     name: str = "bitwarden_updategroups"
+    connector_id: str = "nodes-base.bitwarden"
     description: str = "Tool for bitwarden updateGroups operation - updateGroups operation"
     args_schema: type[BaseModel] | None = BitwardenUpdategroupsToolInput
     credentials: Optional[BitwardenCredentials] = None

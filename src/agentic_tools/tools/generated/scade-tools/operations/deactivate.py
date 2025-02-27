@@ -19,6 +19,7 @@ class Scade-toolsDeactivateToolInput(BaseModel):
 
 class Scade-toolsDeactivateTool(BaseTool):
     name: str = "scade-tools_deactivate"
+    connector_id: str = "nodes-base.scade-tools"
     description: str = "Tool for scade-tools deactivate operation - deactivate operation"
     args_schema: type[BaseModel] | None = Scade-toolsDeactivateToolInput
     credentials: Optional[Scade-toolsCredentials] = None

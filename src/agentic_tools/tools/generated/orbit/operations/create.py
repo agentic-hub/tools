@@ -20,6 +20,7 @@ class OrbitCreateToolInput(BaseModel):
 
 class OrbitCreateTool(BaseTool):
     name: str = "orbit_create"
+    connector_id: str = "nodes-base.orbit"
     description: str = "Tool for orbit create operation - create operation"
     args_schema: type[BaseModel] | None = OrbitCreateToolInput
     credentials: Optional[OrbitCredentials] = None

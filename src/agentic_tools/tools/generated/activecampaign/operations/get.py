@@ -31,6 +31,7 @@ class ActivecampaignGetToolInput(BaseModel):
 
 class ActivecampaignGetTool(BaseTool):
     name: str = "activecampaign_get"
+    connector_id: str = "nodes-base.activeCampaign"
     description: str = "Tool for activeCampaign get operation - get operation"
     args_schema: type[BaseModel] | None = ActivecampaignGetToolInput
     credentials: Optional[ActivecampaignCredentials] = None

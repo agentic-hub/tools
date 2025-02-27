@@ -15,6 +15,7 @@ class MongodbUpdateToolInput(BaseModel):
 
 class MongodbUpdateTool(BaseTool):
     name: str = "mongodb_update"
+    connector_id: str = "nodes-base.mongoDb"
     description: str = "Tool for mongoDb update operation - update operation"
     args_schema: type[BaseModel] | None = MongodbUpdateToolInput
     credentials: Optional[MongodbCredentials] = None

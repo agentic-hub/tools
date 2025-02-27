@@ -14,6 +14,7 @@ class AutopilotRemoveToolInput(BaseModel):
 
 class AutopilotRemoveTool(BaseTool):
     name: str = "autopilot_remove"
+    connector_id: str = "nodes-base.autopilot"
     description: str = "Tool for autopilot remove operation - remove operation"
     args_schema: type[BaseModel] | None = AutopilotRemoveToolInput
     credentials: Optional[AutopilotCredentials] = None

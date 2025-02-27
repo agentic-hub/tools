@@ -19,6 +19,7 @@ class Scade-toolsUpdateToolInput(BaseModel):
 
 class Scade-toolsUpdateTool(BaseTool):
     name: str = "scade-tools_update"
+    connector_id: str = "nodes-base.scade-tools"
     description: str = "Tool for scade-tools update operation - update operation"
     args_schema: type[BaseModel] | None = Scade-toolsUpdateToolInput
     credentials: Optional[Scade-toolsCredentials] = None

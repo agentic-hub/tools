@@ -15,5 +15,6 @@ class EditimageTransparentToolInput(BaseModel):
 
 class EditimageTransparentTool(BaseTool):
     name: str = "editimage_transparent"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage transparent operation - transparent operation"
     args_schema: type[BaseModel] | None = EditimageTransparentToolInput

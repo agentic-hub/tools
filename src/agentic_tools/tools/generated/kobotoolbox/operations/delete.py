@@ -17,6 +17,7 @@ class KobotoolboxDeleteToolInput(BaseModel):
 
 class KobotoolboxDeleteTool(BaseTool):
     name: str = "kobotoolbox_delete"
+    connector_id: str = "nodes-base.koBoToolbox"
     description: str = "Tool for koBoToolbox delete operation - delete operation"
     args_schema: type[BaseModel] | None = KobotoolboxDeleteToolInput
     credentials: Optional[KobotoolboxCredentials] = None

@@ -42,6 +42,7 @@ class ThehiveprojectStatusToolInput(BaseModel):
 
 class ThehiveprojectStatusTool(BaseTool):
     name: str = "thehiveproject_status"
+    connector_id: str = "nodes-base.theHiveProject"
     description: str = "Tool for theHiveProject status operation - status operation"
     args_schema: type[BaseModel] | None = ThehiveprojectStatusToolInput
     credentials: Optional[ThehiveprojectCredentials] = None

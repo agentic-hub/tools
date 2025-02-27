@@ -22,6 +22,7 @@ class ClockifyCreateToolInput(BaseModel):
 
 class ClockifyCreateTool(BaseTool):
     name: str = "clockify_create"
+    connector_id: str = "nodes-base.clockify"
     description: str = "Tool for clockify create operation - create operation"
     args_schema: type[BaseModel] | None = ClockifyCreateToolInput
     credentials: Optional[ClockifyCredentials] = None

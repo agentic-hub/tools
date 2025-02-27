@@ -17,6 +17,7 @@ class ZammadDeleteToolInput(BaseModel):
 
 class ZammadDeleteTool(BaseTool):
     name: str = "zammad_delete"
+    connector_id: str = "nodes-base.zammad"
     description: str = "Tool for zammad delete operation - delete operation"
     args_schema: type[BaseModel] | None = ZammadDeleteToolInput
     credentials: Optional[ZammadCredentials] = None

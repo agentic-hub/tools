@@ -23,6 +23,7 @@ class TrelloAddToolInput(BaseModel):
 
 class TrelloAddTool(BaseTool):
     name: str = "trello_add"
+    connector_id: str = "nodes-base.trello"
     description: str = "Tool for trello add operation - add operation"
     args_schema: type[BaseModel] | None = TrelloAddToolInput
     credentials: Optional[TrelloCredentials] = None

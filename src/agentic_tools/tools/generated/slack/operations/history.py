@@ -26,6 +26,7 @@ class SlackHistoryToolInput(BaseModel):
 
 class SlackHistoryTool(BaseTool):
     name: str = "slack_history"
+    connector_id: str = "nodes-base.slack"
     description: str = "Tool for slack history operation - history operation"
     args_schema: type[BaseModel] | None = SlackHistoryToolInput
     credentials: Optional[SlackCredentials] = None

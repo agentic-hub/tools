@@ -13,6 +13,7 @@ class Msg91SendToolInput(BaseModel):
 
 class Msg91SendTool(BaseTool):
     name: str = "msg91_send"
+    connector_id: str = "nodes-base.msg91"
     description: str = "Tool for msg91 send operation - send operation"
     args_schema: type[BaseModel] | None = Msg91SendToolInput
     credentials: Optional[Msg91Credentials] = None

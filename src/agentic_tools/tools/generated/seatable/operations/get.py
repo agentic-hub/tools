@@ -13,6 +13,7 @@ class SeatableGetToolInput(BaseModel):
 
 class SeatableGetTool(BaseTool):
     name: str = "seatable_get"
+    connector_id: str = "nodes-base.seaTable"
     description: str = "Tool for seaTable get operation - get operation"
     args_schema: type[BaseModel] | None = SeatableGetToolInput
     credentials: Optional[SeatableCredentials] = None

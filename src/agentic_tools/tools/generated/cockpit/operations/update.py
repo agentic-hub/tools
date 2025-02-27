@@ -17,6 +17,7 @@ class CockpitUpdateToolInput(BaseModel):
 
 class CockpitUpdateTool(BaseTool):
     name: str = "cockpit_update"
+    connector_id: str = "nodes-base.cockpit"
     description: str = "Tool for cockpit update operation - update operation"
     args_schema: type[BaseModel] | None = CockpitUpdateToolInput
     credentials: Optional[CockpitCredentials] = None

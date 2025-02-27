@@ -13,6 +13,7 @@ class GotifyCreateToolInput(BaseModel):
 
 class GotifyCreateTool(BaseTool):
     name: str = "gotify_create"
+    connector_id: str = "nodes-base.gotify"
     description: str = "Tool for gotify create operation - create operation"
     args_schema: type[BaseModel] | None = GotifyCreateToolInput
     credentials: Optional[GotifyCredentials] = None

@@ -12,6 +12,7 @@ class LingvanexTranslateToolInput(BaseModel):
 
 class LingvanexTranslateTool(BaseTool):
     name: str = "lingvanex_translate"
+    connector_id: str = "nodes-base.lingvaNex"
     description: str = "Tool for lingvaNex translate operation - translate operation"
     args_schema: type[BaseModel] | None = LingvanexTranslateToolInput
     credentials: Optional[LingvanexCredentials] = None

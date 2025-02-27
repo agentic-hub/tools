@@ -11,6 +11,7 @@ class Adalo__custom_api_call__ToolInput(BaseModel):
 
 class Adalo__custom_api_call__Tool(BaseTool):
     name: str = "adalo___custom_api_call__"
+    connector_id: str = "nodes-base.adalo"
     description: str = "Tool for adalo __CUSTOM_API_CALL__ operation - __CUSTOM_API_CALL__ operation"
     args_schema: type[BaseModel] | None = Adalo__custom_api_call__ToolInput
     credentials: Optional[AdaloCredentials] = None

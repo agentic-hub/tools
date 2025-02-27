@@ -19,5 +19,6 @@ class EditimageTextToolInput(BaseModel):
 
 class EditimageTextTool(BaseTool):
     name: str = "editimage_text"
+    connector_id: str = "nodes-base.editImage"
     description: str = "Tool for editImage text operation - text operation"
     args_schema: type[BaseModel] | None = EditimageTextToolInput

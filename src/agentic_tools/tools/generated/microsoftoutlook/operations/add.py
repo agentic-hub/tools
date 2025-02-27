@@ -31,6 +31,7 @@ class MicrosoftoutlookAddToolInput(BaseModel):
 
 class MicrosoftoutlookAddTool(BaseTool):
     name: str = "microsoftoutlook_add"
+    connector_id: str = "nodes-base.microsoftOutlook"
     description: str = "Tool for microsoftOutlook add operation - add operation"
     args_schema: type[BaseModel] | None = MicrosoftoutlookAddToolInput
     credentials: Optional[MicrosoftoutlookCredentials] = None

@@ -13,6 +13,7 @@ class MindeePredictToolInput(BaseModel):
 
 class MindeePredictTool(BaseTool):
     name: str = "mindee_predict"
+    connector_id: str = "nodes-base.mindee"
     description: str = "Tool for mindee predict operation - predict operation"
     args_schema: type[BaseModel] | None = MindeePredictToolInput
     credentials: Optional[MindeeCredentials] = None

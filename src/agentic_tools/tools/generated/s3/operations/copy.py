@@ -21,6 +21,7 @@ class S3CopyToolInput(BaseModel):
 
 class S3CopyTool(BaseTool):
     name: str = "s3_copy"
+    connector_id: str = "nodes-base.s3"
     description: str = "Tool for s3 copy operation - copy operation"
     args_schema: type[BaseModel] | None = S3CopyToolInput
     credentials: Optional[S3Credentials] = None

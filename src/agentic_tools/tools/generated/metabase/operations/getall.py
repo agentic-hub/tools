@@ -11,6 +11,7 @@ class MetabaseGetallToolInput(BaseModel):
 
 class MetabaseGetallTool(BaseTool):
     name: str = "metabase_getall"
+    connector_id: str = "nodes-base.metabase"
     description: str = "Tool for metabase getAll operation - getAll operation"
     args_schema: type[BaseModel] | None = MetabaseGetallToolInput
     credentials: Optional[MetabaseCredentials] = None

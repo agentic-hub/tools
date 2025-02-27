@@ -28,6 +28,7 @@ class OnfleetAddtaskToolInput(BaseModel):
 
 class OnfleetAddtaskTool(BaseTool):
     name: str = "onfleet_addtask"
+    connector_id: str = "nodes-base.onfleet"
     description: str = "Tool for onfleet addTask operation - addTask operation"
     args_schema: type[BaseModel] | None = OnfleetAddtaskToolInput
     credentials: Optional[OnfleetCredentials] = None

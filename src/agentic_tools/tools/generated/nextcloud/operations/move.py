@@ -17,6 +17,7 @@ class NextcloudMoveToolInput(BaseModel):
 
 class NextcloudMoveTool(BaseTool):
     name: str = "nextcloud_move"
+    connector_id: str = "nodes-base.nextCloud"
     description: str = "Tool for nextCloud move operation - move operation"
     args_schema: type[BaseModel] | None = NextcloudMoveToolInput
     credentials: Optional[NextcloudCredentials] = None

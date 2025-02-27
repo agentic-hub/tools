@@ -23,6 +23,7 @@ class SyncromspCreateToolInput(BaseModel):
 
 class SyncromspCreateTool(BaseTool):
     name: str = "syncromsp_create"
+    connector_id: str = "nodes-base.syncroMsp"
     description: str = "Tool for syncroMsp create operation - create operation"
     args_schema: type[BaseModel] | None = SyncromspCreateToolInput
     credentials: Optional[SyncromspCredentials] = None

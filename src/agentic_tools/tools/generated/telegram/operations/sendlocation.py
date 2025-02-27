@@ -23,6 +23,7 @@ class TelegramSendlocationToolInput(BaseModel):
 
 class TelegramSendlocationTool(BaseTool):
     name: str = "telegram_sendlocation"
+    connector_id: str = "nodes-base.telegram"
     description: str = "Tool for telegram sendLocation operation - sendLocation operation"
     args_schema: type[BaseModel] | None = TelegramSendlocationToolInput
     credentials: Optional[TelegramCredentials] = None

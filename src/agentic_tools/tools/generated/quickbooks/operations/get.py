@@ -31,6 +31,7 @@ class QuickbooksGetToolInput(BaseModel):
 
 class QuickbooksGetTool(BaseTool):
     name: str = "quickbooks_get"
+    connector_id: str = "nodes-base.quickbooks"
     description: str = "Tool for quickbooks get operation - get operation"
     args_schema: type[BaseModel] | None = QuickbooksGetToolInput
     credentials: Optional[QuickbooksCredentials] = None

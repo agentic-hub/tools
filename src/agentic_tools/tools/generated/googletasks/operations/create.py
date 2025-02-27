@@ -14,6 +14,7 @@ class GoogletasksCreateToolInput(BaseModel):
 
 class GoogletasksCreateTool(BaseTool):
     name: str = "googletasks_create"
+    connector_id: str = "nodes-base.googleTasks"
     description: str = "Tool for googleTasks create operation - create operation"
     args_schema: type[BaseModel] | None = GoogletasksCreateToolInput
     credentials: Optional[GoogletasksCredentials] = None

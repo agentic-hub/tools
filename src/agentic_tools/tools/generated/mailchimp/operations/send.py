@@ -21,6 +21,7 @@ class MailchimpSendToolInput(BaseModel):
 
 class MailchimpSendTool(BaseTool):
     name: str = "mailchimp_send"
+    connector_id: str = "nodes-base.mailchimp"
     description: str = "Tool for mailchimp send operation - send operation"
     args_schema: type[BaseModel] | None = MailchimpSendToolInput
     credentials: Optional[MailchimpCredentials] = None

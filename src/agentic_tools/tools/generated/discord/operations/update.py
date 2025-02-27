@@ -23,6 +23,7 @@ class DiscordUpdateToolInput(BaseModel):
 
 class DiscordUpdateTool(BaseTool):
     name: str = "discord_update"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord update operation - update operation"
     args_schema: type[BaseModel] | None = DiscordUpdateToolInput
     credentials: Optional[DiscordCredentials] = None

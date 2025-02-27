@@ -47,6 +47,7 @@ class FreshserviceCreateToolInput(BaseModel):
 
 class FreshserviceCreateTool(BaseTool):
     name: str = "freshservice_create"
+    connector_id: str = "nodes-base.freshservice"
     description: str = "Tool for freshservice create operation - create operation"
     args_schema: type[BaseModel] | None = FreshserviceCreateToolInput
     credentials: Optional[FreshserviceCredentials] = None

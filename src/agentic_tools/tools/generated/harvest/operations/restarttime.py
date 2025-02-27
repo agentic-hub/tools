@@ -24,6 +24,7 @@ class HarvestRestarttimeToolInput(BaseModel):
 
 class HarvestRestarttimeTool(BaseTool):
     name: str = "harvest_restarttime"
+    connector_id: str = "nodes-base.harvest"
     description: str = "Tool for harvest restartTime operation - restartTime operation"
     args_schema: type[BaseModel] | None = HarvestRestarttimeToolInput
     credentials: Optional[HarvestCredentials] = None

@@ -23,6 +23,7 @@ class VenafitlsprotectcloudDownloadToolInput(BaseModel):
 
 class VenafitlsprotectcloudDownloadTool(BaseTool):
     name: str = "venafitlsprotectcloud_download"
+    connector_id: str = "nodes-base.venafiTlsProtectCloud"
     description: str = "Tool for venafiTlsProtectCloud download operation - download operation"
     args_schema: type[BaseModel] | None = VenafitlsprotectcloudDownloadToolInput
     credentials: Optional[VenafitlsprotectcloudCredentials] = None

@@ -12,6 +12,7 @@ class VenafitlsprotectdatacenterRenewToolInput(BaseModel):
 
 class VenafitlsprotectdatacenterRenewTool(BaseTool):
     name: str = "venafitlsprotectdatacenter_renew"
+    connector_id: str = "nodes-base.venafiTlsProtectDatacenter"
     description: str = "Tool for venafiTlsProtectDatacenter renew operation - renew operation"
     args_schema: type[BaseModel] | None = VenafitlsprotectdatacenterRenewToolInput
     credentials: Optional[VenafitlsprotectdatacenterCredentials] = None

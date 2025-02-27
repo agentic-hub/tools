@@ -13,6 +13,7 @@ class DriftUpdateToolInput(BaseModel):
 
 class DriftUpdateTool(BaseTool):
     name: str = "drift_update"
+    connector_id: str = "nodes-base.drift"
     description: str = "Tool for drift update operation - update operation"
     args_schema: type[BaseModel] | None = DriftUpdateToolInput
     credentials: Optional[DriftCredentials] = None

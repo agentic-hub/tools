@@ -33,6 +33,7 @@ class HubspotCreateToolInput(BaseModel):
 
 class HubspotCreateTool(BaseTool):
     name: str = "hubspot_create"
+    connector_id: str = "nodes-base.hubspot"
     description: str = "Tool for hubspot create operation - create operation"
     args_schema: type[BaseModel] | None = HubspotCreateToolInput
     credentials: Optional[HubspotCredentials] = None

@@ -16,6 +16,7 @@ class GooglecalendarUpdateToolInput(BaseModel):
 
 class GooglecalendarUpdateTool(BaseTool):
     name: str = "googlecalendar_update"
+    connector_id: str = "nodes-base.googleCalendar"
     description: str = "Tool for googleCalendar update operation - update operation"
     args_schema: type[BaseModel] | None = GooglecalendarUpdateToolInput
     credentials: Optional[GooglecalendarCredentials] = None

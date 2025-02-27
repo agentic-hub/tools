@@ -23,6 +23,7 @@ class DiscordSendlegacyToolInput(BaseModel):
 
 class DiscordSendlegacyTool(BaseTool):
     name: str = "discord_sendlegacy"
+    connector_id: str = "nodes-base.discord"
     description: str = "Tool for discord sendLegacy operation - sendLegacy operation"
     args_schema: type[BaseModel] | None = DiscordSendlegacyToolInput
     credentials: Optional[DiscordCredentials] = None

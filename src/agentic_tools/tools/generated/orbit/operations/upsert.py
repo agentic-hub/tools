@@ -19,6 +19,7 @@ class OrbitUpsertToolInput(BaseModel):
 
 class OrbitUpsertTool(BaseTool):
     name: str = "orbit_upsert"
+    connector_id: str = "nodes-base.orbit"
     description: str = "Tool for orbit upsert operation - upsert operation"
     args_schema: type[BaseModel] | None = OrbitUpsertToolInput
     credentials: Optional[OrbitCredentials] = None

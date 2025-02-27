@@ -13,6 +13,7 @@ class FlowGetToolInput(BaseModel):
 
 class FlowGetTool(BaseTool):
     name: str = "flow_get"
+    connector_id: str = "nodes-base.flow"
     description: str = "Tool for flow get operation - get operation"
     args_schema: type[BaseModel] | None = FlowGetToolInput
     credentials: Optional[FlowCredentials] = None
