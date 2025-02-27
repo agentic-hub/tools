@@ -428,9 +428,8 @@ class Generator:
 
     def _generate_operation_file(self, tool_name, operation, config):
         """Generate a file for a specific operation."""
+        # Setup basic information
         class_name = f"{tool_name.capitalize()}{operation.capitalize()}Tool"
-
-        # Extract the description from the config
         description = config.get(
             "description", f"Tool for {tool_name} {operation} operation"
         )
@@ -439,54 +438,52 @@ class Generator:
             .get("scade_tools_node_name", "")
             .replace("scade-tools-", "")
         )
-        # Extract the input schema from the config
         input_schema = config.get("init_kwargs", {}).get("input_desc", {})
-
-        # Generate the credentials class
-        credentials_class = self._generate_credentials_class(tool_name, config)
-        has_credentials = credentials_class is not None
-
-        # Generate the class definition
-        class_definition = f"""from agentic_tools.tools import BaseTool, BaseModel, Field
-from typing import Optional, Dict, Any, List, Union
-
-"""
-        # Add credentials class import if available
-        if has_credentials:
-            class_definition += (
-                f"from .. import {tool_name.capitalize()}Credentials\n\n"
-            )
-
-        class_definition += f"""class {class_name}Input(BaseModel):
-"""
-        # Remove credentials field from InputParams - it will be in the constructor instead
-
-        # Generate the input fields relevant to this operation
         properties = input_schema.get("properties", {})
+
+        # Check for credentials
+        has_credentials = (
+            self._generate_credentials_class(tool_name, config) is not None
+        )
+
+        # Build the file content in one go
+        file_content = []
+        file_content.append(
+            "from agentic_tools.tools import BaseTool, BaseModel, Field"
+        )
+        file_content.append("from typing import Optional, Dict, Any, List, Union")
+        file_content.append("")
+
+        # Add credentials import if needed
+        if has_credentials:
+            file_content.append(f"from .. import {tool_name.capitalize()}Credentials\n")
+
+        # Start the input class
+        file_content.append(f"class {class_name}Input(BaseModel):")
+
+        # Add input fields
+        has_fields = False
         for prop_name, prop_details in properties.items():
-            # Skip credentials and load_files
+            # Skip non-relevant fields
             if prop_name.lower() in ["load_files", "credentials"]:
                 continue
 
-            # Check if this property is relevant for this operation
             if not self._is_property_relevant_for_operation(prop_details, operation):
                 continue
 
+            has_fields = True
+
             # Handle anyOf properties
             if "anyOf" in prop_details:
-                # Find the option relevant to this operation
                 for option in prop_details["anyOf"]:
                     if self._is_property_relevant_for_operation(option, operation):
                         prop_details = option
                         break
                 else:
-                    # If no relevant option found, use the first one
                     prop_details = prop_details["anyOf"][0]
 
-            # Get the property type
+            # Get property type and convert to Python type
             prop_type = prop_details.get("type", "string")
-
-            # Map JSON schema types to Python types
             type_mapping = {
                 "string": "str",
                 "integer": "int",
@@ -497,36 +494,44 @@ from typing import Optional, Dict, Any, List, Union
             }
             python_type = type_mapping.get(prop_type, "Any")
 
-            # Get the description
+            # Get description and format it
             description_text = prop_details.get("description", "")
             if not description_text:
                 description_text = prop_details.get("title", prop_name)
-
-            # Escape quotes in description
             description_text = description_text.replace('"', '\\"')
 
-            # Convert camelCase property name to snake_case
+            # Add the field
             snake_case_prop_name = self._camel_to_snake(prop_name)
+            file_content.append(
+                f'    {snake_case_prop_name}: Optional[{python_type}] = Field(None, description="{description_text}")'
+            )
 
-            # Add the field to the class
-            class_definition += f'    {snake_case_prop_name}: Optional[{python_type}] = Field(None, description="{description_text}")\n'
+        # If no fields were added, add a pass statement
+        if not has_fields:
+            file_content.append("    pass")
 
         # Add the tool class
-        class_definition += f"""
+        file_content.append("")
+        file_content.append(f"class {class_name}(BaseTool):")
+        file_content.append(
+            f'    name: str = "{tool_name.lower()}_{operation.lower()}"'
+        )
+        file_content.append(f'    connector_id: str = "{connector_id}"')
+        file_content.append(
+            f'    description: str = "{description} - {operation} operation"'
+        )
+        file_content.append(
+            f"    args_schema: type[BaseModel] | None = {class_name}Input"
+        )
 
-class {class_name}(BaseTool):
-    name: str = "{tool_name.lower()}_{operation.lower()}"
-    connector_id: str = "{connector_id}"
-    description: str = "{description} - {operation} operation"
-    args_schema: type[BaseModel] | None = {class_name}Input
-"""
-
-        # Add credentials handling if needed
+        # Add credentials field if needed
         if has_credentials:
-            class_definition += f"""    credentials: Optional[{tool_name.capitalize()}Credentials] = None
-"""
+            file_content.append(
+                f"    credentials: Optional[{tool_name.capitalize()}Credentials] = None"
+            )
 
-        return class_definition
+        # Return the complete file content
+        return "\n".join(file_content)
 
     def _is_property_relevant_for_operation(self, prop_details, operation):
         """Check if a property is relevant for a specific operation."""

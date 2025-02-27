@@ -46,7 +46,7 @@ def load_aws_credentials() -> Dict[str, str]:
         Dict[str, str]: Dictionary containing AWS credentials
     """
     # Return proper AWS credentials format
-    return {"id": 152}
+    return {"id": 540}
 
 
 def create_s3_agent(credentials: Dict[str, str], verbose: bool = False):
