@@ -10,13 +10,11 @@ import os
 import sys
 import logging
 from typing import Dict, List
-from dotenv import load_dotenv
-from langchain.agents import (
-    AgentExecutor,
-    create_react_agent,
-)
+from langchain import hub
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.tools.base import BaseTool
+
+from langgraph.prebuilt import create_react_agent
 
 # Add the src directory to the path so we can import the agentic_tools package
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -29,6 +27,15 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
+
+
+def print_stream(stream):
+    for s in stream:
+        message = s["messages"][-1]
+        if isinstance(message, tuple):
+            print(message)
+        else:
+            message.pretty_print()
 
 
 def load_aws_credentials() -> Dict[str, str]:
@@ -63,32 +70,11 @@ def create_s3_agent(credentials: Dict[str, str], verbose: bool = False):
     tools = s3_toolkit.get_tools()
 
     # Initialize the language model
-    llm = ChatOpenAI(
-        temperature=0,
-        model_name="gpt-4o",
-    )
+    llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
-    # Create a prompt template for the agent
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            (
-                "system",
-                "You are an assistant that helps users interact with AWS S3. Use the available tools to help users manage their S3 buckets and objects.\n\nTools: {tools}\n\nTool Names: {tool_names}",
-            ),
-            MessagesPlaceholder(variable_name="chat_history", optional=True),
-            ("human", "{input}"),
-            MessagesPlaceholder(variable_name="agent_scratchpad"),
-        ]
-    )
+    agent = create_react_agent(llm, tools=tools)
 
-    agent = create_react_agent(
-        llm=llm,
-        tools=tools,
-        prompt=prompt,
-    )
-    agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
-
-    return agent_executor
+    return agent
 
 
 def demonstrate_s3_operations(agent):
@@ -100,8 +86,11 @@ def demonstrate_s3_operations(agent):
     """
     # Example 1: List all S3 buckets
     logger.info("Example 1: Listing all S3 buckets")
-    result = agent.invoke({"input": "List all my S3 buckets"})
-    logger.info(f"Result: {result['output']}")
+    print_stream(
+        agent.stream(
+            {"messages": [("user", "List all my S3 buckets")]}, stream_mode="values"
+        )
+    )
 
     # Example 2: Create a new bucket
     bucket_name = "example-bucket-" + os.urandom(4).hex()

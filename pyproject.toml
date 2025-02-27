@@ -11,8 +11,10 @@ python = "^3.9"
 langchain = "^0.3.19"
 aiohttp = "^3.9.1"
 python-dotenv = "^1.0.0"
-langchain-openai = "0.0.1"
 langchain-community = "^0.3.18"
+langchain-openai = "^0.3.7"
+langgraph = "^0.3.0"
+langgraph-prebuilt = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
 # Add your development dependencies here
